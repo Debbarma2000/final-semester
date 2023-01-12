@@ -1,0 +1,43 @@
+\contentsline {part}{\numberline {I}Modular Forms}{1}{part.1}%
+\contentsline {xpart}{Modular Forms}{2}{part.1}%
+\contentsline {chapter}{\numberline {1}Lecture-1:}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Lecture-2:}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Lecture-3 (10 January, 2023): Valence formula and Eisenstein series}{4}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Valence formula}{4}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Eisenstein series}{5}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Lecture-4 (12th January, 2023): Eisenstein series}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Eisenstein series contd..}{8}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Fourier expansions of $E_{k}(z)$}{9}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Weight $2$ Eisenstein series}{10}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Modular forms of higher level}{11}{section.4.2}%
+\contentsline {part}{\numberline {II}Elliptic Curves}{13}{part.2}%
+\contentsline {xpart}{Elliptic Curves}{14}{part.2}%
+\contentsline {chapter}{\numberline {5}Lecture-1:}{14}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Lecture-2:}{15}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Lecture-3 (10 January, 2023): Projective varieties}{16}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Projective varieties}{16}{section.7.1}%
+\contentsline {chapter}{\numberline {8}Lecture-4 (12th January, 2023):}{20}{chapter.8}%
+\contentsline {part}{\numberline {III}Basic Algebraic Geometry}{21}{part.3}%
+\contentsline {xpart}{Basic Algebraic Geometry}{22}{part.3}%
+\contentsline {chapter}{\numberline {9}Lecture-1:}{22}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Lecture-2 (10 January, 2023):}{23}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Ideals}{23}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Zariski topology}{23}{section.10.2}%
+\contentsline {chapter}{\numberline {11}Lecture-3 (12th January):}{26}{chapter.11}%
+\contentsline {part}{\numberline {IV}Algebraic Geometry I}{27}{part.4}%
+\contentsline {xpart}{Algebraic Geometry I}{28}{part.4}%
+\contentsline {chapter}{\numberline {12}Lecture-1 (9th January, 2023): Topological properties and Zariski Topology}{28}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Topological properties}{28}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Zariski Topology}{30}{section.12.2}%
+\contentsline {chapter}{\numberline {13}Lecture-2 (11th January, 2023): Zariski topology and affine schemes}{32}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Zariski topology contd..}{32}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Affine schemes}{32}{section.13.2}%
+\contentsline {subsection}{\numberline {13.2.1}Fiber products of affine schemes}{33}{subsection.13.2.1}%
+\contentsline {chapter}{\numberline {14}Lecture-3:}{36}{chapter.14}%
+\contentsline {part}{\numberline {V}Topics in Analytic Number Theory}{37}{part.5}%
+\contentsline {xpart}{Topics in Analytic Number Theory}{38}{part.5}%
+\contentsline {chapter}{\numberline {15}Lecture-1: Hardy-Littlewood proof of infinitely many zeros on the line $\mathfrak {R}(s) = 1/2$}{38}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Lecture-2:}{39}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Lecture-3 (10th January, 2023): Siegel's theorem}{40}{chapter.17}%
+\contentsline {chapter}{\numberline {18}Lecture-4 (12th January, 2023):}{42}{chapter.18}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

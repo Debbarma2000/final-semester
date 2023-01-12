@@ -1,0 +1,1064 @@
+\documentclass[oneside, 12pt, ]{scrbook}
+
+%packages to import
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{minitoc}
+\usepackage[width=15cm, height=24cm]{geometry}
+\usepackage{hyperref}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{thmtools}
+%\usepackage{kpfonts}
+\usepackage[lf]{venturis} %% lf option gives lining figures as default; 
+			  %% remove option to get oldstyle figures as default
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage{fontenc}
+\usepackage{setspace}
+\usepackage{cleveref}
+\usepackage{backref}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{quiver}
+
+%section symbol
+
+
+%no indentation paragraph
+\setlength{\parindent}{0pt}
+
+
+% color those links
+\hypersetup{
+colorlinks=true,
+urlcolor= BrickRed,
+linkcolor= BrickRed,
+citecolor= Cerulean
+}
+%colour page black and text white
+%\pagecolor{gray}
+%\color{white}
+
+%\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+
+%custom commands
+\newtheorem{statement}{Statement}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\spec}{\mathrm{Spec}}
+\newcommand{\Aa}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\pr}{\mathfrak{p}}
+\newcommand{\m}{\mathfrak{m}}
+\newcommand{\nil}{\mathrm{Nil}}
+
+%theoremstyles 
+\usepackage[framemethod=TikZ]{mdframed}
+
+%theorem
+\mdfdefinestyle{mdthmbox}{
+	linewidth= 3pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor= WildStrawberry,
+	backgroundcolor= CarnationPink!25 
+}
+
+\declaretheoremstyle[
+	spaceabove=6pt, spacebelow=6pt,
+	headfont=\normalfont \bfseries,
+	notefont=\mdseries, notebraces={(}{)},
+	bodyfont=\normalfont,
+	postheadspace = \newline,
+	mdframed = {style= mdthmbox}
+]{theobox}
+
+\declaretheorem[style=theobox,name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[style=theobox,name=Conjecture,numberwithin=section]{conjecture}
+
+%lemma, proposition, corollary
+\mdfdefinestyle{mdlembox}{
+	linewidth= 3pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor= RoyalBlue,
+	backgroundcolor= SkyBlue!30
+}
+
+\declaretheoremstyle[
+	postheadspace= \newline,
+	spaceabove=6pt, spacebelow=6pt,
+	headfont=\normalfont \bfseries,
+	notefont=\mdseries, notebraces={(}{)},
+	bodyfont=\normalfont,
+	postheadspace = \newline,
+	mdframed = {style= mdlembox}
+]{lembox}
+\declaretheorem[style=lembox,name=Lemma,sibling=theorem]{lemma}
+\declaretheorem[style=lembox,name=Proposition,sibling=theorem]{proposition}
+\declaretheorem[style=lembox,name=Corollary,sibling=theorem]{corollary}
+
+% definition
+\mdfdefinestyle{mddefbox}{
+	linewidth= 3pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor= LimeGreen,
+	backgroundcolor= GreenYellow!25 
+}
+
+\declaretheoremstyle[
+	postheadspace= \newline,
+	spaceabove=6pt, spacebelow=6pt,
+	headfont=\normalfont \bfseries,
+	notefont=\mdseries, notebraces={(}{)},
+	bodyfont=\normalfont,
+	postheadspace = \newline,
+	mdframed = {style= mddefbox}
+]{defbox}
+
+
+\declaretheorem[style=defbox, name= Definition, sibling=theorem]{definition}
+
+\mdfdefinestyle{mdrembox}{
+	linewidth= 2pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor= black,
+}
+
+\declaretheoremstyle[
+	postheadspace= \newline,
+	spaceabove=6pt, spacebelow=6pt,
+	headfont=\normalfont \bfseries,
+	notefont=\mdseries, notebraces={(}{)},
+	bodyfont=\normalfont,
+	postheadspace = \newline,
+	mdframed = {style= mdrembox}
+]{rembox}
+
+\declaretheorem[name=Remark,sibling=theorem,style=rembox]{remark}
+\declaretheorem[name=Note,sibling=theorem,style=rembox]{note}
+
+
+% example
+\mdfdefinestyle{mdredbox}{
+	skipabove=8pt,
+	linewidth=3pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor=red,
+	backgroundcolor=Salmon!5
+}
+
+\declaretheoremstyle[
+	postheadspace= \newline,
+	spaceabove=6pt, spacebelow=6pt,
+	headfont=\normalfont \bfseries,
+	notefont=\mdseries, notebraces={(}{)},
+	bodyfont=\normalfont,
+	postheadspace = \newline,
+	mdframed = {style= mdredbox}
+]{thmredbox}
+
+\mdfdefinestyle{mdgreybox}{
+	skipabove=8pt,
+	linewidth=3pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor=Goldenrod,
+	backgroundcolor=Grey!5
+}
+
+\declaretheoremstyle[
+	postheadspace= \newline,
+	spaceabove=6pt, spacebelow=6pt,
+	headfont=\normalfont \bfseries,
+	notefont=\mdseries, notebraces={(}{)},
+	bodyfont=\normalfont,
+	postheadspace = \newline,
+	mdframed = {style= mdredbox}
+]{thmredbox}
+
+\theoremstyle{theorem}
+\declaretheorem[name= Exercise, style= thmgreybox, sibling = theorem]{exercise}
+\declaretheorem[name= Example, style= thmredbox, sibling = theorem]{example}
+
+%citations
+%\usepackage[
+%backend=biber,
+%style=alphabetic,
+%sorting=nyt
+%]{biblatex}
+%\addbibresource{citations.bib}
+
+\begin{document}
+
+%titlepage
+
+\begin{center}
+\begin{minipage}{0.75\linewidth}
+    \centering
+%University logo
+    \includegraphics[width=1\linewidth]{IISc_logo.png}
+    \rule{0.4\linewidth}{0.15\linewidth}\par
+    \vspace{2cm}
+%Thesis title
+    {\uppercase{\Large Semester notes\par  }}
+    \vspace{2cm}
+%Author's name
+    {\Large Irish Debbarma\par}
+    \vspace{2cm}
+%Degree
+    {\Large Department of Mathematics \\ Indian Institute of Science, Bangalore\par}
+    \vspace{1cm}
+%Date
+    {\Large December 2022}
+\pagenumbering{gobble}   
+\end{minipage}
+\end{center}
+\clearpage
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+
+\part{Modular Forms}
+
+\chapter{Lecture-1: }
+
+\chapter{Lecture-2: }
+
+\chapter{Lecture-3 (10 January, 2023): Valence formula and Eisenstein series}
+
+\section{Valence formula}
+
+Recall that $M_{k}(\Gamma_{1})$ is the space of modular forms of weight $k$ and level $1$. It is also a vector space over $\CC$. 
+
+\begin{theorem}
+$\dim M_{k}(\Gamma_{1}) = \begin{cases}[k/12]+1 & k\not \equiv \pmod{12} \\ [k/12] & k \equiv \pmod{12} \end{cases}$
+\end{theorem}
+
+\begin{proposition}
+Let $f \in M_{k}(\Gamma_{1})$. Then, $$\sum_{p \in \Gamma_{1}\backslash \mathbb{H}}\frac{1}{n_{p}} \mathrm{ord}_{p}(f) + \mathrm{ord}_{\infty}(f) = \frac{k}{12}$$
+\end{proposition}
+
+\begin{proof}
+Let $\epsilon >0$ be "small enough". Remove $\epsilon$-balls around $\infty , i , \omega , \omega + 1$ in $\mathcal{F}_{1}$. $\epsilon$ is small enough so that the removed balls are disjoint. Truncate $\mathcal{F}_{1}$ at the line $y = \epsilon^{-1}$ and call the enclosed region $D$. \\
+By Cauchy's theorem $$\int_{\partial D} d(\log f(z)) = 0$$ This integral on the two vertical strips (just the straight lines not the semicircle part) is $0$ since the contribution of left is same as right but orientation is different. On the segment joining $-1/2 + iY , 1/2 + iY$, the integral is $2 \pi i \,\mathrm{ord}_{\infty}(f)$. Again,integral around each removed point in $\mathcal{F}_{1}$ is $\frac{1}{n_{p}} \mathrm{ord}_{p}(f)$. Next, divide the bottom arc into left and right parts and observe that $$d(\log f(S\cdot z)) = d(\log f(z)) + k \frac{dz}{z}$$ $$\int_{C} d(\log f(z)) = \frac{k \pi i }{6}$$ 
+\end{proof}
+
+\begin{corollary}
+$\dim M_{k}(\Gamma_{1}) = \begin{cases} 0 & k < 0 \\ 0 & k \text{ is odd } \\ 1 & k=0 \\ \begin{cases}[k/12]+1 & k\not \equiv \pmod{12} \\ [k/12] & k \equiv \pmod{12} \end{cases} \end{cases}$
+\end{corollary}
+
+\begin{proof}
+\begin{itemize}
+\item If $k <0$, then $f$ has poles but is holomorphic.
+\item  If $k=0$, then $f$ is the constant function. 
+\item We have seen
+\item For $m = [k/12] + 1$ let $f_{1}, \hdots , f_{m+1} \in M_{k}(\Gamma_{1})$. Let $P_{1}, \hdots , P_{m}$ be any points on $\mathcal{F}_{1}$ not equal to $i , \omega , \omega + 1$ and consider $(f_{i}(P_{j}))_{i \in [m+1], j \in [m]}$. \\
+There exists a linear combination $f = \sum_{i=1}^{m+1} c_{i}f_{i}$ not all $c_{i}$ being zero, such that $f(P_{j})=0$ for $1 \le j \le m$. \\
+From the previous theorem we get $f \equiv 0$ and this implies $\{f_{i}\}$ is linearly independent and thus $\dim_{\CC} M_{k}(\Gamma_{1}) \le m$. \\
+For $k \equiv 2 \pmod{12}$, the relation in previous theorem holds only if there is atleast a simple zero at $p=i$ and atleast a double zero at $p = \omega$. This gives $$\frac{k}{12} - \frac{7}{6} = m-1$$ Repeat the argument above.  
+\end{itemize}
+\end{proof}
+
+A slight notation. For $\gamma  = \begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix} \in \mathrm{SL}_{2} (\ZZ)$ we set $f|_{\gamma} (z) = (cz+d)^{-k}f(\gamma \cdot z)$. \\
+Thus, $1|_{\gamma}(z) = (cz+d)^{-k}$. If $1|_{\gamma}(z) =1 \Rightarrow c =0$. Conversely, if $c=0$, then $d^{-k}=1$. So, $1|_{\gamma}(z)=1 \Leftrightarrow c=0$. \\
+$\Gamma_{\infty} = \left\{ \begin{pmatrix}
+a & b \\ 0 & d 
+\end{pmatrix} \in \mathrm{SL}_{2}(\ZZ) \right\} = \mathrm{stab}(\infty)$
+
+\section{Eisenstein series}
+
+\begin{definition}
+The Eisenstein series $E_{k}(z)$ is defined to be $$E_{k}(z) = \sum_{\gamma \in \Gamma_{\infty} \backslash \Gamma_{1}} 1|_{\gamma}(z)$$
+\end{definition}
+
+\begin{proposition}
+$$E_{k}(z) = \frac{1}{2} \sum_{(c,d) \in \ZZ^{2} \backslash \{(0,0)\}, \gcd(c,d)=1} \frac{1}{(cz+d)^k}$$
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}
+$$\sum_{(c,d) \in \ZZ^{2} \backslash \{(0,0)\}, \gcd(c,d)=1} \frac{1}{(cz+d)^k}$$ converges absolutely for $k>2$
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}
+$E_{k}(z) \in M_{k}(\Gamma_{1})$ for $k >2$.
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}
+$E_{k}(z) \not \equiv 0$ for $k>2$, even.
+\end{proposition}
+
+\begin{proof}
+Observe that $$\frac{1}{(cz+d)^k} \rightarrow 0 , \mathfrak{I}(z) \rightarrow \infty , c\neq 0$$ and if $c = 0$, then $c=\pm 1$. Hence, $E_{k}(z) = 1 +$ bounded term as $\mathfrak{I}(z) \rightarrow \infty$. This implies $E_{k}(z) \not \equiv 0$ and $$E_{k}(z) = 1 + \sum_{n=1}^{\infty} a_{n}e^{2 \pi i z}$$
+\end{proof}
+
+Another way of looking at Eisenstein series is a function on a lattice. \\
+Consider $G_{k}(z) = G_{k}(\ZZ z + \ZZ) = \frac{1}{2} \sum_{(c,d) \in \ZZ^2}^{'} \frac{1}{(cz+d)^k}$
+
+\begin{proposition}
+$G_{k}(z)$ converges absolutely for $k>2$.
+\end{proposition} 
+
+\begin{proposition}
+$G_{k}(z) = \zeta(k) E_{k}(z)$
+\end{proposition}
+
+\begin{proposition}
+$\mathbb{G}_{k}(z) = \frac{(k-1)!}{(2 \pi i)^k} G_{k}(z) = -\frac{B_{k}}{2k} + \sum_{n=1}^{\infty} \sigma_{k-1}(n)q^n$ for $k>2$, even.
+\end{proposition}
+
+\chapter{Lecture-4 (12th January, 2023): Eisenstein series}
+
+\section{Eisenstein series contd..}
+
+Recall that $$M_{*}(\Gamma_{1}) = \bigoplus_{k \in \ZZ}M_{k}(\Gamma_{1})$$  is a graded ring.
+
+\begin{proposition}
+The graded ring $M_{*}(\Gamma_{1})$ is freely generated by $E_{4},E_{6}$. This means that the map 
+\begin{align*}
+f: C[X,Y] &\rightarrow M_{*}(\Gamma_{1})\\
+X &\mapsto E_{4} \\
+Y &\mapsto E_{6}
+\end{align*}
+is an isomorphism of graded rings. Here, $\deg X = 4, \deg Y=6$. 
+\end{proposition}
+
+\begin{proof}
+We want to show that $E_{4}$ and $E_{6}$ are algebraically independent. We start by showing that $E_{4}^3$ and $E_{6}^2$ are linearly independent over $\CC$. Suppose $E_{6}(z)^2 = \lambda E_{4}(z)^{3}$. Consider $f(z) = E_{6}(z)/ E_{4}(z)$. Now observe that $f(z)^2 = \lambda E_{4}(z)$. This means that $f^2$ is holomorphic and thus $f$ is also holomorphic. But $f$ is weakly modular of weight $2$ which is a contradiction. So, our claim is proven. \\
+
+\textbf{Claim}: Let $f_{1},f_{2}$ be two nonzero modular forms of same weight. If $f_{1},f_{2}$ are linearly independent, then they are algebraically independent as well. \\
+
+Let $P(t_{1},t_{2}) \in \CC[t_{1},t_{2}] \backslash \{0\}$ be such that $P(f_{1},f_{2})=0$. Let $P_{d}(t_{1},t_{2})$ be the $d$ degree parts of $P$. Using the fact that modular forms of different weights are linearly independent, we get that $P_{d}(f_{1},f_{2})=0 \; \forall \; d \geq 0$. If $p_{d}(t_{1}/t_{2}) = P_{d}(t_{1},t_{2})/t_{2}^d$, then $p_{d}(f_{1}/f_{2})=0$. But this means that $f_{1}/f_{2}$ is a constant. But, $f_{1},f_{2}$ are linearly independent which implies that they are algebraically independent as well. \\
+
+All of this implies that $E_{4},E_{6}$ are algebraically independent. Using
+\end{proof}
+
+\begin{corollary}
+$\dim_{\CC} M_{k} (\Gamma_{1}) = \begin{cases}[k/12]+1 & k\not \equiv \pmod{12} \\ [k/12] & k \equiv \pmod{12} \end{cases} $
+\end{corollary}
+
+\subsection{Fourier expansions of $E_{k}(z)$}
+
+\begin{proposition}
+$$\mathbb{G}_{k}(z) = \frac{(k-1)!}{(2 \pi i)^k} G_{k}(z) = -\frac{B_{k}}{2k} + \sum_{n=1}^{\infty} \sigma_{k-1}(n)q^n$$ for $k>2$, even and $B_{k}$ are Bernoulli numbers.
+\end{proposition}
+
+\begin{proof}
+Use $$\frac{\pi}{\tan \pi z} = \sum_{n \in \ZZ} \frac{1}{z+n} = \lim_{M,N \rightarrow \infty , N-M < \infty} \sum_{-M}^{N} \frac{1}{z+n}$$ and 
+$$\frac{\pi}{\tan \pi z} = \frac{\pi \cos \pi z}{\sin \pi z} = \pi i \frac{e^{\pi i z} + e^{-\pi i z}}{e^{\pi i z} - e^{-\pi i z}} = - \pi i \frac{1+q}{1-q} = - 2 \pi i \left( \frac{1}{2} + \sum_{r=1}^{\infty} q^r \right)$$ This leads to the equality 
+$$\sum_{n\in \ZZ}\frac{1}{z+n} = -  2 \pi i \left( \frac{1}{2} + \sum_{r=1}^{\infty} q^r \right)$$
+Differentiate both sides of equality $k-1$ times and divide by $(k-1)!$ to get $$\sum_{n \in \ZZ}\frac{1}{(z+n)^k} = \frac{(-2 \pi i)^k}{(k-1)!} \sum_{r=1}^{\infty} r^{k-1}q^r$$
+Next, if we look at 
+\begin{align*}
+G_{k}(z) &= \frac{1}{2} \sum' \frac{1}{(mz+n)^k} \\
+&= \frac{1}{2} \sum_{n \in \ZZ , n \neq 0} \frac{1}{n^k} + \frac{1}{2} \sum_{(m,n) \in \ZZ^2 , m \neq 0} \frac{1}{(mz + n)^k} \\
+&= \zeta(k) + \sum_{m=1}^{\infty} \sum_{n=-\infty}^{\infty} \frac{1}{(mz+n)^k} \\
+&= \zeta(k) + \frac{(2 \pi i)^k}{(k-1)!} \sum_{m=1}^{\infty} \sum_{r=1}^{\infty} r^{k-1} q^{mr} \\
+&= \zeta(k) + \frac{(2 \pi i)^k}{(k-1)!} \sum_{m=1}^{\infty} \sum_{r=1}^{\infty} \sigma_{k-1}(n) q^{n}
+\end{align*}
+The expression of $\mathbb{G}_{k}(z)$ is trivial after noting $$\frac{(k-1)!}{(2 \pi i)^k} \zeta(k) = B_{k}$$
+\end{proof} 
+
+\begin{remark}
+\begin{enumerate}
+\item $\mathbb{G}_{4}(z) = \frac{1}{240} + q + 9q^2 + 28q^3 + 73q^4 + \cdots $
+\item $\mathbb{G}_{6}(z) = -\frac{1}{504} + q + 33q^2 + 244q^3 + \cdots $
+\item $\mathbb{G}_{8}(z) = \frac{1}{480} + q + 129q^2 + 2188q^3 + \cdots $
+\end{enumerate}
+\end{remark}
+
+\begin{proposition}
+$$\sum_{m=1}^{n-1} \sigma_{3}(m) \sigma_{3}(n-m) = \frac{\sigma_{7}(n) - \sigma_{3}(n)}{120}$$
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\subsection{Weight $2$ Eisenstein series}
+
+\begin{definition}
+\begin{align*}
+\mathbb{G}_{2}(z) &= -\frac{1}{24} + \sum_{n=1}^{\infty} \sigma_{1}(n)q^n \\
+&= -\frac{1}{24} + q + 3q^2 + 4q^3 + 7q^4 + \cdots 
+\end{align*} 
+\end{definition}
+
+This converges rapidly on $\mathbb{H}$ and defines a holomorphic function. 
+
+\begin{proposition}
+$$G_{2}(z) = - 4 \pi^2 \mathbb{G}_{2}(z)$$
+\end{proposition}
+
+\begin{proof}
+Since we know that $$G_{2}(z) = \sum_{(m,n) \in \ZZ^2 \backslash \{(0,0)\}}\frac{1}{(mz+n)^2}$$ does not converge absolutely, we define $$G_{2}(z) = \frac{1}{2} \sum_{n \in \ZZ , n \neq 0} \frac{1}{n^2} + \frac{1}{2} \sum_{m \neq 0} \sum_{n \in \ZZ} \frac{1}{(mz+n)^2}$$
+This sum converges absolutely and we can show that this satisfies the functional equation as required.
+\end{proof}
+
+\begin{proposition}
+For $\gamma = \begin{pmatrix}
+a & b \\ c & d 
+\end{pmatrix} \in \mathrm{SL}_{2}(\ZZ)$ we have $$G_{2}\left( \frac{az+b}{cz+d} \right) = (cz+d)^2 G_{2}(z) - \pi i c(cz+d)$$
+\end{proposition}
+
+$G_{2}$ is called a quasi modular form. \\
+
+Introduce (due to Hecke): $$G_{2,s}(z) = \frac{1}{2} \sum_{(m,n)\in \ZZ^2 \backslash \{(0,0)\}} \frac{1}{(mz+n)^2 |mz+n|^{2s}} , \mathfrak{R}(s) >0$$
+
+\section{Modular forms of higher level}
+
+Let $N \in \ZZ_{\geq 1}$ 
+
+$$\mathrm{SL}_{2}(\ZZ / N \ZZ) =\left\{ \begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix} \in M_{2}(\ZZ / N \ZZ) \mid ad-bc \equiv 1 \pmod{N} \right\}$$
+
+\begin{lemma}
+The map 
+\begin{align*}
+\mathrm{SL}_{2} &\rightarrow \mathrm{SL}_{2}(\ZZ / N \ZZ) \\
+\begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix}  &\mapsto \begin{pmatrix}
+\bar{a} & \bar{b} \\ \bar{c} & \bar{d}
+\end{pmatrix}
+\end{align*}
+is a group homomorphism.
+\end{lemma}
+
+\begin{definition}
+$$\Gamma (N) = \ker (\mathrm{SL}_{2} \rightarrow \mathrm{SL}_{2}(\ZZ / N \ZZ))$$ is called the principal congruence subgroup.
+\end{definition}
+
+\begin{definition}
+A subgroup $\Gamma$ of $\mathrm{SL}_{2}(\ZZ)$ is called a congruence subgroup if there exists $N$ such that $\Gamma (N) \subseteq \Gamma$.
+\end{definition}
+
+$$\Gamma_{0}(N) =\left\{ \begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix} \in M_{2}(\ZZ / N \ZZ) \mid c\equiv 0 \pmod{N} \right\}$$
+$$\Gamma_{1}(N) =\left\{ \begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix} \in M_{2}(\ZZ / N \ZZ) \mid c\equiv d \equiv 1 \pmod{N} \right\}$$
+
+
+
+
+
+
+
+
+\part{Elliptic Curves}
+
+\chapter{Lecture-1:}
+
+\chapter{Lecture-2:}
+
+\chapter{Lecture-3 (10 January, 2023): Projective varieties}
+
+\section{Projective varieties}
+
+\begin{definition}
+A Projective $n$-space over $k$ denoted by $\mathbb{P}^n$ or $\mathbb{P}^{n}(\bar{K})$ is the set $\mathbb{A}^{n+1} \backslash \{(0,\hdots , 0)\} / \sim$ with  
+$$(x_{0}, \hdots ,x_{n}) \sim (y_{0},\hdots ,y_{n})$$ iff $\exists \lambda \in \bar{k}^{\times}$ such that $(y_{0},\hdots ,y_{n}) = (\lambda x_{0},\hdots ,\lambda x_{n})$\\
+The equivalence class $(x_{0},\hdots ,x_{n+1})$ is denoted by $[x_{0},\hdots ,x_{n}]$\\
+The set of $k$-rational points of $\mathbb{P}^n$ is $$\mathbb{P}^n = \{[x_{0}, \hdots , x_{n}]\; \mid \; x_{i} \in k\}$$
+\end{definition}
+
+\textcolor{red}{Caution}: If $p = [x_{0},\hdots ,x_{n}] \in \mathbb{P}^n(k)$ and $x_{i} \neq 0$ for some $i$, then $x_{j}/x_{i} \in k \forall j$
+
+\begin{definition}
+Let $p = [x_{0},\hdots ,x_{n}] \in \mathbb{P}^n(\bar{k})$. The minimal field of definition for $p$ is the field $$k(p) = k(x_{0}/x_{i},\hdots ,x_{n}/x_{i}) \text{ for any } i \text{ such that } x_{i} \neq 0$$
+$k(p) \frac{x_{i}}{x_{j}} = k(x_{0}/x_{j},\hdots ,x_{n}/x_{j})$ is the same as $k(p)$ as $x_{i}/x_{j} \in k(p)$
+\end{definition}  
+
+For $\sigma \in G(\bar{k}/k)$ and $p = [x_{0},\hdots ,x_{n}] \in \mathbb{P}^n$, we have the following action $$\sigma(p) = [\sigma(x_{0}),\hdots ,\sigma(x_{n})]$$
+This action is well defined as $$\sigma(\lambda p) = [\sigma(\lambda)\sigma(x_{0}),\hdots ,\sigma(\lambda) \sigma(x_{n})] \sim [\sigma(x_{0}),\hdots ,\sigma(x_{n})]$$
+
+\begin{definition}
+A polynomial $f \in \bar{k}[X_{0}, \hdots , X_{n}]$ is homogenous of degree $d$ if $$f(\lambda x_{0} , \hdots , \lambda x_{n})  = \lambda^d f(x_{0} , \hdots ,x_{n}) \forall \lambda \in \bar{k}$$
+\end{definition}
+
+\begin{definition}
+An ideal $I \subseteq \bar{k}[X_{0} , \hdots , X_{n}]$ is called a homogenous ideal if it is generated by homogenous polynomial.  
+\end{definition}
+
+\begin{definition}
+Let $I \subseteq \bar{k}[X_{0} , \hdots , X_{n}]$ be a homogenous ideal. Then, $$V(I) = \{p \in \mathbb{P}^n (\bar{k}) \mid f(p)=0 \; \forall \; f\in I\}$$
+\end{definition}
+
+\begin{definition}
+\begin{itemize}
+\item A projective algebraic set is any set of the form $V(I)$ for some homogenous ideal $I$. 
+\item If $V$ is a projective algebraic set, the homogenous ideal of $V$, denoted by $I(V)$ is the ideal of $\bar{k}[X_{0} \hdots , X_{n}]$ generated by $\{f \in \bar{k}[X_{0} \hdots , X_{n}]\mid f \text{ is homogenous and }f(p)= 0 \; \forall \; p\in V\}$
+\item Such a $V$ is defined over $k$, denoted by $V/k$ if its ideal $I(V)$ can be generated by homogenous polynomials $k[X_{0} \hdots , X_{n}]$. 
+\item If $V$ is defined over $k$, then the set of $k$-rational points of $V$ is $$V(k) = V \cap \mathbb{P}^{n}(k) = \{p \in V \mid \sigma(p)=p \; \forall \; \sigma \in G(\bar{k}/k)\}$$
+\end{itemize}
+\end{definition}
+
+\begin{example}
+A line in $\mathbb{P}^2$ is given by the equation $aX + bY + cZ=0$ with $a,b,c \in \bar{k}$ and not all $0$ simultaneously. \\
+If $c\neq 0$, then such a line is defined over a field containing $a/c, b/c$. \\
+More generally, a hyperplane in $\mathbb{P}^n$ is given by an equation $a_{0}X_{0} + \cdots + a_{n}X_{n} = 0$ with all $a_{i} \neq 0$ simultaneously.
+\end{example}
+
+\begin{example}
+Let $V$ be the projective algebraic set in $\mathbb{P}^2$ given by $X^2 + Y^2 = Z^2$. 
+\begin{align*}
+\mathbb{P}^1 & \overbrace{\rightarrow}^{\sim} V \\
+[s,t] & \mapsto [s^2 - t^2 : 2st : s^2+t^2]
+\end{align*}
+\end{example}
+
+\begin{remark}
+For $p \in \mathbb{P}^n(\QQ)$ you can clear the denominators and then divide by common factor so that $x_{i} \in \ZZ$ and $\gcd(x_{0} , \hdots ,x_{n})=1$. So, $I =(f_{1}, \hdots , f_{m})$ and finding a rational point of $V_{I}$ is same as finding coprime integer solutions to $f_{i}'s$. 
+\end{remark}
+
+\begin{example}
+$V \subseteq \mathbb{P}^2$ such that $X^2 + Y^2 = 3Z^2$ over $\QQ$. To find $V(\QQ)$, we just need to find integers $a,b,c$ such that $a^2 +b^2 = 3c^2$
+\end{example}
+
+\begin{example}
+$V : 3X^3 + 4Y^3 + 5Z^3 = 0$. $V(\QQ) = \emptyset$ but for all prime $p$ we have $V(\QQ_{p}) \neq \emptyset$
+\end{example}
+
+\begin{definition}
+A projective algebraic set is called a projective variety if its homogenous ideal $I(V)$ is prime $\bar{k}[X_{0}, \hdots , X_{n}]$
+\end{definition}
+
+Relation between affine and projective varieties: \\
+
+For $ 0 \le i \le n$
+\begin{center}
+\begin{align*}
+\phi_{i}: \mathbb{A}^n &\rightarrow \mathbb{P}^n \\
+(Y_{1}, \hdots , Y_{n}) &\mapsto [Y_{1}, \hdots , Y_{i-1}, 1, Y_{i+1} , \hdots , Y_{n}]
+\end{align*}
+\end{center}
+$\mathrm{Im}(\phi) = U_{i} = \{p \in \mathbb{P}^n \mid \; p =[x_{0}: \hdots  : x_{n}] \text{ with } x_{i} \neq 0\} = \mathbb{P}^n \backslash H_{i}$. \\
+This process can also be reversed by the following map : 
+\begin{center}
+\begin{align*}
+\phi_{i}^{-1}: U_{i} &\rightarrow \mathbb{A}^n \\
+[x_{0}: \hdots : x_{n}) &\mapsto [x_{0}/x_{i}, \hdots , x_{i-1}/x_{i}, x_{i+1}/x_{i} , \hdots , x_{n}/x_{i}]
+\end{align*}
+\end{center}
+
+Let $V$ be a projective algebraic set with homogenous ideal $I(V) \subseteq \bar{k}[X_{0} ,\hdots , X_{n}]$. Then, $$V \cap \mathbb{A}^n = \phi_{i}^{-1}(V \cap U_{i}) \text{ for fixed } i $$ is an affine algebraic set with $I(V \cap \mathbb{A}^n ) \subset \bar{k}[X_{0} , \hdots , X_{i-1},X_{i+1}, \hdots , X_{n}]$
+
+\begin{definition}
+Let $V \subseteq \mathbb{A}^n$ be an affine algebraic set with ideal $I(V)$ and consider $V \subseteq \mathbb{P}^n$ and $\phi_{i}$ defined as before. \\
+The projective closure of $V$ is $\bar{V}$ is the projective algebraic set whose homogenous ideal $I(V)$ is generated by $\{f^* \mid f \in I(V)\}$. \\
+Here, for $f \in k[X_{0}, \hdots , X_{i-1}, X_{i+1}, \hdots , X_{n}]$ we define $$f^* (X_{0} , \hdots , X_{n}) = X_{i}^d (f(X_{0}/X_{i}, \hdots , X_{i-1}/X_{i}, X_{i+1}/X_{i}, \hdots , X_{n}/X_{i}))$$ with $d = \deg (f)$.
+\end{definition}
+
+\begin{definition}
+Dehomogenization of $f(X_{0}, \hdots , X_{n})$ with respect to $i$ is $f(X_{0}, \hdots , X_{i-1}, 1 , X_{i+1}, \hdots ,X_{n})$
+\end{definition}
+
+\begin{proposition}
+\begin{enumerate}
+\item Let $V$ be an affine variety. Then $\bar{V}$ is a projective variety and $V = \bar{V} \cap \mathbb{A}^n$. 
+\item Let $V$ be a projective variety. Then, $V \cap \mathbb{A}^n$ is an affine variety and either $V \cap \mathbb{A}^n = \emptyset$ or $V = \overline{V \cap \mathbb{A}^n}$. 
+\item If an affine (resp. projective) variety $V$ is defined over $k$, then $\bar{V}$ (resp. $V \cap \mathbb{A}^n$) is also defined over $k$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item 
+
+\item
+
+\item
+\end{enumerate}
+\end{proof}
+
+\begin{example}
+$V : Y^2 = X^3 + 17 \subseteq \mathbb{A}^2 \rightarrow \mathbb{P}^2$ with $(X,Y) \mapsto [X: Y: 1]$. Here, $\overline{V} : Y^2Z =X^3 +17Z^3$ and $\overline{V} \backslash V = \{[0:1:0]\}$
+\end{example}
+
+\chapter{Lecture-4 (12th January, 2023): }
+
+
+
+
+\part{Basic Algebraic Geometry}
+
+\chapter{Lecture-1:}
+
+\chapter{Lecture-2 (10 January, 2023):}
+
+\section{Ideals}
+For $I,J$ ideals $$I+J = \{x+y \mid x\in I, y\in J\}$$ $$IJ = \{\sum x_{i}y_{i} \mid x_{i} \in I, y_{i} \in J\}$$
+
+\begin{itemize}
+\item $IJ \subseteq I \cap J$.
+\item If $I+J = R$, then $I^2 + J^2 = R$. This is because, say $I^2 + J^2 \neq R$, then there is a maximal ideal $\mathrm{m}$ such that $I^2 + J^2 \subseteq \mathfrak{m}$. This means $I^2, J^2 \subseteq \mathfrak{m}$. But $\mathfrak{m}$ is prime ideal, therefore $I,J \subseteq \mathfrak{m} \Rightarrow I+J \subseteq \mathfrak{m}$ which is a contradiction. Thus, we are done. 
+\item If $\mathfrak{p}$ is a prime ideal and $IJ \subseteq \mathfrak{p}$. Then, $I \subseteq \mathfrak{p}$ or $J \subseteq \mathfrak{p}$. Suppose not, then there exists $x \in I \backslash \mathfrak{p} , y \in I \backslash \mathfrak{p}$. But then $xy \in IJ \subseteq \mathfrak{p}$.
+\item $\mathfrak{p} \supseteq I \cap J \Leftrightarrow IJ \subseteq \mathfrak{p}$.
+\end{itemize}
+
+\section{Zariski topology}
+
+\begin{definition}
+\begin{itemize}
+\item For an ideal $I$, let $$V(I) = \{\mathfrak{p} \text{ prime ideal }\mid I \subseteq \mathfrak{p}\}$$
+\item $\mathrm{Spec}(R)=\{ \text{ collection of all prime ideals of }R\}$
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Zariski Topology]
+It is the topology defined on $\mathrm{Spec}(R)$ such that the closed sets are $V(I)$.
+\end{definition}
+
+Verification that this indeed is a topology. 
+\begin{enumerate}
+\item $V(0) = \mathrm{Spec}(R), V(R) = \emptyset$.
+\item $V(I) \cup V(J) = V(I\cap J) = V(IJ)$.
+\item $\bigcap_{k \in k} V_{k} = V(\sum_{k \in K} I_{k})$. This is because $\mathfrak{p} \supseteq I_{k} \Leftrightarrow \mathfrak{p} \supseteq \sum_{k \in K}I_{k}$
+\end{enumerate}
+
+Let us now look at the open sets of this topology. The basis for the open sets is given by $$D(f \in R) = \{ \text{ all prime ideals not containing } f\}$$
+Clearly, $$(V(I))^c = \bigcup_{f \in I} D(f)$$ and moreover, each $D(f)$ is open since $D(f) = (V(\langle f \rangle))^c$
+
+\begin{theorem}
+$\mathrm{Spec}(R)$ is quasi-compact.
+\end{theorem}
+
+\begin{proof}
+We wish to prove that every open cover has a finite subcover. This is equivalent to saying every cover by $D(f_{i})$ has a finite subcover. Say $$\spec(R) = \bigcup_{i \in I} D(f_{i})$$ Take $J$ to be the ideal generated by $f_{i}'s$. Either $J = R$ or $J \subseteq \mathfrak{m}$. Suppose $J \subseteq \m$, then $f_{i} \in \m \in \spec(R) \Rightarrow \m \not \in D(f_{i}) \; \forall \; i \Rightarrow D(f_{i})$ does not cover $\m$. A contradiction. Therefore, $J=R$ and this implies $1 =$ some linear combination of $f_{i}$ and notice that this sum is finite. So, just consider these finitely many $f_{i}'s$ (say the indexing set is $K$). These cover $J$. Suppose that $\{ D(f_{k}), k \in K\}$ do not cover $\spec(R)$. Then, there is a prime ideal $\pr \not \in \bigcup_{k\in K}D(f_{k}) \Rightarrow \pr \ni f_{k} \; \forall\; k \in K \Rightarrow R \subseteq \pr \Rightarrow \Leftarrow$. Hence, it covers all of $\spec(R)$ as required. \\
+
+\textbf{Another proof:}\\
+Suppose $\spec(R) = \bigcup_{j \in J} U_{j} = \bigcup_{j \in J} \spec(R) \backslash \V(I_{j}) = \spec(R) \backslash \bigcap_{j \in J} \V(I_{j}) =\spec(R) \backslash \V(\sum_{j \in J} I_{j})$. This is equivalent to saying that $\V(\sum_{j \in J} I_{j}) = \emptyset$. So, we conclude that $\sum_{j \in J}I_{j} = R \Rightarrow \sum_{k \in K}a_{k} = 1$ for some finite set $K$. We claim that $\{U_{k}: k \in K\}$ covers $\spec(R)$. This is because 
+\begin{align*}
+\V(\sum_{k\in K} I_{k}) &= 0 \\
+\Rightarrow \spec(R) &= \spec(R) \backslash \V(\sum_{k\in K} I_{k})  \\
+&= \bigcup_{k \in K} \spec(R) \backslash \V(I_{k}) \\
+&= \bigcup_{k \in K} U_{k}
+\end{align*}
+This completes the proof. 
+\end{proof}
+
+\begin{proposition}
+Each $D(f)$ is quasi-compact.
+\end{proposition}
+
+\begin{proof}
+Suppose $$D(f) = \bigcup D(g_{i})$$ and let $J$ be the ideal generated by $g_{i}'s$. Take $\mathfrak{p} \supseteq J$. Then, each $g_{i} \in J \subseteq \mathfrak{p} \Rightarrow \mathfrak{p} \not \in D(g_{i}) \Rightarrow \mathfrak{p} \not \in D(f) \Rightarrow f \in \mathfrak{p} \Rightarrow f \in \bigcap_{\mathfrak{p} \supseteq J} \mathfrak{p}$. \textcolor{BrickRed}{Before completing this proof, we need to understand this intersection much better. Refer to following content on nilpotent elements and come back.}\\
+
+$f$ is nilpotent from the result proven below. 
+\end{proof}
+
+\begin{definition}
+$x\in R$ is nilpotent if $x^n =0$ for some $n \in \NN$.
+\end{definition}
+
+\begin{remark}
+Any nilpotent element ($x^n = 0$ for some $n$ ) is clearly in every prime ideal ($0 \in \mathfrak{p}$) and thus in the intersection of all prime ideals. This can be recorded as $$\bigcap_{\pr \supseteq J} \pr \supseteq \nil(R)$$
+\end{remark}
+
+\begin{proposition}
+$$\bigcap_{\pr \supseteq J} \pr \subseteq \nil(R)$$
+\end{proposition}
+
+\begin{proof}
+Take an element $x \in R \backslash \nil(R)$ (not nilpotent) and consider the set $$\Sigma = \{ I \unlhd R \mid x^n \not \in I \; \forall \; n >0\}$$
+Notice that $\Sigma$ is a poset with respect to inclusion. And every chain $I_{1} \subseteq I_{2} \subseteq I_{3} \subseteq \cdots $ has an upper bound (union of all the ideals). Thus, we can apply Zorn's lemma to get a maximal element $\pr$ which we claim is prime. Indeed, if $ab \in \pr$ but $a\not \in \pr, b \not \in \pr$ then $\pr + \langle a \rangle, \pr + \langle b \rangle$ are ideals strictly containing $\pr$ contradicting maximality of $\pr$. Therefore, we can conclude that $x \not \in \pr \Rightarrow x \not \in \bigcap_{\pr \supseteq J} \pr$ or rather not nilpotent implies not in intersection and hence we have proved the required inclusion. 
+\end{proof}
+
+
+\chapter{Lecture-3 (12th January): }
+
+
+
+
+
+
+\part{Algebraic Geometry I}
+
+\chapter{Lecture-1 (9th January, 2023): Topological properties and Zariski Topology}
+\section{Topological properties}
+
+Consider a topological space $X$. 
+\begin{definition}
+\begin{enumerate}
+\item We say $X$ is quasi-compact if every open cover of $X$ admits a finite subcover. 
+\item If $f: X \rightarrow Y$ is continuous, we call $f$ quasi-compact if $f^{-1}(V)$ is quasi-compact for all quasi-compact open $V \subseteq Y$.
+\end{enumerate}
+\end{definition} 
+
+\begin{exercise}
+Composition of quasi-compact maps is quasi-compact.
+\end{exercise} 
+
+\begin{lemma}
+$X$ quasi-compact and $Y \subseteq X$ is closed implies $Y$ is quasi-compact.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}
+If $X$ is quasi-compact and Hausdorff, then $E \subseteq X$ is quasi-compact iff $E$ is closed.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{lemma}
+Any finite union of quasi-compact spaces is quasi-compact.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+Suppose $\Sigma$ is a poset. $\Sigma$ satisfies acc if every ascending chain $$x_{1} \le x_{2} \le \cdots $$ is stationary.
+
+\begin{lemma}
+The following are equivalent: 
+\begin{enumerate}
+\item $\Sigma$ satisfies acc. 
+\item Every non-empty subset of $\Sigma$ has maximal element.
+\end{enumerate}
+\end{lemma}
+
+\begin{definition}
+A topological space is called Noetherian if set of all closed subsets of $X$ satisfies dcc.
+\end{definition}
+
+\begin{lemma}
+$X$ Noetherian implies $X$ is quasi-compact.
+\end{lemma}
+
+\begin{lemma}
+If $X_{1}, \hdots , X_{n}$ are Noetherian subspaces of $X$, then so is $X_{1} \cup X_{2} \cup \hdots \cup X_{n}$
+\end{lemma}
+
+\begin{lemma}
+Quasi-compact and locally Noetherian implies Noetherian.
+\end{lemma}
+
+\begin{exercise}
+Give an example of a ring $R$ such that $\spec(R)$ is Noetherian but $R$ is not. 
+\end{exercise}
+
+\begin{definition}
+A topological space $X$ is called irreducible if it cannot be written as finite union of proper closed subsets. \\
+
+A closed subset $Y \subseteq X$ is called irreducible component of $X$ if it is a maximal irreducible closed subset of $X$.
+\end{definition}
+
+\begin{lemma}
+If $X$ is Noetherian and $Y \subseteq X$ is a subspace, then $Y$ is Noetherian. 
+\end{lemma}
+
+\begin{lemma}
+Let $X$ be Noetherian. Then, $X$ has finitely many irreducible components. 
+\end{lemma}
+
+\begin{lemma}
+$X$ is Noetherian implies there exists an unique expression $X = X_{1} \cup \cdots \cup X_{n}$ where $X_{i}'s$ are irreducible components of $X$.
+\end{lemma}
+
+\begin{lemma}
+Suppose $X$ is Noetherian and $X_{1} \subseteq X$ an irreducible component. Then, $X_{1}$ contains a non-empty open set in $X$.
+\end{lemma}
+
+\begin{definition}
+Let $X$ be a topological space. We say that $X$ is a spectral space if the following holds: 
+\begin{enumerate}
+\item $X$ is quasi-compact.
+\item $X$ is $T_{0}$.
+\item $X$ has a basis of quasi-compact open sets.
+\item Every irreducible closed subset of $X$ has a generic point ($\exists x \in Y$ such that $\overline{\{x\}}  = X$)
+\end{enumerate}
+\end{definition}
+
+\section{Zariski Topology}
+Let $A$ be a commutative ring with identity and $X = \spec(A)$. \\
+
+Zariski topology is the unique topology such that a subset $Y\subseteq X$ is closed iff $Y = \V (I)$ for some ideal $I \unlhd A$. Here, $$\V(I) = \{\pr \in X \mid \pr \supseteq I\}$$
+
+\begin{theorem}
+$\spec(A)$ is always spectral.
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item $X$ is $T_{0}$
+\item $X$ is quasi-compact. \\
+Let $\{U_{i}\}$ be an open cover of $X$. WLOG, we can assume that $U_{i} = \spec(A_{f_{i}}), f \neq 0$. Let $I$ be the ideal generated by these $f_{i}s$. \\
+\textbf{Case-1}: Suppose that $I \neq A$. Then there exists a maximal ideal $\m \supseteq I \Rightarrow \V(\m) \subseteq \V(I) \Rightarrow X \backslash \V(\m) \supseteq X\backslash \V(I) = X \backslash \bigcap_{i \in I}\V(f_{i}) = \bigcup U_{i} = X$ which is absurd. Hence, we conclude that $I=A$. Next, 
+\begin{align*}
+1 &= \sum_{i=1}^n a_{i}f_{i} &\text{ for some } a_{i} \in A \\
+\Rightarrow \bigcup_{i=1}^n U_{i} &= \bigcup_{i=1}^n X \backslash \V(f_{i})
+\end{align*}
+And, we get the required refinement. 
+\item $X$ has a basis of quasi-compact open sets follows from the above.
+\item Let $Y \subseteq X$ be an irreducible closed subset. Then, $Y = \spec(A/I)$. WLOG, we can assume $X$ is irreducible. Next, observe that $\spec(A) = \spec(A_{\mathrm{red}}) = \spec(A/ \nil(A))$.
+\end{enumerate}
+\end{proof}
+
+\chapter{Lecture-2 (11th January, 2023): Zariski topology and affine schemes}
+
+\section{Zariski topology contd..}
+
+\begin{theorem}[Hochster]
+Every spectral space is homeomorphic to $\spec(A)$ for some commutative ring $A$.
+\end{theorem}
+
+\textbf{Notation:} $\mathrm{\textbf{Ring}}$ be the category of commutative rings, $\mathrm{\textbf{Top}}$ be the category of topological spaces.
+
+\begin{theorem}
+There is a contravariant functor 
+\begin{align*}
+sp: \mathrm{\textbf{Ring}} &\rightarrow \mathrm{\textbf{Top}} \\
+\spec(B) &\mapsto \spec(A)
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+Consider $f: A \rightarrow B$. This induces a map $$f_{\#} : \spec(B) \rightarrow \spec(A)$$ such that $f_{\#}(\pr) = f^{-1}(\pr)$. We claim that $f_{\#}$ is continuous. This can be seen as follows: \\
+Take a basic open set $U = \spec(A_{a})$ and $b = f(a)$. Then, it is easy to see that $f_{\#}^{-1}(U_{b}) = U_{a}$.
+\end{proof}
+
+\section{Affine schemes}
+
+\begin{definition}
+$\spec(A)$ will be called an affine "scheme" (we will see this properly later on).
+\end{definition}
+
+\begin{definition}
+Let $X= \spec(A), Y = \spec(B)$. Let $f: Y \rightarrow X$ be a continuous map. We call such a map $f$ regular (holomorphic) if there is a ring homomorphism $g: A \rightarrow B$ such that $f = g_{\#}$
+\end{definition}
+
+\begin{example}
+Take $\spec(\ZZ)$ and consider the constant map. This cannot be regular because any ring homomorphism must take $1$ to $1$ and as a consequence fixes every element. 
+\end{example}
+
+\begin{proposition}
+If $X = \spec(A)$. A regular function on $X$ is a regular map from $X$ to $\spec(\ZZ[t])$.
+\end{proposition}
+
+\begin{remark}
+On an affine scheme, the set of all regular maps is the ring $A$ itself since, the map $\ZZ[t] \rightarrow A$ is determined by where $t$ is sent to. 
+\end{remark}
+
+\begin{lemma}
+Every affine scheme has a closed point.
+\end{lemma}
+
+\begin{proof}
+Every commutative ring has a maximal ideal. 
+\end{proof}
+
+\begin{definition}
+Open in affine is called quasi-affine.
+\end{definition}
+
+\begin{example}
+Take $A$ a local integral domain with $\m$ the maximal ideal. Suppose that all prime ideals of $A$ are of the form $$\langle 0 \rangle \subset \pr_{1} \subset \pr_{2} \subset \cdots \subset \{ \m \}$$ Consider $X = \spec(A) \backslash \m$. $X$ is open in affine scheme but has no closed point. \\
+
+An example of such a ring is $$\Gamma = \ZZ x_{1} \oplus \ZZ x_{2} \oplus \cdots $$ Give an ordering: $\sum a_{i}x_{i} \geq 0$ if the first nonzero term is $>0$ or all $a_{i}=0$
+\end{example}
+
+\begin{exercise}
+Let $A = k[X_{1}, X_{2}, \hdots ], B= A_{\m}, X = \spec(B) \backslash \m , \m = \langle X_{1}, X_{2}, \hdots , \rangle$. Claim is that $X$ has no closed point.
+\end{exercise}
+
+\subsection{Fiber products of affine schemes}
+
+Suppose $A$ is a commutative ring, $B,C$ are $A$-algebras. Let $X= \spec(A), Y = \spec(B), Z = \spec(C)$. Next, suppose we have 
+\[\begin{tikzcd}
+	A & B \\
+	C
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g"', from=1-1, to=2-1]
+\end{tikzcd}\]
+
+\textbf{Universal property of fiber products}:
+\[\begin{tikzcd}
+	{W'} \\
+	& Y \times_{X} Z & Z \\
+	& Y & X
+	\arrow["{f_{\#}}"', from=3-2, to=3-3]
+	\arrow["{g_{\#}}", from=2-3, to=3-3]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-2, to=3-2]
+	\arrow[curve={height=12pt}, from=1-1, to=3-2]
+	\arrow[curve={height=-12pt}, from=1-1, to=2-3]
+	\arrow["{\exists \; ! }", dashed, from=1-1, to=2-2]
+\end{tikzcd}\]
+
+\begin{definition}
+If a $W$ exists such that the universal property is satisfied, then $W$ is called the fiber product of $Y,Z$ over $X$ and we write $W = Y \times_{X} Z$
+\end{definition}
+
+\begin{theorem}
+$\mathrm{\textbf{Aff}_{\ZZ}}=$ category of affine schemes admits fiber products.
+\end{theorem}
+
+\begin{proof}
+Consider the following data: 
+\[\begin{tikzcd}
+	A & B \\
+	C
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g"', from=1-1, to=2-1]
+\end{tikzcd}\]
+
+Let $D = B \otimes_{A} C$. We have the natural maps $f_{1}: B \rightarrow B \otimes B \otimes C$ sending $b \mapsto b \otimes 1$ and $f_{2}: C \rightarrow B \otimes C$ sending $c \mapsto 1 \otimes c$. Both are ring homomorphisms and fit into the following diagram due to the nature of tensor product 
+ \[\begin{tikzcd}
+	A & B \\
+	C & {B\otimes C}
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g"', from=1-1, to=2-1]
+	\arrow["{f_{1}}", from=1-2, to=2-2]
+	\arrow["{g_{1}}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+
+Now, let $W = \spec(B \otimes_{A} C)$ and we claim that this satisfies the universal property of fibre product. Apply $\spec(-)$ functor to the diagram to get 
+\[\begin{tikzcd}
+	A & B \\
+	C & {\mathrm{Spec}(B\otimes_{A} C)}
+	\arrow["{g_{1\#}}"', tail reversed, no head, from=2-1, to=2-2]
+	\arrow["{f_{1\#}}"', from=2-2, to=1-2]
+	\arrow["{f_{\#}}"', from=1-2, to=1-1]
+	\arrow["{g_{\#}}", from=2-1, to=1-1]
+\end{tikzcd}\]
+
+From the universal property of tensor product we have the following diagram
+
+\[\begin{tikzcd}
+	A & B \\
+	C & {B \otimes_{A}C} \\
+	&& U
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g"', from=1-1, to=2-1]
+	\arrow["{f_{1}}", from=1-2, to=2-2]
+	\arrow["{g_{1}}"', from=2-1, to=2-2]
+	\arrow[curve={height=18pt}, from=2-1, to=3-3]
+	\arrow[curve={height=-18pt}, from=1-2, to=3-3]
+	\arrow["{\exists \; ! }",dashed, from=2-2, to=3-3]
+\end{tikzcd}\]
+
+Again, apply the $\spec(-)$ functor. 
+
+\[\begin{tikzcd}
+	X & Y \\
+	Z & {\mathrm{Spec}(B\otimes_{A} C)} \\
+	&& {\mathrm{Spec}(U)}
+	\arrow["{g_{1\#}}"', tail reversed, no head, from=2-1, to=2-2]
+	\arrow["{f_{1\#}}"', from=2-2, to=1-2]
+	\arrow["{f_{\#}}"', from=1-2, to=1-1]
+	\arrow["{g_{\#}}", from=2-1, to=1-1]
+	\arrow[curve={height=-24pt}, from=3-3, to=2-1]
+	\arrow[curve={height=18pt}, from=3-3, to=1-2]
+	\arrow["{\exists \; ! }",dashed, from=3-3, to=2-2]
+\end{tikzcd}\]
+
+This completes the proof.
+\end{proof}
+
+
+
+
+\chapter{Lecture-3:}
+
+\part{Topics in Analytic Number Theory}
+
+\chapter{Lecture-1: Hardy-Littlewood proof of infinitely many zeros on the line $\mathfrak{R}(s) = 1/2$}
+
+\chapter{Lecture-2: }
+
+\chapter{Lecture-3 (10th January, 2023): Siegel's theorem }
+
+\begin{theorem}[Siegel]
+Let $\chi(q)$ be a real Dirichlet character modulo $q\geq 3$. Given any $\epsilon >0$, we have $$L(1, \chi) \geq \frac{C_{\epsilon}}{q^{\epsilon}}$$
+\end{theorem}
+
+A trivial lower bound: $L(1, \chi) \gg q^{-1/2}$
+
+\begin{proof}[Goldfeld's proof]
+Consider $$f(s) = \zeta(s)L(s,\chi_{1})L(s,\chi_{2})L(s,\chi_{1}\chi_{2})$$ with $\chi_{i}, i=1,2$ primitive quadratic characters. Notice that $f(s) = \sum_{n} b_{n}n^{-s}$ with $b_{1} =1 , b_{n} \geq 0$. Let $\lambda = \mathrm{Res}_{s=1}f(s) = L(1,\chi_{1})L(1,\chi_{2})L(1,\chi_{1}\chi_{2})$
+
+\begin{lemma}
+Given any $\epsilon >0$, one can find $\chi_{1}(q_{1})$ and $\beta$ with $1-\epsilon < \beta < 1$ such that $f(\beta) \le 0$, independent of what $\chi_{2}(q_{2})$ is. 
+\end{lemma}
+
+\begin{proof}
+\textbf{Case-1:} If there are no real zeros of $L(s, \psi)$ for any primitive quadratic character in $(1-\epsilon,1)$, then $f(\beta) < 0$ for any $\beta \in (1 - \epsilon,1)$. This is because $$f(\beta) = \underbrace{\zeta(\beta)}_{<0} \underbrace{L(s,\chi_{1})L(s,\chi_{2})L(s,\chi_{1}\chi_{2})}_{>0}$$ as $L(1,\chi)>0$ and $L$ is continuous so any change of sign will lead to a zero which is a contradiction. \\
+\textbf{Case-2:} If we cannot find such a $\psi$, then just set $\chi_{1}=\chi$ and let $\beta$ be the real zero. Then, $f(\beta)=0$. We are done. 
+\end{proof}
+
+Next, consider the integral 
+
+\end{proof}
+
+\begin{corollary}
+\begin{align*}
+h(-d) &= \frac{L(1,\chi_{d}) \sqrt{|d|} \;\omega}{2 \pi} \\
+&= \frac{L(1,\chi_{d})}{\log \epsilon_{d}}
+\end{align*}
+\end{corollary}
+
+\begin{theorem}[Y. Zhang]
+$$L(1, \chi) \geq \frac{c}{(\log q)^{2022}}$$
+\end{theorem}
+
+\begin{theorem}
+If $\chi(q)$ does not have a Siegel zero, then $L(1, \chi) \gg \frac{1}{\log q}$
+\end{theorem}
+
+
+\chapter{Lecture-4 (12th January, 2023): }
+
+\end{document}
