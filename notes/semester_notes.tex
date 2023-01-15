@@ -251,11 +251,11 @@ citecolor= Cerulean
 
 \part{Modular Forms}
 
-\chapter{Lecture-1: }
+\chapter{Lecture-1 (3rd January): Introduction }
 
-\chapter{Lecture-2: }
+\chapter{Lecture-2 (5th January, 2023): }
 
-\chapter{Lecture-3 (10 January, 2023): Valence formula and Eisenstein series}
+\chapter{Lecture-3 (10th January, 2023): Valence formula and Eisenstein series}
 
 \section{Valence formula}
 
@@ -460,7 +460,7 @@ a & b \\ c & d
 \begin{lemma}
 The map 
 \begin{align*}
-\mathrm{SL}_{2} &\rightarrow \mathrm{SL}_{2}(\ZZ / N \ZZ) \\
+\mathrm{SL}_{2}(\ZZ) &\rightarrow \mathrm{SL}_{2}(\ZZ / N \ZZ) \\
 \begin{pmatrix}
 a & b \\ c & d
 \end{pmatrix}  &\mapsto \begin{pmatrix}
@@ -471,7 +471,7 @@ is a group homomorphism.
 \end{lemma}
 
 \begin{definition}
-$$\Gamma (N) = \ker (\mathrm{SL}_{2} \rightarrow \mathrm{SL}_{2}(\ZZ / N \ZZ))$$ is called the principal congruence subgroup.
+$$\Gamma (N) = \ker (\mathrm{SL}_{2}(\ZZ) \rightarrow \mathrm{SL}_{2}(\ZZ / N \ZZ))$$ is called the principal congruence subgroup.
 \end{definition}
 
 \begin{definition}
@@ -485,7 +485,7 @@ $$\Gamma_{1}(N) =\left\{ \begin{pmatrix}
 a & b \\ c & d
 \end{pmatrix} \in M_{2}(\ZZ / N \ZZ) \mid c\equiv d \equiv 1 \pmod{N} \right\}$$
 
-
+\chapter{Lecture-5 (17th January, 2023):}
 
 
 
@@ -494,9 +494,16 @@ a & b \\ c & d
 
 \part{Elliptic Curves}
 
-\chapter{Lecture-1:}
+\chapter{Lecture-1 (3rd January): Introduction }
 
-\chapter{Lecture-2:}
+\chapter{Lecture-2 (5th January, 2023): Affine varieties }
+
+\section{Affine Varieties}
+
+Suppose $k$ is a perfect field (every extension is separable). \\
+Let $G(\bar{k}/k)$ be the Galois group of the extension. It can also be viewed as $\displaystyle{\varinjlim_{L/K \text{Galois, }L \text{ finite}} \mathrm{Gal}(L/K)}$. \\
+
+
 
 \chapter{Lecture-3 (10 January, 2023): Projective varieties}
 
@@ -622,16 +629,154 @@ Dehomogenization of $f(X_{0}, \hdots , X_{n})$ with respect to $i$ is $f(X_{0}, 
 $V : Y^2 = X^3 + 17 \subseteq \mathbb{A}^2 \rightarrow \mathbb{P}^2$ with $(X,Y) \mapsto [X: Y: 1]$. Here, $\overline{V} : Y^2Z =X^3 +17Z^3$ and $\overline{V} \backslash V = \{[0:1:0]\}$
 \end{example}
 
-\chapter{Lecture-4 (12th January, 2023): }
+\chapter{Lecture-4 (12th January, 2023): Projective varieties and maps between varieties}
+
+\section{Projective varieties contd..}
+
+\begin{definition}
+\begin{itemize}
+\item Let $Y / k$ be a projective variety and choose $\Aa^n \subseteq \PP^n$ such that $V \cap \Aa^n \neq \emptyset$. The dimension of $V$ is just dimension of $V \cap \Aa^n$.
+\item The function field of $V$, $\bar{k}(V) = \bar{k}(V \cap \Aa^n)$ is the function field for $V \cap \Aa^n$ over $\bar{k}$.
+\item Similarly, $k(V) = k(V \cap \Aa^n)$
+\begin{align*}
+\phi_{i}: \Aa^n \rightarrow \PP^n &\I(V \cap \Aa_{i}^n) \\
+\phi_{j}: \Aa^n \rightarrow \PP^n &\I(V \cap \Aa_{j}^n) \\ 
+\end{align*}
+For different $\phi_{i}$ we obtain $k(V)$s but they are canonically isomorphic to each other. This is because we can just switch $x_{i},x_{j}$ are dehomogenise accordingly. 
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $V$ be a projective variety and $p \in V$. Choose $\Aa^n \subseteq \PP^n$ with $p \in \Aa^n$. Then, $V$ is non-singular (or smooth) at $p$ if $V\cap \Aa^n$ is non-singular at $p$. \\
+
+The local ring of $V$ at $p$, $\bar{k}[V]_{p}$ is just the local ring of $\bar{k}[V \cap \Aa^n]_{p}$
+\end{definition}
+
+\begin{remark}
+Function field of a projective variety $V$ is field of rational functions $f(X)/g(X)$ such that 
+\begin{enumerate}
+\item $f,g$ are homogenous of same degree. 
+\item $g \in \I(V)$.
+\item $f_{1}/g_{1} = f_{2}/g_{2}$ iff $f_{1}g_{2} - f_{2}g_{1} \in \I(V)$ 
+\end{enumerate}
+Equivalently, take $f,g \in \bar{k}[X]/I(V)$ satisfying $1,2$.\\
+
+\textcolor{BrickRed}{Here, $X$ is just a short form for $(X_{0}, \hdots , X_{n})$}
+\end{remark}
+
+\section{Maps between varieties}
+
+\begin{definition}
+Let $V_{1},V_{2}\in \PP^n$ be projective varieties. A rational map $$\phi : V_{1} \rightarrow V_{2}$$ $\phi = [f_{0} : \cdots : f_{n}]$ where $f_{i} \in \bar{k}(V_{1})$ such that $\forall p \in V_{1}$ at which $f_{i}$ are defined, we have $$\phi(p)= [f_{0}(p): \cdots : f_{n}(p)]$$
+\end{definition}
+
+If $V_{1},V_{2}$ are defined over $k$, we have a Galois action. For $\sigma \in G(\bar{k}/k)$ we have $$\sigma(\phi)(p) = [\sigma(f_{0}): \cdots : \sigma(f_{n})(p)]$$
+We can check that $\sigma(\phi(p)) = \sigma(\phi)(\sigma(p))$.\\
+
+\begin{definition}
+If $\exists \lambda \in \bar{k}^{\times}$ such that $\lambda f_{i} \in k(V_{1})$, then $\phi$ is said to be defined over $k$.
+\end{definition}
+
+\begin{proposition}
+$\phi$ is defined over $k$ iff $\phi =\sigma(\phi) \; \forall \; \sigma \in G(\bar{k}/k)$.
+\end{proposition}
+
+\begin{definition}
+A rational map $\phi: V_{1} \rightarrow V_{2}$ is said to be regular if there exists a function $g \in \bar{k}(V_{1})$ such that 
+\begin{enumerate}
+\item Each $gf_{i}$ is regular at $p$.
+\item There exists some $i$ such that $(gf_{i})(p) \neq 0$
+\end{enumerate}
+If such a $g$ exists, then we set $$\phi(p) = [(gf_{0})(p) : \cdots : (gf_{n})(p)]$$
+\end{definition}
+
+\begin{definition}
+A rational map is called a morphism if it is regular everywhere.
+\end{definition}
+
+\begin{remark}
+Let $V_{1},V_{2} \in \PP^n$ be projective varieties. \\
+$\bar{k}(V_{1}) = $ quotient of homogenous polynomials in $\bar{k}[X]$ of same degree.\\ 
+A rational map $\phi = [f_{0}, \hdots , f_{n}]$ can be multiplied by a homogenous polynomial to clear denominators and get $\phi = [\phi_{0} , \hdots ,  \phi_{n}]$ such that 
+\begin{enumerate}
+\item $\phi_{i} \in \bar{k}[X]$ homogenous polynomials not all in $\I(V_{1})$ and have same degree.
+\item For all $f \in \I(V_{2})$ we have $f(\phi_{0}(X), \hdots , \phi_{n}(X)) \in \I(V_{1})$. 
+\end{enumerate}
+\end{remark}
+
+\begin{definition}
+A rational map $\phi = [\phi_{0} , \hdots , \phi_{n}]: V_{1} \rightarrow V_{2}$ as  above is regular at $p \in V_{1}$ if there exists homogenous polynomials $\psi_{0},\hdots , \psi_{n} \in \bar{k}[X]$ such that 
+\begin{enumerate}
+\item $\psi_{i}$s have the same degree 
+\item $\phi_{i}\psi_{j} \equiv \phi_{j}\psi_{j} \pmod{\I(V_{1})}$ for all $0  \le i,j \le n$
+\item $\psi_{i}(p) \neq 0$ for some $i$.
+\end{enumerate}
+If this happens, we set $$\phi(p) = [\psi_{0}(p), \hdots , \psi_{n}(p)]$$
+\end{definition}
+
+\begin{remark}
+Let $\phi= [\phi_{0}, \hdots , \phi_{n}]: \PP^m \rightarrow \PP^n$ be a rational map. $\phi_{i}$s are homogenous polynomials having same degree. We can cancel common factors to assume $\gcd(\phi_{0} , \hdots , \phi_{n})=1$. \\
+
+And, $\phi$ is regular at a point $p \in \PP^n$ iff $\phi_{i}(p) \neq 0$ for some $i$.  \\
+So, $\phi$ is a morphism if $\phi_{i}$s have no common zeros in $\PP^n$. 
+\end{remark}
+
+\begin{definition}
+Let $V_{1},V_{2}$ be two projective varieties. We say that $V_{1},V_{2}$ are isomorphic if there are morphisms $$\phi: V_{1}\rightarrow V_{2}, \psi : V_{2} \rightarrow V_{1}$$ such that $\phi \circ \psi = \mathrm{id}_{V_{2}}, \psi \circ \phi = \mathrm{id}_{V_{1}}$. \\
+$V_{1}/k$ and $V_{2}/k$ are isomorphic over $k$ if both maps are defined over $k$.
+\end{definition}
+
+\begin{example}
+$\mathrm{char}(k) \neq 2$, $V: X^2 + Y^2 = Z^2$. 
+\begin{align*}
+\phi: V &\rightarrow \PP^2 \\
+[X:Y:Z] &\mapsto [X+Z:Y]
+\end{align*}
+$\phi$ is regular everywhere except $[1:0:1]$\\
+Since $(X+Z)(X-Z) \equiv -Y^2 \equiv \pmod{\I(V)}$, we have $[X+Z:Y] = [X^2-Z^2 : Y(X-Z)] = [-Y^2 : Y(X-Z)] = [-Y: X-Z] = \psi$ \\
+\begin{align*}
+\psi: \PP^1 &\rightarrow V \\
+[s:t] &\rightarrow [s^2-t^2 : 2st : s^2 +t^2]
+\end{align*}
+$\psi\circ \phi$ and $\phi \circ \psi$ are both identity maps.
+\end{example}
+
+\begin{example}
+\begin{align*}
+\phi: \PP^2 &\rightarrow \PP^2 \\
+[X:Y:Z] &\mapsto [X^2 : YZ : Z^2]
+\end{align*}
+ is regular everywhere but $[0:1:0]$ and this cannot be salvaged.
+\end{example}
+
+\begin{example}
+$V: Y^2Z = X^3 + X^2 Z$
+\begin{align*}
+\psi: \PP^1 &\rightarrow V \\
+[s:t] &\mapsto [(s^2 -t^2)t : (s^2 -t^2)s : t^3]
+\phi: V &\rightarrow \PP^1 \\
+[X:Y:Z] &\mapsto [X:Y]
+\end{align*}
+$\phi$ is not regular at $[0:0:1]$. $[0:0:1]$ is a singular point of $V$ which implies $\phi$ cannot be extended. So $\phi \circ \psi$ and $\psi \circ  \phi$ are identities  when they are defined.
+\end{example}
+
+\begin{example}
+$V_{1}: X^2 + Y^2 = Z^2 , V_{2}: X^2 + Y^2 = 3Z^2$. $V_{1} \not \cong V_{2}$ over $\QQ$ but $V_{1}\cong V_{2}$ over $\QQ(\sqrt{3})$.
+\end{example}
+
+\chapter{Lecture-5 (17th January, 2023):}
+
+
+
 
 
 
 
 \part{Basic Algebraic Geometry}
 
-\chapter{Lecture-1:}
+\chapter{Lecture-1 (5th January): Introduction}
 
-\chapter{Lecture-2 (10 January, 2023):}
+\chapter{Lecture-2 (10 January, 2023): Ideals and Zariski topology}
 
 \section{Ideals}
 For $I,J$ ideals $$I+J = \{x+y \mid x\in I, y\in J\}$$ $$IJ = \{\sum x_{i}y_{i} \mid x_{i} \in I, y_{i} \in J\}$$
@@ -690,8 +835,7 @@ Each $D(f)$ is quasi-compact.
 
 \begin{proof}
 Suppose $$D(f) = \bigcup D(g_{i})$$ and let $J$ be the ideal generated by $g_{i}'s$. Take $\mathfrak{p} \supseteq J$. Then, each $g_{i} \in J \subseteq \mathfrak{p} \Rightarrow \mathfrak{p} \not \in D(g_{i}) \Rightarrow \mathfrak{p} \not \in D(f) \Rightarrow f \in \mathfrak{p} \Rightarrow f \in \bigcap_{\mathfrak{p} \supseteq J} \mathfrak{p}$. \textcolor{BrickRed}{Before completing this proof, we need to understand this intersection much better. Refer to following content on nilpotent elements and come back.}\\
-
-$f$ is nilpotent from the result proven below. 
+Now, we know that $f \in \mathrm{rad}(J)$ which implies $\exists n$ such that $f^n \in J$. We get $$f^n = \sum_{\text{finite}} r_{i}g_{i}$$ Finally, we claim that these $D(g_{i})$s cover $D(f)$. 
 \end{proof}
 
 \begin{definition}
@@ -699,11 +843,11 @@ $x\in R$ is nilpotent if $x^n =0$ for some $n \in \NN$.
 \end{definition}
 
 \begin{remark}
-Any nilpotent element ($x^n = 0$ for some $n$ ) is clearly in every prime ideal ($0 \in \mathfrak{p}$) and thus in the intersection of all prime ideals. This can be recorded as $$\bigcap_{\pr \supseteq J} \pr \supseteq \nil(R)$$
+Any nilpotent element ($x^n = 0$ for some $n$ ) is clearly in every prime ideal ($0 \in \mathfrak{p}$) and thus in the intersection of all prime ideals. This can be recorded as $$\bigcap_{\pr \in \spec(R)} \pr \supseteq \nil(R)$$
 \end{remark}
 
 \begin{proposition}
-$$\bigcap_{\pr \supseteq J} \pr \subseteq \nil(R)$$
+$$\bigcap_{\pr \in \spec(R)} \pr \subseteq \nil(R)$$
 \end{proposition}
 
 \begin{proof}
@@ -711,8 +855,130 @@ Take an element $x \in R \backslash \nil(R)$ (not nilpotent) and consider the se
 Notice that $\Sigma$ is a poset with respect to inclusion. And every chain $I_{1} \subseteq I_{2} \subseteq I_{3} \subseteq \cdots $ has an upper bound (union of all the ideals). Thus, we can apply Zorn's lemma to get a maximal element $\pr$ which we claim is prime. Indeed, if $ab \in \pr$ but $a\not \in \pr, b \not \in \pr$ then $\pr + \langle a \rangle, \pr + \langle b \rangle$ are ideals strictly containing $\pr$ contradicting maximality of $\pr$. Therefore, we can conclude that $x \not \in \pr \Rightarrow x \not \in \bigcap_{\pr \supseteq J} \pr$ or rather not nilpotent implies not in intersection and hence we have proved the required inclusion. 
 \end{proof}
 
+$$\nil (R) = \bigcap_{\pr \in \spec (R)} \pr = \bigcap_{\pr \subseteq \{0\}} \pr$$
+$$\{x \mid x^n \in J\} = \mathrm{rad}(J) = \bigcap_{\pr \supseteq J} \pr $$
 
-\chapter{Lecture-3 (12th January): }
+\chapter{Lecture-3 (12th January): Zariski topology }
+
+\section{Zariski topology contd..}
+
+\begin{definition}
+If $J = \mathrm{rad}(J)$, then $J$ is called radical ideal.
+\end{definition}
+
+\textbf{Properties:}
+\begin{enumerate}
+\item Every radical ideal is an intersection of prime ideals.
+\item $\V(J) = \V(\mathrm{rad}(J))$ 
+\item $\V(J) = \V(J')$ implies $\mathrm{rad}(J) = \mathrm{rad}(J')$
+\end{enumerate}
+
+Suppose $S\subseteq R$ such that 
+\begin{itemize}
+\item $1\in S, 0 \not \in S$
+\item If $x,y \in S \Rightarrow xy \in S$
+\end{itemize}
+
+\begin{proposition}
+Take an ideal maximal wrt not intersecting $S$. Then, it is prime.
+\end{proposition}
+
+\begin{proof}
+Suppose $\m$ is the ideal in question. Next, suppose $\m$ is not prime which implies  $\exists a,b \in R \text{ such that } ab \in \m$ but $a,b \not \in \m$. Then, $\m + \langle a \rangle \supsetneq \m , \m + \langle b \rangle \supsetneq \m$. But, this means $(\m + \langle a \rangle) \cap S \neq \emptyset \Rightarrow m + ra \in S$ for some $m\in \m , r  \in R$. Similarly, $n + sb \in S$ for some $n \in \m , s \in R$. But, $S$ is multiplicative therefore $(m+ra)(n + sb) \in S \Rightarrow mn + ran + msb + rsab \in S \Rightarrow ((\langle ab \rangle + \m)= \m) \cap S \neq \emptyset$. This is a contradiction. Hence, we are done.  
+\end{proof}
+
+\begin{proposition}
+Say $J$ is maximal wrt not being principal. Then, $J$ is prime.
+\end{proposition}
+
+\begin{proof}
+Suppose $\m$ is the ideal in question. Next, suppose $\m$ is not prime which implies  $\exists a,b \in R \text{ such that } ab \in \m$ but $a,b \not \in \m$. Next, we can consider the ideal $I = \m + \langle a \rangle$. By maximality of $\m$, we have $I = \langle c \rangle$ for some $c\in R$. Now, consider $J = \{x \in R \mid xc \in \m\}$. Clearly, $I \subseteq J$. Notice that $c = m + ar$ for some $m \in \m , r \in R$. 
+\begin{align*}
+bc &= b(m+ar) \\
+&= bm + (ba)r \\
+\Rightarrow bc &\in \m \\
+\Rightarrow b &\in J 
+\end{align*} 
+This means $b \in J \backslash \m$. Therefore $V$ is also principal and hence $V = \langle d \rangle$. Since $\m \in I$, therefore $m = cr$ for some $r\in R$. But this means that $r\in V \Rightarrow r = r'd$ for some $r' \in R$. Hence, $m = cd r' \in \langle cd \rangle \Rightarrow \m \subseteq \langle cd \rangle$. For the other direction, since $d\in V \Rightarrow cd \in U$. All of these tells us that $\m = \langle cd \rangle$ a contradiction to our assumption. Therefore, $\m$ must be prime. 
+\end{proof}
+
+
+\begin{proposition}
+Say $J$ is maximal wrt not being finitely generated. Then, $J$ is prime.
+\end{proposition}
+
+\begin{proof}
+Suppose $\m$ is the ideal in question. Next, suppose $\m$ is not prime which implies  $\exists a,b \in R \text{ such that } ab \in \m$ but $a,b \not \in \m$. \\
+
+If we now look at $\m + \langle a \rangle$, by our assumption, this ideal is finitely generated by say $u_{1}, \hdots , u_{m}$. 
+\end{proof}
+
+\begin{exercise}
+Suppose $J$ is maximal wrt not being generated by a cardinal number of generators. Then, $J$ is prime.
+\end{exercise}
+
+\begin{definition}
+A topological space $X$ is said to be irreducible if it cannot be written as the union of proper closed subsets of $X$
+\end{definition}
+
+\section{Identify closed irreducible subsets of $\spec(R)$}
+
+\begin{proposition}
+The sets $\V(\pr)$ are exactly the irreducible components of $\spec(R)$.
+\end{proposition}
+
+\begin{lemma}
+Let $I \subseteq R$ be a radical ideal. If $\V(I)$ is irreducible, then $I$ is prime.  
+\end{lemma}
+
+\begin{proof}
+Suppose $I$ is not prime. Then there exists $a,b$ such that $ab \in I$ but $a\not \in I$ and $b \not \in I$. Consider a prime ideal $\pr$ that contains $I$, it will also contain $ab$ and thus $\pr$ contains either $a$ or $b$. This is summarised as $$\V(I) = (\V(I)\cap \V(a)) \cup (\V(I) \cap \V(b))$$ Thus $\V(I)$ is union of closed sets. It remains to be shown that the sets are proper in order to conclude that $\V(I)$ is not irreducible. Since $\V(I) \cap \V(a) = \V(I + \langle a \rangle)$ and $a \not \in I$ therefore $\V(I +\langle a \rangle)$ is a proper closed subset of $I$ and same for $b$. This is a contradiction to our hypothesis. So, we are done. 
+\end{proof}
+
+\begin{lemma}
+$\V(\pr)$ is an irreducible closed subset for $\pr$ prime.
+\end{lemma}
+
+\begin{proof}
+Suppose $\V(\pr) = V_{1} \cup V_{2}$ with $V_{1},V_{2}$ proper closed subsets of $V(\pr)$. Then there exists ideals $I,J$ such that $\V(\pr) = \V(I) \cup \V(J)$. Since $\pr \in \V(\pr)$ this implies $\pr \in \V(I)$ or $\pr \in \V(J)$. Suppose $\pr \in \V(I)$, then $I \subseteq \pr \Rightarrow \V(\pr) \subseteq \V(I) \Rightarrow \V(\pr) = \V(I)$. This is a contradiction to our assumption and hence we are done. $\V(\pr)$ is irreducible.
+\end{proof}
+
+\begin{proposition}
+Every irreducible closed subset of $\spec(R)$ has an unique generic point.
+\end{proposition}
+
+\begin{proof}
+Notice that any irreducible closed subset is of the form $\V(\pr)$. Now, $\V(\pr)$ is the closure of $\pr$. This is because $\mathrm{cl}(\pr)$ is a closed set and hence of the form $\V(I)$ for some ideal $I$. Moreover $\pr \supseteq I$. The biggest ideal $I$ such that $I \subseteq \pr$ is $\pr$ and this gives us what we want because $\V$ reverses inclusions. Therefore, $\mathrm{cl}(\pr) = \V(\pr)$. And, such a generic point is unique for suppose $\V(\pr) = \V(\mathfrak{q})$ then clearly $\pr \subseteq \frak{q}$ and $\frak{q} \subseteq \pr$. So, we are done. 
+\end{proof}
+
+To summarise, Zariski topology has the following properties: 
+\begin{enumerate}
+\item $\spec(R)$ is quasi-compact
+\item $\spec(R)$ has a basis of quasi-compact opens which is closed under intersection.
+\item Every irreducible closed subset has a generic point.
+\end{enumerate}
+
+\begin{theorem}[Hochster]
+Any topological space with the $3$ properties is the spectrum of some commutative ring.
+\end{theorem}
+
+
+
+Suppose $X$ is spectral. Define a new space $X^{*}$ with open sets as finite union of quasi-compact open sets in $X$. This new space is called the Hochster dual.
+
+\begin{theorem}
+$X^{*}$ is also spectral.
+\end{theorem} 
+
+\begin{proof}
+
+\end{proof}
+
+
+\chapter{Lecture-5 (17th January, 2023):}
+
+
+
 
 
 
@@ -733,7 +999,9 @@ Consider a topological space $X$.
 \end{definition} 
 
 \begin{exercise}
-Composition of quasi-compact maps is quasi-compact.
+Composition of quasi-compact maps is quasi-compact.\\
+
+Consider the two maps $f: X \rightarrow Y$ and $g: Y \rightarrow Z$. Next, look at the composition $g \circ f : X \rightarrow Z$. For all quasi-compact open $V \subseteq Z$, $(g \circ f)^{-1} (V) = f^{-1} \circ g^{-1} (V)$. Since $g$ is quasi-compact and continuous, $g^{-1}(V)$ is also quasi-compact and open. Similarly, $f$ is also quasi-compact and continuous, therefore $f^{-1}(g^{-1}(V))$ is also quasi-compact and we are done.
 \end{exercise} 
 
 \begin{lemma}
@@ -741,7 +1009,7 @@ $X$ quasi-compact and $Y \subseteq X$ is closed implies $Y$ is quasi-compact.
 \end{lemma}
 
 \begin{proof}
-
+Let $\{U_{i}\}_{i \in I}$ be an open cover of $Y$. Set $U = X - Y$. Since $U_{i}$ is open in $Y$, we have $U_{i} = Y \cap V_{i}$ where $V_{i}$ is open in $X$. Now we note that $\{V_{i}\}_{i \in I} \cup U$ covers $X$ but $X$ is quasi-compact and we obtain a finite subcover $\{V_{i}\}_{i \in J} \cup U$ where $J$ is finite. The corresponding $U_{i}, i \in J$ must therefore cover $Y$ and we are done.
 \end{proof}
 
 \begin{proposition}
@@ -749,7 +1017,9 @@ If $X$ is quasi-compact and Hausdorff, then $E \subseteq X$ is quasi-compact iff
 \end{proposition}
 
 \begin{proof}
-
+$\Leftarrow$ direction is done. \\
+$\Rightarrow$ direction is what we need to prove. \\
+Take $x\in X \backslash E$. For each $y \in E$, due to Hausdorff-ness we have two disjoint open sets $U_{y}$ and $U_{y}$ containing $x$ and $y$ respectively. Do this for all $y \in E$. The collection $\{U_{y}\}_{y \in E}$ covers $E$ but it is quasi-compact thus we get a finite subcover $\{U_{y_{i}}\}_{i \in I}$ with $I$ finite. Now, let $$U = \bigcap_{i \in I} U_{y_{i}}$$ $U$ is clearly open, contains $x$ and is disjoint from $E$. Since $x$ was chosen arbitrarily, $X\backslash E$ must be open. 
 \end{proof}
 
 \begin{lemma}
@@ -757,7 +1027,20 @@ Any finite union of quasi-compact spaces is quasi-compact.
 \end{lemma}
 
 \begin{proof}
+Suppose $X_{i}, i =1,2,\hdots ,n$ are the spaces in question. We want to show that $$X = \bigcup_{i=1}^n X_{i}$$ is also quasi-compact. Take any cover $\{U_{i}\}_{i \in I}$  be an open cover of $X$. Then for each $i=1,2, \hdots , n$ it is clear that $\{U_{i}\}_{i \in I}$ also covers $X_{i}$. Using quasi-compactness of $X_{i}$ we can get a finite subcollection $\{U_{i_{j}}: j =1 , \hdots , n_{i}\}$. This can be done for all $i$. Now, consider $\bigcup_{i=1}^{n} \bigcup_{j=1}^{n_{i}} U_{i_{j}}$. This union covers $X$ and is finite. So, we are done. 
+\end{proof}
 
+\begin{lemma}
+Suppose $f: X \rightarrow Y$ is continuous, if $X$ is quasi-compact then so is $f(X)$.
+\end{lemma}
+
+\begin{proof}
+Let $\{U_{i}\}_{i \in I}$ be an open cover of $f(X)$. Now, $\{f^{-1}(U_{i})\}_{i \in I}$ covers $X$ and by continuity, each of them are open. Use quasi-compactness of $X$ to get a finite subcover that covers $X$.
+\begin{align*}
+X &= \bigcup_{i=1}^n f^{-1}(U_{i}) \\
+\because f(f^{-1}(U_{i})) &\subseteq U_{i} \\
+\therefore f(X) &\subseteq \bigcup_{i=1}^n U_{i} 
+\end{align*}
 \end{proof}
 
 Suppose $\Sigma$ is a poset. $\Sigma$ satisfies acc if every ascending chain $$x_{1} \le x_{2} \le \cdots $$ is stationary.
@@ -770,6 +1053,12 @@ The following are equivalent:
 \end{enumerate}
 \end{lemma}
 
+\begin{proof}
+$1 \Rightarrow 2$. Suppose $S \subseteq \Sigma$ has no maximal element. \\
+Then choose $x_{0} \in S$ non-maximal, then we can find a $x_{1}$ such that $x_{0} \lneq x_{1}$. By induction we can construct an infinite chain $x_{0} \lneq x_{1} \lneq \cdots \neq x_{i} \lneq \cdots$ which does not terminate which is a contradiction to our hypothesis. Thus, $S$ must have a maximal element.\\
+$2 \Rightarrow 1$. Suppose $x_{1} \le x_{2} \le \cdots \le x_{i} \le $ is an infinite ascending chain, then $S = \{x_{i}\mid i \geq 1\}$ has no maximal element. 
+\end{proof}
+
 \begin{definition}
 A topological space is called Noetherian if set of all closed subsets of $X$ satisfies dcc.
 \end{definition}
@@ -778,16 +1067,38 @@ A topological space is called Noetherian if set of all closed subsets of $X$ sat
 $X$ Noetherian implies $X$ is quasi-compact.
 \end{lemma}
 
+\begin{proof}
+Let $\mathcal{U}=\{U_{i}\}_{i \in I}$ be an open cover of $X$ that does not have a finite subcover. Consider the collection $\mathcal{F}$ of union of finite number of elements of $\mathcal{U}$. Since being Noetherian is equivalent to saying any finite subset of open subsets has a maximal element, we know that $\mathcal{F}$ has a maximal element. Suppose that maximal element is $U_{i_{1}} \cup \hdots \cup U_{i_{n}}$. If this does not cover $X$, take an element $x$ in the complement of the maximal element. Since $\mathcal{U}$ covers $X$, there is an $i \in I$ such that $x \in U_{i}$. Notice that now $U_{i_{1}} \cup \hdots \cup U_{i_{n}} \subseteq U_{i_{1}} \cup \hdots \cup U_{i_{n}} \cup U_{i}$ which contradicts the maximality. Thus, we are done.  
+\end{proof}
+
+\begin{remark}
+The converse need not be true. Consider $[0,1]$ covered by $[1/2^n , 1]$.
+\end{remark}
+
 \begin{lemma}
-If $X_{1}, \hdots , X_{n}$ are Noetherian subspaces of $X$, then so is $X_{1} \cup X_{2} \cup \hdots \cup X_{n}$
+If $X_{1}, \hdots , X_{n}$ are Noetherian subspaces of $X$, then so is $X=X_{1} \cup X_{2} \cup \hdots \cup X_{n}$
 \end{lemma}
+
+\begin{proof}
+Let $Y_{i}$s be closed in $X$ that forms the chain $$X \supseteq Y_{1} \supseteq Y_{2} \supseteq Y_{3} \supseteq \cdots $$ For each $i$, we get a chain of closed sets in $X_{i}$ by intersecting with $X_{i}$. This gives us $$X_{i} \supseteq Y_{1}\cap X_{i} \supseteq Y_{2}\cap X_{i} \supseteq Y_{3}\cap X_{i} \supseteq \cdots $$ Since $X_{i}$ is Noetherian, this chain terminates at say $r_{i}$. Now, take $r = \max_{i} r_{i}$. The original chain will terminate after this point. Suppose $y \in Y_{i}$ with $i \le r$, there is an $j$ such that $y \in X_{j}$. This means $y \in X_{j} \cap Y_{i} = X_{j} \cap Y_{r}$. Hence, $y \in Y_{r}$ and we are done.
+\end{proof}
+
+\begin{definition}
+Locally Noetherian means every point $x\in X$ has a neighbourhood $U$ which is Noetherian wrt subspace topology.
+\end{definition}
 
 \begin{lemma}
 Quasi-compact and locally Noetherian implies Noetherian.
 \end{lemma}
 
+\begin{proof}
+Since $X$ is locally Noetherian, for each $x\in X$ we have a nbd. $U_{x}$ that is Noetherian. $\{U_{x}\}_{x \in X}$ is an open cover of $X$. Quasi-compactness gives us a finite subcover $\{U_{x_{i}}\}_{i=1}^n$, i.e., $$X = \bigcup_{i=1}^n U_{x_{i}}$$ $X$ is Noetherian from previous lemma.
+\end{proof}
+
 \begin{exercise}
-Give an example of a ring $R$ such that $\spec(R)$ is Noetherian but $R$ is not. 
+Give an example of a ring $R$ such that $\spec(R)$ is Noetherian but $R$ is not. \\
+
+Consider the ring $R=k[X_{1}, X_{2}, \hdots , ]$ and the ideal $I = \langle X_{1}^2 , X_{2}^2 , \hdots , \rangle$. Now, look at $R'=R/I$. $\spec(R')$ is a singleton. 
 \end{exercise}
 
 \begin{definition}
@@ -800,17 +1111,35 @@ A closed subset $Y \subseteq X$ is called irreducible component of $X$ if it is 
 If $X$ is Noetherian and $Y \subseteq X$ is a subspace, then $Y$ is Noetherian. 
 \end{lemma}
 
+\begin{proof}
+Let $Y_{i}$s be closed in $Y$ that forms the chain $$Y \supseteq Y_{1} \supseteq Y_{2} \supseteq Y_{3} \supseteq \cdots $$ For each $i$, we have a closed set in $X$ such that $Y_{i} = Y \cap X_{i}$. This gives us $$Y \supseteq X_{1}\cap Y \supseteq X_{2}\cap Y \supseteq X_{3}\cap Y \supseteq \cdots $$
+\end{proof}
+
 \begin{lemma}
 Let $X$ be Noetherian. Then, $X$ has finitely many irreducible components. 
 \end{lemma}
+
+\begin{proof}
+More generally, we will show that every closed subset for $X$ has finitely many irreducible components. \\
+
+Suppose that this is false. Let $\Sigma$ be the collection of closed subsets of $X$ that does not satisfy our condition. Order this as follows: $A \le B$ if $A \supseteq B$. If $\{C_{i}\}$ is a chain in $\Sigma$, then it must eventually stabilise since $X$ is Noetherian. This $C_{\alpha}$ is an upper bound for this chain. Therefore, by Zorn's lemma, there is a maximal element $Y$. Since $Y \in \Sigma$, therefore it is not irreducible. Suppose $Y = Y_{1} \cup Y_{2}$ with $Y_{1},Y_{2}$ proper closed subsets of $Y$. $Y \le Y_{1}, Y \le Y_{2}$. Since $Y \in \Sigma$, $Y$ is not a finite union of irreducible components. Hence, either $Y_{1}$ or $Y_{2}$ is not irreducible. If $Y_{1}$ is not irreducible but $Y_{1} \in \Sigma$, since $Y$ is maximal in $\Sigma$ and $Y \le Y_{1}$, therefore $Y =Y_{1}$ a contradiction that $Y_{1}$ is a proper subset of $Y$. Thus, $\Sigma$ must be empty and the claim is proven. 
+\end{proof}
 
 \begin{lemma}
 $X$ is Noetherian implies there exists an unique expression $X = X_{1} \cup \cdots \cup X_{n}$ where $X_{i}'s$ are irreducible components of $X$.
 \end{lemma}
 
+\begin{proof}
+Suppose $$X = X_{1} \cup \cdots \cup X_{n} = X_{1}' \cup \cdots \cup X_{m}'$$ Clearly $X_{1}' \subseteq X$, this means $X_{1}' = \bigcup_{i=1}^n X_{1}' \cap X_{i}$. Since $X_{1}'$ is irreducible, there must be a $i_{1}$ such that $X_{1}' = X_{i_{1}} \cap X_{1}'$. Thus, $X_{1}' \subseteq X_{i_{1}}$. We can choose $i_{1}$ to be $1$ to get $X_{1}' \subseteq X_{1}$. Similarly, $X_{1} \subseteq X_{j_{1}}'$. Since $X_{1}' \subseteq X_{j_{1}}'$ and our assumption that $X_{i} \not \in X_{j}$ for $i \neq j$ we conclude that $j_{1}=1$. Finally, we conclude that $X_{1}=X_{1}'$. Let $Z$ be the closure of $X - X_{1}$, then $Z = X_{2} \cup \cdots \cup X_{n} = X_{2}' \cup \cdots \cup X_{m}' $. We can argue inductively and conclude that $X_{i} = X_{i}'$ and $n=m$. 
+\end{proof}
+
 \begin{lemma}
 Suppose $X$ is Noetherian and $X_{1} \subseteq X$ an irreducible component. Then, $X_{1}$ contains a non-empty open set in $X$.
 \end{lemma}
+
+\begin{proof}
+Consider $U = X \backslash X_{2} \cup \cdots \cup X_{n}$. Clearly, $U$ is non-empty and open. Moreover, $U \subseteq X_{1}$ and we are done. 
+\end{proof}
 
 \begin{definition}
 Let $X$ be a topological space. We say that $X$ is a spectral space if the following holds: 
@@ -833,7 +1162,15 @@ $\spec(A)$ is always spectral.
 
 \begin{proof}
 \begin{enumerate}
-\item $X$ is $T_{0}$
+\item $X$ is $T_{0}$ \\
+For all $f \neq 0$ in $A$,  let $A_{f} = S^{-1}A$ be the localisation of $A$ at $f$ where $A_{f} = \{f^n \mid n \geq 0\}$. Next, let $V_{f} = X \backslash V(f) = \spec (A_{f})$. This forms a basis for the Zariski topology. \\
+Now, let $\pr, \mathfrak{P}$ be two distinct primes. 
+\begin{itemize}
+\item Suppose $\pr \not \subseteq \mathfrak{P}$. \\
+$Y = V(\pr)$ is closed set and $\mathfrak{P} \not \in V(\pr)$. Take $Y^c$. Then $\mathfrak{P} \in Y^c$ and $\pr \not \in Y^c$. 
+\item If $\pr \subseteq \mathfrak{P}$ \\
+Then consider $\V(\mathfrak{P})$. Clearly, $\pr \not \in \V(\mathfrak{P})$. Take $U = \V(\mathfrak{P})^c$, then $\pr \in U$ but $\mathfrak{P} \not\in U$. 
+\end{itemize}
 \item $X$ is quasi-compact. \\
 Let $\{U_{i}\}$ be an open cover of $X$. WLOG, we can assume that $U_{i} = \spec(A_{f_{i}}), f \neq 0$. Let $I$ be the ideal generated by these $f_{i}s$. \\
 \textbf{Case-1}: Suppose that $I \neq A$. Then there exists a maximal ideal $\m \supseteq I \Rightarrow \V(\m) \subseteq \V(I) \Rightarrow X \backslash \V(\m) \supseteq X\backslash \V(I) = X \backslash \bigcap_{i \in I}\V(f_{i}) = \bigcup U_{i} = X$ which is absurd. Hence, we conclude that $I=A$. Next, 
@@ -866,8 +1203,10 @@ sp: \mathrm{\textbf{Ring}} &\rightarrow \mathrm{\textbf{Top}} \\
 \end{theorem}
 
 \begin{proof}
-Consider $f: A \rightarrow B$. This induces a map $$f_{\#} : \spec(B) \rightarrow \spec(A)$$ such that $f_{\#}(\pr) = f^{-1}(\pr)$. We claim that $f_{\#}$ is continuous. This can be seen as follows: \\
-Take a basic open set $U = \spec(A_{a})$ and $b = f(a)$. Then, it is easy to see that $f_{\#}^{-1}(U_{b}) = U_{a}$.
+Consider $f: A \rightarrow B$. This induces a map $$f_{\#} : \spec(B) \rightarrow \spec(A)$$ such that $f_{\#}(\pr) = f^{-1}(\pr)$. \\
+\textbf{Well-defined:} Suppose $xy \in f^{-1}(\pr) \Rightarrow f(xy) = f(x)f(y) \in \pr \Rightarrow$ either $x$ or $y$ lies in $f^{-1}(\pr)$ which completes our check. \\
+We claim that $f_{\#}$ is continuous. This can be seen as follows: \\
+Take a basic open set $D(a), a\in A$. Enough to show for these sets since $D(a)$ forms a basis for the topology on $\spec(A)$. Now, $$\pr \in f_{\#}^{-1}(D(a))\Leftrightarrow f_{\#}(\pr) \in D(a) \Leftrightarrow a \not \in f^{-1}(\pr)$$ But this means $$a \not \in f^{-1}(\pr) \Leftrightarrow f(a) \not \in \pr \Leftrightarrow \pr \in D(f(a))$$
 \end{proof}
 
 \section{Affine schemes}
@@ -887,6 +1226,10 @@ Take $\spec(\ZZ)$ and consider the constant map. This cannot be regular because 
 \begin{proposition}
 If $X = \spec(A)$. A regular function on $X$ is a regular map from $X$ to $\spec(\ZZ[t])$.
 \end{proposition}
+
+\begin{proof}
+
+\end{proof}
 
 \begin{remark}
 On an affine scheme, the set of all regular maps is the ring $A$ itself since, the map $\ZZ[t] \rightarrow A$ is determined by where $t$ is sent to. 
@@ -955,10 +1298,10 @@ Consider the following data:
 	\arrow["g"', from=1-1, to=2-1]
 \end{tikzcd}\]
 
-Let $D = B \otimes_{A} C$. We have the natural maps $f_{1}: B \rightarrow B \otimes B \otimes C$ sending $b \mapsto b \otimes 1$ and $f_{2}: C \rightarrow B \otimes C$ sending $c \mapsto 1 \otimes c$. Both are ring homomorphisms and fit into the following diagram due to the nature of tensor product 
+Let $D = B \otimes_{A} C$. We have the natural maps $f_{1}: B \rightarrow  B \otimes_{A} C$ sending $b \mapsto b \otimes 1$ and $f_{2}: C \rightarrow B \otimes_{A} C$ sending $c \mapsto 1 \otimes c$. Both are ring homomorphisms and fit into the following diagram due to the nature of tensor product 
  \[\begin{tikzcd}
 	A & B \\
-	C & {B\otimes C}
+	C & {B\otimes_{A} C}
 	\arrow["f", from=1-1, to=1-2]
 	\arrow["g"', from=1-1, to=2-1]
 	\arrow["{f_{1}}", from=1-2, to=2-2]
@@ -1008,10 +1351,9 @@ Again, apply the $\spec(-)$ functor.
 This completes the proof.
 \end{proof}
 
+\chapter{Lecture-3 (16th January, 2023): Category theory brushup}
 
 
-
-\chapter{Lecture-3:}
 
 \part{Topics in Analytic Number Theory}
 
@@ -1059,6 +1401,74 @@ If $\chi(q)$ does not have a Siegel zero, then $L(1, \chi) \gg \frac{1}{\log q}$
 \end{theorem}
 
 
-\chapter{Lecture-4 (12th January, 2023): }
+\chapter{Lecture-4 (12th January, 2023): PNT for Dirichlet characters and APs}
+
+\begin{lemma}
+If $\rho = \beta + i \gamma$ runs through nontrivial zeros of $L(s, \chi)$, then $$\sum_{\rho} \frac{1}{1 + (T - \gamma)^2} = \mathcal{O} (\log q(|T| + 2)) \forall T \in \RR $$
+\end{lemma}
+
+\begin{lemma}
+$$N(T+1, \chi) - N(T , \chi) = \mathcal{O} (\log q (|T| + 2))$$
+\end{lemma}
+
+\begin{lemma}
+$$\sum_{\rho: |\gamma - t|\le 1} \frac{1}{s - \rho} + \mathcal{O}(\log qt) = \frac{L'}{L}(s,\chi)$$ for $-1 \le \sigma \le 2 , |t|\geq 2, L(s,\chi) \neq 0$
+\end{lemma}
+
+\begin{lemma}
+Let $\chi(q)$ be primitive, $q \geq 3, T \geq 2$. Then, there exists $T_{1} \in [T,T+1]$ such that $\frac{L'}{L}(\sigma \pm iT_{1}, \chi) \ll (\log qT)^2 , -1 \le \sigma \le 2$.
+\end{lemma}
+
+\begin{lemma}
+Put $a=1$ if $\chi$ is even and $0$ otherwise. $$\mathcal{A}(a) := \{ s \in \CC \mid \sigma \le -1 , |s + 2n - a| \geq \frac{1}{4} \; \forall \; n \geq 1\}$$ Then, $$\frac{L'}{L} (s, \chi) \ll \log (q(|s|+1))$$ on $\mathcal{A}(a)$
+\end{lemma}
+
+These are all the ingredients needed to prove the the explicit formula for $\psi_{0}(x, \chi)$. 
+
+\begin{theorem}
+$$\psi(s,\chi) = \sum_{n \le x} \Lambda(n) \chi(n)$$ $$\psi_{0}(x,\chi)  = \frac{1}{2}(\psi(x^{+}, \chi) + \psi(x^{-}, \chi)) = - \sum_{\rho : |\gamma|\le t} \frac{x^{\rho}}{\rho} - \frac{1}{2} \log (x-1) - \frac{\chi(-1)}{2} \log (x+1) + C_{\chi} + R_{\chi}(T)$$ where $C_{\chi} = \frac{L'}{L} (1, \overline{\chi}) + \log \frac{q}{2 \pi} - \gamma$ and $R_{\chi}(T) \ll (\log x)\min(1, x/T <x>) + \frac{x}{T} (\log (qxT))^2$. Letting $T \rightarrow \infty$ we see that $R_{\chi}(T) \rightarrow 0$.
+\end{theorem}
+
+\begin{theorem}[Brun-Titsmarsh inequality]
+Let $x\geq 0, y \geq 2q$. Then, $$\pi(x+y; q,a) - \pi (x; q,a) \le \frac{2y}{\phi(q) \log (\frac{y}{q})} \left( 1 + \mathcal{O}(\frac{1}{\log (\frac{y}{q})}) \right)$$
+\end{theorem}
+
+\textcolor{BrickRed}{Remind him to prove this later; uses Sieve theoretic methods}
+
+\begin{theorem}[PNT for Dirichlet characters]
+There exists a $c_{1} \geq 0$ such that for all $q \le \exp (c_{1} \sqrt{\log x})$, we have $$\psi(x, \chi) = \sum_{n \le x}\Lambda (n) \chi (n) = \begin{cases} E_{0}(x) + \mathcal{O} (x\exp(-c_{1}\sqrt{\log x})) & \chi \text{ has no Siegel zero} \\ -\frac{x^{\beta_{1}}}{\beta_{1}} + \mathcal{O} (x\exp(-c_{1}\sqrt{\log x})) & \chi \text{ has Siegel zero} \end{cases}$$ Here, $E_{0}(\chi) = 1$ if $\chi = \chi_{0}$ and $0$ otherwise. 
+\end{theorem}
+
+Recall from MA317 that $L(x,\chi) \neq 0$ when $\sigma \geq  1 - \frac{c}{\log q\tau}$ for some constant $c>0$ with the exception of atmost one real zero ($\beta_{1}$ the Siegel zero)
+
+\begin{proposition}
+Let $c$ be as above and assume that $\sigma \geq 1 - \frac{c}{2 \log q \tau}$. Then, 
+\begin{enumerate}
+\item If $L(s,\chi)$ has no Siegel zero or if $\beta_{1}$ is a Siegel zero (thus $\chi$ quadratic) but $|s- \beta_{1}| \geq \frac{1}{\log q}$, then $$\frac{L'}{L}(s, \chi) \ll \log q \tau$$ $$|\log L(s,\chi)| \ll \log \log q\tau + \mathcal{O}(1)$$ $$\frac{1}{L(s,\chi)} \ll \log q\tau$$
+\item If $\beta_{1}$ is a Siegel zero and $|s - \beta_{1}| \le \frac{1}{\log q}$, then $$\frac{L'}{L}(s, \chi) = \frac{1}{s- \beta_{1}} + \mathcal{O}(\log q)$$ $$|\mathrm{arg} L(s,\chi)| \le \log \log q + \mathcal{O}(1)$$ $$|s- \beta_{1}| \ll |L(s,\chi)| \ll |s-\beta_{1}|(\log q)^2$$
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
