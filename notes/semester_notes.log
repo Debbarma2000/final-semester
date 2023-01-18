@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.30)  15 JAN 2023 18:53
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.30)  18 JAN 2023 16:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1188,9 +1188,9 @@ Package zref Info: New property: mdf@pagevalue on input line 895.
 Package thmtools Info: Key `mdframed' (with value `style= mdthmbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=theobox' on input line 89.
+(thmtools)             that uses `style=theobox' on input line 92.
 Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line
- 92.
+ 95.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/thmtools/thmdef-mdframed.sty
 Package: thmdef-mdframed 2020/08/01 v0.72
@@ -1200,68 +1200,68 @@ Package: thmdef-mdframed 2020/08/01 v0.72
 Package thmtools Info: Key `mdframed' (with value `style= mdlembox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=lembox' on input line 113.
+(thmtools)             that uses `style=lembox' on input line 116.
 Package thmtools Info: Key `mdframed' (with value `style= mddefbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=defbox' on input line 137.
+(thmtools)             that uses `style=defbox' on input line 140.
 Package thmtools Info: Key `mdframed' (with value `style= mdrembox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=rembox' on input line 159.
+(thmtools)             that uses `style=rembox' on input line 162.
 Package thmtools Info: Key `mdframed' (with value `style= mdredbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmredbox' on input line 185.
+(thmtools)             that uses `style=thmredbox' on input line 188.
 Package thmtools Info: Key `mdframed' (with value `style= mdredbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmredbox' on input line 206.
-
-
-Package amsthm Warning: Unknown theoremstyle `theorem' on input line 208.
-
-
-Package amsthm Warning: Unknown theoremstyle `thmgreybox' on input line 210.
-
-
-Package amsthm Warning: Unknown theoremstyle `theorem' on input line 210.
+(thmtools)             that uses `style=thmredbox' on input line 209.
 
 
 Package amsthm Warning: Unknown theoremstyle `theorem' on input line 211.
 
+
+Package amsthm Warning: Unknown theoremstyle `thmgreybox' on input line 213.
+
+
+Package amsthm Warning: Unknown theoremstyle `theorem' on input line 213.
+
+
+Package amsthm Warning: Unknown theoremstyle `theorem' on input line 214.
+
 (./semester_notes.aux)
 \openout1 = `semester_notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 220.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 223.
+LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 223.
+LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 223.
+LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 223.
+LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 223.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 2
-20.
+23.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-Package scrbase Info: activating english \contentsname on input line 220.
-Package scrbase Info: activating english \listfigurename on input line 220.
-Package scrbase Info: activating english \listtablename on input line 220.
+LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 223.
+LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 223.
+LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 223.
+LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 223.
+LaTeX Font Info:    ... okay on input line 223.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 223.
+LaTeX Font Info:    ... okay on input line 223.
+Package scrbase Info: activating english \contentsname on input line 223.
+Package scrbase Info: activating english \listfigurename on input line 223.
+Package scrbase Info: activating english \listtablename on input line 223.
 Package minitoc(hints) Info: I0049
 (minitoc(hints))             ==> You requested the hints option. 
 (minitoc(hints))             Some hints are eventually given below.
@@ -1314,7 +1314,7 @@ Package minitoc(hints) Warning: W0023
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 220.
+Package hyperref Info: Link coloring ON on input line 223.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -1327,9 +1327,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count337
 )
-LaTeX Info: Redefining \ref on input line 220.
-LaTeX Info: Redefining \pageref on input line 220.
-LaTeX Info: Redefining \nameref on input line 220.
+LaTeX Info: Redefining \ref on input line 223.
+LaTeX Info: Redefining \pageref on input line 223.
+LaTeX Info: Redefining \nameref on input line 223.
  (./semester_notes.out) (./semester_notes.out)
 \@outlinefile=\write5
 \openout5 = `semester_notes.out'.
@@ -1341,7 +1341,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 220.
+(scrbook)           before \begin{document} on input line 223.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
@@ -1352,26 +1352,26 @@ File: bkm-dvipdfm.def 2020-11-06 v1.29 bookmark driver for dvipdfm (HO)
 ))
 File: IISc_logo.png Graphic file (type bmp)
 <IISc_logo.png>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 243
+LaTeX Font Info:    Trying to load font information for U+msa on input line 246
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 243
+LaTeX Font Info:    Trying to load font information for U+msb on input line 246
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 24
-3.
+6.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `T1/yv1/m/sl' in size <12> not available
-(Font)              Font shape `T1/yv1/m/it' tried instead on input line 245.
+(Font)              Font shape `T1/yv1/m/it' tried instead on input line 248.
  [1
 
 ]
@@ -1381,7 +1381,7 @@ LaTeX Font Info:    Font shape `T1/yv1/m/sl' in size <12> not available
 
 
 ]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 47.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 53.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -1394,7 +1394,7 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 part I.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 252.
+(scrkbase)              on input line 255.
 [1
 
 
@@ -1428,26 +1428,26 @@ chapter 2.
 chapter 3.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 265.
+(mdframed)              on input line 268.
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
-t line 265.
+t line 268.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 269.
+(mdframed)              on input line 272.
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on 
-input line 269.
+input line 272.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 278.
+(mdframed)              on input line 281.
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on in
-put line 278.
+put line 281.
 [4
 
 
 ]
-Package mdframed Info: Not enough space on this page on input line 279.
+Package mdframed Info: Not enough space on this page on input line 282.
 LaTeX Font Info:    Trying to load font information for TS1+yv1 on input line 2
-83.
+86.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/venturissans/ts1yv1.fd
 File: ts1yv1.fd 2010/07/03 Fontinst v1.933 font definitions for TS1/yv1.
 
@@ -1529,162 +1529,241 @@ LaTeX Info: Font shape TS1/yv1/mx/sl has incorrect series value `mx'.
 )
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 304.
+(mdframed)              on input line 307.
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
-nput line 304.
+nput line 307.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 308.
+(mdframed)              on input line 311.
  [5]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 316.
+(mdframed)              on input line 319.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 324.
+(mdframed)              on input line 327.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 332.
+(mdframed)              on input line 335.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 343.
+(mdframed)              on input line 346.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 347.
+(mdframed)              on input line 350.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 351.
-Package mdframed Info: Not enough space on this page on input line 352.
+(mdframed)              on input line 354.
+Package mdframed Info: Not enough space on this page on input line 355.
  [6]
-Package mdframed Info: Not enough space on this page on input line 352.
+Package mdframed Info: Not enough space on this page on input line 355.
  [7]
 chapter 4.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 361.
+(mdframed)              on input line 364.
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 375--376
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
 
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 381.
+(mdframed)              on input line 384.
 [8
 
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 384.
+(hyperref)                removing `math shift' on input line 387.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 384.
+(hyperref)                removing `subscript' on input line 387.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 384.
+(hyperref)                removing `math shift' on input line 387.
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 387.
+(mdframed)              on input line 390.
 [9]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 407.
+(mdframed)              on input line 410.
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input
- line 407.
+ line 410.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 415.
+(mdframed)              on input line 418.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 422.
+(hyperref)                removing `math shift' on input line 425.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 422.
+(hyperref)                removing `math shift' on input line 425.
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 425.
+(mdframed)              on input line 428.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 434.
+(mdframed)              on input line 437.
 [10]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 443.
+(mdframed)              on input line 446.
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
 
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 461.
+(mdframed)              on input line 464.
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
-line 461.
+line 464.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 474.
+(mdframed)              on input line 481.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 478.
+(mdframed)              on input line 485.
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 486.
+
 [11] [12]
 chapter 5.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Delta' on input line 495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 497.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Delta' on input line 497.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 497.
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 503.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 507.
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--515
+
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 522.
+Package mdframed Info: Not enough space on this page on input line 529.
 [13
 
 
 ]
+Package mdframed Info: Not enough space on this page on input line 529.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 536.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 558.
+ [14]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 562.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 566.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 570.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 574.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 589.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 593.
+Package mdframed Info: Not enough space on this page on input line 601.
+ [15]
+Package mdframed Info: Not enough space on this page on input line 601.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 604.
+ [16]
 part II.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 495.
-[14
+(scrkbase)              on input line 610.
+[17
 
 
 ]
 chapter 6.
-[15
+[18
 
 
 ]
 chapter 7.
 
-Overfull \hbox (46.89128pt too wide) in paragraph at lines 503--505
+Overfull \hbox (46.89128pt too wide) in paragraph at lines 618--620
 \T1/yv1/m/n/12 Let $\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 =k\OT
 1/cmr/m/n/12 )$ \T1/yv1/m/n/12 be the Ga-lois group of the ex-ten-sion. It can 
 also be viewed as $[]$. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--505
+Underfull \hbox (badness 10000) in paragraph at lines 618--620
 
  []
 
-[16
+[19
 
 
 ]
 chapter 8.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 513.
+(mdframed)              on input line 628.
 
-Overfull \hbox (4.60071pt too wide) in paragraph at lines 513--514
+Overfull \hbox (4.60071pt too wide) in paragraph at lines 628--629
 []\T1/yv1/m/n/12 A Pro-jec-tive $\OML/cmm/m/it/12 n$\T1/yv1/m/n/12 -space over 
 $\OML/cmm/m/it/12 k$ \T1/yv1/m/n/12 de-noted by $\U/msb/m/n/12 P[]$ \T1/yv1/m/n
 /12 or $\U/msb/m/n/12 P[]\OT1/cmr/m/n/12 ([])$ \T1/yv1/m/n/12 is the set $\U/ms
@@ -1694,61 +1773,61 @@ mr/m/n/12 0)\OMS/cmsy/m/n/12 g\OML/cmm/m/it/12 = \OMS/cmsy/m/n/12 ^^X$
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 522.
+(mdframed)              on input line 637.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 530.
+(mdframed)              on input line 645.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 534.
-Package mdframed Info: Not enough space on this page on input line 535.
-[17
+(mdframed)              on input line 649.
+Package mdframed Info: Not enough space on this page on input line 650.
+[20
 
 
 ]
-Package mdframed Info: Not enough space on this page on input line 535.
+Package mdframed Info: Not enough space on this page on input line 650.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 538.
+(mdframed)              on input line 653.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 542.
+(mdframed)              on input line 657.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 551.
+(mdframed)              on input line 666.
 Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
-t line 551.
+t line 666.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 557.
+(mdframed)              on input line 672.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 565.
+(mdframed)              on input line 680.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 569.
-Package mdframed Info: Not enough space on this page on input line 570.
- [18]
-Package mdframed Info: Not enough space on this page on input line 570.
+(mdframed)              on input line 684.
+Package mdframed Info: Not enough space on this page on input line 685.
+ [21]
+Package mdframed Info: Not enough space on this page on input line 685.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 573.
+(mdframed)              on input line 688.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 577.
+(mdframed)              on input line 692.
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--581
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
 
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 601.
+(mdframed)              on input line 716.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 607.
+(mdframed)              on input line 722.
 
-Overfull \hbox (30.9436pt too wide) in paragraph at lines 607--608
+Overfull \hbox (30.9436pt too wide) in paragraph at lines 722--723
 []\T1/yv1/m/n/12 De-ho-mog-e-niza-tion of $\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\
 OML/cmm/m/it/12 X[]; [] ; X[]\OT1/cmr/m/n/12 )$ \T1/yv1/m/n/12 with re-spect to
  $\OML/cmm/m/it/12 i$ \T1/yv1/m/n/12 is $\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OM
@@ -1756,147 +1835,216 @@ L/cmm/m/it/12 X[]; [] ; X[]; \OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; X[]; [] ; X[]\
 OT1/cmr/m/n/12 )$ 
  []
 
-Package mdframed Info: Not enough space on this page on input line 608.
-[19]
-Package mdframed Info: Not enough space on this page on input line 608.
+Package mdframed Info: Not enough space on this page on input line 723.
+[22]
+Package mdframed Info: Not enough space on this page on input line 723.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 611.
+(mdframed)              on input line 726.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 629.
- [20]
+(mdframed)              on input line 744.
+ [23]
 chapter 9.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 637.
+(mdframed)              on input line 752.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 650.
+(mdframed)              on input line 765.
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--651
+Underfull \hbox (badness 10000) in paragraph at lines 765--766
 
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 656.
+(mdframed)              on input line 771.
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--663
+Underfull \hbox (badness 10000) in paragraph at lines 777--778
 
  []
 
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 665.
-[21
+(mdframed)              on input line 780.
+[24
 
 
 ]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 670.
+(mdframed)              on input line 785.
 
-Underfull \hbox (badness 10000) in paragraph at lines 673--675
+Underfull \hbox (badness 10000) in paragraph at lines 788--790
 
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 677.
+(mdframed)              on input line 792.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 681.
+(mdframed)              on input line 796.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 685.
+(mdframed)              on input line 800.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 694.
+(mdframed)              on input line 809.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 698.
-Package mdframed Info: Not enough space on this page on input line 705.
-[22]
-Package mdframed Info: Not enough space on this page on input line 705.
+(mdframed)              on input line 813.
+Package mdframed Info: Not enough space on this page on input line 820.
+[25]
+Package mdframed Info: Not enough space on this page on input line 820.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 708.
+(mdframed)              on input line 823.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 718.
+(mdframed)              on input line 833.
 
-Overfull \hbox (3.65498pt too wide) in paragraph at lines 718--719
+Overfull \hbox (3.65498pt too wide) in paragraph at lines 833--834
 \T1/yv1/m/n/12 als hav-ing same de-gree. We can can-cel com-mon fac-tors to as-
 sume $[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^^[]; [] ; ^^^[]\OT1/cmr/m/n/12 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 718--719
+Underfull \hbox (badness 10000) in paragraph at lines 833--834
 
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 725.
+(mdframed)              on input line 840.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 730.
+(mdframed)              on input line 845.
 
-Underfull \hbox (badness 10000) in paragraph at lines 734--737
+Underfull \hbox (badness 10000) in paragraph at lines 849--852
 
  []
 
-[23]
+[26]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 745.
+(mdframed)              on input line 860.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 753.
+(mdframed)              on input line 868.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 764.
- [24]
+(mdframed)              on input line 879.
+ [27]
 chapter 10.
-[25
-
-
-]
-part III.
-Package scrkbase Info: You've told me to use the font selection of the element
-(scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 775.
-[26
-
-
-]
-chapter 11.
-[27
-
-
-]
-chapter 12.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 794.
+(mdframed)              on input line 887.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 800.
+(mdframed)              on input line 891.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 895.
+
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
+
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 910.
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 917.
+
 [28
 
 
 ]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 815.
+(mdframed)              on input line 920.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 924.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 928.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 938.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 946.
 
-Underfull \hbox (badness 10000) in paragraph at lines 819--820
+Underfull \hbox (badness 10000) in paragraph at lines 946--947
+
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 952.
+
+Underfull \hbox (badness 10000) in paragraph at lines 956--957
 
  []
 
 
-Overfull \hbox (76.98674pt too wide) in paragraph at lines 821--823
+Overfull \hbox (7.86128pt too wide) detected at line 966
+[]
+ []
+
+[29]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 973.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 981.
+ [30]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 989.
+ [31]
+part III.
+Package scrkbase Info: You've told me to use the font selection of the element
+(scrkbase)             `partprefix' that is an alias of element `partnumber'
+(scrkbase)              on input line 1014.
+[32
+
+
+]
+chapter 11.
+[33
+
+
+]
+chapter 12.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1033.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1039.
+[34
+
+
+]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1054.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1059
+
+ []
+
+
+Overfull \hbox (76.98674pt too wide) in paragraph at lines 1060--1062
 \T1/yv1/m/n/12 Suppose $[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 R\OT1/cmr/m/n/12 ) 
 = [][] \OML/cmm/m/it/12 U[] \OT1/cmr/m/n/12 = [][] [](\OML/cmm/m/it/12 R\OT1/cm
 r/m/n/12 )\OMS/cmsy/m/n/12 nV\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 I[]\OT1/cmr/m/n/
@@ -1908,208 +2056,82 @@ n/12 )$\T1/yv1/m/n/12 .
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 833.
-[29]
+(mdframed)              on input line 1072.
+[35]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 842.
+(mdframed)              on input line 1081.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 846.
+(mdframed)              on input line 1085.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 850.
- [30]
+(mdframed)              on input line 1089.
+ [36]
 chapter 13.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 866.
+(mdframed)              on input line 1105.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 883.
+(mdframed)              on input line 1122.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 891.
-[31
+(mdframed)              on input line 1130.
+[37
 
 
 ]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 907.
+(mdframed)              on input line 1146.
 
-Underfull \hbox (badness 10000) in paragraph at lines 911--912
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1151
 
  []
 
 Package hyperref Info: bookmark level for unknown exercise defaults to 0 on inp
-ut line 917.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 921.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 924.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 924.
-
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 927.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 931.
-[32]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 939.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 947.
-
-
-Package amsfonts Warning: Obsolete command \frak; \mathfrak should be used inst
-ead on input line 951.
-
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 961.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 970.
-[33]
-chapter 14.
-[34
-
-
-]
-part IV.
-Package scrkbase Info: You've told me to use the font selection of the element
-(scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 988.
-[35
-
-
-]
-chapter 15.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 995.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1008.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1016.
-[36
-
-
-]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1026.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1034.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1049.
- [37]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1063.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1067.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1075.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1079.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1087.
-Package mdframed Info: Not enough space on this page on input line 1088.
- [38]
-Package mdframed Info: Not enough space on this page on input line 1088.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1091.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1099--1100
-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1105.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1105--1106
-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1111.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1119.
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 1123--1124
-
- []
-
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1129.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1137.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1145.
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 1155--1156
-
- []
-
+ut line 1156.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1160.
-[41]
-chapter 16.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1191.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1198.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1215.
-Package mdframed Info: Not enough space on this page on input line 1216.
-[42
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1163.
 
 
-]
-Package mdframed Info: Not enough space on this page on input line 1216.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1163.
+
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1219.
+(mdframed)              on input line 1166.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1223.
+(mdframed)              on input line 1170.
+[38]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1227.
+(mdframed)              on input line 1178.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1186.
+
+
+Package amsfonts Warning: Obsolete command \frak; \mathfrak should be used inst
+ead on input line 1190.
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1200.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1209.
+[39]
+chapter 14.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1224.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1235.
@@ -2118,17 +2140,165 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 1239.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1247.
+(mdframed)              on input line 1243.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1251.
+[40
 
-Underfull \hbox (badness 10000) in paragraph at lines 1251--1252
+
+]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1255.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1261.
+ [41]
+part IV.
+Package scrkbase Info: You've told me to use the font selection of the element
+(scrkbase)             `partprefix' that is an alias of element `partnumber'
+(scrkbase)              on input line 1266.
+[42
+
+
+]
+chapter 15.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1273.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1280--1281
 
  []
 
-[43]
-Overfull \hbox (1.18976pt too wide) in paragraph at lines 1257--1258
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1286.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1294.
+[43
+
+
+]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1304.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1312.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1327.
+ [44]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1341.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1345.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1353.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1357.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1365.
+Package mdframed Info: Not enough space on this page on input line 1366.
+ [45]
+Package mdframed Info: Not enough space on this page on input line 1366.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1369.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1377--1378
+
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1383.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1383--1384
+
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1389.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1397.
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1402
+
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1407.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1415.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1423.
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1434
+
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1438.
+[48] [49]
+chapter 16.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1469.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1476.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1493.
+Package mdframed Info: Not enough space on this page on input line 1494.
+[50
+
+
+]
+Package mdframed Info: Not enough space on this page on input line 1494.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1497.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1501.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1505.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1513.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1517.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1525.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1529.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1529--1530
+
+ []
+
+[51]
+Overfull \hbox (1.18976pt too wide) in paragraph at lines 1536--1537
 []\T1/yv1/b/n/12 Exercise 16.2.9. []\T1/yv1/m/it/12 Let $\OML/cmm/m/it/12 A \OT
 1/cmr/m/n/12 = \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 X[]; X[]; []
 \OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 ; B \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 A[]; X
@@ -2139,84 +2309,143 @@ uf/m/n/12 m\OML/cmm/m/it/12 ; \U/euf/m/n/12 m \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/1
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1285.
+(mdframed)              on input line 1564.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1289.
-[44] [45]
+(mdframed)              on input line 1568.
+[52] [53]
 chapter 17.
-[46
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1653.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1657.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1665.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1669.
+[54
 
 
 ]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1673.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1677.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1706--1707
+
+ []
+
+[55]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1719.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1722--1723
+
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1726.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1746.
+[56]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1750.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1758.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1762.
+ [57]
+Overfull \hbox (15.42921pt too wide) in paragraph at lines 1794--1795
+[]\T1/yv1/m/n/12 Given, $\OMS/cmsy/m/n/12 C\OML/cmm/m/it/12 ; \OMS/cmsy/m/n/12 
+C[]$ \T1/yv1/m/n/12 then $\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 C
+\OML/cmm/m/it/12 ; \OMS/cmsy/m/n/12 C[]\OT1/cmr/m/n/12 ) =$ \T1/yv1/m/n/12 all 
+func-tors from $\OMS/cmsy/m/n/12 C$ \T1/yv1/m/n/12 to $\OMS/cmsy/m/n/12 C[]$ \T
+1/yv1/m/n/12 is a cat-e-gory and $[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 F[]; F[
+]\OT1/cmr/m/n/12 ) =$
+ []
+
+[58]
 part V.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 1358.
-[47
+(scrkbase)              on input line 1801.
+[59
 
 
 ]
 chapter 18.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1360.
+(hyperref)                removing `math shift' on input line 1803.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1360.
+(hyperref)                removing `math shift' on input line 1803.
 
-[48
+[60
 
 
 ]
 chapter 19.
-[49
+[61
 
 
 ]
 chapter 20.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1366.
+(mdframed)              on input line 1809.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1376.
+(mdframed)              on input line 1819.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1389.
-[50
+(mdframed)              on input line 1832.
+[62
 
 
 ]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1395.
+(mdframed)              on input line 1838.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1400.
- [51]
+(mdframed)              on input line 1843.
+ [63]
 chapter 21.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1407.
+(mdframed)              on input line 1850.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1411.
+(mdframed)              on input line 1854.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1415.
+(mdframed)              on input line 1858.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1419.
+(mdframed)              on input line 1862.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1423.
+(mdframed)              on input line 1866.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1429.
+(mdframed)              on input line 1872.
 
-Overfull \hbox (57.77228pt too wide) detected at line 1429
+Overfull \hbox (57.77228pt too wide) detected at line 1872
 \OML/cmm/m/it/12  []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; ^^_\OT1/cmr/m/n/12 ) =
  [](\OML/cmm/m/it/12  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; ^^_\OT1/cmr/m/n/12
  ) + \OML/cmm/m/it/12  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; ^^_\OT1/cmr/m/n/1
@@ -2226,20 +2455,20 @@ Overfull \hbox (57.77228pt too wide) detected at line 1429
 /12 + \OML/cmm/m/it/12 R[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 T\OT1/cmr/m/n/12 )
  []
 
-Package mdframed Info: Not enough space on this page on input line 1430.
-[52
+Package mdframed Info: Not enough space on this page on input line 1873.
+[64
 
 
 ]
-Package mdframed Info: Not enough space on this page on input line 1430.
+Package mdframed Info: Not enough space on this page on input line 1873.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1432.
+(mdframed)              on input line 1875.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1438.
+(mdframed)              on input line 1881.
 
-Overfull \hbox (5.32268pt too wide) detected at line 1439
+Overfull \hbox (5.32268pt too wide) detected at line 1882
 \OML/cmm/m/it/12  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; ^^_\OT1/cmr/m/n/12 ) = [
 ] ^^C(\OML/cmm/m/it/12 n\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ^^_\OT1/cmr/m/n/12 (\
 OML/cmm/m/it/12 n\OT1/cmr/m/n/12 ) = []
@@ -2247,8 +2476,16 @@ OML/cmm/m/it/12 n\OT1/cmr/m/n/12 ) = []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1445.
-[53]
+(mdframed)              on input line 1888.
+[65] [66]
+part VI.
+Package scrkbase Info: You've told me to use the font selection of the element
+(scrkbase)             `partprefix' that is an alias of element `partnumber'
+(scrkbase)              on input line 1912.
+[67
+
+
+]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the semester_notes.maf file.
@@ -2265,17 +2502,17 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the semester_notes.log file.
 
-[54] (./semester_notes.aux)
+[68] (./semester_notes.aux)
 Package rerunfilecheck Info: File `semester_notes.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 33921 strings out of 476179
- 675139 string characters out of 5809543
- 1084019 words of memory out of 5000000
- 53828 multiletter control sequences out of 15000+600000
- 540902 words of font info for 109 fonts, out of 8000000 for 9000
+ 34451 strings out of 476179
+ 687989 string characters out of 5809543
+ 1086592 words of memory out of 5000000
+ 54352 multiletter control sequences out of 15000+600000
+ 541947 words of font info for 114 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,16n,106p,10609b,1119s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,18n,106p,10609b,1267s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on semester_notes.pdf (57 pages).
+Output written on semester_notes.pdf (71 pages).
