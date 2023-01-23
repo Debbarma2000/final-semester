@@ -24,6 +24,7 @@
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage{quiver}
+\usepackage{hyperref}
 
 %section symbol
 
@@ -1261,6 +1262,117 @@ A question we can ask is when is the direct sum of injective modules injective.
 Direct sum of injective modules is injective iff the module is Noetherian.
 \end{proposition}
 
+\chapter{Lecture-6 (19th January 2023):}
+
+Suppose $A$ is a commutative ring and $M$ an $A$-module. \\
+Define $\mathrm{Sub}(M)=$ to be the set of all submodules of $M$. For any finite collection $m_{1}, \hdots , m_{k} \in M$, we next define 
+\begin{align*}
+\textbf{V}(m_{1}, \hdots , m_{k}) &= \text{ collection of submodules containing } m_{1}, \hdots , m_{k} \\
+\textbf{D}( m_{1}, \hdots , m_{k}  ) &= \mathrm{Sub}(M) \backslash \textbf{V}(m_{1}, \hdots , m_{k}) 
+\end{align*}
+Using these $\textbf{D}(m_{1}, \hdots , m_{k})$'s as open sets (sub-basis of open sets), we generate a topology. 
+
+\begin{proposition}[\href{https://arxiv.org/pdf/1605.03105.pdf}{read this here}]
+The above mentioned topology is the same as Zariski topology OR the space is spectral.
+\end{proposition}
+
+\begin{remark}
+The takeaway point being this is also another way to get a spectral space.
+\end{remark}
+
+\begin{exercise}
+Suppose $X$ is spectral, $Y\subseteq X$ be a quasi-compact open subset. Then, $Y$ is spectral.
+\end{exercise}
+
+\section{Localisation}
+
+\begin{definition}
+A multiplicatively closed set $S$ is one that has the following properties:
+\begin{enumerate}
+\item $1 \in S, 0 \not \in S$.
+\item $x,y \in S \Rightarrow xy \in S$.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+\begin{enumerate}
+\item Invertible elements of a ring.
+\item 
+\end{enumerate}
+\end{example}
+
+\textcolor{Brown}{Objective}: We wish to construct a new ring in which each $s\in S$ is invertible. \\
+
+If $S$ was the collection of invertible elements, then localisation is just $A$. \\
+
+Our objective can be summed up as follows: 
+
+\[\begin{tikzcd}
+	A && B \\
+	& R
+	\arrow["\psi"', from=1-1, to=1-3]
+	\arrow["\phi", from=1-1, to=2-2]
+	\arrow["{\exists ! \pi}"', dashed, from=2-2, to=1-3]
+\end{tikzcd}\]
+
+\begin{enumerate}
+\item $\phi(s)$ is invertible in $R$ for each $s\in S$
+\item for any $\psi : A \rightarrow B$ such that each $\psi (s)$ is invertible, there is an unique map $\pi : R \rightarrow B$ that makes the diagram above commute.
+\end{enumerate}
+
+\begin{definition}
+The localisation of $A$ with respect to $S$, denoted by $S^{-1}A$ is the set of equivalence classes $$\frac{a}{s} \;\;\;, a \in A , s \in S$$ with $$\frac{a}{s} \sim \frac{a'}{s'} \text{ if and only if } \exists \; t \in S \text{ such that } t (as' - sa')=0$$ 
+\end{definition}
+
+The ring addition and multiplication are the same as adding and multiplying fractions. Need to check it is well-defined!\\
+
+Now, back to $$A_{f} = \{\text{ localisation of $A$ at }f\}$$ What we want to do is we essentially want to turn $f$ into an unit. Take $S$ to be all powers of $f$. Then, $S^{-1}A = A_{f}$. \\
+
+This can also be realised as $$\frac{A[X]}{\langle fX-1 \rangle}$$
+
+Now, the question is why are the two notions equivalent. 
+\[\begin{tikzcd}
+	A && B \\
+	& {A_{f}}
+	\arrow["\psi", from=1-1, to=1-3]
+	\arrow["\phi"', from=1-1, to=2-2]
+	\arrow["\pi"', dashed, from=2-2, to=1-3]
+\end{tikzcd}\]
+
+with $$\pi\left( \frac{a}{f^k} \right) = \frac{\psi (a)}{\psi (f)^k}$$
+
+And, 
+
+\[\begin{tikzcd}
+	A && B \\
+	& {\frac{A[X]}{\langle fX - 1 \rangle}}
+	\arrow["\psi", from=1-1, to=1-3]
+	\arrow["\phi"', from=1-1, to=2-2]
+	\arrow["\pi"', dashed, from=2-2, to=1-3]
+\end{tikzcd}\]
+
+with $\pi(X) = \psi(f)^{-1}$ \\
+
+\subsection{Prime ideals of $A_{f}$}
+
+\begin{theorem}
+The prime ideals of $A_{f}$ are precisely $D(f)$ the set of primes not containing $f$.
+\end{theorem}
+
+Consider $A_{S}$ and look at the ideals of $A_{S}$. They are precisely of the form $$\left \{ \frac{x}{s} \mid \;  x \in I \subseteq A, s  \in S \right\}$$
+
+There is a bijection between $$\{ \text{ prime ideals of } A_{S} \} \leftrightarrow \{ \text{prime ideals of } A \text{ not intersecting S} \}$$
+
+
+
+\chapter{Lecture-7 : }
+
+
+
+
+
+
+
 
 
 \part{Algebraic Geometry I}
@@ -1792,6 +1904,94 @@ Suppose $\mathcal{F},\mathcal{F}' : \mathcal{C} \rightarrow \mathcal{C}'$ be two
 \end{enumerate}
 
 Given, $\mathcal{C}, \mathcal{C}'$ then $F(\mathcal{C}, \mathcal{C}')=$ all functors from $\mathcal{C}$ to $\mathcal{C}'$ is a category and $\mathrm{Hom}_{F(\mathcal{C}, \mathcal{C}')}(F_{1},F_{2})=$ all natural transformations from $F_{1}$ to $F_{2}$ 
+
+
+
+\chapter{Lecture-4 (20th January, 2023): Category theory}
+
+
+\section{Category theory contd..}
+\subsection{Equivalence of categories}
+
+Two categories $\mathcal{C},\mathcal{C}'$ are equivalent if there exists functors $$\mathcal{F}: \mathcal{C} \rightarrow \mathcal{C}'  \text{ and } \mathcal{G}: \mathcal{C}' \rightarrow \mathcal{C}$$ and natural transformations $$T : \mathrm{id}_{\mathcal{C}} \rightarrow \mathcal{G} \circ \mathcal{F} \text{ and } T' : \mathrm{id}_{\mathcal{C}'} \rightarrow \mathcal{F} \circ \mathcal{G}$$ which are isomorphisms.
+
+\begin{example}
+\begin{enumerate}
+\item The category of categories with all morphisms being identity is equivalent to the category of sets.
+\item The category 
+\item Consider the category of $A$-modules and let $B = M_{n}(A)$. We claim that $\mathrm{\textbf{Mod}_{A}}$ and $\mathrm{\textbf{Mod}_{B}}$ are equivalent. This is also known as Morita equivalence.
+\end{enumerate}
+\end{example}
+
+\subsection{Products and Co-products}
+
+
+In partially ordered sets, neither product nor co-product might exist. \\
+
+\section{Pre-sheaves and Yoneda lemma}
+
+Suppose $\mathcal{C}$ is a category. Then a presheaf on $\mathcal{C}$ is a contravariant functor $$\mathcal{F} : \mathcal{C} \rightarrow \mathbf{Sets} ( \text{ or }\mathbf{Ab})$$
+The category of presheaves on $\mathcal{C}$ is denoted by $\mathbf{Presh(\mathcal{C})}$\\
+
+Suppose $X \in \mathrm{ob}(\mathcal{C})$. Then we can construct $h_{X} \in \mathbf{Presh}(\mathcal{C})$ such that $h_{X}(Y) = \mathrm{Hom}_{\mathcal{C}}(Y,X)$. Hence, we have a functor $$h : \mathcal{C} \rightarrow \mathbf{Presh}(\mathcal{C})$$ that sends $X \mapsto h_{X}$. This $h$ is called the Yoneda functor. 
+
+\begin{lemma}[Yoneda Lemma]
+For every pre-sheaf $F$ on $\mathcal{C}$ and for all $X \in \mathrm{ob}(\mathcal{C})$, there exists a natural bijection $$\theta_{X}: \mathrm{Hom}_{\mathbf{Presh}(\mathcal{C})}(h_{X}, F) \rightarrow F(X)$$
+\end{lemma}
+
+\begin{proof}
+Suppose we are given $f: h_{X} \rightarrow F$. This is a natural transformation and thus we obtain $$f(X): h_{X}(X) \rightarrow F(X)$$ but $h_{X}(X) = \mathrm{Hom}_{\mathcal{C}}(X,X)$ and $\mathrm{id}_{X} \in \mathrm{Hom}_{\mathcal{C}}(X,X)$. This implies $f(X)(\mathrm{id}_{X}) \in F(X)$ and therefore $\theta_{X}(f) = f(X)(\mathrm{id}_{X}) \in F(X)$. \\
+Now, let us construct the inverse. Construct $$\psi_{X} : F(X) \rightarrow \mathrm{Hom}_{\mathbf{Presh}(\mathcal{C})}(h_{X}, F)$$ Let $\alpha \in F(X)$, we want to define $$h_{X}(Y) \rightarrow F(Y) \; \forall \; Y \in \mathcal{C}$$ But then $f \in h_{X}(Y)=\mathrm{Hom}_{\mathcal{C}}(Y,X)$ implies $F(X) \xrightarrow{F(f)} F(Y) \Rightarrow F(f)(\alpha) \in F(Y)$. \\
+We can easily check that these two maps are inverses which completes the proof.
+\end{proof}
+
+Suppose $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{C}'$ is a functor. Then, $\mathcal{F}$ is called faithful if $$\mathrm{Hom}_{\mathcal{C}}(X,Y) \hookrightarrow \mathrm{Hom}_{\mathcal{C}'} (\mathcal{F}(X), \mathcal{F}(Y)) \; \forall \; X,Y \in \mathrm{ob}(\mathcal{C})$$
+We say that $\mathcal{F}$ is full if this map is an epimorphism and $\mathcal{F}$ is an embedding if $\mathcal{F}$ is fully faithful.
+
+\begin{lemma}
+Yoneda functor is an embedding.
+\end{lemma}
+
+\begin{proof}
+By Yoneda lemma we have $$\mathrm{Hom}_{\mathbf{Presh}(\mathcal{C})}(h_{X}, h_{Y}) = h_{Y}(X)$$ But since $h_{Y}(X) = \mathrm{Hom}_{\mathcal{C}}(X,Y)$, the proof is complete.
+\end{proof}
+
+\subsection{Adjoint functors}
+
+Suppose we have two functors $$\mathcal{F}: \mathcal{C} \rightarrow \mathcal{C}'  \text{ and } \mathcal{G}: \mathcal{C}' \rightarrow \mathcal{C}$$
+The pair $(\mathcal{F}, \mathcal{G})$ is an adjoint pair if for all $X \in \mathrm{ob}(\mathcal{C})$ and $Y \in \mathrm{ob}(\mathcal{C}')$, there exists a natural transformation $$\mathrm{Hom}_{\mathcal{C}}(X, \mathcal{G}(Y)) \xlongrightarrow{\sim} \mathrm{Hom}_{\mathcal{C}'}(\mathcal{F}(X),Y)$$
+
+\begin{example}
+\begin{enumerate}
+\item
+\item
+\end{enumerate}
+\end{example}
+
+\begin{proposition}
+Left adjoint and right adjoint have to be unique (if they exist).
+\end{proposition}
+
+Suppose we have an adjoint pair $(\mathcal{F}, \mathcal{G})$. Then, for every $X \in \mathrm{ob}(\mathcal{C})$ we have (follows from adjoint-ness) $$\mathrm{Hom}_{\mathcal{C}}(X, \mathcal{G}\circ \mathcal{F}(Y)) \xlongrightarrow{\sim} \mathrm{Hom}_{\mathcal{C}'}(\mathcal{F}(X),\mathcal{F}(Y))$$
+This implies there is a canonical map $$u_{X}: X \rightarrow \mathcal{G} \circ \mathcal{F}(X)$$ and this in turn implies the existence of a natural transformation $$u: \mathrm{id}_{\mathcal{C}} \rightarrow \mathcal{G} \circ \mathcal{F}$$ called the unit of adjunction. \\
+Similarly, for all $Y \in \mathrm{ob}(\mathcal{C}')$ we have 
+$$\mathrm{Hom}_{\mathcal{C}}(\mathcal{F}\circ \mathcal{G}(X), Y) \xlongrightarrow{\sim} \mathrm{Hom}_{\mathcal{C}'}(\mathcal{G}(Y),\mathcal{G}(Y))$$
+This implies the existence of a natural transformation $$\epsilon : \mathrm{id}_{\mathcal{C}'} \rightarrow \mathcal{G} \circ \mathcal{F}$$ called the co-unit of adjunction.
+
+
+\begin{definition}
+It is a category $\mathcal{C}$ such that 
+\begin{enumerate}
+\item it admits finite coproduct.
+\item it has a zero product (both final and initial object).
+\item $\mathrm{Hom}_{\mathcal{C}}(X,Y) \in \mathbf{Ab}$ such that $$\mathrm{Hom}_{\mathcal{C}}(X,Y) \times \mathrm{Hom}_{\mathcal{C}}(Y,Z) \rightarrow \mathrm{Hom}_{\mathcal{C}}(X,Z)$$ is bilinear.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+It is an additive category such that every map $f: X \rightarrow Y$ has a kernel and a cokernel.
+\end{definition}
+
 
 
 
