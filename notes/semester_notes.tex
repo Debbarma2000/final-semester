@@ -68,6 +68,16 @@ citecolor= Cerulean
 \newcommand{\ord}{\mathrm{ord}}
 \newcommand{\SL}{\mathrm{SL}}
 \newcommand{\GL}{\mathrm{GL}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Char}{\mathrm{char}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\Tor}{\mathrm{Tor}}
+\newcommand{\iM}{\mathrm{Im}}
+\newcommand{\coker}{\mathrm{Coker}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\bs}{\backslash}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Stab}{\mathrm{Stab}}
 
 %theoremstyles 
 \usepackage[framemethod=TikZ]{mdframed}
@@ -605,6 +615,201 @@ Cusps of $X(\Gamma)$ are just elements of $\Gamma \backslash \PP^1 (\QQ)$.
 $$\mathrm{orbit}(\infty) = \{ \frac{a}{c}: p\mid c , p \nmid a\}, \mathrm{orbit}(1) = \{ \frac{a}{c}:p \nmid c\}$$
 \end{proposition}
 
+\chapter{Lecture-6 (19th January, 2023): Congruence subgroups and enhanced elliptic curves}
+
+\section{Congruence subgroups and modular forms of higher levels}
+
+Suppose $p$ is a prime. 
+\begin{proposition}
+$$\# \left( \Gamma_{0}(p)\backslash^{\PP^1(\QQ)} \right)=2$$
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}
+Let $\Gamma$ be a congruence subgroup, then $\Gamma\backslash^{\PP^1 (\QQ)}$ is finite. (called the cusps of level $\Gamma$). 
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{exercise}
+$$\SL_{2}(\ZZ) = \bigsqcup_{j=0}^{p-1} \alpha_{j} \Gamma_{0}(p) \bigsqcup \alpha_{\infty} \Gamma_{0}(p)$$ where $\alpha_{j} = \begin{pmatrix}
+1 & 0 \\ j & 1
+\end{pmatrix}\; 0 
+le j \le p-1 ,  \alpha_{\infty} = \begin{pmatrix}
+1 & -1 \\ 0 & 1
+\end{pmatrix}$
+\end{exercise}
+
+\textbf{Notation:}Let $f: \mathbb{H} \rightarrow \CC$ be a function. Let $k \in \ZZ$ and $\gamma \in SL_{2}(\RR)$. We define 
+\begin{align*}
+f|_{[\gamma]_{k}} : \mathbb{H} &\rightarrow \CC \\
+\text{ defined by } f|_{[\gamma]_{k}}(z) &= (cz+d)^{-k} f(\gamma \cdot z)
+\end{align*}
+
+With this notation: $f \in M_{k}(\SL_{2}(\ZZ))$ if 
+\begin{itemize}
+\item $f$ is holomorphic on $\mathbb{H}$ and at $\infty$.
+\item $f|_{[\gamma]_{k}}(z) = f(z) \; \forall \; \gamma \in \SL_{2}(\ZZ)$. 
+\end{itemize}
+
+\begin{definition}
+Let $\Gamma$ be a congruence subgroup and $k \in \ZZ$. A modular form of weight $k$ and level $\Gamma$ is a function $f: \mathbb{H} \rightarrow \CC$ such that 
+\begin{enumerate}
+\item $f$ is holomorphic on $\mathbb{H}$.
+\item $f|_{[\gamma]_{k}} = f \; \forall \; \gamma \in \Gamma$.
+\item $f$ is holomorphic at all cusps. \\
+Note that $\begin{pmatrix}
+1 & h \\ 0 & 1
+\end{pmatrix} \in \Gamma$ for some $h \in \ZZ_{>0}$, and if $\Gamma(N) \subseteq \Gamma$ then $h \mid N$. Thus, $$f(z+h) = f(z)$$ and $f $ admits the Fourier expansion $$f(z) = \sum_{n \in \ZZ} a_{n} \exp(2 \pi i n z/h)$$
+$f$ is said to be holomorphic at $\infty$ if $a_{n} =0 \; \forall \; n \le -1$. Suppose $\alpha \in \PP^1(\QQ)$ is a cusp, then there exists $\gamma \in \SL_{2}(\ZZ)$ such that $\gamma \cdot \alpha = \infty$. $f$ is holomorphic at $\alpha$ if $f|_{[\gamma]_{k}}$ is holomorphic at $\infty$.
+\item $f|_{[\gamma]_{k}}$ is holomorphic at $\infty \; \forall \; \gamma \in \SL_{2}(\ZZ)$ 
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+$\Gamma_{1}(p)$ has cusps $0, \infty$. We just need to check 
+\begin{itemize}
+\item $f$ is holomorphic at $\infty$.
+\item $f|_{[\gamma]_{k}}$ is holomorphic at $\infty$.
+\end{itemize}
+\end{example}
+
+\textbf{Notation}: 
+\begin{align*}
+M_{k}(\Gamma) &= \text{ the space of modular forms of weight $k$ and level $\Gamma$} 
+\end{align*}
+
+\begin{definition}
+$f \in M_{k}(\Gamma)$ is said to be a cusp form if $f$ vanishes at all cusps of level $\Gamma$, i.e., $f|_{[\gamma]_{k}}$ vanishes at $\infty \; \forall \; \gamma \in \SL_{2}(\ZZ)$. \\
+
+By $S_{k}(\Gamma)$ we denote the space of all cusp forms of weight $k$ and level $\Gamma$.
+\end{definition}
+
+$M(\Gamma) = \oplus_{k \in \ZZ} M_{k}(\Gamma)$ is the graded ring of modular forms of level $\Gamma$. \\
+
+If $\Gamma_{1} \subseteq \Gamma_{2}$ are two congruence subgroups, then $M_{k}(\Gamma_{2}) \subseteq M_{k}(\Gamma_{1})$. This implies $M_{k}(\SL_{2}(\ZZ)) \subseteq M_{k}(\Gamma)$ for any $\Gamma$.\\
+
+Now, let $\Gamma$ be a congruence subgroup. Define: 
+\begin{align*}
+Y(\Gamma) &= \Gamma \backslash \mathbb{H} \\
+X(\Gamma) &= \Gamma \backslash (\mathbb{H} \cup \PP^1 (\QQ))
+\end{align*}
+These are called modular curves. \\
+
+We saw that $\SL_{2}(\ZZ) \backslash \HH$ parametrises elliptic curves over $\CC$ (upto isomorphism).
+
+
+
+\section{Enhanced elliptic curves}
+Let $N \in \ZZ_{\geq 1}$
+\begin{definition}
+\begin{enumerate}
+\item An enhanced elliptic curve of level $\Gamma_{0}(N)$ is a pair $(E,C)$ where $E$ is an elliptic curve and $C$ is an order $N$ cyclic subgroup of $E(\CC)$. \\
+Morphism between $(E,C)$ and $(E',C')$ is a homomorphism $$\varphi : E \rightarrow E'$$ such that $\varphi (C) = C'$
+\item An enhanced elliptic curve of level $\Gamma_{1}(N)$ is a pair $(E,Q)$ such that  $E$ is an elliptic curve and $Q$ is an order $N$ point on $E(\CC)$. \\
+Morphism between $(E,Q)$ and $(E',Q')$ is a homomorphism $$\varphi : E \rightarrow E'$$ such that $\varphi (Q) = Q'$
+\item An enhanced elliptic curve of level $\Gamma(N)$ is a triplet $(E,Q_{1},Q_{2})$ such that $E$ is an elliptic curve and $Q_{1},Q_{2}$ are points of order $N$ and $$\langle Q_{1} , Q_{2} \rangle = E(\CC)[N] = \{ x \in E(\CC) \mid Nx =0\}$$
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+\begin{enumerate}
+\item $Y(\Gamma_{0}(N))$ parametrizes enhanced elliptic curves of level $\Gamma_{0}(N)$. The map $z\in \HH \mapsto \left( \CC/\Lambda_{z} , \left( 1 + \Lambda_{z} \right)/\Lambda_{z}\right)$ gives a bijection between 
+$$Y (\Gamma_{0}(N)) \leftrightarrow \{\text{ isomorphism classes of enhanced elliptic curves of level } \Gamma_{0}(N)\}$$
+\item $Y(\Gamma_{1}(N))$ parametrizes enhanced elliptic curves of level $\Gamma_{0}(N)$. The map $z\in \HH \mapsto \left( \CC/\Lambda_{z} , \frac{1}{N} \right)$ gives a bijection between 
+$$ (\Gamma_{1}(N)) \leftrightarrow \{\text{ isomorphism classes of enhanced elliptic curves of level } \Gamma_{1}(N)\}$$
+\item $Y(\Gamma(N))$ parametrizes enhanced elliptic curves of level $\Gamma_{0}(N)$. The map $z\in \HH \mapsto \left( \CC/\Lambda_{z} , \frac{1}{N} , \frac{1}{N} \cdot z \right)$ gives a bijection between 
+$$Y (\Gamma(N)) \leftrightarrow \{\text{ isomorphism classes of enhanced elliptic curves of level } \Gamma(N)\}$$
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}
+The action of $\SL_{2}(\ZZ)$ on $\HH$ is properly discontinuous, i.e., for $z_{1},z_{2} \in \HH$ there exists neighbourhoods $U_{i}$ of $z_{i}$ such that if $\gamma \in U_{1}\cap U_{2} \neq 0$, then $\gamma \cdot z_{1} = z_{2}$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\chapter{Lecture-7 (24th January, 2023): Riemann surfaces}
+
+\begin{corollary}
+$Y(\Gamma) = \Gamma \bs \HH$ with the quotient topology is Hausdorff.
+\end{corollary}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}
+$X(\Gamma)$ is compact.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\section{Riemann surfaces}
+
+\begin{definition}
+A Riemann surface consists of the following data: 
+\begin{enumerate}
+\item $X$ is a topological space (Hausdorff + second countable).
+\item $(U_{i},V_{i}, \phi_{i})$ with $V_{i}$ open in $X$, $U_{i}$ open ball in $\CC$ and $\phi: U_{i} \rightarrow V_{i}$ a homeomorphisms such that whenever $V_{i} \cap V_{j} \neq \emptyset$ we have $$\phi_{j}^{-1} \circ \phi_{i} : U_{i} \cap \phi_{i}^{-1}(V_{i} \cap V_{j}) \rightarrow U_{j} \cap \phi_{j}^{-1} (V_{i} \cap V_{j})$$ to be homeomorphisms. 
+\end{enumerate}
+\end{definition}
+
+\textbf{\textcolor{BrickRed}{GOAL}:} To make $X(\Gamma)$ a Riemann surface. That is we want to construct charts on $X(\Gamma)$.
+
+\begin{definition}
+A point $P \in Y(\Gamma)$ is called an elliptic point if for any lift $z$ of $P$ in $\HH$, we have $\Stab_{\Gamma}(z) / \left(  \Stab_{\Gamma}(z) \cap \{\pm I_{2}\} \right)$ is nontrivial. That is to say $\Stab_{\bar{\Gamma}}(z)$ is nontrivial, where $\bar{\Gamma}$ is the image of $\Gamma$ in $\mathrm{PSL}_{2}(\ZZ)$.
+\end{definition}
+
+$P$ is an elliptic point in $Y(\Gamma)$ only if it lifts to a point equivalent to $i = \exp(2 \pi i /4)$ or $\omega  = 2 \pi  i /6$. If $P$ is an elliptic point, then $\Stab_{\bar{\Gamma}}(z)$ has order $2$ or $3$. 
+
+\subsection{Local charts on $Y(\Gamma)$}
+
+\begin{enumerate}
+\item $P \in Y(\Gamma)$ is not an elliptic point. \\
+
+Let $z\in \HH$ be a lift of $P$ and $U_{1},U_{2}$ be neighbourhoods of $z$. Put $U=U_{1} \cup U_{2}$. If $\gamma U \cap U \neq \emptyset$, then the image set of $Y$ in $\bar{\Gamma}$ is identity. 
+$$\pi : \HH \rightarrow Y(\Gamma)$$
+Put $\gamma   = \pi (U)$. Then, $\pi|_{U} : U \rightarrow V$ is a homeomorphism. 
+
+\item Let $P \in Y(\Gamma)$ be an elliptic point. Let $z\in \HH$ such that $\pi(z) = P$. Same as previous case get $U_{1},U_{2}$ and define $U$ as the the union of the two. \\
+Now, if $\gamma U \cap U \neq \emptyset$ then $\gamma \in \Stab_{\bar{\Gamma}}(z)$. \\
+Set $V= \pi (U)$. Notice that here $\pi|_{U}: U \rightarrow V$ need not be a homeomorphism. We instead have 
+\[\begin{tikzcd}
+	U & {U'=U/\mathrm{Stab}_{\bar{\Gamma}}(z)} \\
+	V
+	\arrow["{\pi|_{U} }"', from=1-1, to=2-1]
+	\arrow[from=1-1, to=1-2]
+	\arrow["\simeq", from=1-2, to=2-1]
+\end{tikzcd}\]
+
+\item We next want to extend this to cusps of $X(\Gamma)$. \\
+For $\SL_{2}(\ZZ)$ we have already seen a local chart $z\mapsto \exp(2 \pi i z)$. In general, take any cusp $P$ of $X(\Gamma)$. Take $\gamma \in \SL_{2}(\ZZ)$ such that $\gamma P = \infty$. Use the local charts at $\infty$.
+\end{enumerate}
+Hence, $X(\Gamma)$ is a compact Riemann surface. \\
+
+Next, we wish to compute genus of $X(\Gamma)$. \\
+Genus $\mathfrak{g}$ of $X(\Gamma)$ is an integer such that 
+\begin{align*}
+H^1(X(\Gamma), \ZZ) &\cong \ZZ^{2g} \\
+H_{1}(X(\Gamma), \ZZ) &\cong \ZZ^{2g}
+\end{align*}
+
+
+\chapter{Lecture-8 (2nd February, 2023): }
 
 
 
@@ -880,7 +1085,7 @@ $\phi$ is not regular at $[0:0:1]$. $[0:0:1]$ is a singular point of $V$ which i
 $V_{1}: X^2 + Y^2 = Z^2 , V_{2}: X^2 + Y^2 = 3Z^2$. $V_{1} \not \cong V_{2}$ over $\QQ$ but $V_{1}\cong V_{2}$ over $\QQ(\sqrt{3})$.
 \end{example}
 
-\chapter{Lecture-5 (17th January, 2023):}
+\chapter{Lecture-5 (17th January, 2023): Algebraic curves}
 
 \section{Curves}
 
@@ -993,6 +1198,14 @@ This proposition is not true if either $\dim(C) > 1$ or $p$ is singular
 \end{example}
 
 
+\chapter{Lecture-6 (19th January, 2023):}
+
+
+\chapter{Lecture-7 (24th January, 2023):}
+
+\chapter{Lecture-8 (31st January, 2023): }
+
+\chapter{Lecture-9 (2nd February, 2023): }
 
 
 
@@ -1215,7 +1428,7 @@ $X^{*}$ is also spectral.
 \end{proof}
 
 
-\chapter{Lecture-5 (17th January, 2023): Noetherian spaces}
+\chapter{Lecture-4 (17th January, 2023): Noetherian spaces}
 
 \section{Noetherian spaces}
 
@@ -1262,7 +1475,7 @@ A question we can ask is when is the direct sum of injective modules injective.
 Direct sum of injective modules is injective iff the module is Noetherian.
 \end{proposition}
 
-\chapter{Lecture-6 (19th January 2023):}
+\chapter{Lecture-5 (19th January 2023):}
 
 Suppose $A$ is a commutative ring and $M$ an $A$-module. \\
 Define $\mathrm{Sub}(M)=$ to be the set of all submodules of $M$. For any finite collection $m_{1}, \hdots , m_{k} \in M$, we next define 
@@ -1364,8 +1577,108 @@ Consider $A_{S}$ and look at the ideals of $A_{S}$. They are precisely of the fo
 There is a bijection between $$\{ \text{ prime ideals of } A_{S} \} \leftrightarrow \{ \text{prime ideals of } A \text{ not intersecting S} \}$$
 
 
+\chapter{Lecture-6 (24th January, 2023): Localisation of modules, exact sequences}
 
-\chapter{Lecture-7 : }
+\section{Localisation contd..}
+
+Suppose $M$ is an $A$-module. And $S\subseteq A$ be a multiplicative set. Then, the localisation $$M_{S} = \{\text{equivalence classes of all elements of the form } \frac{m}{s}\}$$ with $\frac{m}{s} \sim \frac{m'}{s'}$ if there exists $t\in S$ such that $t(s'm - m's)=0$. This can be made into a module by standard operations. 
+
+\begin{lemma}
+$M_{S}$ is an $A_{S}$-module.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+Some natural questions to ask are if $I \subseteq A$ is an ideal, whether 
+\begin{align*}
+\left( \frac{A}{I} \right)_{S} &\overset{?}{\cong} \frac{A_{S}}{I_{S}} \\
+\text{More generally } \left( \frac{M}{M'} \right)_{S} &\overset{?}{\cong} \frac{M_{S}}{M_{S}'}
+\end{align*}
+
+
+We will need to introduce exact sequences to answer these questions.
+
+\section{Exact sequences}
+Suppose $$f: M \rightarrow N$$ Then, 
+\begin{align*}
+\ker(f) &= \{m \in M : f(m)=0\} \\
+\coker &= N/\iM(f)
+\end{align*}
+
+This can be captured in the following diagram : 
+\[\begin{tikzcd}
+	{\mathrm{Ker}(f)} & M & N & {\mathrm{Coker}(f)} \\
+	& P & Q
+	\arrow["i", from=1-1, to=1-2]
+	\arrow["\pi", from=1-3, to=1-4]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", tail reversed, no head, from=1-2, to=2-2]
+	\arrow["{\exists \; !}", dashed, from=2-2, to=1-1]
+	\arrow["h", from=1-3, to=2-3]
+	\arrow[dashed, from=1-4, to=2-3]
+\end{tikzcd}\]
+
+Here, $$M/\ker(f) \cong \iM(f)$$ is equivalent to saying $\coker(i) = \ker(\pi)$. This leads to the definition
+\begin{definition}
+$$M' \xrightarrow{f} M \xrightarrow{g} M''$$ is exact at $M$ if $\iM(f) = \ker(g)$.
+\end{definition}
+
+\begin{lemma}
+\begin{enumerate}
+\item $$0 \rightarrow M' \xrightarrow{f} M$$ being exact means $f$ is injective.
+\item $$M \xrightarrow{g} M'' \rightarrow 0$$ being exact means $g$ is surjective.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}
+A short exact sequence is a sequence of the form $$0 \rightarrow A \xrightarrow{f} B \xrightarrow{g} C \rightarrow 0$$ is exact everywhere.
+\end{definition}
+
+\begin{proposition}
+If  $$0 \rightarrow M' \xrightarrow{f} M \xrightarrow{g} M'' \rightarrow 0$$ is exact, then $$0 \rightarrow M_{S}' \xrightarrow{f_{S}} M_{S} \xrightarrow{g_{S}} M_{S}'' \rightarrow 0$$ is exact
+\end{proposition}
+
+Next, take $\pr \subseteq A$ be a prime ideal and $A\backslash \pr$ be the multiplicative set $S$. We denote $M_{S}$ by $M_{\pr}$.
+\begin{itemize}
+\item If $M=0$, then $M_{\pr} =0$ for all prime ideals $\pr$. This implies $M_{\m} =0$ for all maximal ideals $\m$.
+\item If $M_{\m} =0 \; \forall \; \m \Rightarrow M=0$.
+\item If $M \xrightarrow{f} N$ is an isomorphism iff $M_{\m} \xrightarrow{f_{\m}} N_{\m}$ is an isomorphism for all maximal ideals $\m$.
+\end{itemize}
+
+\begin{definition}
+Suppose $$M \xrightarrow{f} N$$ Then, $f$ is a monomorphism means 
+\[\begin{tikzcd}
+	T & M & N
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-1, to=1-2]
+	\arrow[from=1-1, to=1-2]
+	\arrow["h"', shift right=2, from=1-1, to=1-2]
+\end{tikzcd}\] such that $f\circ g = f\circ h \Rightarrow g=h$. \\
+
+Epimorphism is the dual of this.
+\end{definition}
+
+\begin{remark}
+For sets, these mean injection and surjection but monomorphism and epimorphism need not mean isomorphism in a random category. 
+\end{remark}
+
+\chapter{Lecture-7 (31st January, 2023): }
+
+
+
+
+
+
+
+
+
+\chapter{Lecture-8 (2nd February, 2023): }
 
 
 
@@ -1991,6 +2304,467 @@ It is a category $\mathcal{C}$ such that
 \begin{definition}
 It is an additive category such that every map $f: X \rightarrow Y$ has a kernel and a cokernel.
 \end{definition}
+
+
+\chapter{Lecture-5 (23rd January, 2023): Etale morphisms}
+
+Let $A$ be a commutative ring and $M$ be a $A$-module. 
+
+\begin{definition}
+$M$ is flat if $$N \hookrightarrow N' \Rightarrow N \times M \hookrightarrow N' \times M$$
+\end{definition}
+
+\begin{definition}
+$M$ is faithfully-flat if $M$ is flat and  $$N =0 \Leftrightarrow N \times_{A} M =0$$
+\end{definition}
+
+\begin{definition}
+$M$ is projective if it is a direct summand of a free $A$-module. Or equivalently,
+
+\begin{align*}
+N \twoheadrightarrow N' &\Rightarrow \Hom(M, N) \twoheadrightarrow \Hom(M, N')\\
+\Leftrightarrow \mathrm{Ext}_{A}^{i} (M,N) &= 0 \; \forall i >0 \; \forall \; N
+\end{align*}
+\end{definition}
+
+\begin{lemma}
+Suppose $A$ is Noetherian and $M$ is a finitely generated $A$-module. TFAE: 
+\begin{enumerate}
+\item $M$ is projective.
+\item $M$ is flat.
+\item $M_{\m}$ is flat for all maximal ideals $\m$.
+\item $M_{\m}$ is free for all maximal ideals $\m$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+Let $k$ be a field and $A$ a $k$-algebra.
+
+\begin{definition}
+$A$ is called separable over $k$ if $A \otimes_{k} k'$ is reduced for all field extensions $k' /k$.
+\end{definition}
+
+\begin{lemma}
+$A$ is separable over $k$ iff every finitely generated subalgebra is separable over $k$.
+\end{lemma}
+
+\begin{proposition}
+Assume that $A$ is finite dimensional over $k$. TFAE:
+\begin{enumerate}
+\item $A$ is separable over $k$.
+\item $\overline{A}: = A \otimes_{k} \overline{k} = \prod_{i=1}^n \bar{k}$.
+\item $A = \prod_{i=1}^n k_{i}$ where $k_{i}/k$ is a finite separable field extension.
+\item The trace form $A \times A \rightarrow k ((w,w') \mapsto \mathrm{Tr}_{A/k}(ww'))$ is non-degenerate.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\section{Kahler Differentials}
+
+Let $A$ be a commutative ring and $M$ an $A$-module. A derivative $D : A \rightarrow M$ is an abelian group homomorphism such that $$D(ab) = aD(b) + D(a)b$$
+Let $$\mathrm{Der}(A,M) = \text{ the set of derivations from } A \text{ to } M$$
+
+If $A$ is a $k$-algebra where $k$ is a commutative ring, then we say that $D$ is a $k$-derivation if $D(k)=0$ \\
+
+More notation: Let $\mathrm{Der}_{k}(A,M)$ be the set of all $k$-derivations and $\mathrm{Der}_{k}(A) = \mathrm{Der}_{k}(A,A)$\\
+
+We can make $\mathrm{Der}(A,M)$ is an $A$-module so that $$(a\cdot D)(b) = aD(b)$$
+
+Suppose $$D: A \rightarrow M$$ then 
+\begin{align*}
+D(\ZZ) &= 0 \\
+\mathrm{Der}(A,M) &= \mathrm{Der}_{\ZZ}(A,M)
+\end{align*}
+
+Take $D,D' \in \mathrm{Der}_{k}(A)$, then we can define the bracket $[-,-]$ as $$[D,D'] = DD' - D'D$$ This converts $\mathrm{Der}_{k}(A)$ into a Lie algebra 
+
+\begin{remark}
+\begin{enumerate}
+\item $d(a^n) = na^{n-1}d(a)$
+\item $d^{n}(ab) = \sum_{i=0}^{n} \binom{n}{i} d^{i} a d^{n-i} b$
+\end{enumerate}
+In particular, if $\mathrm{char}(A)=p > 0$ then 
+\begin{enumerate}
+\item $d^{p}(ab) = ad^{p}b + bd^{p}(a) \Rightarrow d^p$ is a $k$-derivation.
+\item $d^{p}(a+b) = d^p a + d^p b$ 
+\end{enumerate}
+\end{remark}
+
+Clearly, $\mathrm{Der}_{k}(A, -): A-\mathrm{mod} \rightarrow A-\mathrm{mod}$ is a covariant functor.
+
+\begin{proposition}
+$\mathrm{Der}_{k}(A,-)$ is a representable functor.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\chapter{Lecture-6 (25th January, 2023):Kahler Differentials}
+
+\section{Differentials and Derivations}
+
+\begin{theorem}
+There exists an unique $A$-module (upto isomorphism) $\Omega_{A/k}'$ with a $k$-derivation $d_{A/k}: A \rightarrow \Omega_{A/k}'$ such that for all $A$-modules $M$ and a $k$-derivation $D: A \rightarrow M$, $\exists ! A$-linear map $\varphi : \Omega_{A/k}' \rightarrow M$ such that $D = \varphi \circ d_{A/k}$ $$\mathrm{Der}_{k}(A,M) \xrightarrow{\sim} \Hom_{A}(\Omega_{A/k}' , M)$$
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}
+A square zero extension of $k$-algebras is a surjection of $k$-algebras $g: B \twoheadrightarrow C$ such that $M^2 = 0$ where $M = \ker(g)$. \\
+We can think of $B$ as the manifold $C$ plus some other tangent directions. $B$ is some kind of thickening of $C$ in the spec level.
+\end{definition}
+
+\begin{example}
+Suppose $M \in \mathbf{Mod}_{A}$ and $B = A \oplus M$. Addition and multiplication are defined as follows: 
+\begin{align*}
+(a,m) + (a',m') &= (a+a', m + m')\\
+(a,m) \cdot (a',m') &= (aa' , am' + a'm)
+\end{align*}
+
+Here, 
+\[\begin{tikzcd}
+	0 & M & B & A & 0 \\
+	&& {(a,m)} & a
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\varphi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[maps to, from=2-3, to=2-4]
+\end{tikzcd}\]
+is a square zero extension. We wish to ask when does the following lift exist. 
+ \[\begin{tikzcd}
+	0 & M & B & C & 0 \\
+	&& A
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\varphi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["g", from=2-3, to=1-4]
+	\arrow["{?}", dashed, from=2-3, to=1-3]
+\end{tikzcd}\]
+Suppose we are given a lift $h: A \rightarrow B$ of $g$ and $h'$ is another lift of $g$. Then, 
+\[\begin{tikzcd}
+	{D:= h-h' :A} & B \\
+	& M
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-2]
+	\arrow[hook, from=2-2, to=1-2]
+\end{tikzcd}\]
+$M$ is a $C$-module ($M = M/M^2 = M \otimes B/M = C$ is a $C$-module). So, $M$ is also an $A$-module via the map $g$. \\
+
+\textbf{Claim}: $D \in \mathrm{Der}_{k}(A,M)$ \\
+\begin{proof}
+
+\end{proof}
+Conversely, if $D \in \mathrm{Der}_{k}(A,M)$, then $h' = h + D$ is also a lift. 
+\end{example}
+
+\begin{proof}[Proof of main theorem]
+\begin{enumerate}
+\item Consider the map $A\otimes_{k} A \xrightarrow{\mu} A$ such that $a \otimes b \mapsto ab$. $\mu$ is a surjective $k$-algebra homomorphism. Let $I = \ker(\mu)$ and $B = A \otimes_{k} A/I^2$. We obtain the following square zero extension
+\[\begin{tikzcd}
+	0 & {I/I^2} & B & A & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\varphi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+Let $\Omega_{A/k}' := I/I^2$ is the module of Kahler differentials. \\
+$\Omega_{A/k}$ the canonical sheaf of diagonal embedding of $X \hookrightarrow X \times X$\\
+Define 
+\begin{align*}
+\alpha_{1}: A \rightarrow B & \alpha_{1}(a) = a\otimes 1 \pmod{I^2} \\
+\alpha_{2}: A \rightarrow B & \alpha_{2}(a) = 1\otimes a \pmod{I^2}
+\end{align*}
+We obtain the following diagram that commutes
+\[\begin{tikzcd}
+	0 & {\Omega_{A/k}'} & B & A & 0 \\
+	&& A
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\varphi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{\alpha_{i}}", from=2-3, to=1-3]
+	\arrow["{\mathrm{id}}"', from=2-3, to=1-4]
+\end{tikzcd}\]
+Next, define $d_{A/k} = \alpha_{1} - \alpha_{2}$.\\
+Let $M \in \mathbf{Mod}_{A}$ and $D: A \rightarrow M$ a $k$-derivation. \\
+Now, define
+\begin{align*}
+\theta: A \otimes_{k} A &\rightarrow A *M (= A \oplus M) \text{ a square zero extension}\\
+a\otimes b &\mapsto (ab, aDb)
+\end{align*}
+\textbf{Claim}:  $\theta(I) \hookrightarrow M$
+\begin{proof}
+Suppose $\sum x_{i} \otimes y_{i} \in I \Rightarrow \sum x_{i}y_{i} = 0 \in A$. This implies $\theta(\sum x_{i}\otimes y_{i}) = (\sum x_{i}y_{i}=0 , \sum x_{i} Dy_{i}) \in M$. Therefore, $$\theta (I/I^2) \hookrightarrow M/M^2 = M$$
+Thus $\theta$ descends to a map $$\tilde{\theta} : I/I^2 \rightarrow M$$ or $\tilde{\theta} : \Omega_{A/k}' \rightarrow M$
+\end{proof}
+\textbf{Claim}:  $\tilde{\theta}$ is unique such that $\tilde{\theta} \circ d_{A/k} = D : A \rightarrow M$
+\begin{proof}
+Suffices to show that $\Omega_{A/k}'$ is generated by $\langle da : a \in A \rangle$ as an $A$-module. 
+\begin{align*}
+a\otimes a' &= (a \otimes 1)(-a' \otimes 1 + 1 \otimes a') + aa' \otimes 1 & &\\
+\alpha \in \Omega_{A/k}' &\Rightarrow \alpha = \sum x_{i} \otimes y_{i} &\text{ such that } \sum x_{i}y_{i} = 0 \\
+&\Rightarrow \alpha = \sum x_{i}dy_{i}
+\end{align*}
+\end{proof}
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+$$\Omega_{A/k}' = \frac{\text{ free module on } da}{\text{ additivity + Leibnitz rule}}$$
+In particular, $\mathrm{Der}_{k}(A) = \Omega_{A/k}^{'*} = \Hom(\Omega_{A/k}',A) = T_{A/k}$ (tangent space)
+\end{corollary}
+
+
+\begin{definition}
+We say that $A$ is formally smooth over $k$ if given any square zero extension \[\begin{tikzcd}
+	0 & M & B & A & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\varphi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\] and a diagram of $k$-algebras, there exists a lifting $\tilde{g}$ of $g$ 
+\[\begin{tikzcd}
+	k & C \\
+	B & A
+	\arrow[from=1-1, to=2-1]
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["\varphi"', from=2-1, to=2-2]
+	\arrow["g", from=1-2, to=2-2]
+	\arrow["{\tilde{g}}", dashed, from=1-2, to=2-1]
+\end{tikzcd}\]
+\end{definition}
+
+\begin{definition}
+We say that $A$ is formally unramified over $k$ if $g$ has atmost one lift. \\
+We say that $A$ is formally \'{e}tale over $k$ if $A$ is formally smooth and formally unramified.
+\end{definition}
+
+\begin{definition}
+We say that $A$ is smooth (resp. unramified, \'{e}tale) if it is formally smooth (unramified, \'{e}tale) and finite type over $k$.
+\end{definition}
+
+\begin{exercise}
+$A= k[X_{1}, \hdots , X_{n}], \Omega_{A/k}' = ?$ \\
+\textbf{Claim}: There is a canonical isomorphism of $A$-modules $$\theta : \underbrace{AdX_{1} \oplus \cdots \oplus AdX_{n}}_{F} \xrightarrow{\sim} \Omega_{A/k}'$$ 
+\begin{lemma}
+Suppose $U \subseteq A$ is any set that generates $A$ as $k$-algebra. Then, $\Omega_{A/k}'$ is generated by $\{da: a\in A\}$ as $A$-module. 
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+This lemma implies the map is surjective. \\
+Next, define $D_{i}: A \rightarrow A$ such that $f \mapsto \ds{\frac{\partial d}{\partial x_{i}}(f)}$. \\
+This gives an unique $A$-linear map $\psi_{i}: \Omega_{A/k}' \rightarrow A$. Define $\psi: \Omega_{A/k}' \rightarrow F$ such that $\psi = \sum_{i=1}^n \psi_{i}$. This implies $\psi \circ \theta = \mathrm{id}_{F}$. Hence, $\psi$ is injective. 
+\end{exercise}
+
+
+\chapter{Lecture-7 (30th January, 2023): Module of differentials}
+
+\begin{lemma}
+$A$ is formally unramified iff $\Omega_{A/k}^{1} = 0$.
+\end{lemma}
+
+\begin{proof}
+Suppose that $\Omega_{A/k}^{1} =0$. Let 
+\[\begin{tikzcd}
+	0 & M & B & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\varphi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\] be a square zero extension. We had seen that all liftings of $f: A \rightarrow C$ differ by $\mathrm{Der}_{k}(A,M) = \Hom_{A}(\Omega_{A/k}^{1}, M)$. This implies there is atmost one lifting of $f$ and this concludes what we want. \\
+
+For the other direction, suppose $A$ is formally unramified over $k$. Recall $$\mu: A \otimes_{k} A \rightarrow A$$ $$I = \ker(\mu)$$ and 
+\[\begin{tikzcd}
+	0 & I/I^2 = \Omega_{A/k}^{1} & B = (A \otimes_{k} A)/I^2 & C & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\varphi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+We had two liftings from $A$ to $B$, $\alpha_{1},\alpha_{2}$ namely $\alpha_{1}(a) = a\otimes 1, \alpha_{2}(a) = 1 \otimes a$ and $d_{A/k} = \alpha_{1} - \alpha_{2}$. Since $A$ is formally unramified, $d_{A/k} = 0$ which implies $\Omega_{A/k}^{1} = 0$.
+\end{proof}
+
+\begin{exercise}
+Suppose $K/k$ be a finite separable extension. We claim that this extension is formally unramified. 
+\end{exercise}
+
+\begin{lemma}
+If $k \xrightarrow{f} A $ is of finite type ($k$ is a ring), then $\Omega_{A/k}^{1}$ is a finitely generated $A$-module.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{example}
+If $A$ is a commutative ring, $S$ a multiplicatively closed subset of $A$, $B = S^{-1}A$. Then, $A \rightarrow B$ is formally etale. \\
+
+\textbf{Formally unramified:} Enough to show that $$d_{A/k}(fg^{-1}) = 0 \; \forall \; f \in A , g\in S$$ But this means 
+\begin{align*}
+d_{B/A}(fg^{-1}) &= fd_{A/B} (g^{-1}) + g^{-1}d_{B/A}(f) \\
+&= fd_{A/B}(g^{-1}) \\
+gd_{A/B}(g^{-1}) + g^{-1}d_{A/B}(g) &= 0 \\
+\Rightarrow gd_{A/B}(g^{-1}) &= 0 \\
+\Rightarrow d_{B/A}(g^{-1}) &= 0
+\end{align*}
+Next, \\
+\textbf{Formally unramified:}
+\[\begin{tikzcd}
+	0 & M & C & {C'} & 0 \\
+	\\
+	& A & B
+	\arrow["g", from=3-2, to=1-3]
+	\arrow["{\tilde{f}}"', dashed, from=3-3, to=1-3]
+	\arrow["\theta"', from=3-2, to=3-3]
+	\arrow[from=3-2, to=3-3]
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\varphi"', from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["f"', from=3-3, to=1-4]
+\end{tikzcd}\]
+\begin{align*}
+\tilde{f} \text{ exists } &\Leftrightarrow g(s) \in C^{\times} \;\forall \; g \in S \\
+&\Leftrightarrow \varphi g(s) = f\theta(s) \in C'^{\times}
+\end{align*}
+Then use the lemma stated after this example.
+\end{example}
+
+\begin{lemma}
+If \[\begin{tikzcd}
+	0 & I & C & C' & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\varphi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\] is an extension of rings such that $I$ is nilpotent. Then $a\in C^{\times} \Leftrightarrow \varphi(a) \in C'^{\times}$.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}[First fundamental theorem for module of differentials]
+Let \[\begin{tikzcd}
+	k & A & B
+	\arrow["f"', from=1-1, to=1-2]
+	\arrow["g"', from=1-2, to=1-3]
+\end{tikzcd}\] be ring homomorphisms. Then, \[\begin{tikzcd}
+	{\Omega_{A/k}^{1} \otimes_{A} B } & {\Omega_{B/k}^{1}} & {\Omega_{B/A}^{1}} & 0
+	\arrow["\alpha", from=1-1, to=1-2]
+	\arrow["\beta", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\] is exact. Moreover, it is split exact if $B$ is formally smooth over $A$. Here, $\alpha(ad_{A/k}a' \otimes b') = bad_{B/k}(a'), \beta(ad_{B/k}b) = ad_{B/A}(b)$.
+\end{theorem}
+
+\begin{proof}
+We know that a sequence of $B$-modules \[\begin{tikzcd}
+	{N'} & N & {N''}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+\end{tikzcd}\] is exact iff \[\begin{tikzcd}
+	{\mathrm{Hom}_{B}(N'',M)} & {\mathrm{Hom}_{B}(N,M)} & {\mathrm{Hom}_{B}(N',M)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+\end{tikzcd}\] is exact for all $B$-module $M$. \\
+
+Thus, we just need to check that \[\begin{tikzcd}
+	{\mathrm{Hom}_{B}(\Omega_{B/A}^{1},M)} & {\mathrm{Hom}_{B}(\Omega_{B/k}^{1},M)} & {\mathrm{Hom}_{B}(\Omega_{A/k}^{1} \otimes_{A} B,M)} = {\mathrm{Hom}_{A}(\Omega_{A/k}^{1},M)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+\end{tikzcd}\] is exact. But this is equivalent to checking \[\begin{tikzcd}
+	{\mathrm{Der}_{A}(B,M)} & {\mathrm{Der}_{k}(B,M)} & {\mathrm{Der}_{k}(A,M)}
+	\arrow["{\beta^*}", from=1-1, to=1-2]
+	\arrow["{\alpha^*}", from=1-2, to=1-3]
+\end{tikzcd}\] is exact. \\
+
+Next, assume that $B$ is formally smooth over $A$. We need to show that $\alpha^*$ is surjective. Let $D\in \mathrm{Der}_{k}(A,M)$. We know that the diagram \[\begin{tikzcd}
+	B && B \\
+	\\
+	A && {B*M = B \oplus M}
+	\arrow["{\mathrm{id}}", from=1-1, to=1-3]
+	\arrow["{p_{1}}"', from=3-3, to=1-3]
+	\arrow["g", from=3-1, to=1-1]
+	\arrow["\varphi"', from=3-1, to=3-3]
+\end{tikzcd}\] commutes. But $B * M$ is a square zero extension. Thus, we get a map $B \rightarrow B *M$ such that diagram \[\begin{tikzcd}
+	B && B \\
+	\\
+	A && {B*M = B \oplus M}
+	\arrow["{\mathrm{id}}", from=1-1, to=1-3]
+	\arrow["{p_{1}}"', from=3-3, to=1-3]
+	\arrow["g", from=3-1, to=1-1]
+	\arrow["\varphi"', from=3-1, to=3-3]
+	\arrow["\theta", from=1-1, to=3-3]
+\end{tikzcd}\]
+commutes. Here, $\varphi(a) = (ga, Da)$. We write $\theta (b) = (b, D'b)$. \\
+
+\textbf{Claim}: $D'$ is a $k$-derivation from $B$ to $M$. \\
+
+It is clear that $D' \circ g = D$. This is equivalent to a $B$-linear map $\alpha ' : \Omega_{B/k}^{1} \rightarrow M$. Define 
+\begin{align*}
+D: A &\rightarrow \Omega_{A/k}^{1} \otimes_{A} B \\
+D(a) &= d_{A/k}(a) \otimes 1
+\end{align*}
+
+Check that $D\in \mathrm{Der}_{k}(A, \Omega_{A/k}^{1} \otimes_{A} B)$. This implies the existence of an extension $D' : B \rightarrow \Omega_{A/k}^{1} \otimes_{A} B$ such that $D' \circ g = D$ iff a $B$-linear map $\alpha ' : \Omega_{B/k}^{1} \rightarrow \Omega_{A/k}^{1} \otimes_{A} B$ such that $\alpha' \circ g = \alpha$. \\
+
+\textbf{Claim}: $\alpha' \circ \alpha = \mathrm{id}$\\
+
+This concludes the proof.
+\end{proof}
+
+Suppose \[\begin{tikzcd}
+	{k } & A & B
+	\arrow["g", two heads, from=1-2, to=1-3]
+	\arrow["f", from=1-1, to=1-2]
+\end{tikzcd}\] 
+
+From the previous theorem, we get \[\begin{tikzcd}
+	{\Omega_{A/k}^{1} \otimes_{A} B } & {\Omega_{B/k}^{1}} & {\Omega_{B/A}^{1}}=0 & 0
+	\arrow["\alpha", from=1-1, to=1-2]
+	\arrow["\beta", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\] is exact. Or rather \[\begin{tikzcd}
+	{\Omega_{A/k}^{1} \otimes_{A} B } & {\Omega_{B/k}^{1}} &  0
+	\arrow["\alpha", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+\end{tikzcd}\] is exact. What is the kernel of this map? 
+
+\begin{theorem}[Second fundamental theorem of module of differentials]
+Let $I = \ker(A \twoheadrightarrow B)$. Then, there exists an exact sequence \[\begin{tikzcd}
+	{I/I^2} & {\Omega_{A/k}^{1} \otimes_{A} B} & {\Omega_{B/k}^{1}} & 0
+	\arrow[two heads, from=1-2, to=1-3]
+	\arrow["\delta", from=1-1, to=1-2]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\] where $\delta(a) = d_{A/k} (a) \otimes 1$. Moreover, this sequence is split exact if $B$ is formally smooth over $k$.
+\end{theorem}
+
+\begin{example}
+Let $B = k[X_{1},X_{2}, \hdots , X_{n}]/\langle f_{1}, \hdots , f_{n} \rangle$. Then, what is $\Omega_{B/k}^{1}$. \\
+
+If $A = k[X_{1}, X_{2}, \hdots , X_{n}]$. Then, $$\Omega_{A/k}^{1} = Adx_{1} \oplus \cdots \oplus Adx_{n}$$ 
+$X= \spec(A), Y = \spec(B = A/I)$
+\end{example}
+
+
+\chapter{Lecture-8 (1st February, 2023):}
+
+
+
+
+
 
 
 

@@ -13,57 +13,78 @@
 \contentsline {chapter}{\numberline {5}Lecture-5 (17th January, 2023): Congruence subgroups and $\Delta $ function}{13}{chapter.5}%
 \contentsline {section}{\numberline {5.1}$\Delta $ function}{13}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Congruence subgroup}{14}{section.5.2}%
-\contentsline {part}{\numberline {II}Elliptic Curves}{17}{part.2}%
-\contentsline {xpart}{Elliptic Curves}{18}{part.2}%
-\contentsline {chapter}{\numberline {6}Lecture-1 (3rd January): Introduction}{18}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Lecture-2 (5th January, 2023): Affine varieties}{19}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Affine Varieties}{19}{section.7.1}%
-\contentsline {chapter}{\numberline {8}Lecture-3 (10 January, 2023): Projective varieties}{20}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Projective varieties}{20}{section.8.1}%
-\contentsline {chapter}{\numberline {9}Lecture-4 (12th January, 2023): Projective varieties and maps between varieties}{24}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Projective varieties contd..}{24}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Maps between varieties}{25}{section.9.2}%
-\contentsline {chapter}{\numberline {10}Lecture-5 (17th January, 2023):}{28}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Curves}{28}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Morphism between curves}{30}{section.10.2}%
-\contentsline {part}{\numberline {III}Basic Algebraic Geometry}{32}{part.3}%
-\contentsline {xpart}{Basic Algebraic Geometry}{33}{part.3}%
-\contentsline {chapter}{\numberline {11}Lecture-1 (5th January): Introduction}{33}{chapter.11}%
-\contentsline {chapter}{\numberline {12}Lecture-2 (10 January, 2023): Ideals and Zariski topology}{34}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Ideals}{34}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Zariski topology}{34}{section.12.2}%
-\contentsline {chapter}{\numberline {13}Lecture-3 (12th January): Zariski topology}{37}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Zariski topology contd..}{37}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Identify closed irreducible subsets of $\mathrm {Spec}(R)$}{38}{section.13.2}%
-\contentsline {chapter}{\numberline {14}Lecture-5 (17th January, 2023): Noetherian spaces}{40}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Noetherian spaces}{40}{section.14.1}%
-\contentsline {chapter}{\numberline {15}Lecture-6 (19th January 2023):}{42}{chapter.15}%
-\contentsline {section}{\numberline {15.1}Localisation}{42}{section.15.1}%
-\contentsline {subsection}{\numberline {15.1.1}Prime ideals of $A_{f}$}{44}{subsection.15.1.1}%
-\contentsline {chapter}{\numberline {16}Lecture-7 :}{45}{chapter.16}%
-\contentsline {part}{\numberline {IV}Algebraic Geometry I}{46}{part.4}%
-\contentsline {xpart}{Algebraic Geometry I}{47}{part.4}%
-\contentsline {chapter}{\numberline {17}Lecture-1 (9th January, 2023): Topological properties and Zariski Topology}{47}{chapter.17}%
-\contentsline {section}{\numberline {17.1}Topological properties}{47}{section.17.1}%
-\contentsline {section}{\numberline {17.2}Zariski Topology}{52}{section.17.2}%
-\contentsline {chapter}{\numberline {18}Lecture-2 (11th January, 2023): Zariski topology and affine schemes}{54}{chapter.18}%
-\contentsline {section}{\numberline {18.1}Zariski topology contd..}{54}{section.18.1}%
-\contentsline {section}{\numberline {18.2}Affine schemes}{54}{section.18.2}%
-\contentsline {subsection}{\numberline {18.2.1}Fiber products of affine schemes}{56}{subsection.18.2.1}%
-\contentsline {chapter}{\numberline {19}Lecture-3 (16th January, 2023): Category theory brushup}{58}{chapter.19}%
-\contentsline {section}{\numberline {19.1}Categories and functors}{61}{section.19.1}%
-\contentsline {chapter}{\numberline {20}Lecture-4 (20th January, 2023): Category theory}{63}{chapter.20}%
-\contentsline {section}{\numberline {20.1}Category theory contd..}{63}{section.20.1}%
-\contentsline {subsection}{\numberline {20.1.1}Equivalence of categories}{63}{subsection.20.1.1}%
-\contentsline {subsection}{\numberline {20.1.2}Products and Co-products}{63}{subsection.20.1.2}%
-\contentsline {section}{\numberline {20.2}Pre-sheaves and Yoneda lemma}{63}{section.20.2}%
-\contentsline {subsection}{\numberline {20.2.1}Adjoint functors}{64}{subsection.20.2.1}%
-\contentsline {part}{\numberline {V}Topics in Analytic Number Theory}{67}{part.5}%
-\contentsline {xpart}{Topics in Analytic Number Theory}{68}{part.5}%
-\contentsline {chapter}{\numberline {21}Lecture-1: Hardy-Littlewood proof of infinitely many zeros on the line $\mathfrak {R}(s) = 1/2$}{68}{chapter.21}%
-\contentsline {chapter}{\numberline {22}Lecture-2:}{69}{chapter.22}%
-\contentsline {chapter}{\numberline {23}Lecture-3 (10th January, 2023): Siegel's theorem}{70}{chapter.23}%
-\contentsline {chapter}{\numberline {24}Lecture-4 (12th January, 2023): PNT for Dirichlet characters and APs}{72}{chapter.24}%
-\contentsline {part}{\numberline {VI}Commutative Algebra}{75}{part.6}%
-\contentsline {xpart}{Commutative Algebra}{76}{part.6}%
+\contentsline {chapter}{\numberline {6}Lecture-6 (19th January, 2023): Congruence subgroups and enhanced elliptic curves}{17}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Congruence subgroups and modular forms of higher levels}{17}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Enhanced elliptic curves}{19}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Lecture-7 (24th January, 2023): Riemann surfaces}{21}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Riemann surfaces}{21}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Local charts on $Y(\Gamma )$}{22}{subsection.7.1.1}%
+\contentsline {chapter}{\numberline {8}Lecture-8 (2nd February, 2023):}{23}{chapter.8}%
+\contentsline {part}{\numberline {II}Elliptic Curves}{24}{part.2}%
+\contentsline {xpart}{Elliptic Curves}{25}{part.2}%
+\contentsline {chapter}{\numberline {9}Lecture-1 (3rd January): Introduction}{25}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Lecture-2 (5th January, 2023): Affine varieties}{26}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Affine Varieties}{26}{section.10.1}%
+\contentsline {chapter}{\numberline {11}Lecture-3 (10 January, 2023): Projective varieties}{27}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Projective varieties}{27}{section.11.1}%
+\contentsline {chapter}{\numberline {12}Lecture-4 (12th January, 2023): Projective varieties and maps between varieties}{31}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Projective varieties contd..}{31}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Maps between varieties}{32}{section.12.2}%
+\contentsline {chapter}{\numberline {13}Lecture-5 (17th January, 2023): Algebraic curves}{35}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Curves}{35}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Morphism between curves}{37}{section.13.2}%
+\contentsline {chapter}{\numberline {14}Lecture-6 (19th January, 2023):}{39}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Lecture-7 (24th January, 2023):}{40}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Lecture-8 (31st January, 2023):}{41}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Lecture-9 (2nd February, 2023):}{42}{chapter.17}%
+\contentsline {part}{\numberline {III}Basic Algebraic Geometry}{43}{part.3}%
+\contentsline {xpart}{Basic Algebraic Geometry}{44}{part.3}%
+\contentsline {chapter}{\numberline {18}Lecture-1 (5th January): Introduction}{44}{chapter.18}%
+\contentsline {chapter}{\numberline {19}Lecture-2 (10 January, 2023): Ideals and Zariski topology}{45}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Ideals}{45}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Zariski topology}{45}{section.19.2}%
+\contentsline {chapter}{\numberline {20}Lecture-3 (12th January): Zariski topology}{48}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Zariski topology contd..}{48}{section.20.1}%
+\contentsline {section}{\numberline {20.2}Identify closed irreducible subsets of $\mathrm {Spec}(R)$}{49}{section.20.2}%
+\contentsline {chapter}{\numberline {21}Lecture-4 (17th January, 2023): Noetherian spaces}{51}{chapter.21}%
+\contentsline {section}{\numberline {21.1}Noetherian spaces}{51}{section.21.1}%
+\contentsline {chapter}{\numberline {22}Lecture-5 (19th January 2023):}{53}{chapter.22}%
+\contentsline {section}{\numberline {22.1}Localisation}{53}{section.22.1}%
+\contentsline {subsection}{\numberline {22.1.1}Prime ideals of $A_{f}$}{55}{subsection.22.1.1}%
+\contentsline {chapter}{\numberline {23}Lecture-6 (24th January, 2023): Localisation of modules, exact sequences}{56}{chapter.23}%
+\contentsline {section}{\numberline {23.1}Localisation contd..}{56}{section.23.1}%
+\contentsline {section}{\numberline {23.2}Exact sequences}{56}{section.23.2}%
+\contentsline {chapter}{\numberline {24}Lecture-7 (31st January, 2023):}{59}{chapter.24}%
+\contentsline {chapter}{\numberline {25}Lecture-8 (2nd February, 2023):}{60}{chapter.25}%
+\contentsline {part}{\numberline {IV}Algebraic Geometry I}{61}{part.4}%
+\contentsline {xpart}{Algebraic Geometry I}{62}{part.4}%
+\contentsline {chapter}{\numberline {26}Lecture-1 (9th January, 2023): Topological properties and Zariski Topology}{62}{chapter.26}%
+\contentsline {section}{\numberline {26.1}Topological properties}{62}{section.26.1}%
+\contentsline {section}{\numberline {26.2}Zariski Topology}{67}{section.26.2}%
+\contentsline {chapter}{\numberline {27}Lecture-2 (11th January, 2023): Zariski topology and affine schemes}{69}{chapter.27}%
+\contentsline {section}{\numberline {27.1}Zariski topology contd..}{69}{section.27.1}%
+\contentsline {section}{\numberline {27.2}Affine schemes}{69}{section.27.2}%
+\contentsline {subsection}{\numberline {27.2.1}Fiber products of affine schemes}{71}{subsection.27.2.1}%
+\contentsline {chapter}{\numberline {28}Lecture-3 (16th January, 2023): Category theory brushup}{73}{chapter.28}%
+\contentsline {section}{\numberline {28.1}Categories and functors}{76}{section.28.1}%
+\contentsline {chapter}{\numberline {29}Lecture-4 (20th January, 2023): Category theory}{78}{chapter.29}%
+\contentsline {section}{\numberline {29.1}Category theory contd..}{78}{section.29.1}%
+\contentsline {subsection}{\numberline {29.1.1}Equivalence of categories}{78}{subsection.29.1.1}%
+\contentsline {subsection}{\numberline {29.1.2}Products and Co-products}{78}{subsection.29.1.2}%
+\contentsline {section}{\numberline {29.2}Pre-sheaves and Yoneda lemma}{78}{section.29.2}%
+\contentsline {subsection}{\numberline {29.2.1}Adjoint functors}{79}{subsection.29.2.1}%
+\contentsline {chapter}{\numberline {30}Lecture-5 (23rd January, 2023): Etale morphisms}{82}{chapter.30}%
+\contentsline {section}{\numberline {30.1}Kahler Differentials}{83}{section.30.1}%
+\contentsline {chapter}{\numberline {31}Lecture-6 (25th January, 2023):Kahler Differentials}{85}{chapter.31}%
+\contentsline {section}{\numberline {31.1}Differentials and Derivations}{85}{section.31.1}%
+\contentsline {chapter}{\numberline {32}Lecture-7 (30th January, 2023): Module of differentials}{89}{chapter.32}%
+\contentsline {chapter}{\numberline {33}Lecture-8 (1st February, 2023):}{93}{chapter.33}%
+\contentsline {part}{\numberline {V}Topics in Analytic Number Theory}{94}{part.5}%
+\contentsline {xpart}{Topics in Analytic Number Theory}{95}{part.5}%
+\contentsline {chapter}{\numberline {34}Lecture-1: Hardy-Littlewood proof of infinitely many zeros on the line $\mathfrak {R}(s) = 1/2$}{95}{chapter.34}%
+\contentsline {chapter}{\numberline {35}Lecture-2:}{96}{chapter.35}%
+\contentsline {chapter}{\numberline {36}Lecture-3 (10th January, 2023): Siegel's theorem}{97}{chapter.36}%
+\contentsline {chapter}{\numberline {37}Lecture-4 (12th January, 2023): PNT for Dirichlet characters and APs}{99}{chapter.37}%
+\contentsline {part}{\numberline {VI}Commutative Algebra}{102}{part.6}%
+\contentsline {xpart}{Commutative Algebra}{103}{part.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
