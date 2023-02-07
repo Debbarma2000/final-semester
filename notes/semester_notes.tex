@@ -25,6 +25,7 @@
 \usepackage{tikz-cd}
 \usepackage{quiver}
 \usepackage{hyperref}
+\usepackage{extpfeil}
 
 %section symbol
 
@@ -78,6 +79,8 @@ citecolor= Cerulean
 \newcommand{\bs}{\backslash}
 \newcommand{\ds}{\displaystyle}
 \newcommand{\Stab}{\mathrm{Stab}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Der}{\mathrm{Der}}
 
 %theoremstyles 
 \usepackage[framemethod=TikZ]{mdframed}
@@ -812,6 +815,212 @@ H_{1}(X(\Gamma), \ZZ) &\cong \ZZ^{2g}
 \chapter{Lecture-8 (2nd February, 2023): }
 
 
+\chapter{Lecture-9 (7th February, 2023): }
+
+\begin{corollary}
+Let $\Gamma$ be a congruence subgroup of $\SL_{2}(\ZZ)$. Then, $$g(X(\Gamma)) = 1 + \frac{N}{12} - \frac{\epsilon_{2}}{4} - \frac{\epsilon_{3}}{4} - \frac{\epsilon_{\infty}}{2}$$ where $N = [\mathrm{PSL}_{2}(\ZZ): \bar{\Gamma}]$, $\epsilon_{2}$ is the number of elliptic points of order $2$, $\epsilon_{3}$ is the number of elliptic points of order $3$ and $\epsilon_{\infty}$ is the number of cusps of $\Gamma = \#(\Gamma \bs \PP^{1}(\QQ))$.
+\end{corollary}
+
+\begin{proof}
+Consider the map $$X(\Gamma) \xlongrightarrow{f} X(\SL_{2}(\ZZ))$$ with $\deg f = n$. Then, $$2g(X(\Gamma)) -2 = N(-2) + \sum_{Q \in X(\Gamma)} (e_{Q}-1)$$
+If $f(Q)$ is not equivalent to $i$ or $\omega$, $Q$ is unramified. \\
+
+If $f(Q)$ is equivalent to $i$, then we have two cases: 
+\begin{enumerate}
+\item $Q$ is elliptic implies $Q$ is unramified.
+\item $Q$ is not elliptic implies $e_{Q}=2$.
+\end{enumerate}
+$$\sum_{Q \in f^{-1}([i])} e_{Q}=N , \sum_{Q \in f^{-1}([i])} (e_{Q}-1) = \frac{N-\epsilon_{2}}{2}$$
+
+If $f(Q) \sim \omega$, then $$\sum_{Q \in f^{-1}([i])} (e_{Q}-1) = \frac{2(N-\epsilon_{3})}{3}$$
+
+Finally, let us talk about ramification at the cusps. Recall from the charts at cusps that Local coordinate at a cusp $Q$ is $e^{2\pi i /h}$ for some integer $h \geq 1$. In this case $e_{Q}=h$ and $$\sum_{Q \in f^{-1}([i])} (e_{Q}-1) = \left(\sum_{Q}e_{Q}\right) - \epsilon_{\infty} = N - \epsilon_{\infty}$$
+Therefore, 
+\begin{align*}
+2g(X(\Gamma)) &= -2N + \frac{N - \epsilon_{2}}{2} + 2\frac{N-\epsilon_{3}}{3} + N -\epsilon_{\infty} \\
+2g(X(\Gamma)) &= \frac{N}{12} - \frac{\epsilon_{2}}{4} - \frac{\epsilon_{3}}{6} - \frac{\epsilon_{\infty}}{2} + 1
+\end{align*}
+\end{proof}
+
+\begin{exercise}
+$g(X(\Gamma_{0}(p)))=0$ iff $p \in \{2,3,5,6,7,13\}$
+\end{exercise}
+
+\textcolor{Blue}{Goal of the day} $$\dim_{\CC} M_{k}(\Gamma) = (k-1)(g(X(\Gamma))-1) + \frac{k}{2} \epsilon_{\infty} + \left[\frac{k}{4} \right]\epsilon_{2} + \left[ \frac{k}{3} \right]\epsilon_{3}$$ and $$\dim_{\CC} S_{k}(\Gamma) = (k-1)(g(X(\Gamma))-1) - \frac{k}{2} \epsilon_{\infty} + \left[\frac{k}{4} \right]\epsilon_{2} + \left[ \frac{k}{3} \right]\epsilon_{3}$$
+
+To proceed we will need some algebraic geometry language. 
+\begin{align*}
+X &- \text{ is a smooth projective curve over } \CC \\
+\mathcal{O}_{X} &- \text{structure sheaf} \\
+\mathcal{O}_{X}(U) &- \{f: U \rightarrow \CC \text{ regular for open } U\}\\
+\mathcal{F}(U) &- \mathcal{O}_{X}\text{- module sheaves}
+\end{align*}
+
+We are concerned with invertible $\mathcal{O}_{X}$-module sheaves, i.e., locally free of rank $1$. These are called invertible sheaves. 
+
+\begin{example}
+For a number field $F$, take $\mathcal{O}_{F}$ as the structure sheaf. Any nonzero fractional ideal is invertible hence we can think of that as the invertible sheaves.
+\end{example}
+
+Invertible sheaves form a group under $\otimes_{\mathcal{O}_{X}}$. \\
+
+$H^{0}(X, \mathcal{F})=$ global sections. 
+
+\begin{remark}
+As $X$ is a smooth projective curve, $H^{0}(X, \mathcal{F})=\CC$. This is like Liouville's theorem.
+\end{remark}
+
+We can take a look at meromorphic sections of $\mathcal{F}$ $$\mathcal{F}(U) \otimes_{\mathcal{O}_{X}(U)} \mathrm{Frac}(\mathcal{O}_{X}(U))$$ where $\mathrm{Frac}(\mathcal{O}_{X}(U))$ are the meromorphic functions. 
+
+\begin{theorem}[Riemann existence theorem]
+An invertible sheaf on a compact Riemann surface has a non-constant global meromorphic section.
+\end{theorem}
+
+\begin{definition}
+Let $\mathcal{F}$ be an invertible sheaf on $X$. Take a non-constant global section $s$ of $\mathcal{F}$. We define $\deg(\mathcal{F})$ to be the sum of orders of zeros of $s$. 
+\end{definition}
+
+\begin{remark}
+Note that this definition does not depend on the choice of $s$. If we take a different $s'$, then $s = fs'$ where $f$ is a global meromorphic section of $\mathcal{O}_{X}$ ($\deg f = 0 = \text{ sum of orders of zeros}$)
+\end{remark}
+
+\begin{proposition}
+Properties of the degree function:
+\begin{enumerate}
+\item $\deg(\mathcal{F} \otimes_{\mathcal{O}_{X}} \mathcal{G}) = \deg \mathcal{F} + \deg \mathcal{G}$
+\item $\deg \mathcal{F}^{-1} = - \deg \mathcal{F}$
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}[Riemann-Roch theorem]
+\begin{enumerate}
+\item $H^{0}(X, \mathcal{F})$ is a finite dimensional $\CC$-vector space.
+\item Put $h^{0}(X,\mathcal{F}) = \dim_{\CC}H^{0} (X, \mathcal{F})$. Then, $$h^{0}(X, \mathcal{F}) - h^{0}(X, \Omega_{X}^{1} \otimes \mathcal{F}^{-1}) = 1- g(X) + \deg \mathcal{F}$$ where $\Omega = \Omega_{X}^{1}$ is the sheaf of holomorphic differentials on $X$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[Facts]
+\begin{enumerate}
+\item If $\deg \mathcal{F} < 0$, then $H^{0}(X, \mathcal{F})=0$ 
+\item If $\deg \mathcal{F} >>0$, then $H^{0}(X, \Omega \otimes \mathcal{F}^{-1})=0$
+\end{enumerate}
+\end{remark}
+
+\begin{lemma}
+\begin{enumerate}
+\item $h^{0}(X, \Omega) = g(X)$
+\item $\deg \Omega = 2g-2$
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+\item Take $\mathcal{F}  = \mathcal{O}_{X}$. Then 
+\begin{align*}
+h^{0}(X, \mathcal{O}_{X}) - h^{0}(X, \Omega \otimes_{\mathcal{O}_{X}} \mathcal{O}_{X}^{-1}) &= 1 - g(X) + \deg \mathcal{O}_{X} \\
+1 + h^{0}(X, \Omega) = 1- g(X) + 0\\
+g(X) &= h^{0}(X,\Omega)
+\end{align*}
+\item Take $\mathcal{F} = \Omega$. Then, 
+\begin{align*}
+h^{0}(X, \Omega) - h^{0}(X, \Omega_{X}) &= 1 - g(X) + \deg \Omega \\
+g(X) - 1 &= 1-g + \deg \Omega
+\end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{lemma}
+
+\end{lemma}
+
+\begin{definition}[Katz sheaf]
+Let $X(\Gamma), k \in \ZZ$ be as usual. For $V$ open in $X(\Gamma)$, we define a sheaf $\omega_{k}$ as $$\omega_{k} = \{f: \pi^{-1}(V) \subseteq \mathbb{H} \rightarrow \CC\}$$ with $f$ is holomorphic and $f(\gamma \cdot z) = (cz+d)^k f(z) \; \forall \; \gamma \in \Gamma, \forall \; z \in \pi^{-1}(V)$ and $\pi: \mathbb{H}^{*} = \mathbb{H} \cup \PP^{1}(\QQ) \rightarrow X(\Gamma)$ 
+\end{definition}
+
+\begin{remark}
+$H^{0}(X(\Gamma), \omega_{k})$ gives modular forms of weight $k$ and level $\Gamma$. 
+\end{remark}
+
+\begin{theorem}
+\begin{enumerate}
+\item $\omega_{k}$ is an invertible sheaf.
+\item $\omega_{2} = \Omega$ (cusps).
+\end{enumerate}
+\end{theorem}
+
+Let $\mathcal{L}$ be an invertible sheaf, $D =\sum_{i} n_{i}P_{i}$ divisor of $X$ ($P_{i}$ is a point of $X$). If $x$ is a meromorphic section of $\mathcal{L}$, then $$\mathrm{div}(x) := \sum_{P \in X} \ord_{P}(x)$$ and $$\mathcal{L}(D) = \{x, \text{ a meromorphic section of }\mathcal{L}: \mathrm{div}(x) + D \geq 0\}$$
+
+\begin{example}
+If $P$ is a point of $X$. Then, 
+\begin{align*}
+\mathcal{L}(-P) &= \text{ meromorphic section $x$ of $\mathcal{L}$ with atleast a simple zero of $P$}\\
+\mathcal{L}(P) &= \text{meromorphic section $x$ of $\mathcal{L}$ with atmost a simple pole at $P$}
+\end{align*}
+\end{example}
+
+\begin{definition}
+$$\text{cusps} =\sum_{P \in \Gamma \bs \PP^1(\QQ)} P$$
+\end{definition}
+
+If $\Gamma$ is a congruence subgroup. Then, $$\Gamma_{\infty} =\{g \in \Gamma: g \cdot \infty = \infty\}$$ has one of the following forms $\{\pm I_{2}\}, \left\langle \begin{pmatrix}
+1 & h \\ 0 & 1 
+\end{pmatrix} \right\rangle, \left\langle -\begin{pmatrix}
+1 & h \\ 0 & 1 
+\end{pmatrix} \right\rangle$
+
+\begin{definition}
+\begin{enumerate}
+\item $\infty$ is called irregular cusp for $\Gamma$ if $\Gamma_{\infty} = \left\langle -\begin{pmatrix}
+1 & h \\ 0 & 1 
+\end{pmatrix} \right\rangle$
+\item A cusp $s$ is called irregular if $\infty$ is irregular for $\alpha \Gamma \alpha^{-1}$ where $s= \alpha \cdot \infty (\alpha \in \SL_{2}(\ZZ))$
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+Let $r$ be the least common multiple of integers in the following set $$\{\mathrm{Stab}_{\Gamma}(P), P \in \mathbb{H}\} \cup \{2 \text{ if there exists an irregular cusp}\}$$
+\end{definition}
+
+\begin{exercise}
+$1\le r \le 12$
+\end{exercise}
+
+\begin{definition}
+$\Gamma$ is called neat if $r=1$.
+\end{definition}
+
+\begin{exercise}
+\begin{enumerate}
+\item $\Gamma_{0}(N)$ is neat for $N \geq 5$.
+\item If $\Gamma$ is neat, then it has no elliptic points and $-I \not \in \Gamma$
+\end{enumerate}
+\end{exercise}
+
+\begin{theorem}
+If $\Gamma$ is neat, then for any $k \geq 0$, we have $$\dim_{\CC} M_{k}(\Gamma) = (k-1)(g(X(\Gamma))-1) + \frac{k}{2} \epsilon_{\infty}$$
+\end{theorem}
+
+\begin{remark}[Fact]
+For an integer $r$ as above, we have $\omega_{k + r} = \omega_{k} \otimes \omega_{r}$ \\
+
+In particular, if $r=1$, then $\omega_{r} = \omega_{1}^{\otimes r}  = \omega^{\otimes r}$
+\end{remark}
+
+\begin{proof}[Proof of theorem]
+\begin{align*}
+\deg \omega &= \frac{1}{2} \deg \omega^{\otimes 2} \\
+&= \frac{1}{2} \deg (\Omega(\text{cusps})) \\
+&= \frac{1}{2} (\deg \Omega + \epsilon_{\infty}) \\
+&= g-1 + \frac{\epsilon_{\infty}}{2}
+\end{align*}
+$\therefore$
+\begin{align*}
+h^{0}(X(\Gamma), \omega_{k}) &= k(g-1 + \frac{1}{2} \epsilon_{\infty}) - g + 1 \\
+&= (k-1)(g-1) + \frac{k}{2} \epsilon_{\infty}
+\end{align*}
+\end{proof}
+
+
 
 \part{Elliptic Curves}
 
@@ -1203,10 +1412,137 @@ This proposition is not true if either $\dim(C) > 1$ or $p$ is singular
 
 \chapter{Lecture-7 (24th January, 2023):}
 
-\chapter{Lecture-8 (31st January, 2023): }
+\chapter{Lecture-8 (31st January, 2023): Group Law}
 
-\chapter{Lecture-9 (2nd February, 2023): }
+\section{Group Law and definition of Elliptic Curve}
 
+%insert the diagram of Y^2=X^3-X
+
+\begin{proposition}
+If $E$ is a curve given by the Weierstrass cubic $f(x,y,z)=0$ and $L$ be a line. Then, number of points of $L \cap E$ counted with multiplicity is $3$.
+\end{proposition}
+
+\begin{proof}
+Suppose $P \in L \cap E$. Multiplicity of intersection of $L \cap E$ at $P$ is given by $\dim_{\bar{k}}K[E]_{P}/L = \dim_{\bar{k}}\bar{k}[X,Y]_{\m_{P}}/\langle \tilde{L}, \tilde{f} \rangle$ where $\tilde{-}$ is the dehomogenisation depending on the affine chart.
+\begin{example}
+$P=(0,0), L :x=0$. Multiplicity of $L\cap E$ at $P$ equals $\dim_{\bar{k}}[X,Y]_{\m_{P}}/\langle Y^2 - X^3 + X, X\rangle \simeq \dim_{\bar{k}} \bar{k}[Y]/Y^2 = 2$. \\
+
+If $L': Y-X=0$, then $\dim_{\bar{k}}[X,Y]_{\m_{P}}/\langle Y^2 - X^3 + X-Y, X\rangle \simeq \dim_{\bar{k}} \bar{k}[Y]/\langle Y(Y - Y^2 -1) = \dim_{\bar{k}}\bar{k}=1$ since $Y-Y^2 -1$ is an unit.
+\end{example}
+All of this is a special case of Bezout's theorem which is stated after this proof.\\
+
+Back to the proof. \\
+
+Suppose $L : aX+bY+cZ=0$.\\ 
+\textbf{Case-1:} $b\neq 0$ so $O = [0:1:0] \not \in L$. Dehomogenize with respect to $Y$ to get $aX+bY+c=0$. For $P \in L \cap E$, $$\frac{\bar{k}[E]_{P}}{\langle L,f \rangle } = \frac{\bar{[X,Y]_{\m_{P}}}}{\langle f, aX+bY+c \rangle} = \frac{\bar{k}[X,Y]}{\langle g(X) \rangle} (X-X(P))$$ where $g(X)$ is obtained by substituting $Y = -(aX+c)/b$ to $f$. Therefore $\dim_{\bar{k}}\bar{k}[E]_{P}/ \langle L , f \rangle =$ multiplicity of $X(P)$ as a root of $g(X)$. This implies the number of points of $L \cap E$ with multiplicity is the number of roots of $g(X)$ with multiplicity which is $3$. \\
+
+\textbf{Case-2:} $b=0$
+\begin{enumerate}
+\item Suppose $a \neq 0 \Rightarrow L: X-cZ=0$. \\
+Multiplicity of $L \cap E$ at $O$ is $\dim_{\bar{k}}\bar{k}[X,Y]_{\m_{O}}/ \langle \tilde{f} , X-cZ \rangle \simeq \dim_{\bar{k}} \bar{k} = 1$. \\
+For $P \in \Aa^2 \cap E$, multiplicity of $L\cap E$ at $P$ is $\dim_{\bar{k}}\bar{k}[X,Y]_{\m_{P}} \langle f, X-cZ \rangle  = \dim_{\bar{k}}(\bar{k}[Y]/h)(Y-Y(P))$ with $h$ obtained from $f$ by substituting $X=c$. \\
+Therefore, the total multiplicity is $1 + \#\text{ roots with multiplicity of } h = 1+2 =3$
+\item $L : z=0$, then $L \cap E = \{0\}$. In the Weierstrass equation, after homogenization, this will mean that just $X^3$ survives. Therefore, $\dim_{\bar{k}} \bar{k}[X,Z]_{\m_{P}}/ \langle \tilde{f} , Z \rangle = \dim_{\bar{k}} \bar{k}[X]/\langle X^3 \rangle = 3$
+\end{enumerate}
+This concludes the proof.
+\end{proof}
+
+\begin{theorem}
+IF $F,G$ are coprime homogenous polynomials in $k[X,Y,Z]$ and $V=\V(F), W=\V(G) \subseteq \PP^2$. Then the number of points of $V\cap W$ with multiplicity equals $mn$ where $m=\deg F, n = \deg G$.
+\end{theorem}
+
+\subsection{Composition Law of $E$}
+Suppose $P,Q \in E$ and $L$ be the line passing through $P,Q$ (if $P=Q$, then $L$ is the tangent line at $P$) and let $R$ be the third point in the intersection of $L$ with $E$. Let $L'$ be the line joining $R$ and $O$ the point at infinity. $L'$ intersects $E$ at $R,O$ and a third point. We denote this point by $P \oplus Q$
+
+\begin{proposition}
+The composition law above makes $E$ into an abelian group, i.e., 
+\begin{enumerate}
+\item If $L$ intersects $E$ in $P,Q,R$, then $(P \oplus Q) \oplus R = 0$
+\item $P \oplus O = P \; \forall \; P$
+\item $P \oplus Q = Q \oplus P \; \forall \; P,Q$
+\item If $P \in E$, then there exists $-P \in E$ such that $P \oplus (-P) = 0$
+\item If $P,Q,R \in E$, then $(P \oplus Q ) \oplus R = P \oplus (Q \oplus R)$
+\item If $E$ is defined over $k$, then $$E(k) = \{(x,y) \in k^2 : f(x,y)=0\} \cup \{0\}$$ is a subgroup of $E$.
+\end{enumerate}
+\end{proposition} 
+
+\begin{proof}
+
+\end{proof}
+
+\textbf{Notation}: Suppose $P \in E$
+$ [m]P = \begin{cases}
+0 & \\
+P \oplus \cdots \oplus P &, m>0 \\
+-P \oplus \cdots \oplus -P &, m<0
+\end{cases} $
+
+Now, we can explicitly compute the coordinates of the points. Suppose $P = (x_{0},y_{0}) \in E$. Line passing through $P$ and $O$: $X-x_{0}Z$. Dehomogenize with respect to $Z$ to get $X-x_{0}=0$
+
+\begin{align*}
+f(X,Y) &= Y^2 + a_{1}XY + a_{3}Y - (X^3 + a_{2}X^2 + a_{4}X - a_{6})\\
+\Rightarrow X(-P) &= x_{0}\\
+\Rightarrow Y(-P) &\text{ is another root of } f(Y,x_{0}) \\
+\Rightarrow Y(-P) &= -y_{0} - a_{1}x_{0} -a_{3} \\
+\Rightarrow -P &= (x_{0}, -y_{0}-a_{1}x_{0} - a_{3}) 
+\end{align*}
+
+Suppose $P_{i} = (x_{i},y_{i}), i=1,2$. \\
+
+We want to find $P_{1} \oplus P_{2}$'s coordinates. \\
+
+If $x_{1}=x_{2}$ and $y_{1} + y_{2} + ax_{2} + a_{3}=0$, then $P_{1} \oplus P_{2} = 0$. Assume that this is not the case. This means that the line passing through $P_{1}$ and $P_{2}$ does not go through $O$ and thus $L: Y = \lambda x + \nu$. By high school methods, \\
+
+If $x_{1}\neq x_{2}$, we get 
+\begin{align*}
+\lambda &= \frac{y_{1}-y_{2}}{x_{1}-x_{2}} \\
+\nu &= \frac{y_{1}x_{2} - y_{2}x_{1}}{x_{2}-x_{1}} 
+\end{align*}
+
+If $x_{1} = x_{2}$, we have 
+\begin{align*}
+\lambda &= \frac{3x_{1}^2 + 2a_{2}x_{1} + a_{4} - a_{1}y_{1}}{2y_{1} + a_{1}x_{1} + a_{3}} \\
+\nu &= \frac{-x_{1}^3 + a_{4}x_{1} +2a_{6} -a_{3}y_{1}}{2y_{1} + a_{1}x_{1} + a_{3}}
+\end{align*}
+
+This implies $f(x, \lambda x + \nu)$ has $3$ roots say $x_{1},x_{2},x_{3}$. Let $P_{3}=(x_{3}, y_{3} = \lambda x_{3} + \nu)$
+
+\begin{align*}
+\therefore f(X,\lambda X + \nu -(X-x_{1})(X-x_{2})(X-x_{3}) ) &= 0\\
+\Rightarrow x_{1} + x_{2} + x_{3} &= \lambda^2 + a_{1}\lambda - a_{2} \\
+\Rightarrow X(P_{1}\oplus P_{2}) &= \lambda^2 + a_{1}\lambda - a_{2} - x_{1} - x_{2} \\
+Y(P_{1} \oplus P_{2}) &= -(\lambda + a_{1})x_{3} - \nu -a_{3}
+\end{align*}
+
+\textbf{Duplication formula}: $X([2]P) = \ds{\frac{x^4 -b_{4}x^2 -2b_{6}x - b_{8}}{4x^3 + b_{2}x^2 + 2b_{4}x + b_{6}}}$
+
+\begin{example}
+$E: Y^2 = X^3 + 17$. Some points on the curve are $P_{1} = (-2,3), P_{2} = (-1,4), P_{3} = (2,5), P_{4} = (4,9) , P_{5}=(8,23), P_{6}= (43, 282), P_{7} = (52, 375), P_{8} = (5234, 378661)$ \\
+$\therefore P_{5} = [-2]P_{1}, P_{4} = P_{1}-P_{3} , P_{7} = [3]P_{1} - P_{3}. [2]P_{1} = \left( \frac{137}{64}, \frac{-2651}{512} \right) , P_{2} + P_{3} = \left(\frac{-8}{9}, \frac{-169}{27} \right)$ \\
+
+The point being that $E(\QQ) = \ZZ P_{1} \oplus \ZZ P_{3}$ (Mordell-Weil) \\
+$E(\ZZ) = \{\pm P_{1}, \hdots , \pm P_{8}\}$ (Siegel's theorem)
+\end{example}
+
+\begin{corollary}
+Suppose $f\in \bar{k}(E) = \bar{k}(X,Y)$. Then $$f \text{ is even } \Leftrightarrow f \in \bar{k}(X)$$
+\end{corollary}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+
+
+\chapter{Lecture-9 (2nd February, 2023): Group Law and more algebraic geometry}
+
+\section{Algebraic geometry}
+
+\subsection{Divisors}
+
+\subsection{Differentials}
 
 
 
@@ -1572,9 +1908,11 @@ with $\pi(X) = \psi(f)^{-1}$ \\
 The prime ideals of $A_{f}$ are precisely $D(f)$ the set of primes not containing $f$.
 \end{theorem}
 
-Consider $A_{S}$ and look at the ideals of $A_{S}$. They are precisely of the form $$\left \{ \frac{x}{s} \mid \;  x \in I \subseteq A, s  \in S \right\}$$
+Consider $A_{S}$ and look at the ideals of $A_{S}$. They are precisely of the form $$\left \{ \frac{x}{s} \mid \;  x \in I \unlhd A, s  \in S \right\}$$
 
 There is a bijection between $$\{ \text{ prime ideals of } A_{S} \} \leftrightarrow \{ \text{prime ideals of } A \text{ not intersecting S} \}$$
+
+Say $\mathfrak{P}$ is a prime ideal of $A_{S}$. Then, $\mathfrak{P} = \frac{\pr}{s}$ with $\pr$ prime in $A$.
 
 
 \chapter{Lecture-6 (24th January, 2023): Localisation of modules, exact sequences}
@@ -1633,7 +1971,10 @@ $$M' \xrightarrow{f} M \xrightarrow{g} M''$$ is exact at $M$ if $\iM(f) = \ker(g
 \end{lemma}
 
 \begin{proof}
-
+\begin{enumerate}
+\item $\ker f = \mathrm{Im}(0 \rightarrow M')$
+\item $\mathrm{Im}(g) = \ker (M'' \rightarrow 0) = M$
+\end{enumerate}
 \end{proof}
 
 \begin{definition}
@@ -1644,13 +1985,52 @@ A short exact sequence is a sequence of the form $$0 \rightarrow A \xrightarrow{
 If  $$0 \rightarrow M' \xrightarrow{f} M \xrightarrow{g} M'' \rightarrow 0$$ is exact, then $$0 \rightarrow M_{S}' \xrightarrow{f_{S}} M_{S} \xrightarrow{g_{S}} M_{S}'' \rightarrow 0$$ is exact
 \end{proposition}
 
+\begin{proof}
+\textbf{Claim}: $\ker(f)_{S} = \ker(f_{S})$\\
+$\subseteq $ is clear since $\frac{f(m)}{s} = 0$. Suppose $\frac{m}{s} \in \ker(f_{S}) \Rightarrow f(m)/s = 0 \in M_{S}$. This means that there is a $t\in S$ such that $tf(m)=0=f(tm)\Rightarrow tm \in \ker(f) \Rightarrow \frac{tm}{ts} = \frac{m}{s} \in \ker(f)_{S}$. This gives us $"\supseteq"$. \\
+
+Similarly, $\mathrm{Coker}(f)_{S} = \mathrm{Coker}(f_{S})$. This completes the proof.
+\end{proof}
+
 Next, take $\pr \subseteq A$ be a prime ideal and $A\backslash \pr$ be the multiplicative set $S$. We denote $M_{S}$ by $M_{\pr}$.
 \begin{itemize}
 \item If $M=0$, then $M_{\pr} =0$ for all prime ideals $\pr$. This implies $M_{\m} =0$ for all maximal ideals $\m$.
-\item If $M_{\m} =0 \; \forall \; \m \Rightarrow M=0$.
+\item If $M_{\m} =0 \; \forall \; \m \Rightarrow M=0$. Take an element $m \in M$ such that $\frac{m}{1}=0 \in M_{\m}$ for each maximal ideal $\m $ in $A$. Suppose $\mathrm{Ann}(m) \neq A$, then $\mathrm{Ann}(A) \subsetneq \m'$ for some maximal ideal $\m'$. But then we will have $sm=0$ for some $s\in A \bs \mathrm{Ann}(m)$ which is a contradiction. Hence, $\mathrm{Ann}(m)=A$ and $m=0$. This completes the claim.
 \item If $M \xrightarrow{f} N$ is an isomorphism iff $M_{\m} \xrightarrow{f_{\m}} N_{\m}$ is an isomorphism for all maximal ideals $\m$.
 \end{itemize}
+We can summarise in the following theorems
+\begin{theorem}
+Let $M$ be an $A$-module and $m \in M$. Then TFAE:
+\begin{enumerate}
+\item $m=0$.
+\item $\frac{m}{1}=0$ in $M_{\pr}$ for all prime ideals $\pr$ of $A$.
+\item $\frac{m}{1}=0$ in $M_{\m}$ for all maximal ideals $\m$ of $A$. 
+\end{enumerate}
+\end{theorem}
 
+\begin{theorem}
+Let $M$ be an $A$-module. Then TFAE:
+\begin{enumerate}
+\item $M=0$.
+\item $M_{\pr}=0$ for all prime ideals $\pr$ of $A$.
+\item $M_{\m}=0$ for all maximal ideals $\m$ of $A$. 
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+Let $\phi: M \rightarrow N$ be an $R$-module homomorphism. Then, TFAE:
+\begin{enumerate}
+\item $\phi$ is injective. 
+\item $\phi_{\pr}: M_{\pr} \rightarrow N_{\m}$ is injective for all prime ideals $\pr$.
+\item $\phi_{\m} : M_{\m} \rightarrow N_{\m}$ is injective for all maximal ideals $\m$.
+\end{enumerate} 
+\end{theorem}
+
+\begin{proof}
+From the exactness of the sequence as per a proposition mentioned above we have $1 \Rightarrow 2, 1 \Rightarrow 3$. Moreover, $2 \Rightarrow 3$. We wish to show that $3 \Rightarrow 1$. Let $M' = \ker (\phi)$. Then we have the following exact sequence $$0 \rightarrow M' \rightarrow M \rightarrow N $$ By the proposition above, we have $$0 \rightarrow M'_{\m} \rightarrow M_{\m} \rightarrow N_{\m} $$ exact. This implies $M'_{\m} = \ker (\phi_{\m}) = 0$ since $\phi_{\m}$ is injective by hypothesis. Therefore, $M'_{\m} = 0$ for all maximal ideals $\m$. Now, the result follows from previous theorem.
+\end{proof}
+
+The same theorem can be repeated with injective replaced with surjective. This leads us thereby to the last conclusion in the points mentioned before these theorems.
 \begin{definition}
 Suppose $$M \xrightarrow{f} N$$ Then, $f$ is a monomorphism means 
 \[\begin{tikzcd}
@@ -1668,7 +2048,7 @@ Epimorphism is the dual of this.
 For sets, these mean injection and surjection but monomorphism and epimorphism need not mean isomorphism in a random category. 
 \end{remark}
 
-\chapter{Lecture-7 (31st January, 2023): }
+\chapter{Lecture-7 (7th February, 2023): }
 
 
 
@@ -1678,7 +2058,7 @@ For sets, these mean injection and surjection but monomorphism and epimorphism n
 
 
 
-\chapter{Lecture-8 (2nd February, 2023): }
+\chapter{Lecture-8 (9th February, 2023): }
 
 
 
@@ -2276,8 +2656,13 @@ The pair $(\mathcal{F}, \mathcal{G})$ is an adjoint pair if for all $X \in \math
 
 \begin{example}
 \begin{enumerate}
-\item
-\item
+\item Take $\mathcal{C,D}$ to be the category $\mathbf{Mod}_{R}$ of $R$-modules. Define the functors 
+\begin{align*}
+F: \mathcal{C} &\rightarrow \mathcal{D} & & G: \mathcal{D} \rightarrow \mathcal{C} \\
+F(A) &= A \otimes_{R} N & & G(B) = \Hom_{R}(N,B)
+\end{align*}
+Consider $\Hom_{R}(A \otimes_{R} N , B)$ and $\Hom_{R}(A, \Hom_{R}(N,B))$. These are both in bijective correspondence, in fact they are isomorphic as $R$-modules. Hence, $(F,G)$ is an adjoint pair. This is also called the Hom-tensor adjunction.
+\item $(F,G)$ with $F$ the free functor and $G$ the forgetful functor is also an adjoint pair. 
 \end{enumerate}
 \end{example}
 
@@ -2338,7 +2723,13 @@ Suppose $A$ is Noetherian and $M$ is a finitely generated $A$-module. TFAE:
 \end{lemma}
 
 \begin{proof}
-
+$1 \Rightarrow 2$ is obvious. $2\Rightarrow 3$ is a local property. $3 \Rightarrow 4$ is done in commutative algebra. $4 \Rightarrow 1$: Note that $4 \Rightarrow 3 \Rightarrow 2$. So we just prove that $2 \Rightarrow 1$. Thus, enough to show that 
+\begin{align*}
+\mathrm{Ext}_{A}^i (M,N) &=0 & \forall \; N  \forall \; i>0 \\
+\Leftrightarrow \mathrm{Ext}_{A}^i(M,N)_{\m} &= 0 &\forall \m \text{ maximal ideals } \\
+\Leftrightarrow \mathrm{Ext}_{A_{\m}}^i (M_{\m}, N_{\m}) &= 0
+\end{align*}
+This completes the proof.
 \end{proof}
 
 Let $k$ be a field and $A$ a $k$-algebra.
@@ -2362,10 +2753,42 @@ Assume that $A$ is finite dimensional over $k$. TFAE:
 \end{proposition}
 
 \begin{proof}
+($1 \Rightarrow 2$)
+$$ \bar{A} = \prod_{i=1}^{n} A_{\m_{i}} = \prod_{i=1}^n \bar{k}$$
+($2 \Rightarrow 3$) 
+$$\frac{A}{\mathrm{Nil}(A)} = \prod_{i=1}^{n} k_{i}$$ where $k_{i}$ is finite field extension of $k$. \\
+$\bar{A}$ is reduced $\Rightarrow \nil(A)=0 \Rightarrow A \simeq \ds{\prod_{i=1}^n k_{i}}$. \\
+Now, say that $A$ is a finite field extension of $k$. Say $A = k'$. We have the following inclusions \[\begin{tikzcd}
+	k & {k''} & {k'} && {}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+\end{tikzcd}\]
+where $k'$ is the maximal purely inseparable extension of $k$ inside $k'$. Need to show that $k'' = k$. \\
+Can make $$k '' = \frac{k[t]}{t^{p^n} - \alpha} , \alpha \in k$$
+Therefore $$k ' \otimes_{k} \bar{k} = \frac{\bar{k}[t]}{t^{p^n} - \beta^{p^{n}}} = \frac{\bar{k}[t]}{(t-\beta)^{p^n}}$$ for some $\beta\in \bar{k}$. Since the last quotient is not reduced therefore $k'' =k$.\\
 
+($3 \Rightarrow 4$) done in comm. alg. \\
+
+($4 \Rightarrow 1$)
+\begin{align*}
+\varphi : A\times A &\rightarrow k \\
+(w,w') &\mapsto \mathrm{Tr}_{A/k}(ww')
+\end{align*}
+is non-degenerate. \\
+Let $\{w_{1}, \hdots , w_{n}\}$ be a $k$-basis of $A$. \\
+Consider $B = (\mathrm{Tr}(w_{i}w_{j}))$ and $\mathrm{disc}_{k}(A) = \det(B) \neq 0 \Rightarrow \mathrm{disc}_{\bar{k}}(\bar{A}) \neq 0$. \\
+Suppose that $\nil(\bar{A}) \neq 0$. Suppose $\{w_{1}, \hdots , w_{m}\}$ be a $\bar{k}$-basis of $\bar{A}$. Extend this to a basis $\{w_{1}, \hdots , w_{m}, w_{m+1}, \hdots , w_{n}\}$ of $A$ such that $w_{i}w_{j}$ is nilpotent for all $i,j$. This implies $\det(\mathrm{Tr}(w_{i}w_{j})) = 0$ which is a contradiction. Therefore $\nil(\bar{A})=0$.
 \end{proof}
 
 \section{Kahler Differentials}
+
+Some reference materials. 
+\begin{itemize}
+\item \href{http://math.uchicago.edu/~amathew/chsmoothness.pdf}{advanced1} \href{http://therisingsea.org/notes/Section2.8-Differentials.pdf}{advanced2} \href{https://anagrams-seminar.github.io/hdr/kahler.pdf}{advanced3}
+\item \href{http://people.math.sfu.ca/~kyeats/teaching/math800/MATH%20800%20-%20Final%20Project.pdf}{basic}
+\item Matsumura book on Commutative algebra and Commutative ring theory
+\item Chapter 4 of T.A. Springer's Linear Algebraic Groups.
+\end{itemize}
 
 Let $A$ be a commutative ring and $M$ an $A$-module. A derivative $D : A \rightarrow M$ is an abelian group homomorphism such that $$D(ab) = aD(b) + D(a)b$$
 Let $$\mathrm{Der}(A,M) = \text{ the set of derivations from } A \text{ to } M$$
@@ -2415,7 +2838,7 @@ There exists an unique $A$-module (upto isomorphism) $\Omega_{A/k}'$ with a $k$-
 \end{theorem}
 
 \begin{proof}
-
+Take $\Omega_{A/k}^1$ to be the free $A$-module generated by symbols $\{da: a\in A\}$ modulo the relations $d(a+b) - d(a) - d(b) =0$ and $d(ab) = ad(b) + bd(a) \; \forall \; a,b \in A$.
 \end{proof}
 
 \begin{definition}
@@ -2759,7 +3182,309 @@ $X= \spec(A), Y = \spec(B = A/I)$
 \end{example}
 
 
-\chapter{Lecture-8 (1st February, 2023):}
+\chapter{Lecture-8 (1st February, 2023):Differentials}
+
+contd..
+\begin{theorem}[Second fundamental theorem of module of differentials]
+Let $I = \ker(A \twoheadrightarrow B)$. Then, there exists an exact sequence \[\begin{tikzcd}
+	{I/I^2} & {\Omega_{A/k}^{1} \otimes_{A} B} & {\Omega_{B/k}^{1}} & 0
+	\arrow[two heads, from=1-2, to=1-3]
+	\arrow["\delta", from=1-1, to=1-2]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\] where $\delta(a) = d_{A/k} (a) \otimes 1$. Moreover, this sequence is split exact if $B$ is formally smooth over $k$.
+\end{theorem}
+
+\begin{proof}
+Suffices to show that for any $B$-module $M$, the sequence 
+\[\begin{tikzcd}
+	{\Hom_{B}(\Omega_{B/k}^{1},M)} & {\Hom_{B}(\Omega_{A/k}^{1} \otimes_{A} B,M)} & {\Hom_{B}(I/I^2,M)} & {(*)}
+	\arrow["\delta^*", from=1-2, to=1-3]
+	\arrow["\alpha^*", from=1-1, to=1-2]
+\end{tikzcd}\] is exact. \\
+\textbf{Well-definedness} of $\delta$: 
+\begin{align*}
+\delta(ab) &= d_{A/k}(ab) \otimes 1 \\
+&=(ad_{A/k}(b) + bd_{A/k}a) \otimes 1 \\
+&= ad_{A/k}b \otimes 1 + bd_{A/k} \otimes 1 \\
+&= d_{A/k}b \otimes g(a) + d_{A/k} \otimes g(b) \text{ since }\\
+&= 0+0 \\
+&= 0
+\end{align*}
+Now, we have 
+\[\begin{tikzcd}
+	{\mathrm{Der}_{k}(B,M)} & {\Hom_{B}( \mathrm{Der}_{k}(A,M)} & {\Hom_{B}(I/I^2,M)} & {=(*)}
+	\arrow["\delta^*", from=1-2, to=1-3]
+	\arrow["\alpha^*", from=1-1, to=1-2]
+\end{tikzcd}\]
+Take $D\in \mathrm{Der}_{k}(A,M)$, then $D(a)=0 \; \forall \; a \in I$. Since, 
+\[\begin{tikzcd}
+	A & B \\
+	M
+	\arrow[two heads, from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+\end{tikzcd}\]
+Therefore there exists $D' \in \mathrm{Der}_{k}(B,M)$ such that $D' \circ g = D$. Thus, sequence is exact. \\
+
+Now, assume that $B$ is formally smooth over $k$. Look at the exact sequence of $B$-modules which is a square $0$ extension of $B$. 
+\[\begin{tikzcd}
+	0 & {I/I^2} & {A/I^2} & B & 0 \\
+	&&& B
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["{g'}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{\mathrm{id}}"', from=2-4, to=1-4]
+	\arrow["{\exists \;h}", dashed, from=2-4, to=1-3]
+\end{tikzcd}\]
+This implies the existence of a $k$-algebra homomorphism $h: B \rightarrow A/I^2$ such that $g\circ h = \mathrm{id}_{B}$. Now, consider the map $$h\circ g' : A/I^2 \rightarrow A/I^2$$ that kills $I/I^2$ so that $g'(1-hg')=0$. \\
+Let $D' = 1-hg': A/I^2 \rightarrow A/I^2$. Check that this is a $k$-derivation of $A/I^2$. \\
+Let $\psi \in \Hom_{B}(I/I^2, M)$ and consider the maps 
+\[\begin{tikzcd}
+	{D:=A} & {A/I^2} & {A/I^2} & M
+	\arrow[from=1-1, to=1-2]
+	\arrow["{D'}", from=1-2, to=1-3]
+	\arrow["\psi", from=1-3, to=1-4]
+\end{tikzcd}\]
+Since $D'$ is a derivation, check that $D\in \mathrm{Der}_{k}(A,M)$. This means we get an $A$-linear map $\varphi : \Omega_{A/k}^{1} \rightarrow M$ which is equivalent to getting a map $\varphi : \Omega_{A/k}^1\otimes_{A} B \rightarrow M$ such that $\delta*(\phi)=\psi$. \\
+Finally, take $M = I/I^2$ and $\psi =\mathrm{id}$. \\
+$\Rightarrow \; \exists \;$ a map from $\varphi : \Omega_{A/k}^1 \rightarrow I/I^2 \Leftrightarrow \varphi : \Omega_{A/k}^1\otimes_{A} B \rightarrow I/I^2$ and $\varphi \circ \delta = \id_{I/I^2}$. Finally, 
+\[\begin{tikzcd}
+	0 & {I/I^2} & {\Omega_{A/k}^{1} \otimes_{A} B} & {\Omega_{B/k}^{1}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["\delta", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["\varphi", shift left=1, curve={height=-12pt}, from=1-3, to=1-2]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+or the sequence splits. This concludes the proof.
+\end{proof}
+
+\begin{corollary}
+Let $B = k[X_{1}, \hdots , X_{n}]/\langle f_{1}, \hdots , f_{r} \rangle$. Thus, $$\Omega_{B/k}^1 = \frac{Bd\bar{x}_{1} + \cdots + Bd\bar{x}_{n}}{\langle df_{1} , \cdots , df_{r} \rangle }$$ with $df_{i} = \ds{\sum_{j=1}^n \frac{\partial f_{i}}{\partial x_{j}}}$ modulo $I^2$.
+\end{corollary}
+
+\begin{corollary}
+Suppose $k \xlongrightarrow{f} A \xtwoheadrightarrow{g} B$ are $k$-algebra homomorphisms such that $A,B$ are formally smooth over $k$. Then,
+\[\begin{tikzcd} 
+	0 & {I/I^2} & {\Omega_{A/k}^{1} \otimes_{A} B} & {\Omega_{B/k}^{1}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["\delta", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+\end{corollary}
+
+\begin{definition}
+\begin{enumerate}
+\item Let $k \xlongrightarrow{f}A$ be a ring homomorphism. We say that $A$ is unramified over $k$ if it is formally unramified and of finite type.
+\item Let $q\in \spec(A)$. Then, we say that $A$ is unramified over $k$ at $q$ if there exists $g\in A\bs k$ such that the map $f: K \rightarrow A_{g}$ is unramified.
+\item We say that $A$ is locally unramified over $k$ if it is unramified at every $q\in \spec(A)$.
+\end{enumerate}
+\end{definition}
+
+The question is whether the $1,3$ conditions are equivalent. $1\Rightarrow 3$ is known. So we need to check if $3 \Rightarrow 1$. Suppose that for all $q \in \spec(A)$ there exists $g \not \in q$ such that $k \rightarrow A_{g}$ is unramified. Let $U_{q} = \spec(A_{g})$. \\
+Since $X$ is locally unramified, we must have $X = \ds{\bigcup_{q} U_{q}}$ but remember that $X$ is spectral and thus quasi-compact. This implies that there is a finite subcover $X = \ds{\bigcup_{i=1}^n U_{q_{i}}} \Rightarrow A = \langle g_{1} , \hdots , g_{n} \rangle \Rightarrow A$ is of finite type over $k$. \\
+
+Why is $\Omega_{A/k}^1 = 0$?\\
+
+Notice that $\Omega_{A_{g}/k}^{1} =0$ and we have an exact sequence
+\[\begin{tikzcd}
+	{\Omega_{A/k}^{1} \otimes_{A} A_{g}} & {\Omega_{A_{g}/k}^{1}} & {\Omega_{A_{g}/A}^{1}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\]
+But $\Omega_{A_{g}/A}^{1}$ is formally \'{e}tale and is therefore $0$. This transforms the above sequence to 
+\[\begin{tikzcd}
+	0 & {\Omega_{A/k}^{1} \otimes_{A} A_{g}} & {\Omega_{A_{g}/k}^{1}} & 0 & {}
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-1, to=1-2]
+\end{tikzcd}\]
+Hence, $(\Omega_{A/k}^1)_{g} = \Omega_{A_{g}/k}^{1} \; \forall \; g \Rightarrow \Omega_{A/k}^{1} =0$. This finishes the proof.
+
+\begin{proposition}
+\begin{enumerate}
+\item Unramified maps are preserved under base change.
+\item Unramified maps are preserved under composition.
+\item Principal localisations are unramified.
+\item Any surjection is unramified.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Let us prove $3$. Look at 
+\[\begin{tikzcd}
+	k & A &&&& {} \\
+	B & {A\otimes_{k}B=C}
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g"', from=1-1, to=2-1]
+	\arrow["{f'}"', from=2-1, to=2-2]
+	\arrow["{g'}", from=1-2, to=2-2]
+\end{tikzcd}\]
+More generally, we have 
+\begin{lemma}
+$\Omega_{C/B}^1 \simeq \Omega_{A/k}^1 \otimes_{k}B$
+\end{lemma}
+
+\begin{proof}
+Look at the maps as a consequence of first fundamental exact sequence
+\[\begin{tikzcd}
+	{\Omega_{A/k}^1} & {\Omega_{C/k}^1} & {\Omega_{C/B}^1} &&& {}
+	\arrow[from=1-1, to=1-2]
+	\arrow[two heads, from=1-2, to=1-3]
+\end{tikzcd}\]
+This gives the map $\Omega_{A/k}^1 \otimes_{k} B \xlongrightarrow{\alpha} \Omega_{C/B}^1$. Now, we wish to construct an inverse map $\Omega_{C/B} \rightarrow \Omega_{A/k}^1 \otimes_{k} B$. Look at the map $d_{A/k} : A \rightarrow \Omega_{A/k}^1$. This gives a map 
+\begin{align*}
+d' : C= A\otimes_{k} B &\rightarrow \Omega_{A/k}^1 \otimes_{k} B \\
+a\otimes b &\mapsto d_{A/k} a \otimes b
+\end{align*}
+Check that $d'$ is a $B$-derivation. This implies the existence of a map $\beta : \Omega_{C/B}^1 \rightarrow \Omega_{A/k}^1 \otimes_{k} B$. Check that $\alpha \circ \beta = \beta \circ \alpha = \id$. The proof is complete.
+\end{proof}
+\end{proof}
+
+\begin{lemma}
+Let $f \xrightarrow{f} A$ be a finite type morphism. Let $\pr \in \spec(A)$. Then, $A$ is unramified over $k$ at $\pr$ if $\Omega_{A/k}^1 \otimes_{A} k(\pr) = 0$ where $k(\pr) = A_{\pr} / \m_{\pr}$.
+\end{lemma}
+
+\begin{proof}
+It suffices to show that $(\Omega_{A/k}^1)_{\pr} =0$ since $A$ is of finite type. We can deploy Nakayama lemma to conclude what we want. We just need to check that localisation of finitely generated implies finitely generated.
+\end{proof}
+
+
+\chapter{Lecture-9 (6th February, 2023): Differentials}
+
+\section{Differentials contd...}
+Recall that given a ring homomorphism $k \xlongrightarrow{A}$, $A$ is unramified iff $A$ is of finite type and $\Omega_{A/k}^{1} =0$. \\
+
+Also, for a finite type algebra $A$, if $\pr \in \spec(A)$ such that $\Omega_{A/k}^{1} \otimes_{A} k (\pr) = 0$ then $A$ is unramified at $\pr$. \\
+
+In particular, if $\Omega_{A/k}^{1} \otimes_{A} k(\pr) = 0 \; \forall \pr \in \spec(A)$, then $A$ is unramified.
+
+\begin{lemma}
+\begin{enumerate}
+\item Say $A$ is a commutative ring and $I \subseteq A$ is a finitely generated ideal such that $I=I^2$. Then there exists an idempotent $e \in A$ such that $I= \langle e \rangle$.
+\item $A/I = A_{e'}$ where $e'(1-e)=0$.
+\item $\V(I)$ is open in $\spec(A)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Since $I=I^2$ and $I$ is f.g. then Nakayama lemma implies the existence of an $a\in I$ such that $(1+a)I=0$. Set $f = 1+a$. Then $f^2 = ff = f(1+a)=f + af =f$. \\
+
+Next, take $e' = f$ and $e = 1-f$. Then $\forall \; b \in I$ we have $b=(1-f)b=eb \Rightarrow I =\langle e \rangle$. \\
+
+In particular, the map $$A \rightarrow \frac{A}{\langle e \rangle} \times \frac{A}{\langle e' \rangle}$$ is an isomorphism. This helps us conclude that $A/ \langle e \rangle = A_{e'}$. \\
+
+And, $V(I) = \spec(A/I) = \spec(A_{e'}) \hookrightarrow \spec(A)$ is open. 
+\end{proof}
+
+\begin{corollary}
+If $k \xlongrightarrow{f} A$ is unramified, then the diagonal map $\Delta_{X}: X \hookrightarrow X \times_{Y} X$ is a closed and open immersion where $X =\spec(A)$ and $Y = \spec(k)$.
+\end{corollary}
+
+\begin{proof}
+Recall that by definition $\Omega_{A/k}^{1} = I/I^2$ where $I$ is the ideal of $X$ inside $X \times_{Y} X$. The module of differential is of f.g. since $A$ is of finite type.\\
+
+\textcolor{BrickRed}{Red Flag}: $I$ need not be f.g. as required in our previous lemma. So, WE HAVE TO change the definition of unramified by replacing finitely presented instead of finite type. So, work with this definition. \\
+
+Working with the new definition, we know that $\Omega_{A/k}^{1} = 0 \Rightarrow I=I^2$ and hence from previous lemma, we know that this immersion is open.  
+\end{proof}
+
+\begin{lemma}
+Let $(A, \m)$ be a local ring which is a $k$-algebra for some field $k$ such that $A/\m = k$. Then, $\m / \m^2 \simeq \Omega_{A/k}^{1} \otimes_{A} k $
+\end{lemma}
+
+\begin{proof}
+We have an exact sequence 
+\[\begin{tikzcd}
+	&&&&& {} \\
+	0 & {\m/\m^2} & {\Omega_{A/k}^{1} \otimes_{A} k } & {\Omega_{k/k}^{1}} & 0
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}\]
+Here, $k$ sits inside $A$ and acts on $A$ as well, hence the sequence splits and is formally smooth. Now, using a result from before, we know that $\Omega_{k/k}^{1} = 0$ and hence the proof is complete.
+\end{proof}
+
+\begin{lemma}
+Suppose $A$ is as in prev. lemma such that $A$ is essentially of finite type (localisation of a finite type) over $k$. Then, $\Omega_{A/k}^{1}$ is a free $A$-module of rank$= \dim(A)$ iff $A$ is a regular ring.  
+\end{lemma}
+
+\begin{proof}
+$( \Rightarrow )$ By previous lemma, $\m / \m^2$ is free $k$-module of rank $n = \dim(A)$. Now apply Nakayama to observe that $\m$ is generated by $n$ generators which is the minimal number required. Hence, $A$ is regular. \\
+Caution: Here, $\m$ is f.g. requires Noetherian-ness which is guaranteed by the essentially finite-ness. \\
+
+($\Leftarrow$)  Suppose $A$ is regular. Therefore $\m = \langle x_{1}, x_{2}, \hdots , x_{n}\rangle$ where $n = \dim A$. By previous lemma, $\dim_{k} (\Omega_{A/k}^{1} \otimes_{A} k ) = n$. \\
+
+Let $K$ be the quotient field of $A$ (makes sense because a regular local ring is integral domain). This implies $\dim_{K}(\Omega_{K/k}^{1}) =\dim_{K}( \Omega_{A/k}^{1} \otimes_{A} K )= tr.\deg_{k}(K) = \dim(A) = n$. \\
+
+\textcolor{BrickRed}{PLEASE STOP}: The third equality is because of Noether Normalisation theorem. The second equality is some other very non-trivial fact. Just take it for granted for the time being. We will justify it later. 
+
+Detour: \\
+
+\begin{lemma}
+Let $A$ be a local integral domain with fraction field $K$ and residue field $k$. Let $M$ be a f.g. $A$-module such that $\dim_{k}(M \otimes_{A} k) = \dim_{K}(M \otimes_{A} K) = n < \infty$. Then, $M$ is a free module of rank $n$. 
+\end{lemma}
+
+\begin{proof}
+By Nakayama, can find a surjection $\phi: F = A^n \twoheadrightarrow M$. Let $N  = \ker (\phi)$. This gives us the exact sequence
+\[\begin{tikzcd}
+	0 & N & F & M & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\phi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+which implies \[\begin{tikzcd}
+	0 & N_{K} & F_{K} & M_{K} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\phi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\] is exact. \\
+
+We know that $F_{k} \rightarrow M_{K}$ is a surjection of vector spaces of same dimension ($n$). Hence, $N_{K}=0$. But, $N$ is torsion free therefore $N \hookrightarrow N_{K} =0$.
+\end{proof}
+
+The proof is now complete using this lemma.
+\end{proof}
+
+\begin{corollary}
+If $\Omega_{A/k}^{1} = 0$, then $A=k$.
+\end{corollary}
+
+\begin{lemma}
+Let $k \hookrightarrow L$ be an algebraic extension of fields which is separable. Then, $L/k$ is formally unramified.
+\end{lemma}
+
+\begin{proof}
+Can assume that $L/k$ is finite, and 
+\begin{lemma}
+If $A = \varinjlim_{i \in I} A_{i} \Rightarrow \Omega_{A/k}^{1} = \varinjlim_{i \in I} \Omega_{A_{i}/k}^{1}$
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+Can choose a primitive element $\alpha \in L$. Let $f(X)$ be the minimal polynomial of $\alpha \in k[X]$ such that $f(\alpha)=0$ and $f'(\alpha) \in L^{\times}$. Now, write $A=k[X]$ and $I = \langle f(X)\rangle \in A \Rightarrow L = k[X]/ \langle f(X) \rangle$. By the second fundamental exact sequence, we get that 
+\[\begin{tikzcd}
+	{I/I^2} & {\Omega_{A/k}^{1} \otimes_{A} L} & {\Omega_{L/k}^{1}} & 0
+	\arrow["\delta", from=1-1, to=1-2]
+	\arrow["\phi", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\]
+But $\Omega_{A/k}^{1} \otimes_{A} L = L d\bar{X}$ \\
+
+And, $\delta(f) = \ds{\frac{\partial }{\partial X}f|_{L} d\bar{X}= f'(\alpha) d\bar{X}} $. This implies $\delta$ is an isomorphism (takes basis to basis). $\Rightarrow \Omega_{L/k}^{1} = 0$
+
+\end{proof}
+
+
+\chapter{Lecture-10 (8th February, 2023): }
+
+
 
 
 
@@ -2884,6 +3609,103 @@ Let $c$ be as above and assume that $\sigma \geq 1 - \frac{c}{2 \log q \tau}$. T
 
 
 \part{Commutative Algebra}
+
+\chapter{Ideals}
+
+\chapter{Modules}
+
+\chapter{Projective, Injective modules}
+
+\chapter{Noetherian Rings}
+
+\chapter{Artinian Rings}
+
+\chapter{Localisation}
+Let $R$ be a commutative ring, $S$ a multiplicatively closed subset containing $1$.
+\begin{theorem}
+There exists a ring homomorphism $\theta : R \rightarrow S^{-1}R$ which has the following properties: 
+\begin{enumerate}
+\item $\theta(s) \in (S^{-1}R)^{\times} \; \forall \; s\in S$
+\item Given any ring homomorphism $g: R \rightarrow A$ such that $g(s) \in A^{\times} \; \forall \; s \in S \; \exists \; ! \;$ ring homomorphism $\tilde{g}: S^{-1}R \rightarrow A$ such that $g = \tilde{g} \circ \theta$.
+\[\begin{tikzcd}
+	R &&&& {} \\
+	{S^{-1}R} & A
+	\arrow["\theta"', from=1-1, to=2-1]
+	\arrow["g", from=1-1, to=2-2]
+	\arrow["{\exists \;!\; \tilde{g}}"', dashed, from=2-1, to=2-2]
+\end{tikzcd}\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\underline{Existence}: Define the relation on $R \times S$ given by $(a,s) \sim (a',s') $ if $t(as' - a's) =0$ for some $t \in S$. It can be checked that this is an equivalence relation. Define  
+\end{proof}
+
+
+\chapter{Integral dependence}
+
+\chapter{Completions}
+
+
+
+
+
+\part{Algebraic Number Theory}
+
+\chapter{Dedekind Domains}
+
+\chapter{Splitting of primes}
+
+\chapter{Finiteness of class number}
+
+\chapter{Unit theorem}
+
+\chapter{Cyclotomic Fields and Fermat's last theorem}
+
+\chapter{Local Fields}
+
+\chapter{Global Fields}
+
+\chapter{Kronecker Weber}
+
+
+\chapter{Ad\'{e}les and Id\'{e}les}
+
+
+
+
+\part{Galois Theory}
+
+
+
+\chapter{Finite Fields}
+
+
+\chapter{Cyclotomic Fields}
+
+
+
+\part{Representation theory}
+
+\chapter{Introduction}
+
+\chapter{Character theory}
+
+\chapter{Wedderburn theorem}
+
+\chapter{Induced characters}
+
+\chapter{Brauer Induction theorem}
+
+
+
+\part{Miscellaneous}
+
+\chapter{Galois representations}
+
+\chapter{Artin $L$-functions}
+
+\chapter{Riemann hypothesis for curves over finite fields}
 
 
 
