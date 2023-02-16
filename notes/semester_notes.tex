@@ -1,6 +1,7 @@
-\documentclass[oneside, 12pt, ]{scrbook}
+\documentclass[oneside, 12pt]{scrbook}
 
 %packages to import
+\usepackage{scrhack}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -26,6 +27,7 @@
 \usepackage{quiver}
 \usepackage{hyperref}
 \usepackage{extpfeil}
+\usepackage{stmaryrd}
 
 %section symbol
 
@@ -81,6 +83,8 @@ citecolor= Cerulean
 \newcommand{\Stab}{\mathrm{Stab}}
 \newcommand{\id}{\mathrm{id}}
 \newcommand{\Der}{\mathrm{Der}}
+\newcommand{\Ht}{\mathrm{ht}}
+\newcommand{\coht}{\mathrm{co.ht}}
 
 %theoremstyles 
 \usepackage[framemethod=TikZ]{mdframed}
@@ -262,6 +266,10 @@ citecolor= Cerulean
 \clearpage
 
 \frontmatter
+
+\chapter{Overview}
+
+These notes probably contain all the basics you will need in number theory. The Elliptic Curves book follows Silverman's Arithmetic of Elliptic Curves, Modular Forms follows Diamond Shurman's A first course in modular forms (it will contain a lot of theory of Riemann surfaces if I manage to do it ofc), Algebraic Geometry I covers range of topics, Basic Algebraic Geometry covers Fulton's Algebraic Curves. On top on that, I am also working to include relevant Commutative algebra, Algebraic Number Theory, Representation theory, Galois theory (finite and infinite).
 \tableofcontents
 
 \mainmatter
@@ -270,7 +278,12 @@ citecolor= Cerulean
 
 \chapter{Lecture-1 (3rd January): Introduction }
 
-\chapter{Lecture-2 (5th January, 2023): }
+\chapter{Lecture-2 (5th January, 2023): Modular Group and Binary quadratic forms}
+
+\section{Modular Group and Upper Half Plane}
+
+
+\section{Binary Quadratic Forms}
 
 \chapter{Lecture-3 (10th January, 2023): Valence formula and Eisenstein series}
 
@@ -506,6 +519,7 @@ $$\Gamma_{1}(N) =\left\{ \begin{pmatrix}
 a & b \\ c & d
 \end{pmatrix} \in M_{2}(\ZZ / N \ZZ) \mid c\equiv d \equiv 1 \pmod{N} \right\}$$
 
+
 \chapter{Lecture-5 (17th January, 2023): Congruence subgroups and $\Delta$ function}
 
 \section{$\Delta$ function}
@@ -706,6 +720,8 @@ These are called modular curves. \\
 
 We saw that $\SL_{2}(\ZZ) \backslash \HH$ parametrises elliptic curves over $\CC$ (upto isomorphism).
 
+\section{Interlude: Complex Tori and Elliptic curves}
+
 
 
 \section{Enhanced elliptic curves}
@@ -743,7 +759,9 @@ The action of $\SL_{2}(\ZZ)$ on $\HH$ is properly discontinuous, i.e., for $z_{1
 
 \end{proof}
 
-\chapter{Lecture-7 (24th January, 2023): Riemann surfaces}
+\chapter{Lecture-7 (24th January, 2023): Modular curves as Riemann surfaces}
+
+\section{Riemann surfaces}
 
 \begin{corollary}
 $Y(\Gamma) = \Gamma \bs \HH$ with the quotient topology is Hausdorff.
@@ -761,7 +779,7 @@ $X(\Gamma)$ is compact.
 
 \end{proof}
 
-\section{Riemann surfaces}
+
 
 \begin{definition}
 A Riemann surface consists of the following data: 
@@ -812,10 +830,13 @@ H_{1}(X(\Gamma), \ZZ) &\cong \ZZ^{2g}
 \end{align*}
 
 
-\chapter{Lecture-8 (2nd February, 2023): }
+
+\chapter{Lecture-8 (2nd February, 2023): More Riemann surfaces}
+
+\section{Riemann surfaces contd..}
 
 
-\chapter{Lecture-9 (7th February, 2023): }
+\chapter{Lecture-9 (7th February, 2023): Riemann surfaces and Riemann Roch theorem}
 
 \begin{corollary}
 Let $\Gamma$ be a congruence subgroup of $\SL_{2}(\ZZ)$. Then, $$g(X(\Gamma)) = 1 + \frac{N}{12} - \frac{\epsilon_{2}}{4} - \frac{\epsilon_{3}}{4} - \frac{\epsilon_{\infty}}{2}$$ where $N = [\mathrm{PSL}_{2}(\ZZ): \bar{\Gamma}]$, $\epsilon_{2}$ is the number of elliptic points of order $2$, $\epsilon_{3}$ is the number of elliptic points of order $3$ and $\epsilon_{\infty}$ is the number of cusps of $\Gamma = \#(\Gamma \bs \PP^{1}(\QQ))$.
@@ -997,7 +1018,7 @@ $\Gamma$ is called neat if $r=1$.
 \end{exercise}
 
 \begin{theorem}
-If $\Gamma$ is neat, then for any $k \geq 0$, we have $$\dim_{\CC} M_{k}(\Gamma) = (k-1)(g(X(\Gamma))-1) + \frac{k}{2} \epsilon_{\infty}$$
+If $\Gamma$ is neat, then for any $k \geq 0$, we have $$\dim_{\CC} M_{k}(\Gamma) = (k-1)(g(X(\Gamma))-1) + \frac{k}{2} \epsilon_{\infty}$$ and $$\dim_{\CC} S_{k}(\Gamma) = (k-1)(g-1) + \left[ \frac{k}{4} \right] \epsilon_{2} + \left[ \frac{k}{3} \right] \epsilon_{3} + \frac{k-1}{2} \epsilon_{\infty}$$
 \end{theorem}
 
 \begin{remark}[Fact]
@@ -1015,10 +1036,172 @@ In particular, if $r=1$, then $\omega_{r} = \omega_{1}^{\otimes r}  = \omega^{\o
 \end{align*}
 $\therefore$
 \begin{align*}
-h^{0}(X(\Gamma), \omega_{k}) &= k(g-1 + \frac{1}{2} \epsilon_{\infty}) - g + 1 \\
+h^{0}(X(\Gamma), \omega_{k}) - h^{0}(X, \Omega \otimes (\omega^{\otimes k})^{-1}) &= \deg (\omega^{\otimes (-k)}) - g + 1 \\
 &= (k-1)(g-1) + \frac{k}{2} \epsilon_{\infty}
 \end{align*}
 \end{proof}
+
+
+\chapter{Lecture-10 (9th February, 2023): Automorphic forms, $j$-invariant and Riemann-Roch}
+
+\section{Automorphic forms}
+
+Let $\widehat{\CC}$ be the compactified Riemann sphere $\CC \cup \{\infty\}$. \\
+
+Let $V \subseteq \CC$ be open. $f: V \rightarrow \widehat{\CC}$ is meromorphic if either $f \equiv 0$ or $f$ has a Laurent series expansion 
+\begin{equation}
+f(z) = \sum_{n=m}^{\infty} a_{n} (z  - \tau)^n \text{ for every } \tau \in V , a_{m} \neq 0
+\end{equation}
+The order of vanishing of $f$ at $\tau$ is $v_{\tau}(f) = m$. \\
+
+Recall that $f$ is weakly modular if $f: \mathbb{H} \rightarrow \widehat{\CC}$ is meromorphic and $f(\gamma \cdot z) = (cz+d)^k f(z) \; \forall \; \gamma \in \Gamma$ \\
+
+$f$ has a $q$-expansion at $\infty$, namely 
+\begin{equation}
+f(z) = \sum_{-\infty}^{\infty} a_{n}q_{h}^n  \text{  where }q_{h} = \exp(w\pi z/h)
+\end{equation}
+
+$f$ is meromorphic at $\infty$ if $f(z) = \sum_{n=m}^{\infty} a_{n}q_{h}^n$ with $a_{m} \neq 0$ and $v_{\infty}(f) = m$
+
+\begin{definition}
+$\Gamma \subseteq \SL_{2}(\ZZ)$ be a congruence subgroup and $k \in \ZZ$. A function $f: \HH \rightarrow \widehat{\CC}$ is an automorphic form  of weight $k$ wrt $\Gamma$ if 
+\begin{enumerate}
+\item $f$ is meromorphic 
+\item $f(\gamma z) = (cz+d)^{k} f(z) \; \forall \; \gamma \in \Gamma , \forall \; z \in \HH$
+\item $f|_{k, \gamma}$ is meromorphic at $\infty$ for all $\gamma \in \SL_{2}(\ZZ)$
+\end{enumerate}
+
+We denote the space of automorphic forms of weight $k$ and level $\Gamma$ by $\mathcal{A}_{k}(\Gamma)$
+\end{definition}
+
+\begin{example}
+\begin{equation}
+j(z)= 1728 \frac{g_{2}^3}{\Delta (z)}
+\end{equation}
+Recall that $g_{2}(z)$ is the Eisenstein series of weight $4$ and level $\SL_{2}(\ZZ)$ and $\Delta (z)$ is the cusp form of weight $12$ and level $\SL_{2}(\ZZ)$. 
+\end{example}
+
+$\mathcal{A}_{0}(\Gamma)$ is the field of automorphic forms on $X(\Gamma)$. We have already seen that $X(\SL_{2}(\ZZ)) \cong \PP^1 (\CC)$ and the function field of $\PP^1 (\CC) \cong \CC(X)$
+
+\begin{proposition}
+$\mathcal{A}_{0}(\SL_{2}(\ZZ)) = \CC(j)$
+\end{proposition}
+
+\begin{proof}
+Suppose $j \in \mathcal{A}_{0}(\SL_{2}(\ZZ)), \CC(j) \subseteq \mathcal{A}_{0} (\SL_{2}(\ZZ))$. \\
+Let $g \in \mathcal{A}_{0}(\SL_{2}(\ZZ))$ and $z_{1}, \hdots , z_{r}$ be zeroes of $g$ and $p_{1}, \hdots , p_{s}$ be the poles of $g$ (with multiplicities). Then define $$f(z) = \frac{\prod_{i=1}^r (j(z) - j(z_{1}))}{\prod_{i=1}^s (j(z) - j(p_{i}))} \in \CC(j)$$
+Clearly, $f$ has the same number of zeroes as $g$ on $\HH$. Hence, $f,g$ also have zeros of same order at $\infty$ (for a meromorphic function on $X(\SL_{2}(\ZZ))$ the sum of zeros at all points is $0$). This implies that $g=cf \in \CC(j)$.
+\end{proof}
+
+\begin{remark}[Fact]
+$\mathcal{A}_{0}(\Gamma_{0}(N)) = \CC(j,j_{N})$ where $j_{N}(z) = j(Nz)$
+\end{remark}
+
+We define the order of vanishing of function on $X(\Gamma)$ as follows: \\
+
+Let $\tau \in \HH$ and 
+\[\begin{tikzcd}
+	{\pi: \mathbb{H}^{*}} & {X(\Gamma)} \\
+	& {\mathbb{C}}
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=2-2]
+	\arrow["g"', dashed, from=1-1, to=2-2]
+\end{tikzcd}\]
+Then, 
+\begin{eqnarray}
+v_{\pi}(\tau) (g) &= \frac{v_{\tau}(f)}{h} \in \QQ
+\end{eqnarray}
+where $h$ is the order of stabiliser of $\tau$ and this equals $\# (\{\pm I_{2} \Gamma_{\tau}/\{\pm I_{2}\}\})$\\
+
+If $\tau$ is a cusp, $\Gamma_{\infty} = \{I_{2}\} \langle $ and thus we define \\
+
+$v_{\pi (\infty)}(f) = \begin{cases} v_{\infty} (f)/2 & \Gamma_{\infty} = \langle -\begin{pmatrix}
+1 & h \\ 0 & 1
+\end{pmatrix}  \\ v_{\infty}(f) & \text{ otherwise }\end{cases}$
+
+\section{Riemann-Roch theorem}
+
+Back to Riemann-Roch again. \\
+
+Let $X$ be a compact Riemann surface. A divisor on $X$ is a finite linear combination $\sum_{x \in X(\Gamma)} n_{x}x , n_{x} \in \ZZ$ and $n_{x}=0$ for almost all $x$. The divisors $\mathrm{Div}(X)$ forms a free abelian group on $X$. \\
+
+\begin{eqnarray}
+\deg : \mathrm{Div}(X) &\longrightarrow \ZZ \\
+\sum n_{x}x &\mapsto \sum n_{x}
+\end{eqnarray}
+
+The kernel of this map is denoted by $\mathrm{Div}^{0}(X)$ \\
+
+Next, 
+\begin{eqnarray}
+\mathrm{div} : \CC(X)^{\times} &\longrightarrow \mathrm{Div}(X) \\
+f &\mapsto \sum_{x} v_{x}(f) x
+\end{eqnarray}
+
+\begin{exercise}
+In fact, $\deg(\mathrm{div}(f))=0$
+\end{exercise}
+
+Let $D\in \mathrm{Div}(X)$. We define \begin{equation}
+L(D) = \{f \in \CC(X): f=0 \text{ or } \mathrm{div}(f) + D \geq 0\}
+\end{equation}
+
+Define $\ell (D) = \dim_{\CC} L (D)$. 
+
+\begin{remark}
+A fact to be noted is that $\ell (D) < \infty$.
+\end{remark}
+
+\begin{theorem}[Riemann-Roch theorem]
+$X$ is a compact Riemann surface of genus $g$. Let $\lambda$ be an $\mathcal{O}_{X}$ module generator of $\Omega_{X}^{1}$ ($\mathrm{div}(\lambda)$ is called the canonical divisor). Then, for any $D \in \mathrm{Div}^{0}(X)$ we have 
+\begin{equation}
+\ell (D)  - \ell(\mathrm{div}(\lambda) - D) = \deg D - g + 1
+\end{equation}
+\end{theorem}
+
+
+
+\begin{theorem}
+Let $k$ be an even integer. Then, 
+\begin{equation}
+\dim_{\CC} M_{k}(\Gamma) = \begin{cases} (k-1)(g-1) + \left[ \frac{k}{4} \right] \epsilon_{2} + \left[ \frac{k}{3} \right] \epsilon_{3} + \frac{k-1}{2} \epsilon_{\infty} & k \geq 2 \\ 1 & k=0 \\ 0 & k<0 \end{cases}
+\end{equation}
+
+\begin{equation}
+\dim_{\CC}S_{k}(\Gamma) = \begin{cases} \dim_{\CC} M_{k}(\Gamma) - \epsilon_{\infty}  & k \geq 4 \\ g & k =2 \\ 0 & k \le 0 \end{cases}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Note that $\mathrm{Div}_{\QQ}(X(\Gamma))$ is a $\QQ$ vector space generated by points of $X(\Gamma)$. \\
+
+For $\sum n_{x} x \in \mathrm{Div}_{\QQ}(X(\Gamma))$ put 
+\begin{equation}
+\left[ \sum n_{x} x \right]  = \sum [n_{x}]x
+\end{equation}
+
+Take $\omega \in \Omega^{\otimes k/2} (X(\Gamma))$ and $D = \mathrm{div}(\omega)$
+\end{proof}
+
+\begin{theorem}
+Let $k$ be an odd integer. If $-I_{2} \in \Gamma$, then $M_{k}(\Gamma) = S_{k}(\Gamma)=0$. \\
+
+Assume $-I_{2} \not \in \Gamma$, then 
+\begin{equation}
+\dim_{\CC} M_{k}(\Gamma) = \begin{cases} (k-1)(g-1) + \left[ \frac{k}{3} \right] \epsilon_{3} + \frac{k}{2} \epsilon_{\infty}^{\mathrm{reg}} + \frac{k-1}{2} \epsilon_{\infty}^{\mathrm{irr}} & k \geq 3 \\ 0 & k<0 \end{cases}
+\end{equation} 
+and 
+\begin{equation}
+\dim_{\CC}S_{k}(\Gamma) = \begin{cases} \dim_{\CC} M_{k}(\CC) - \epsilon^{\mathrm{reg}}_{\infty}  & k \geq 3 \\ 0 & k <2  \end{cases}
+\end{equation}
+\end{theorem}
+
+This leaves us with the case $k=1$.
+
+\chapter{Lecture-11 (14th February, 2023): }
+
+
+\chapter{Lecture-12 (15th February, 2023): }
 
 
 
@@ -1030,10 +1213,156 @@ h^{0}(X(\Gamma), \omega_{k}) &= k(g-1 + \frac{1}{2} \epsilon_{\infty}) - g + 1 \
 
 \section{Affine Varieties}
 
-Suppose $k$ is a perfect field (every extension is separable). \\
-Let $G(\bar{k}/k)$ be the Galois group of the extension. It can also be viewed as $\displaystyle{\varinjlim_{L/K \text{Galois, }L \text{ finite}} \mathrm{Gal}(L/K)}$. \\
+Suppose $k$ is a perfect field (every extension is separable) like $Q$ any field of characteristic $0$ or any finite field. \\
+Let $G_{\bar{k}/k}$ be the Galois group of the extension $\bar{k}/k$ where $\bar{k}$ is the algebraic closure of $k$.
+
+\begin{definition}
+An afffine $n$-space over $k$ denoted by $\Aa^n(\bar{k})$ or $\Aa^n$ is the set 
+\begin{equation}
+\Aa^n = \Aa^n(\bar{k}) = \{P=(x_{1}, \hdots , x_{n}): x_{i} \in \bar{k}\}
+\end{equation}
+The set of $k$-rational points of $\Aa^n$ is the set 
+\begin{equation}
+\Aa^n = \Aa^n(k) = \{P=(x_{1}, \hdots , x_{n}): x_{i} \in k\}
+\end{equation}
+\end{definition} 
+
+The Galois group $G_{\bar{k}/k}$ acts on $\Aa^n$ as follows: Take $\sigma \in \mathrm{Gal}(\bar{k}/k)$ then 
+\begin{equation}
+\sigma P = (\sigma x_{1}, \hdots , \sigma x_{n})
+\end{equation}
+
+Therefore, $k$-rational points can also be realised as 
+
+\begin{eqnarray}
+\Aa^n (k) = \{P \in \Aa^n : \sigma P = P \; \forall \; \sigma \in G_{\bar{k}/k}\}
+\end{eqnarray}
+
+\begin{definition}
+Let $\bar{k}[X_{1}, \hdots , X_{n}]$ be the polynomial ring and $I$ be an ideal in the ring. Then, we associate a set $I$ to this ideal as follows: 
+\begin{equation}
+V_{I} = \{P \in \Aa^n : f(P)=0 \; \forall \; f\in I\}
+\end{equation}
+An affine algebraic set is a set of the form $V_{I}$ for some ideal $I$.
+\end{definition}
+
+\begin{theorem}[Hilbert Basis theorem]
+All ideals of $k[\mathbf{X}]$ is finitely generated.
+\end{theorem}
+
+\begin{definition}
+If $V$ is an algebraic set, then we associate an ideal $I(V)$ as 
+\begin{equation}
+I(V) = \{f \in \bar{k}[\mathbf{X}]: f(P)=0 \; \forall \; P \in V\}
+\end{equation}
+An algebraic set is said to be defined over $k$ if its ideal $I(V)$ is generated by polynomials in $k[\mathbf{X}]$ and we denote this by $V/k$. If $V$ is defined over $k$, then the set of $k$-rational points is just $$V(k) = V \cap \Aa^n (k)$$
+\end{definition}
+
+\begin{remark}
+Let $V$ be an algebraic set and consider the ideal $I(V/k)$ defined by 
+\begin{equation}
+I(V/k) = \{f \in k [\mathbf{X}]: f(P)=0 \; \forall\; P \in V\} = I(V) \cap k[\mathbf{X}]
+\end{equation}
+Then we see that $V$ is defined over $k$ iff $$I(V) = I(V/k)\bar{k}[\mathbf{X}]$$ 
+\end{remark}
+
+If $V$ is defined over $k$ and $f_{1}, \hdots , f_{r} \in k[\mathbf{X}]$ be the generators of $I(V/k)$. Then, $V(k)$ is precisely the set of solutions $P=(x_{1}, \hdots , x_{n})$ to the simultaneous polynomial equations 
+
+\begin{equation}
+f_{1}(P) = \cdots = f_{r}(P)=0 \text{ where } x_{i} \in k
+\end{equation}
+
+Note that if $f(\mathbf{X}) \in k[\mathbf{X}] , P =(x_{1}, \hdots , x_{n})$ and $\sigma \in G_{\bar{k}/k}$, then 
+\begin{equation}
+f(\sigma P) = a_{0} + a_{1} \sigma P + \cdots + a_{m} (\sigma P)^m = \sigma f(P)
+\end{equation}
+
+Hence, if $V$ is defined over $k$, then the action of $G_{\bar{k}/k}$ on $\Aa^n$ induces an action on $V$ and clearly, 
+\begin{equation}
+V(k) = \{P \in V : \sigma P = P \; \forall \; \sigma \in G_{\bar{k}/k}\}
+\end{equation}
+
+\begin{example}
+Let $V= \{(x,y)\in \Aa^2 : x^2 -y^2=1\}$. Then, $I(V) = \langle X^2 - Y^2 -1 \rangle$ and therefore $V$ is defined over $k$. 
+\end{example}
+
+\begin{example}
+The algebraic set $V: X^n + Y^n =1$ is defined over $\QQ$.
+\end{example}
+
+\begin{example}
+The algebraic set $V: Y^2 = X^{3} + 17$ has many $\QQ$-rational points (infact infinitely many). 
+\end{example}
+
+\begin{definition}
+An affine algebraic set $V$ is called an affine variety if $I(V)$ is prime ideal in $\bar{k}$. 
+\end{definition}
+\begin{remark}
+It is not enough to check that $I(V/k)$ is prime in $k[\mathbf{X}]$ to conclude whether $I(V)$ is prime in $\bar{k}[\mathbf{X}]$. For example, consider the ideal $\langle X^2 - 2Y^2 \rangle $ in $\QQ[X,Y]$
+\end{remark}
+
+\begin{definition}
+Let $V/k$ be a variety defined over $k$. Then the affine coordinate ring of $V/k$ is defined by 
+\begin{equation}
+k[V] = \frac{k[\mathbf{X}]}{I(V/k)}
+\end{equation}
+The ring $k[V]$ is an integral domain. Its quotient field is denoted by $k(V)$ and is called the function field of $V/k$. Similarly, $\bar{k}(V)$ and $k(V)$ are defined by replacing $k$ by $\bar{k}$.
+\end{definition}
 
 
+\begin{definition}
+Let $V$ be a variety. The dimension of $V$, denoted by $\dim (V)$ is the transcendence degree of $\bar{k}(V)$ over $\bar{k}$.
+\end{definition}
+
+\begin{example}
+The dimension of $\Aa^n$ is $n$ since $\bar{k}(\Aa^n) = \bar{k}(X_{1},\hdots , X_{n})$. Similarly, if $V \subseteq \Aa^n$ is given by a single polynomial $f$, then the dimension of $V$ is $n-1$,
+\end{example}
+
+\begin{definition}
+Let $V$ be a variety, $P \in V$ and $f_{1}, \hdots , f_{m} \in \bar{k}[\mathbf{X}]$ a set of generators for $I(V)$. Then, $V$ is nonsingular (or smooth) at $P$ if the $m \times n$ matrix $$\left( \frac{\partial f_{i}}{\partial X_{j}} \right)_{1 \le i \le m \\ 1 \le j \le n}$$ has rank $n-\dim V$. If $V$ is non-singular at every point, then we say that $V$ is non-singular or smooth.
+\end{definition}
+
+\begin{example}
+Let $V$ be a variety corresponding to a single nonconstant polynomial $f$. Then, $\dim V =n-1$ and $P \in V$ is regular iff 
+\begin{equation}
+\frac{\partial f}{\partial X_{1}}(P) = \cdots = \frac{\partial f}{\partial X_{n}}(P) = 0
+\end{equation}
+\end{example}
+
+\begin{example}
+Consider the two varieties $V_{1}: Y^2 = X^3 + X , V_{2}: Y^2 = X^3 + X^2$. Then, from previous example the singular points on $V_{1},V_{2}$ are given by $V_{1}^{\text{sing}}: 3X^2 + 1 = 2Y=0$ and $V_{2}^{\text{sing}}: 3X^2 + 2X = 2Y=0$. Clearly, $V_{1}$ is non-singular and $V_{2}$ has one singular point $(0,0)$.
+\end{example}
+
+We also have another way to determine smoothness using the functions on the variety $V$. 
+
+\begin{definition}
+For each $P \in V$, we define an ideal $M_{P}$ of $\bar{k}[V]$ by $$M_{P} = \{f \in \bar{k}[V]: f(P)=0\}$$ This ideal is a maximal ideal as it is the kernel of the map 
+\begin{align*}
+\bar{k}[V] &\rightarrow \bar{k} \\
+f &\mapsto f(P)
+\end{align*}
+\end{definition}
+
+The quotient $M_{P}/M_{P}^2$ is a finite dimensional $\bar{k}$-vector space. 
+\begin{proposition}
+Let $V$ be a variety. A point $P \in V$ is non-singular iff $\dim_{\bar{k}} M_{P}/M_{P}^2 = \dim V$. 
+\end{proposition}
+
+\begin{example}
+Consider the point $P = (0,0)$ and the two varieties $V_{1},V_{2}$ as in previous example. Then in both the cases $M_{P}$ is generated by $X,Y$ which implies $M_{P}^2$ is ideal generated by $X^2 , XY, Y^2$. \\
+
+For $V_{1}$, $X=Y^2 - X^3 \equiv 0 \pmod{M_{P}^2}$ and thus $M_{P}/M_{P}^2$ is generated by $Y$ alone. \\
+
+For $V_{2}$, there is no nontrivial relationship between $X,Y$ modulo $M_{P}^2$ therefore $M_{P}/M_{P}^2$ requires both $X,Y$ as generators. Since $\dim V_{i} = 1$ therefore $V_{1}$ is smooth but $V_{2}$ is not. 
+\end{example}
+
+\begin{proposition}
+The local ring of $V$ at $P$, denoted by $\bar{k}[V]_{P}$ is the localisation of $\bar{k}[V]$ at $M_{P}$. 
+\begin{equation}
+\bar{k}[V]_{P} = \{F \in \bar{k}(V): F = f/g \text{ for some } f,g \in \bar{k}[V], g(P)\neq 0\}
+\end{equation}
+The functions in $\bar{k}[V]_{P}$ are called regular functions at $P$.
+\end{proposition}
 
 \chapter{Lecture-3 (10 January, 2023): Projective varieties}
 
@@ -1407,10 +1736,155 @@ This proposition is not true if either $\dim(C) > 1$ or $p$ is singular
 \end{example}
 
 
-\chapter{Lecture-6 (19th January, 2023):}
+\chapter{Lecture-6 (19th January, 2023): Morphisms between curves, ramification and Frobenius map}
+
+\section{Morphisms between curves contd..}
+
+\begin{theorem}
+If $\phi: C_{1} \rightarrow C_{2}$ are morphisms of curves, then $\phi$ is either surjective or constant.
+\end{theorem}
+
+Let $C_{1},C_{2}/k$ be two curves over $k$ and $\phi: C_{1},C_{2}$ nonconstant rational map defined over $k$. Then, we obtain a map 
+\begin{equation*}
+\phi^* : k(C_{2}) \rightarrow k(C_{1}) \text{ such that } f \mapsto f \circ \phi
+\end{equation*} 
+
+\begin{theorem}
+Let $C_{1},C_{2}$ be two curves defined over $k$. 
+\begin{enumerate}
+\item Suppose $\phi: C_{1} \rightarrow C_{2}$ be two nonconstant rational maps defined over $k$. Then $k(C_{1})$ is a finite extension of $\phi^{*}(k(C_{2}))$. 
+\item Suppose $i : k(C_{2}) \rightarrow k(C_{1})$ is an injection of function fields. Then there exists an unique rational map $\phi : C_{1} \rightarrow C_{2}$ defined over $k$ such that $\phi^{*} = i$.
+\item Suppose $\mathbb{K} \subseteq k(C_{1})$ be a subfield containing $k$ and of finite index. Then there exists a smooth curve $C'/k$ unique upto isomorphism and a non-constant rational map $\phi: C_{1} \rightarrow C'$ defined over $k$ such that $\phi^* (k(C_{1})) = \mathbb{K}$
+\end{enumerate}
+\end{theorem}
+\begin{definition}
+Let $\phi: C_{1} \rightarrow C_{2}$ be a morphism of curves defined over $k$. If $\phi$ is constant, then $\deg \phi :=0$. Otherwise, $$\deg \phi = [k(C_{1}): \phi^* (k(C_{2}))]$$ 
+\begin{itemize}
+\item $\phi$ is separable if $k(C_{1})/\phi^* (k(C_{2}))$ is separable.
+\item $\phi$ is inseparable if $k(C_{1})/\phi^* (k(C_{2}))$ is inseparable.
+\item $\phi$ is purely inseparable if $k(C_{1})/\phi^* (k(C_{2}))$ is purely inseparable.
+\end{itemize}
+Denote the separable and inseparable degree of $k(C_{1})/\phi^*(k(C_{2}))$ by $\deg_{s}\phi $ and $\deg_{i} \phi$ respectively.
+\end{definition}
+
+\begin{definition}
+Let $\phi: C_{1} \rightarrow C_{2}$ be a morphism of curves defined over $k$. Then $k(C_{1})$ is a finite extension of $\phi^* (k(C_{2}))$, We wish this to construct a map \begin{equation}
+\phi_{*} : k(C_{1}) \rightarrow k(C_{2}) \;\;\;\;\; \phi_{*} = \phi^* \circ \mathrm{Nm}_{k(C_{1})/\phi^*(k(C_{2}))}
+\end{equation}
+\end{definition}
+
+\begin{proposition}
+Let $f(X) \in k[X]$ be of degree $4$ with $\mathrm{disc}(f) \neq 0$. Then there is a smooth projective curve in $\PP^3$ satisfying 
+\begin{enumerate}
+\item $C \cap \Aa^3 \cong$ affine curve $Y^2 = f(X)$
+\item $f(X)=a_{0}X^4 + \cdots + a_{4}$. Then $C \cap \{X_{0}=0\}$ consists of two points $[0,0, \pm \sqrt{a_{0}}, 1]$
+\end{enumerate}
+\end{proposition}
+
+\section{Ramification}
+
+\begin{definition}
+Let $\phi: C_{1} \rightarrow C_{2}$ be a non-constant map of smooth curves and $P \in C_{1}$. Ramification index of $\phi$ at $P$ is defined by $$e_{\phi}(P) : = \ord_{P}(\phi^* (t_{\phi(P)}))$$ where $t_{\phi(P)} \in k(C_{2})$ is a uniformizer at $\phi (P)$. 
+\begin{itemize}
+\item $\phi$ is unramified at $P$ if $e_{\phi}(P) = 1$
+\item If $\phi$ is unramified at all points of $C_{1}$, then we say $\phi$ is unramified.
+\end{itemize}
+\end{definition}
+
+\begin{proposition}
+Let $\phi: C_{1} \rightarrow C_{2}$ be a non-constant morphism of smooth curves. 
+\begin{enumerate}
+\item For all $Q \in C_{2}$ 
+\begin{equation}
+\sum_{P \in \phi^{-1}(Q)} e_{\phi}(P) = \deg \phi
+\end{equation}
+
+\item For all but finitely many $Q \in C_{2}$
+\begin{equation}
+\# \phi^{-1}(Q) = \deg_{s} \phi
+\end{equation}
+
+\item Let $\psi : C_{2} \rightarrow C_{3}$ be another non-constant morphism of smooth curves. Then for all $P \in C_{1}$ 
+\begin{equation}
+e_{\psi \circ \phi} (P) = e_{\phi}(P) e_{\psi}(\phi(P))
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+A map $\phi: C_{1} \rightarrow C_{2}$ in unramified iff $\# \phi^{-1} (Q) = \deg \phi \; \forall \; Q \in C_{2}$
+\end{corollary}
+
+\section{Frobenius map}
+
+Let $\mathrm{char} (k)=p >0$ and $q=p^n$. For $f(X) \in k[X]$ and let $f^{(q)}$ be the polynomial obtained from $f$ by raising each coefficient of $f$ to the $q$th power. \\
+
+If $C/k$ is a curve, $C^{(q)}/k$ is defined to be the curve whose homogenous ideal is generated by $\{f^{(q)} \mid f \in I(C)\}$. Furthermore, there is a natural map 
+\begin{align*}
+\phi : C &\rightarrow C^{(q)} \\
+[X_{0} : \cdots : X_{n}] &\mapsto [X_{0}^{q} : \cdots : X_{n}^{q}]
+\end{align*}
 
 
-\chapter{Lecture-7 (24th January, 2023):}
+\begin{proposition}
+Suppose $C/k$ is a curve and $\phi : C \rightarrow C^{(q)}$ is the $q$th power Frobenious morphism. 
+\begin{enumerate}
+\item $\phi^* (k(C^{(q)})) = k(C)^{(q)} = \{f \in k(C)\}$
+\item $\phi$ is purely inseparable.
+\item $\deg \phi = q$
+\end{enumerate}
+\end{proposition}
+
+
+\begin{corollary}
+Every map $\phi: C_{1} \rightarrow C_{2}$ which is a morphism of smooth curves over a field of positive characteristic $p$ factors as $$C_{1} \xlongrightarrow{\phi} C_{1}^{(q)} \xlongrightarrow{\lambda} C_{2}$$ with $q=\deg_{i}(\phi)$ where $\phi$ is the $q$th power Frobenius and $\lambda$ is separable.
+\end{corollary}
+
+
+\chapter{Lecture-7 (24th January, 2023): Weierstrass equation}
+
+\section{Weierstrass equation}
+
+Consider 
+\begin{equation}
+Y^2Z + a_{1}XYZ + a_{3}YZ^2 = X^3 + a_{2}X^2Z + a_{4}XZ^2 + a_{6}Z^3
+\end{equation}
+
+Let $E \subseteq \PP^2$ be the variety given by this Weierstrass equation. \\
+
+Dehomogenize wrt $Z$ and obtain 
+\begin{equation}
+E : y^2 + a_{1}xy + a_{3}y = x^3 + a_{2}x^2 + a_{4}x + a_{6}
+\end{equation} 
+with $[0:1:0]$ as a potential point at infinity. \\
+
+If $a_{i} \in k$, then $E$ is defined over $k$. \\
+
+\begin{itemize}
+ \item If $\mathrm{char}(k) \neq 2$, then substituting $y$ for $1/2 (y -a_{1}x - a_{3})$ gives us 
+ \begin{equation}
+ E: y^2 = 4x^3 + b_{2}x^2 + 2b_{4}x + b_{6}
+ \end{equation}
+ \item If $\mathrm{char}(k) \neq 2,3 $ then 
+ \begin{equation}
+ E: y^2 = x^3 - 27c_{4}x - 54c_{6}
+ \end{equation}
+\end{itemize}
+
+\begin{example}
+
+\end{example}
+
+\begin{definition}
+An elliptic curve is a smooth curve in $\PP^2$ given by the Weierstrass equation.
+\end{definition}
+
+\begin{definition}
+$\Delta$ is called the discriminant of the Weierstrass equation and $j$ is called the $j$ invariant of an elliptic curve.
+\end{definition}
+
+Let $P=(x_{0},y_{0})$ be a singular point satisfying the Weierstrass equation $f(x,y)$. Then, $$\frac{\partial f}{\partial X} (P)= \frac{\partial f}{\partial Y} (P) = 0$$
+
 
 \chapter{Lecture-8 (31st January, 2023): Group Law}
 
@@ -1467,7 +1941,7 @@ The composition law above makes $E$ into an abelian group, i.e.,
 \end{proposition} 
 
 \begin{proof}
-
+s
 \end{proof}
 
 \textbf{Notation}: Suppose $P \in E$
@@ -1529,10 +2003,52 @@ Suppose $f\in \bar{k}(E) = \bar{k}(X,Y)$. Then $$f \text{ is even } \Leftrightar
 \end{corollary}
 
 \begin{proof}
+'$\Leftarrow$' Let $P=(x_{0},y_{0})$ then $-P=(x_{0}, -y_{0} - a_{1}x_{0} - a_{3})$. This implies and element of $\bar{k}(X)$ is even. \\
 
+'$\Rightarrow$' Suppose $f \in \bar{k}(X,Y)$ is even. Using Weierstrass equation $$f(x,y) = g(x) + yh(x), g,h \in \bar{k}(X)$$
+$f$ even implies $f(x,y) = f(x, -y - a_{1}x - a_{3})$
+
+\begin{align*}
+\therefore g(x) + yh(x) &= g(x) + h(x)(-y - a_{1}x - a_{3}) \\
+\Rightarrow (2y + a_{1}x + a_{3})h(x) &= 0 \forall (x,y) \in E \\
+\Rightarrow h(x) = 0 &\text{ or } a_{1}=a_{3}=0
+\end{align*}
+In the latter case we have $\Delta = 0 \Rightarrow E = 0 \Rightarrow \Leftarrow$. Therefore, $h(x)=0 \Rightarrow f(x,y) = g(x) \in \bar{k}(E)$
 \end{proof}
 
+\section{Group Law for singular Weierstrass equation}
 
+Let $E$ be a curve given by the Weierstrass equation $E_{ns}=$ set of non-singular points of $E$. \\
+
+If $P\in E$ is a singular point. The multiplicity of $L \cap E$ at $P$ equals $\dim_{\bar{k}} \bar{k}[E]_{P}/L >1$. This is because $\bar{k}[E]_{P}$ is not a $DVR$ and going modulo $1$ relation does not give us $\bar{k}$ and thus dimension over $\bar{k}$ is atleast $2$.\\
+
+Law of composition on $E_{ns} =$ same as the one we give to the non-singular Weierstrass equation.
+
+\begin{proposition}
+Let $E$ be a curve given by a singular Weierstrass equation. The law of composition makes $E_{ns}$ into an abelian group and, 
+\begin{enumerate}
+\item If $E$ has a node, then 
+\begin{align*}
+E_{ns} &\rightarrow \bar{K}^{\times} \\
+(x,y) &\mapsto \frac{Y-\alpha_{1} X - \beta_{1}}{Y- \alpha_{2}X - \beta_{2}}
+\end{align*} 
+is an isomorphism of abelian groups, 
+where $X = \alpha_{2} X + \beta_{2} , Y = \alpha_{1}X + \beta_{1}$
+
+\item If $E$ has a cusp, $Y = \alpha X + \beta$ is a tangent at $S$, then 
+\begin{align*}
+E_{ns} &\rightarrow \bar{k}^{\times} \\
+(x,y) \mapsto \frac{Y- X(S)}{Y - \alpha X - \beta}
+\end{align*}
+is an isomorphism of abelian groups.
+\end{enumerate}
+\end{proposition} 
+
+\begin{definition}
+An elliptic curve is a pair $(E,O)$ where $E$ is a nonsingular curve of genus $1$ and $O \in E$. The elliptic curve $E$ is defined over $k$ written $E/k$ if $E$ is defined over $k$ as a curve and $O \in E(k)$.
+\end{definition}
+
+To make sense of this definition we will have to employ more algebraic geometry as seen in next portion.
 
 
 
@@ -1542,21 +2058,252 @@ Suppose $f\in \bar{k}(E) = \bar{k}(X,Y)$. Then $$f \text{ is even } \Leftrightar
 
 \subsection{Divisors}
 
+Consider the formal linear combination $$D = \sum_{P \in C} n_{P} P$$ with $n_{P} = 0$ for all but finitely many $P \in C$. This formal linear combination is called a divisor of $C$. CLearly, this forms a free abelian group over the points of $C$. We denote this group by $\mathrm{Div}(C)$. \\
+
+The degree of a divisor $D$ is defined as $$\deg D = \sum_{P \in C} n_{P}$$
+
+The divisors of degree $0$ form a subgroup of $$\mathrm{Div}^{0}(C) = \{D \in \mathrm{Div}(C): \deg D =0\}$$
+
+If $C$ is defined over $k$, we get a Galois action on $\mathrm{Div}^{0}(C), \mathrm{Div}(C)$ as follows: $$\sigma D = \sum_{P \in C} n_{P} \sigma P$$
+Then we say $D$ is defined over $k$ iff $\sigma D=D$ for all $\sigma \in G$. We denote the group of divisors defined over $k$ by $\mathrm{Div}_{k}(C)$ and similarly $\mathrm{Div}_{k}^{0}(C)$\\
+
+Next, suppose $f \in \bar{k}(C)^{\times}$. Then we can associate a divisor to this by letting $$\mathrm{div}(f) =\sum_{P \in C} \ord_{P}(f) P$$ This is indeed a divisor from a previous observation that we made. \\
+
+Notice that if $\sigma \in G$, then $$\mathrm{div}(\sigma f) = \sigma (\mathrm{div}(f))$$ Or equivalently if $f \in \bar{k}(C)$ then $\mathrm{div}(f) \in \mathrm{Div}_{k}(C)$. \\
+
+Since each $\ord_{P}$ is a valuation, the map $\mathrm{div}: \bar{k}(C) \rightarrow \mathrm{Div}(C)$ is a homomorphism of abelian groups. 
+
+\begin{definition}
+A divisor $D$ is called principal divisor if it has the form $D = \mathrm{div}(f)$ for some $f \in \bar{k}(C)^{\times}$. Two divisors are equivalent $D_{1} \sim D_{2}$ if $D_{1} - D_{2}$ is a principal divisor. \\
+
+The divisor class group or Picard group of $C$ denoted by $\mathrm{Pic}(C)$ is the quotient of $\mathrm{Div}(C)$ modulo the principal divisors. We let $\mathrm{Pic}_{k}(C)$ be the subgroup of $\mathrm{Pic}(C)$ fixed by $G$. 
+\end{definition}
+
+\begin{proposition}
+Let $C$ be a smooth curve and let $f \in \bar{k}(C)^{\times}$. 
+\begin{enumerate}
+\item $\mathrm{div}(f) = 0$ if and only if $f \bar{k}^{\times}$.
+\item $\deg(\mathrm{div}(f))=0$
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+From the previous definition, it is clear that the principal divisors form a subgroup of $\mathrm{Div}^{0}(C)$. The quotient of $\mathrm{Div}^{0}(C)$ by the subgroup of principal divisors is denoted by $\mathrm{Pic}^{0}(C)$. Similarly, we define $\mathrm{Pic}^{0}_{k}(C)$ to be the subgroup of $\mathrm{Pic}^{0}(C)$ fixed by $G$.
+\end{definition}
+
+All the information above can be summarised in the following exact sequence 
+
+Let $\phi : C_{1} \rightarrow C_{2}$ be a non-constant map of smooth curves. We have already seen that this induces the two maps 
+\begin{align*}
+\phi^{*} : \bar{k}(C_{2}) \rightarrow \bar{k}(C_{1}) & \phi_{*} : \bar{k}(C_{1}) \rightarrow \bar{k}(C_{2}) 
+\end{align*}
+
+Similarly, we define maps of divisor groups as follows: 
+\begin{align*}
+\phi^{*} : \mathrm{Div}(C_{2}) &\rightarrow  \mathrm{Div}(C_{1}) & \phi_{*} : \mathrm{Div}(C_{1}) &\rightarrow \mathrm{Div}(C_{2}) \\
+(Q) &\mapsto \sum_{P \in \phi^{-1}(Q)}e_{\phi}(P) P & (P) &\mapsto (\phi(P))
+\end{align*}
+Extend these maps $\ZZ$ linearly to arbitrary divisors. 
+
+\begin{proposition}
+Let $\phi : C_{1} \rightarrow C_{2}$ be a non-constant map of smooth curves. 
+\begin{enumerate}
+\item $\deg (\phi^{*} D) = (\deg \phi)(\deg D)$ for all $D \in \mathrm{Div}(C_{2})$
+\item $\phi^* (\mathrm{div}(f)) = \mathrm{div}(\phi^* f)$ for all $k \in \bar{k}(C_{2})^{\times}$
+\item $\deg(\phi_{*}(D)) = \deg D$ for all $D \in \mathrm{Div}(C_{1})$
+\item $\phi_{*}(\mathrm{div}(f)) = \mathrm{div}(\phi_{*}(f))$ for all $f \in \bar{k}(C_{1})^{*}$
+\item $\phi_{*} \circ \phi^*$ acts as multiplication by $\deg \phi$ on $\mathrm{Div}(C_{2})$
+\item If $\psi : C_{2} \rightarrow C_{3}$ is another such map, then 
+\begin{align*}
+(\psi \circ \phi)^* = \phi^* \circ \psi^* &\text{ and } (\psi \circ \phi)_{*} = \psi_{*} \circ \phi_{*}
+\end{align*}
+\end{enumerate}
+\end{proposition}
+
+
 \subsection{Differentials}
 
+\begin{definition}
+Let $C$ be a curve. The space of meromorphic differential forms on $C$, denoted by $\Omega_{C}$ is the $\bar{k}$ vector space generated by symbols of the form $dx$ for $x \in \bar{k}(C)$ modulo the relations : 
+\begin{enumerate}
+\item $d(x+y) = dx + dy$ for all $x,y \in \bar{k}(C)$
+\item $d(xy) = xdy + ydx$ for all $x,y \in \bar{k}(C)$
+\item $dx=0$ for all $x \in \bar{k}$
+\end{enumerate}  
+\end{definition}
+
+Let $\phi : C_{1} \rightarrow C_{2}$ be a non-constant map of smooth curves. The associated function field map $\phi^* : \bar{k}(C_{2}) \rightarrow \bar{k}(C_{1})$ induces a map of differentials : 
+\begin{align*}
+\phi^* : \Omega_{C_{2}} &\rightarrow \Omega_{C_{1}} \\ \phi^* \left( \sum_{i} f_{i} dx_{i} \right) &= \sum_{i} (\phi^* f_{i}) d(\phi^* x_{i})
+\end{align*}
+
+\begin{proposition}
+Let $C$ be a curve. 
+\begin{enumerate}
+\item $\Omega_{C}$ is $1$-dimensional $\bar{k}(C)$ vector space. 
+\item Let $x\in \bar{k}(C)$. Then $dx$ is a $\bar{k}(C)$ basis for $\Omega_{C}$ iff $\bar{k}(C)/ \bar{k}(x)$ is a finite separable extension.
+\item Let $\phi: C_{1} \rightarrow C_{2}$ be a non-constant map of curves. Then $\phi$ is separable iff the map $\phi^*$ is injective. 
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let $C$ be a curve, $P \in C$ and $t \in \bar{k}(C)$ an uniformiser at $P$. 
+\begin{enumerate}
+\item For every $\omega \in \Omega_{C}$ there exists an unique function $g \in \bar{k}(C)$ depending on $\omega$ and $t$ satisfying $$\omega = g dt$$
+\item Let $f \in \bar{k}(C)$ with $\omega \neq 0$. The quantity $$\ord_{P} (\omega / dt)$$ depends on $\omega$ and $P$, independent of the choice of uniformiser $t$. We call this value the order of $\omega$ at $P$ and denote it by $\ord_{P}(\omega)$.
+\item Let $x,f \in \bar{k}(C)$ with $x(P)=0$ and let $\mathrm{char}(k)=p$. Then, 
+\begin{align*}
+\ord_{P}(fdx) &= \ord_{P}(f) + \ord_{P}(x) - 1 &\text{ if } p=0 \text{ or } p \nmid \ord_{P}(x) \\
+\ord_{P}(fdx) &\geq \ord_{P}(f) + \ord_{P}(x) &\text{ if } p > 0 \text{ and } p \mid \ord_{P}(x)
+\end{align*}
+\item Let $\omega \in \Omega_{C}$ with $\omega \neq 0$. Then $\ord_{P}(\omega)=0$ for all but finitely many $P \in C$.
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+Let $\omega \in \Omega_{C}$. The divisor associated to $\omega$ is 
+\begin{equation*}
+\mathrm{div}(\omega) = \sum_{P \in C} \ord_{P}(\omega) P \in \mathrm{Div}(C)
+\end{equation*}
+The differential $\omega$ is regular or holomorphic if 
+\begin{eqnarray}
+\ord_{P}(\omega) \geq 0 &\forall \; P \in C
+\end{eqnarray}
+It is nonvanishing if 
+\begin{eqnarray}
+\ord_{P}(\omega) \le 0 &\forall \; P \in C
+\end{eqnarray}
+\end{definition}
+
+\begin{remark}
+If $\omega_{1}, \omega_{2} \in \Omega_{C}$ are nonzero differentials, then there exists a function $f \in \bar{k}(C)^{\times}$ such that $\omega_{1} = f\omega_{2}$. Therefore $$\mathrm{div}(\omega_{1}) = \mathrm{div}(f) + \mathrm{div}(\omega_{2})$$
+\end{remark}
+
+\begin{definition}
+The canonical divisor class on $C$ is the image in $\mathrm{Pic}(C)$ of $\mathrm{div}(\omega)$ for any non-zero differential $\omega \in \Omega_{C}$. Any choice in this divisor class is called a canonical divisor.
+\end{definition}
+
+\chapter{Lecture-10 (7th February, 2023): Riemann-Roch theorem }
+
+\begin{definition}
+\begin{enumerate}
+\item A divisor $D$ is positive, denoted by $D\geq 0$ if $n_{P} \geq 0 \; \forall \; P \in C$.
+\item $D_{1},D_{2} \in \mathrm{Div}(C)$, then $D_{1} \geq D_{2}$ if $D_{1}-D_{2} \geq 0$.
+\item For $D \in \mathrm{Div}(C)$ 
+\begin{align*}
+\mathcal{L}(D) &= \{f \in \bar{k}(C)^{*} : \mathrm{div}(f) \geq -D\} \cup \{0\}\\
+\ell(D) &= \dim_{\bar{k}}\mathcal{L}(D)
+\end{align*}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+Suppose $D \in \mathrm{Div}(C)$
+\begin{enumerate}
+\item If $\deg D <0$, then $\mathcal{L}(D) = \{0\}$ and $\ell(D) = 0$.
+\item $\mathcal{L}(D)$ is finite dimensional over $\bar{k}$.
+\item If $D' \in \mathrm{Div}(C)$ and $D \sim D'$, then $\mathcal{L}(D) \cong \mathcal{L}(D')$ and $\ell(D)=\ell(D')$
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item If $\mathrm{div}(f) \geq -D$ then $\deg (\mathrm{div}(f)) \geq \deg (-D) = -\deg D$. If $\deg D <0$, then $\deg (-D) >0$ and thence no such $f$ exists.
+\item For $D' \le D \Rightarrow \mathcal{L}(D) \subseteq \mathcal{L}(D')$\\
+
+\textbf{Claim}: $\dim_{\bar{k}}(\mathcal{L}(D+P)/\mathcal{L}(D)) \le 1$. 
+\begin{proof}
+Consider the map $\phi_{P}: \mathcal{L}(D+P) \rightarrow \bar{k}$ by $f \mapsto t^{r+1}$
+\end{proof}
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}[Riemann-Roch]
+Let $C$ be a smooth curve and let $K_{C}$ be a canonical divisor on $C$. There is an integer $g \geq 0$ called the genus of $C$ such that for every divisor $D \in \mathrm{Div}(C)$ we have 
+\begin{equation*}
+\ell(D) - \ell(K_{C} - D) = \deg D - g + 1
+\end{equation*}
+\end{theorem}
+
+\begin{corollary}
+\begin{enumerate}
+\item $\ell(K_{C}) = 0$
+\item $\deg K_{C} = 2g-2$
+\item If $\deg D > 2g-2$, then $$\ell(D) = \deg D - g +1$$
+\end{enumerate}
+\end{corollary}
+
+Now, we will use this theory to show that every elliptic curve can be written as a plane cubic and conversely any smooth Weierstrass equation is an elliptic curve. 
+
+\begin{proposition}
+Let $E$ be an elliptic curve defined over $k$. 
+\begin{enumerate}
+\item There exists functions $x,y \in k(E)$ such that the  map $$\phi: E \rightarrow \PP^2 \text{ is given by } \hspace{5mm} \phi = [x,y,1]$$
+gives an isomorphism of $E/k$ onto the curve given by a Weierstrass equation with $a_{i} \in k$ satisfying $\phi(O) = [0,1,0]$
+\item Any two Weierstrass equations for $E$ as in previous part are related by a linear change of variables of the form $$X = u^2 X' + r \hspace{ 1cm} Y = u^2 Y' + su^2 X' + t$$ with $u \in k^{\times}$ and $r,s,t \in k$
+\item Conversely, every smooth cubic curve $C$ given by the Weierstrass equation as in first part is an elliptic curve defined over $k$ with base point $O = [0,1,0]$
+\end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+Let $E/k$ be an elliptic curve with Weierstrass coordinate functions $x,y$. Then, 
+\begin{align*}
+k(E) = k(x,y) &\text{ and } & [k(E): k(x)] = 2
+\end{align*}
+\end{corollary}
+
+\chapter{Lecture-11 (9th February, 2023): Isogenies}
+
+\begin{lemma}
+Let $C$ be a curve of genus $1$ and let $P,Q \in C$. Then 
+\begin{equation}
+(P) \sim (Q) \Leftrightarrow P = Q
+\end{equation}
+\end{lemma}
+
+\begin{proposition}
+Let $(E,O)$ be an elliptic curve. 
+\begin{enumerate}
+\item For every $0$-degree divisor $D \in \mathrm{Div}^{0}(E)$ there exists an unique point $P \in E$ satisfying 
+\begin{equation}
+D \sim (P)-(O)
+\end{equation}
+Define 
+\begin{equation}
+\sigma : \mathrm{Div}^{0}(E) \rightarrow E
+\end{equation}
+to be the map that sends $D$ to its associated $P$
+\item The map $\sigma $ is surjective.
+\item Let $D_{1},D_{2} \in \mathrm{Div}^{0}(E)$. Then, 
+\begin{equation}
+\sigma (D_{1}) = \sigma (D_{2}) \Leftrightarrow D_{1} \sim D_{2}
+\end{equation}
+Thus $\sigma$ induces a bijection of sets 
+\begin{equation}
+\sigma : \mathrm{Pic}^{0}(E) \xlongrightarrow{\sim} E
+\end{equation}
+\item The inverse to $\sigma$ is the map 
+\begin{equation}
+\kappa : E \xlongrightarrow{\sim} \mathrm{Pic}^{0}(E) \hspace{1cm} P \mapsto (\text{ divisor class of } (P) - (O))
+\end{equation}
+\item If $E$ is given by a Weierstrass equation, then the geometric group law on $E$ and the algebraic group law are the same.
+\end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+Let $E$ be an elliptic curve and $D \in \mathrm{Div}(E)$. Then $D$ is a principal divisor iff 
+\begin{equation}
+\sum_{P \in E} n_{P} = 0 \text{ and } \sum_{P \in E} [n_{P}]P= O
+\end{equation}
+\end{corollary}
+
+\section{Isogenies}
+
+\chapter{Lecture-12 (14th February, 2023): Isogenies continued}
+\section{Isogenies}
 
 
-
-
-
-
-
-
-
-
-
-
-
+\chapter{Lecture-13 (15th February, 2023): }
 
 
 
@@ -2048,21 +2795,141 @@ Epimorphism is the dual of this.
 For sets, these mean injection and surjection but monomorphism and epimorphism need not mean isomorphism in a random category. 
 \end{remark}
 
-\chapter{Lecture-7 (7th February, 2023): }
+\chapter{Lecture-7 (7th February, 2023): Hilbert-Basis Theorem}
+
+\section{Hilbert basis theorem}
+
+\begin{definition}
+An ideal $I$ is irreducible if $$I = J \cap K$$ implies $I \supseteq J$ or $I \supseteq K$ (could just say $I=J$ or $I = K$).
+\end{definition}
+
+\begin{theorem}
+In a Noetherian ring, every ideal is finite intersection of irreducible ideals.
+\end{theorem}
+
+\begin{proof}
+Say $S$ is the collection of ideals that are not finite intersections of irreducible ideals. $S$ is non-empty since maximal ideals are 
+\end{proof}
+
+\begin{proposition}
+If $R$ is Noetherian, then $R/I$ is also Noetherian for any ideal $I$.
+\end{proposition}
+
+
+\begin{theorem}[Hilbert Basis theorem]
+Let $R$ be a Noetherian ring, then $R[X]$ is also Noetherian.
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+
+\begin{definition}
+A $R$-module $M$ is Noetherian iff it satisfies one of the following equivalent conditions: 
+\begin{enumerate}
+\item Every submodule $N$ of $M$ is finitely generated.
+\item Every collection of submodules has a maximal element.
+\item Satisfies a.c.c. 
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+If $M_{1}, M_{2}$ are Noetherian $R$-modules, then $M_{1} \oplus M_{2}$ is also Noetherian. 
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{corollary}
+If $R$ is Noetherian ring, then $R^n$ is a Noetherian module.
+\end{corollary}
+
+\begin{proposition}
+Every finitely generated module on a Noetherian ring is Noetherian.
+\end{proposition}
+
+
+\chapter{Lecture-8 (8th February, 2023): Affine Varieties }
+
+\section{Zariski topology }
+
+Let $k$ be an algebraically closed field. \\
+
+$\Aa^n (k) = k^n$ be the affine space. \\
+
+$k[X_{1}, \hdots , X_{n}=: \mathbf{X}]$ be the polynomial ring that is Noetherian by Hilbert basis theorem. \\
+
+Take an ideal $I \subseteq k [\mathbf{X}]$. We define $$\V (I) = \{\mathbf{x} :=(x_{i}) \in \Aa^n: f(\mathbf{x})=0 \; \forall \; f\in I \} = \bigcap_{f_{1}, \hdots , f_{r} \text{ generates } I} \V(f_{i})$$
+
+
+\textbf{Properties:}
+\begin{enumerate}
+\item If $I \subseteq J \Rightarrow \V(I) \supseteq \V(J)$.
+\item If $I,J$ are ideals, then $\V(I) \cup \V(J) = \V(I \cap J) = \V(IJ)$. 
+\item If $\{I_{\alpha}\}_{\alpha \in A}$ is a collection of ideals, then $\V(\sum_{\alpha \in A} I_{\alpha}) = \ds{\bigcap_{\alpha \in A} \V(I_{\alpha})}$.
+\item $\V(I) = \V(\sqrt{I})$. Clearly, $\V(I) \supseteq \V(\sqrt{I})$.
+\end{enumerate} 
+
+The first $3$ properties clearly give a topology on the ideals of $k[\mathbf{X}]$ by taking $\V(I)$ to be the closed sets. This topology is called the Zariski topology.\\
+
+Say, we are given subset $S$ of $\Aa^n(k)$. We wish to associate an ideal to this subset by defining $$\I(S)= \{f \in k [\mathbf{X}] : f(\mathbf{x})=0\}$$
+
+\textbf{Properties}:
+\begin{enumerate}
+\item It is clearly an ideal. Actually, it is a radical ideal. 
+\item 
+\end{enumerate}
+
+\begin{align*}
+\{\text{ideals in } k[\mathbf{X}]\} &\rightarrow \{ \text{subsets of }  \Aa^n\} &\rightarrow \{ \text{ideals in }  k[\mathbf{X}]\}\\
+I &\rightarrow \V(I) &\rightarrow \I(V(I))
+\end{align*}
+
+Clearly, $I \subseteq \I(\V(I)) \Rightarrow \sqrt{I} \subseteq \I(\V(I))$. So, instead of asking whether $I = \I(\V(I))$, it is much more interesting to ask whether $\sqrt{I} = \I(\V(I))$ \\
+
+
+Take an ideal $I \in k [\mathbf{X}]$ and say $\{f_{1}, \hdots , f_{r} \}$ generates $I$. Then, $\V(I)$ is the set of points where all $f_{i}'s$ vanish. Say $g$ vanishes where $f_{i}'s$ vanish. Then, $g \in \sqrt{I} \Rightarrow g^n \in I \Rightarrow g^n = \sum_{i} r_{i}f_{i}$. \\
+
+Next, consider the ideal $J$ generated by $f_{1}, \hdots , f_{r}, gX_{n+1}-1 \subseteq k[\mathbf{X},X_{n+1}]$. If $(a_{1}, \hdots , a_{n+1}) \in \V(J)$, then all $f_{i}s$ vanish on this point and thus $g$ also vanishes which implies polynomials in $J$ cannot simultaneously vanish and thus $\V(J)=\emptyset$. So, naturally we can ask whether $J=R$ OR $\V(J)= \emptyset \Leftrightarrow J=R$ (a deep theorem, we will prove later). Suppose we have proven this already and proceed further. Take $g$ as before. \\
+
+Now, this means 
+\begin{align*}
+1 &= \sum_{i} r_{i}f_{i} + r_{n+1}(gX_{n+1}-1) \\
+g^N &= \sum_{i} s_{i}f_{i}  + s_{n+1}(g-Y) \text{  for some large value of }N \text{ and } Y = 1/X_{n+1}
+\end{align*} 
+If we set $G=Y$, then clearly $g^N \sum_{i} s_{i}f_{i} \Rightarrow g^N \in I \Rightarrow g \in \sqrt{I}$. This leads us to the famous Hilbert Nullstellansatz. (This is just a sketch of what will happen, so spare the details for now)
+
+
+\chapter{Lecture-9 (9th February, 2023): Tensor products}
+
+Defined tensor product. Not writing it down. Universal property, blah blah 
+
+\begin{theorem}
+Suppose $R\rightarrow S$ is a ring homomorphism. Then, $R \rightarrow S$ is an epimorphism iff $S \otimes_{R} S = S$
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+\chapter{Lecture-10 (14th February, 2023): More Tensor products}
+
+We have shown that $R \rightarrow S$ is a ring epimorphism iff $S \otimes_{R} S = S$. Therefore, if we localise $A$ wrt $T$, we know that $A\rightarrow A_{T}$ is an epimorphism iff $A_{T} \otimes_{A} A_{T} = A_{T}$. 
+
+
+
+\chapter{Lecture-11 (16th February, 2023): }
 
 
 
 
 
-
-
-
-
-\chapter{Lecture-8 (9th February, 2023): }
-
-
-
-
+\chapter{Shaferavich Alg geo rant}
+This chapter will contain anything that requires justification and also solutions to exercises. 
+\section{Schemes}
+\subsection{The Spec of a ring}
 
 
 
@@ -3482,20 +4349,243 @@ And, $\delta(f) = \ds{\frac{\partial }{\partial X}f|_{L} d\bar{X}= f'(\alpha) d\
 \end{proof}
 
 
-\chapter{Lecture-10 (8th February, 2023): }
+\chapter{Lecture-10 (8th February, 2023): Unramified morphisms }
+
+Recall the lemma
+\begin{lemma}
+If $k'/k$ is an algebraic separable field extension, then $k'/k$ is formally unramified.
+\end{lemma}
+
+\begin{proposition}
+Let $k$ be a field and $A/k$ an unramified $k$-algebra. Then, $A$ is a finite product of finite separable field extensions of $k$.
+\end{proposition}
+
+\begin{lemma}
+$A$ is finite type over $k$. 
+\end{lemma}
+
+\begin{remark}
+We can replace $k$ by $\bar{k}$ since basis goes to basis.
+\end{remark}
+
+\begin{proof}
+It suffices to show that $\dim(A)=0$ since it is Noetherian and $\dim (A)=0$ which implies Artinian. (all primes are maximal ideal and use some ideas about minimal primes stuff + CRT) to conclude. LOTs of details went over my head. Anyway, assume $A$ has one prime ideal and complete.\\
+
+Now let us show $\dim (A)=0$. Suppose $\dim (A) > 0$, i.e., there is a maximal ideal $\m$ such that $\mathrm{ht}(\m) >0 \Leftrightarrow \dim(A_{\m})>0$. But, we are given $\Omega_{A_{\m}/k}^{1}=0$. But from corollary in last class, $A_{\m}=k \Rightarrow \Leftarrow$. (The conditions are satisfied due to Hilbert Nullstellansatz).
+\end{proof}
+
+\begin{proof}[Proof of proposition]
+Using the lemma, just apply one of the $4$ equivalent conditions of separability and the corollary in previous class.
+\end{proof}
+
+\begin{lemma}
+Let $f: k \rightarrow A$ be a ring homomorphism and let $\mathfrak{q}\in \spec(A)=X$ be a prime. Let $\pr = f^{-1}(\mathfrak{q})\in \spec(k)=Y$. Assume that $f$ is unramified at $\mathfrak{q}$. Then, 
+\begin{enumerate}
+\item $\pr A_{\mathfrak{q}} = \mathfrak{q}A_{\mathfrak{q}}$
+\item $k(\mathfrak{q})$ is a finite separable extension of $k(\pr)$
+\end{enumerate} 
+\end{lemma}
+
+\begin{proof}
+Since $k \rightarrow A$ is unramified at $\mathfrak{q}$, it follows that there exists a $g \in A\bs \mathfrak{q}$ such that $k \rightarrow A_{g}$ is unramified. In particular, we can assume that $A/k$ is unramified. This means that $k(\pr) \rightarrow k(\pr) \otimes_{k} k(\pr)=:B$ is also unramified as it is just a base change. But this tensor product is still finite type and by previous proposition $B$ is a product of $k_{i}$ with $k_{i}/k$ finite separable field extension. One of these $k_{i}s$ must be $k(\mathfrak{q})$. Therefore, $(2)$ is proven. $(1)$ also follows from this. 
+\end{proof}
+
+\begin{proposition}
+Let $f: k \rightarrow A$ be a finite type ring extension and let $\mathfrak{q} \in X = \spec(A)$ and $\pr = f^{-1}(\mathfrak{q}) \in \spec(k)$. Suppose 
+\begin{enumerate}
+\item $\pr A_{\mathfrak{q}} = \mathfrak{q}A_{\mathfrak{q}}$
+\item $k(\mathfrak{q})$ is a finite separable extension of $k(\pr)$
+\end{enumerate}
+Then, $f$ is unramified at $\mathfrak{q}$.
+\end{proposition}
+
+\begin{proof}
+We need to show that $exists g \in A\bs \mathfrak{q}$ such that $\Omega_{A_{g}/k}^{1}=0$. For this, it suffices to show that $\Omega_{A_{\mathfrak{q}}/k}^{1}=0$ since $\Omega_{A/k}^{1}$ is a f.g. $A$-module and use result from previous class (if stalk at a point is $0$, then it must be globally $0$).\\
+
+Let us prove $B:=\Omega_{A_{\mathfrak{q}}/k}^{1} \otimes_{k} k(\pr)=0$. \\
+We know that $\Omega_{B/k(\pr)}^{1} = \Omega_{A_{\mathfrak{q}}/k}^{1} \otimes_{k} k(\pr)$. Hence, we can assume that $B$ is a localisation if a finite type $k$-algebra where $k$ is a field. In this case, our hypothesis says that $B$ is a finite separable field extension of $k$. By the lemma we recorded in the beginning, we have $B$ is unramified. This completes the proof.
+\end{proof}
+
+Thus, we have a characterisation of a map being unramified at a point. Let us record it in the following theorem
+\begin{theorem}
+Let $f: k \rightarrow A$ be a finite type ring extension and let $\mathfrak{q} \in X = \spec(A)$ and $\pr = f^{-1}(\mathfrak{q}) \in \spec(k)$. Then, 
+\begin{enumerate}
+\item $\pr A_{\mathfrak{q}} = \mathfrak{q}A_{\mathfrak{q}}$
+\item $k(\mathfrak{q})$ is a finite separable extension of $k(\pr)$
+\end{enumerate}
+if and only if $f$ is unramified at $\mathfrak{q}$.
+\end{theorem}
+
+\begin{definition}
+Let $f: k \rightarrow A$ be a ring homomorphism. Say $\pr \in \spec(A)$, then we say $f$ is quasi-finite at $\pr$ if $\spec(A\otimes_{k} k(\pr))$ is finite. \\
+
+We say $f$ is quasi finite if it is so at every point of $Y$.
+\end{definition}
+
+To understand it better, consider $k \xlongrightarrow{f} A$ and $X \xlongrightarrow{f} Y$. Then, for $y \in Y$ look at $f^{-1}(y)$. The ring $A \otimes_{k} k(\pr)$ is just $A/\pr A$. Therefore the $\spec(A \otimes_{k} k(\pr))$ is just the prime ideals containing $\pr$. Set theoretically, this is just the fiber of $y$ under $f$. 
+
+\begin{corollary}
+Every finite morphism is quasi-finite. 
+\end{corollary}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{corollary}
+An unramified morphism is quasi-finite.
+\end{corollary}
+
+\begin{proof}
+To check this at point $\pr$, we can replace $k$ by $k(\pr)$ and do base change. Now, the result follows from the proposition proved today. 
+\end{proof}
+
+\textcolor{Magenta}{PLEASE READ Artinian Rings,  Integral extensions, minimal primes business}
+
+
+\chapter{Lecture-11 (13th February, 2023): Smoothness}
+
+\section{Dimension Theory}
+
+For an affine scheme $X$ and a point $x \in X$, we let $$\dim_{x}(X) := K\dim(\mathcal{O}_{X,x})$$ where $\mathcal{O}_{X,x}$ is the localisation of $A$ at $\pr$ if $X = \spec(A)$ and $x = \{\pr \}$ \\
+
+From now on we will assume that our rings to be Noetherian. \\
+
+Recall that if $A$ is a Noetherian ring, then $$K\dim = \sup\{ n \mid \exists \text{ a chain of prime ideals } \pr_{0} \subsetneq \pr_{0} \subsetneq \pr_{1} \subsetneq \cdots \subsetneq \pr_{n} \text{ of length } n \}$$
+
+Also, $\dim (X)  :=  \dim (A)$ if $X = \spec (A)$
+
+If $\pr \in X$, then $$\mathrm{ht} (\pr) = K \dim (A/{\pr})$$
+
+We also defined co-height of $\pr $ as $$ \mathrm{co-ht}(\pr)= K \dim (A_{\pr})$$ 
+
+Note that $\mathrm{ht} + \mathrm{co-ht} \le \dim (A)$
+
+\begin{theorem}
+Let $A$ be an integral domain which is of finite type over a field. Then, 
+\begin{enumerate}
+\item $\dim (A) = tr.\deg(\mathrm{Frac}(A)/k)$
+\item $\forall \; \pr \in \spec(A)$ we have $\Ht(\pr) + \coht(\pr) = \dim (A)$
+\end{enumerate}
+\end{theorem}
+
+Proof can be seen in the commutative algebra part of the notes.
+
+Now, for any ideal $I \subseteq A$, we define height of $I$ as 
+\begin{equation*}
+\Ht(I) = \inf \{ \Ht(\pr)\mid I \subseteq \pr \}
+\end{equation*}
+
+\begin{theorem}[Krull dimension theorem]
+Suppose there exists $f_{1},\hdots , f_{r} \in \pr$ such that $\pr$ is a minimal prime if $I = \langle f_{1} , \hdots , f_{r}\rangle$. Then, 
+\begin{equation}
+\Ht(\pr) \le r 
+\end{equation}
+Moreover, if $f_{1}, \hdots , f_{r}$ is a regular sequence, then 
+\begin{equation}
+\Ht(I) = r
+\end{equation}
+\end{theorem}
+
+\begin{corollary}
+The height of an ideal is always finite.
+\end{corollary}
+
+\begin{proof}
+Since the ring is Noetherian, therefore every ideal is f.g and hence by previous theorem $\Ht(I) < \infty$.
+\end{proof}
+
+\begin{corollary}
+If $A$ is semi-local, then $\dim (A)< \infty$
+\end{corollary}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{remark}[due to Nagata]
+A Noetherian ring in general might not have finite dimension. For example, take $A = k[X_{1}, X_{2} , \hdots ]$. Choose a sequence of integers (positive) $m_{1} < m_{2} <\cdots $ such that $m_{i+1} - m_{i} > m_{i} - m_{i-1} \; \forall \; i$ \\
+
+Now, define $\pr_{i} = \langle X_{m_{i}} , X_{m_{i} + 1} , \hdots , X_{m_{i+1}} \rangle$ \\
+
+Take $S = \bigcup \pr_{i} \subseteq A$ and let $B = S^{-1} A$. \\
+
+Clearly, $\Ht(\pr_{i}) = m_{i+1} - m_{i}$. This implies $\dim (B)=\infty$. \\
+
+Remains to be shown that $B$ is Noetherian. (Noetherian local ring has finite Krull dimension, and some other result )
+\end{remark}
+
+\begin{proposition}
+If $\Ht(\pr)=r$, then there exists $f_{1}, \hdots , f_{r} \in \pr$ such that $\pr$ is a minimal prime of $\langle f_{1}, \hdots , f_{r} \rangle$.
+\end{proposition}
+
+\begin{definition}
+IF $A$ is local and $\m$ is the minimal prime of $\langle f_{1} , \hdots , f_{r} \rangle$ such that $\dim (A)=r$, then $\{f_{1}, \hdots , f_{r}\}$ is called a system of parameters of $A$.
+\end{definition}
+
+\begin{proposition}
+$\dim (A[X_{1}, \hdots ,X_{n}]) = \dim (A) + n$
+\end{proposition}
+
+\begin{proof}
+We can always assume that $n=1$. \\
+
+
+\textbf{Case-1}: Suppose $\dim (A) = \infty $. This implies $\dim (A[x])< \infty $. \\
+
+\textbf{Case-2}: Suppose $\dim (A) < \infty $. We prove by induction. \\
+
+\textbf{Case-2a}: Suppose $\dim (A)=0$, then it is either a field of a product of fields when modded out by the Nilpotent radical (does not change dimension). This implies $A[X]/ \nil(A)$ is a finite product of PIDs and hence we are done.\\
+
+\textbf{Case-2b}: Assume $\dim (A) > 0$. Let $\pr$ be a prime ideal of $A$ of height $r$. Let $	q = \langle \pr[X], X \rangle $. Then, $q \in \spec(A[X])$. Moreover $\Ht(q) \geq \Ht(\pr) + 1$. This implies $\dim(A[X]) \geq \dim (A) + 1$. \\
+
+For the other direction, let $\dim (A)=n$ and $\m$ be a maximal ideal of $A[X]$. Enough to show that $\Ht(\m) \le n+ 1$. \\
+Take $\pr = \m \cap A$. Recall that $\Ht(\m) = \Ht(A_{\pr}[X]_{\m})$. Hence, can assume that $(A, \pr) $ is local. Now, 
 
 
 
+This implies there exists $f\in \m$ such that $\m = \langle f \rangle \Rightarrow \langle \pr[X],f \rangle = \m$. Since, $\dim (A) = n$, we get that $\Ht(\pr) \le n$. Now, apply the previous proposition to observe that $\pr$ is a minimal prime of $\langle f_{1}, \hdots , f_{r} \rangle$ and thus $\m$ is minimal prime of $\langle f_{1}, \hdots , f_{r}, f\rangle$ (needs to be checked). Finally, $\Ht(\m) \le n+1$.
+\end{proof}
+
+\section{Geometric intuition of flatness}
+
+Suppose $\spec(B) = X \xrightarrow{f} Y = \spec(A)$ and $f$ is flat. \\
+
+\textcolor{Blue}{Blabber (useful but blabber nonetheless)}
+
+\begin{theorem}
+Let $f: Y \rightarrow X$ be a flat morphism of affine schemes. Let $y \in Y$ and $x = f(y)$. Then,   
+\begin{equation}
+\dim_{x}(Y_{x}) = \dim_{y}(Y) - \dim_{x}(X)
+\end{equation}
+
+where $Y_{x} = \spec(B \otimes_{A} k(x))$ if $X=\spec(A)$ is the scheme theoretic fibre.
+\end{theorem}
+
+\begin{proof}
+We can assume that $A$ is local since the fibre remains the same whether we work with $A$ or $A_{\pr}$. \\
+
+If $\dim (A)=0$, then it is a field and hence $\dim_{x}(X)=0$ and $Y_{x} = \spec(B \otimes_{A} k(x)) = \spec(B)$ and hence we are done. \\
+
+Assume $\dim (A) > 0$. \\
+
+We can further assume that $A$ is reduced and in a reduced ring, every associated prime is also minimal prime. 
+\end{proof}
 
 
+\chapter{Lecture-12 (15th February): \'{E}tale morphisms}
 
+\begin{definition}
+Let $f: Y \rightarrow X$ be a morphism of Noetherian affine schemes. If $y \in Y$ and $x=f(y)$. Then, $f$ is said to be smooth at $y$ if the following holds: 
+\begin{enumerate}
+\item $f$ is finite type at $x$
+\item $f$ is flat at $y$
+\item $B_{\mathfrak{q}} \otimes_{A_{\pr}} \overline{k(x)}$ is regular
+\end{enumerate}
+$X = \spec(A), Y = \spec(B), x= \pr , y = \mathfrak{q}$\\
 
-
-
-
-
-
-
+We say that $f$ is smooth if it is smooth at every point $y \in Y$
+\end{definition}
 
 \part{Topics in Analytic Number Theory}
 
@@ -3610,15 +4700,1032 @@ Let $c$ be as above and assume that $\sigma \geq 1 - \frac{c}{2 \log q \tau}$. T
 
 \part{Commutative Algebra}
 
+\chapter{Tensor Products}
+
+If $M,N$ are abelian groups, what is $M \otimes_{\ZZ} N$. We will try to address this question. A bilinear map $\phi : M\times N \rightarrow P$ ($P$ is an abelian group) is a function which is linear in both $M,N$. Tensor products are universal objects for all Bilinear maps from $M \times N$. In other words, 
+
+\begin{theorem}
+There exists pair $(T,g) \in \mathrm{Bilin}(M,N)$ satisfying the following properties: 
+\begin{enumerate}
+\item Given any pair $(P, \phi)$ there exists an unique homomorphism $\tilde{\phi} : T \rightarrow P$ such that $\tilde{\phi} \circ g = \phi$.
+\item If $(T',g')$ is another pair which satisfies $1$, then there exists an unique isomorphism $\theta : T \rightarrow T'$ such that $\phi \circ g = g'$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{itemize}
+\item \textbf{Uniqueness}: Suppose there are two pairs $(T,g)$ and $(T',g')$ satisfying $1$. Then, we have two following two diagrams 
+\[\begin{tikzcd}
+	& {M\times N} &&& {M\times N} \\
+	{T'} & T && T & {T'}
+	\arrow["g", from=1-2, to=2-2]
+	\arrow["{g'}"', from=1-2, to=2-1]
+	\arrow["{\exists \;!\; \tilde{g'}}", dashed, from=2-2, to=2-1]
+	\arrow["{g}", from=1-5, to=2-5]
+	\arrow["{g'}"', from=1-5, to=2-4]
+	\arrow["{\exists \;!\;\tilde{g}}", dashed, from=2-5, to=2-4]
+\end{tikzcd}\]
+Therefore
+\[\begin{tikzcd}
+	& {M\times N} &&& {M\times N} \\
+	T & T && {T'} & {T'}
+	\arrow["g", from=1-2, to=2-2]
+	\arrow["g"', from=1-2, to=2-1]
+	\arrow["{\tilde{g}\circ \tilde{g'}}", dashed, from=2-2, to=2-1]
+	\arrow["{g'}", from=1-5, to=2-5]
+	\arrow["{g'}"', from=1-5, to=2-4]
+	\arrow["{\tilde{g'} \circ \tilde{g}}", dashed, from=2-5, to=2-4]
+\end{tikzcd}\]
+with $\tilde{g} \circ \tilde{g'} = \mathrm{id}_{T}$ and $\tilde{g'} \circ \tilde{g} = \mathrm{id}_{T'}$. This completes the first part. The uniqueness of isomorphism $\theta$ is also similar.
+
+\item \textbf{Existence}: Take $C$ to the free abelian group on $M \times N$. Define $D \hookrightarrow C$ to be the subgroup generated by the relations:
+\begin{enumerate}
+\item $(m + m' , n) - (m,n) - (m',n) $
+\item $(m, n+ n') - (m,n) - (m,n')$
+\item $(am,n) - a(m,n)$
+\item $(m,an) - a(m,n)$
+\end{enumerate}
+with $m,m' \in M , n,n' \in N , a\in \ZZ$ \\
+Let $T := C/D$ and $g: M \times N \rightarrow T$ is defined by $g(m,n) = (m,n) \pmod{D}$. \\
+The conditions imposed implies that $g$ is bilinear. Next, suppose $(P, \phi) \in \mathbf{Bilin}(M,N)$, then we get a homomorphism $\tilde{\phi} : C \rightarrow P$ (by the universal property of free abelian groups). \\
+$\because \phi$ is bilinear, $\tilde{\phi}$ kills all of $D$. \\
+$\therefore$ it descends to a map $\tilde{\phi} : C/D \rightarrow P$ that is $\tilde{\\phi : T \rightarrow P}$ 
+\end{itemize}
+This completes the proof.
+\end{proof}
+
+\begin{example}
+$\ZZ/2\ZZ \otimes_{\ZZ} \ZZ / 3\ZZ = 0$ since $1 \otimes 1 = 1 \otimes 4 = 2(1 \otimes 2) = 2 \otimes 2 = 0$
+\end{example}
+
+\begin{exercise}
+\begin{enumerate}
+\item If $f : G \rightarrow H$ is a bijective group homomorphism, then $f$ is an isomorphism, 
+
+\item $\ZZ / m ZZ \otimes_{\ZZ} \ZZ / n \ZZ = \ZZ / (m,n) \ZZ$
+\item If $M,N$ are free abelian groups, then $M \otimes N$ is a free abelian group. Also, find the rank of $M \otimes N$ in terms of rank of $M,N$
+\item $M,N$ torsion implies $M \otimes N$ is torsion
+\end{enumerate}
+\end{exercise}
+
+\begin{example}
+Consider $M' = 2\ZZ \xhookrightarrow{\iota} M  =\ZZ$ and $N = \ZZ / 2 \ZZ$. Take $\alpha = 2 \in M' , \beta = 1 \in N$. Then,
+\begin{equation}
+M' \otimes N \xlongrightarrow{\iota \otimes \mathrm{id}_{N}} M \otimes N
+\end{equation} 
+says that $\alpha \otimes \beta =0$ in $M \otimes N$. However, we claim that $\alpha \otimes \beta $ is nonzero in $M' \otimes N$. This is because $\iota$ is injective but the induced map $\iota \otimes \mathrm{id}_{N}$ is not injective. In other words, tensor products need not preserve monomorphisms but it must preserve epimorphisms.
+\end{example}
+
+\begin{theorem}
+Let $M,N,P$ be abelian groups. Then there exists unique isomorphisms: 
+\begin{enumerate}
+\item $M \otimes N \xlongrightarrow{\alpha} N \otimes M$
+\item $(M \otimes N)\otimes P \xlongrightarrow{\beta} M \otimes (N \otimes P)$
+\item $\ZZ\otimes M \xlongrightarrow{\gamma} M $
+\item $(M \oplus N) \otimes P \xlongrightarrow{\delta} (M \otimes P) \oplus (N \otimes P)$
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+An $R$-module is an abelian group $M$ together with a group homomorphism 
+\begin{equation}
+\phi_{M} : R \otimes M \longrightarrow M
+\end{equation}
+ such that 
+ \begin{enumerate}
+ \item \[\begin{tikzcd}
+	{R \otimes R \otimes M} && {R\otimes M} \\
+	\\
+	{R\otimes M} && M
+	\arrow["{\mu_{R} \otimes \mathrm{id}_{M}}", from=1-1, to=3-1]
+	\arrow["{\mathrm{id}_{R}\otimes \phi_{M}}", from=1-1, to=1-3]
+	\arrow["{\phi_{M}}", from=1-3, to=3-3]
+	\arrow["{\phi_{M}}"', from=3-1, to=3-3]
+\end{tikzcd}\]
+ 
+ \item $\phi_{M}(1 \otimes m) = m$ for all $m \in M$
+ \end{enumerate}
+\end{definition}
+
+
+\begin{remark}
+$(1)$ gives us associativity, i.e., 
+\begin{eqnarray*}
+\phi: R \times M &\longrightarrow M \text{ bilinear with } \\
+\phi(a, bm) &= (ab)m \; \forall \; m \in M , a,b \in R
+\end{eqnarray*}
+and $(2)$ shows that $\phi(1,m) = m \; \forall \; m \in M$
+\end{remark}
+
+
+\begin{remark}
+Abelian groups are just $\ZZ$-modules
+\end{remark}
+
+Suppose $M,N$ are $R$-modules. Then an $R$-linear map is just a group homomorphism $f: M \longrightarrow N$ such that $f(am) = af(m) \; \forall \; a\in R , m \in M$
+
+\begin{remark}
+\begin{enumerate}
+\item Every abelian group homomorphism is a $\ZZ$-linear map. 
+\item $f$ is $R$-linear iff $f$ commutes with the action of $R$ on $M$. 
+\item $R$-linear maps are also called module homomorphisms.
+\end{enumerate}
+\end{remark}
+
+A submodule of $M$ is a subgroup $M'$ of $M$ such that the actions are preserved ($RM' = M'$)\\
+
+If $f: M\rightarrow N$ is a module homomorphism, then $\ker(f)$ is a submodule of $M$ and $\mathrm{Im}(f)$ is a submodule of $N$. \\
+
+If $M \hookrightarrow N$, then $N/M$ is an $R$-module homomorphism with the canonical projection $N \xlongrightarrow{\pi} N/M$ being $R$-linear.
+
+\begin{remark}
+The category of $R$-modules is usually denoted by $\mathbf{Mod}_{R}$ or $R-\mathbf{mod}$\\
+
+Suppose $M,N$ are $R$-modules. Then, $\mathbf{Mod}_{R}$ has operations $\oplus $ and $\otimes_{R}$ such that 
+\begin{enumerate}
+\item $M \otimes_{R} N \simeq N \otimes_{R} M$
+\item $(M \oplus M') \otimes_{R} N \simeq (M \otimes_{R} N) \oplus (M' \otimes_{R} N )$
+\item $R \otimes_{R} M \simeq M$
+\end{enumerate}
+\end{remark}
+
+\begin{remark}
+Define $\Hom_{R}(M,N) = \{R\text{-linear maps from} M \rightarrow N\}$. It can be seen that $\Hom_{R}(M,N)$ is also a $R$-module such that 
+\begin{enumerate}
+\item $(f+g)(m) = f(m) + g(m)$ for all $m\in M, f,g \in \Hom_{R}(M,N)$
+\item $(af)(m) = af(m)$ for all $a\in R, m\in M, f \in \Hom_{R}(M,N)$
+\end{enumerate}
+\end{remark}
+
+\begin{definition}
+Say $M$ is a $R$-module. Then we define 
+\begin{equation}
+M_{tor} = \{m \in M \mid am=0 \text{ for some } 0 \neq a \in R\}
+\end{equation}
+\end{definition}
+
+\begin{exercise}
+\begin{enumerate}
+\item Prove or disprove that $M_{tor}$ is a $R$-submodule. 
+\item $M$ is a torsion abelian group iff $M \otimes_{\ZZ} \QQ = 0$
+\end{enumerate}
+\end{exercise}
+
 \chapter{Ideals}
+
+An ideal $I$ of $R$ is a $R$-submodule of $R$ such that $IR = I = RI$
+
+\begin{proposition}
+Let $I_{1},I_{2}$ be two ideals of $R$.
+\begin{enumerate}
+\item $I_{1} \cap I_{2}$ is an ideal. 
+\item $I_{1}\cup I_{2}$ might not be an ideal. 
+\item $I_{1}I_{2}$ is an ideal. 
+\item $I_{1}I_{2} \subseteq I_{1} \cap I_{2}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{exercise}
+If $I_{1},I_{2}$ are ideals such that $I_{1} + I_{2} = R$, then $I_{1}\cap I_{2} = I_{1}I_{2}$
+\end{exercise}
+
+\begin{lemma}
+For ideals $I,J,K$ of $R$, we have $I(J+K) = IJ + IK$
+\end{lemma}
+
+For $I \subseteq R$ an ideal, we define the quotient ring $R/I$ such that 
+\begin{itemize}
+\item $(a+I) + (b+I) = (a+b) + I$
+\item $(a+I)(b+I) = ab + I$
+\item $b(a+I) = ab + I$
+\end{itemize}
+
+Let $I_{1}, \hdots ,I_{n} \subseteq R$ be ideals and say we have a ring homomorphism 
+\begin{eqnarray*}
+R &\xlongrightarrow{Q} \frac{R}{I_{1}} \times \cdots \times \frac{R}{I_{n}}\\
+a &\longmapsto (a+ I_{1}, \hdots , a+I_{n})
+\end{eqnarray*}
+
+\begin{exercise}
+Show that $\ker(Q) = \bigcap_{j=1}^n I_{j}$
+\end{exercise}
+
+Now, 
+\begin{equation}
+\frac{R}{\ker Q} \xlongrightarrow{Q} \frac{R}{I_{1}} \times \cdots \times \frac{R}{I_{n}}
+\end{equation}
+So, it is injective. We ask when is it surjective. Recall
+\begin{theorem}[Chinese Remainder Theorem]
+If $I_{i} + I_{j} = R$ for all $i \neq j$, then 
+\begin{enumerate}
+\item $\ds{\bigcap_{j=1}^n I_{j} = \prod_{j=1}^n I_{j}}$
+\item $\ds{R/\prod_{j=1}^n I_{j}  \simeq \prod_{j=1}^n R/I_{j}}$
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+\begin{enumerate}
+\item $\pr \subseteq R$ is a prime ideal if $ab \in \pr \Rightarrow a \in \pr$ or $b \in \pr$
+\item $\m \subseteq R$ is a maximal ideal if it is a proper ideal and for all proper ideals $\m'$ such that $\m \subsetneq \m'$ implies $\m = \m'$
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+\begin{enumerate}
+\item $\pr$ is a prime ideal iff $A/\pr$ is an integral domain. 
+\item $\m$ is a maximal ideal iff $A/\m$ is a field.
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+Every proper ideal is contained in a maximal ideal.
+\end{theorem}
+
+\begin{definition}
+\begin{enumerate}
+\item $a\in R$ is called nilpotent if $a^n = 0$ for some $n \in\ZZ_{\geq 0}$
+\item $\nil(R) = \{a \in R : a \text{ is nilpotent }\}$
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+\begin{equation}
+\nil(R) = \bigcap_{\pr : \text{ prime }} \pr
+\end{equation}
+\end{theorem}
+
+\begin{definition}
+Jacobson ideal of $R$ = intersection of all maximal ideals. 
+\end{definition}
+
+In general, $\nil(R) \subseteq \mathrm{Jac}(R)$
+
+\begin{exercise}
+In $R[X]$, $\mathrm{Jac}(R[X]) = \nil(R[X])$
+\end{exercise}
+
+\begin{theorem}[Theorem of prime avoidance]
+Let $I \subseteq R$ be an ideal and $\pr_{1}, \hdots , \pr_{r}$ be prime ideals such that $I \not \subseteq \pr_{i} \;\forall \; i$. Then, $I \not \subseteq \bigcup_{i=1}^{r} \pr_{i}$
+\end{theorem}
+
+
+\begin{theorem}
+If $I_{1}, \hdots ,I_{n} \subseteq R$ are ideals such that $\bigcap_{j=1}^n I_{j} \subseteq \pr$ where $\pr$ is a prime ideal, then $I_{i} \subseteq \pr$ for some $j$.
+\end{theorem}
+
+\begin{exercise}
+Prove or disprove that a finite intersection of distinct prime ideals cannot be a prime ideal.
+\end{exercise}
+
+\begin{definition}
+Let $I \subseteq R$ be an ideal. Then, the radical of $I$ is defined as 
+\begin{equation}
+\sqrt{I} = \{a \in R : a^n \in I \text{ for some } n \in \ZZ_{\geq 1}\}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+\begin{enumerate}
+\item $I \subseteq \sqrt{I}$
+\item If $I = \{0\}$, then $\sqrt{I}$ is the nilradical. 
+\item $R \xlongrightarrow{f} R/I$ implies $\sqrt{I} = f^{-1}(\nil(R/I))$
+\end{enumerate}
+\end{remark}
+
+\begin{exercise}
+\begin{enumerate}
+\item Suppose $\sqrt{I} + \sqrt{J} = R$. Then, $I + J = R$. 
+\item Show that $x \in \mathrm{Jac}(R) \Leftrightarrow 1-xy \in R^{\times} \; \forall \; y \in R$
+\item 1,2,4,6,7,8,14 from chapter $1$ Atiyah McDonald
+\end{enumerate}
+\end{exercise}
 
 \chapter{Modules}
 
-\chapter{Projective, Injective modules}
+\begin{theorem}[Cayley-Hamilton Theorem]
+Let $I \subseteq R$ be an ideal and $M$ a f.g. $R$-module. Suppose $\phi$ is an endomorphism of $M$ such that $\phi(M) \subseteq IM$. Then $\phi$ satisfies a polynomial equation 
+\begin{equation}
+\phi^n + a_{1}\phi^{n-1} + \cdots + a_{n-1}\phi + a_{n} = 0
+\end{equation}
+where $a_{i} \in I \; \forall \; i$
+\end{theorem}
 
-\chapter{Noetherian Rings}
+\begin{corollary}
+Let $M$ be a f.g. $R$-module. Suppose $I \subseteq R$ is an ideal such that $IM=M$. Then there exists $a\in R$ such that $(1) a\equiv 1 \pmod{I}$ and $(2) aM=0$.
+\end{corollary}
 
-\chapter{Artinian Rings}
+\begin{lemma}[Nakayama Lemma]
+Suppose $M$ is a f.g. $R$-module. Suppose $I \subseteq \mathrm{Jac}(R)$ is an ideal such that $IM=M$, then $M=0$.
+\end{lemma}
+
+\begin{definition}
+Let $R$ be a commutative ring. $R$ is called local if it has only one maximal ideal. We denote a local ring by $(R, \m , k)$ where $\m$ is the maximal ideal and $k$ is the residue field.
+\end{definition}
+
+\begin{example}
+fields, $\ZZ/n\ZZ$ where $n  = p^f$
+\end{example}
+
+\begin{example}
+Fix a prime $p$. Set $\ZZ_{(p)} = \{\frac{m}{n}: p \nmid n\}$. Then, $\ZZ_{(p)}$ is a local ring with $p \ZZ_{(p)}$ as the only maximal ideal. \\
+
+More generally, for an integral domain $R$ and a prime ideal $\pr$ of $R$, $R_{\pr} = \{\frac{m}{n}: n \not \in \pr\}$ is also a local ring 
+\end{example}
+
+\begin{remark}
+Every element outside the maximal ideal is an unit in a local ring. The converse is also true. 
+\end{remark}
+
+\begin{corollary}
+Suppose $R$ is a local ring with residue field $k$. If $M \otimes_{R} k = 0$, then $M=0$.
+\end{corollary}
+
+Consider the categories 
+\begin{align*}
+\mathbf{Mod}_{R} &\xlongrightarrow{\otimes_{R} k} k-\text{vector spaces}\\
+M &\longmapsto M \otimes_{R} k 
+\end{align*}
+
+Here, $M = 0 \Leftrightarrow M \otimes_{R} k = 0$ by the previous field. Hence, it is a conservative functor. 
+
+\begin{definition}
+Let \begin{equation}
+\mathcal{C} \xlongrightarrow{F} \mathcal{D}
+\end{equation}
+We say $F$ is conservative if $C=0 \Leftrightarrow F(C)=0$ where $C \in \mathrm{Ob}(\mathcal{C}), F(C) \in \mathrm{Ob}(\mathcal{D})$.
+\end{definition}
+
+If $V$ is a vector space over $\mathbb{F}$ and let $V$ be a finite dimensional. Then, $$\phi : V \twoheadrightarrow V$$ implies $\phi$ is an isomorphism. If we remove finite dimensionality, then this assertion is not true. For take $V=\ZZ[X]$ and $\phi$ be the polynomial derivative.
+
+\begin{theorem}
+Let $M$ be a $R$-module. If $\phi : M \twoheadrightarrow M$ is a surjection, then $\phi$ is an isomorphism.
+\end{theorem} 
+
+\begin{lemma}[Snake Lemma]
+
+\end{lemma}
+
+\begin{lemma}
+Suppose we have a sequence 
+\begin{equation}[*]
+M' \xlongrightarrow{u} M \xlongrightarrow{v} M'' \longrightarrow 0
+\end{equation}
+Then, $*$ is exact iff the sequence 
+\begin{equation}[*]
+0 \longrightarrow \Hom_{R}(M '' , P) \xlongrightarrow{v^*} \Hom_{R}(M,P) \xlongrightarrow{u^*} \Hom_{R}(M',P)
+\end{equation}
+is exact for all $R$-modules $P$.
+\end{lemma}
+
+\begin{lemma}
+Suppose we have a sequence 
+\begin{equation}[*]
+M' \xlongrightarrow{u} M \xlongrightarrow{v} M'' \longrightarrow 0
+\end{equation}
+Then, $*$ is exact iff the sequence 
+\begin{equation}[*]
+0 \longrightarrow \Hom_{R}(P,M') \xlongrightarrow{v_*} \Hom_{R}(P,M) \xlongrightarrow{u_*} \Hom_{R}(P,M'')
+\end{equation}
+is exact for all $R$-modules $P$.
+\end{lemma}
+
+\begin{remark}
+$\Hom_{R}(P, -)$ is a left exact functor. We claim that $\Hom_{R}(- , P)$ is not a right exact functor. Because consider 
+\begin{equation}
+0 \longrightarrow M' \xlongrightarrow{u} M 
+\end{equation}
+Then \begin{equation}
+0 \longrightarrow \Hom_{R}(M,P) \xlongrightarrow{u^*} \Hom_{M',P}
+\end{equation}
+need not be exact. For example, 
+
+take  $R=\ZZ$
+\end{remark}
+
+\begin{theorem}
+Suppose we have a sequence 
+\begin{equation}[*]
+M' \xlongrightarrow{u} M \xlongrightarrow{v} M'' \longrightarrow 0
+\end{equation}
+Then, $*$ is exact iff the sequence 
+\begin{equation}[*]
+M' \otimes_{R} P \longrightarrow M \otimes_{R} P \longrightarrow M'' \otimes_{R} P \longrightarrow 0
+\end{equation}
+is exact for all $R$-modules $P$.
+\end{theorem}
+
+\chapter{Projective, Injective, Flat modules}
+
+\section{Flat and faithfully flat}
+
+\begin{definition}
+Let $N$ be a $R$-module. Then, $N$ is flat if $\otimes_{R} N : \mathbf{Mod}_{R} \rightarrow \mathbf{Mod}_{R}$ is exact.
+\end{definition}
+
+\begin{lemma}
+TFAE: 
+\begin{enumerate}
+\item $N$ if flat 
+\item $M' \hookrightarrow M \Rightarrow M' \otimes N \hookrightarrow M \otimes N$
+\item $M' \hookrightarrow M $ with $M,M'$ f.g. implies $M'\otimes N \hookrightarrow M \otimes N$
+\end{enumerate}
+\end{lemma}
+
+\begin{example}
+\begin{enumerate}
+\item every free module is flat.
+\item 
+\end{enumerate}
+\end{example}
+
+\begin{exercise}
+Let $R$ be an integral domain with fraction field $k$. Then, $k$ is $R$-flat.
+\end{exercise}
+
+\begin{definition}
+$F$ is called faithfully flat (ff) if for all sequences 
+\begin{equation}[*]
+M' \longrightarrow M \longrightarrow M''
+\end{equation}
+$*$ is exact iff 
+\begin{equation}[**]
+M' \otimes_{R} F \longrightarrow M \otimes_{R} F \longrightarrow M'' \otimes_{R} F 
+\end{equation}
+is exact.
+\end{definition}
+
+\begin{remark}
+$ff \Rightarrow $ flat
+\end{remark}
+
+\begin{example}
+Abeliean $\Rightarrow ff$. Is the converse true? If $F= \QQ $ ff as a $\ZZ$-module?\\
+
+Notice that if $M$ is finite abelian group, and $$0 \rightarrow M \rightarrow 0$$ Then, $$0 \rightarrow M \otimes \QQ \rightarrow$$ which implies $$0 \rightarrow 0 \rightarrow 0$$ Therefore $\QQ$ is flat but not ff.
+\end{example}
+
+\begin{theorem}
+Let $R$ be an integral domain with fraction field $K$. Suppose $$R \hookrightarrow S \hookrightarrow K$$ are inclusions of rings. Then, 
+\begin{enumerate}
+\item $S$ is flat over $R$.
+\item $S$ is ff over $R$ iff $S=R$.
+\end{enumerate}
+\end{theorem}
+
+\begin{exercise}
+Suppose $F$ has the property that $M \otimes F = 0 \Leftrightarrow M=0$. Is $F$ ff?
+\end{exercise}
+
+\begin{theorem}
+$M$ is flat iff $I \otimes M \rightarrow M$ is injective for all ideal $I \subseteq R$.
+\end{theorem}
+
+\begin{exercise}
+\begin{enumerate}
+\item $R[X]$ is flat over $R$.
+\item Direct sum(summand) is flat (if flat)
+\item Tensor product of flat modules are flat.
+\item Suppose $R$ is an integral domain. Then, flat implies torsion-free.
+\item Does torsion free implies flat? 
+\end{enumerate}
+\end{exercise}
+
+\begin{theorem}
+Let $R\rightarrow S \rightarrow T$ be a ring homomorphism. Then $T$ is flat over $S$ and $S$ flat over $R$ implies $T$ is flat over $R$.
+\end{theorem}
+
+\begin{exercise}
+Let $R\rightarrow S$ be a ring homomorphism which is ff, $M \in \mathbf{Mod}_{R}$. Then, $M$ is flat over $R$ iff $M \otimes_{R} S$ is flat over $S$.
+\end{exercise}
+
+\begin{remark}
+Let $R \rightarrow S$ be a ring homomorphism. Then, $M$ is $R$-flat implies $M\otimes_{R} S $ is $S$-flat. Is the converse true? \\
+
+Take $R=\ZZ, M = \ZZ / n\ZZ$. M is not flat over $R$ since it is not torsion free but $M \otimes_{\ZZ} \ZZ / n\ZZ = \ZZ / n \ZZ$
+\end{remark}
+
+\section{Projective Modules}
+
+Say $F$ is a free $R$-module. Then we can ask two questions: 
+\begin{itemize}
+\item Is the submodule free ? 
+\item Is the direct summand free if $F$ is free ?
+\end{itemize}
+
+\begin{definition}
+A $R$-module $P$ is called projective if it is a direct summand of a free $R$-module.
+\end{definition}
+
+\begin{exercise}
+\begin{enumerate}
+\item Let $R = k[X,Y], M=R$. Take $I = \langle X,Y \rangle$. Show that $I$ is not injective.  
+\item Take $R = \RR[X_{1},X_{2},X_{3}]/ \langle X_{1}^2 + X_{2}^2 + X_{3}^2 -1 \rangle$. Then, 
+\[\begin{tikzcd}
+	0 & {P } & {R^3} & R \\
+	&& {\{e_{1},e_{2},e_{3}\}} & {e_{i} \mapsto X_{i}}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\]
+We see that $R^3 = R \oplus P$. Therefore, $P$ is projective module by definition. But, it is an \textcolor{BrickRed}{OPEN} question whether $P$ is free or not.
+\end{enumerate}
+\end{exercise}
+
+\begin{theorem}
+$P$ is projective iff $\Hom_{R}(P,-)$ is an exact functor of $\mathbf{Mod}_{R}$ to $\mathbf{Mod}_{R}$
+\end{theorem}
+
+\begin{remark}
+Projective implies flat.
+\end{remark}
+
+\begin{theorem}
+Suppose $R$ is local, $P$ a f.g. projective $R$-module. Then $P$ is free. 
+\end{theorem}
+
+\section{Injective Modules}
+
+\begin{definition}
+We say that a $R$-module $E$ is injective if $\Hom_{R}(-,E)$ is exact functor.
+\end{definition}
+
+\begin{example}
+$\ZZ$ is not injective as $\ZZ$-module 
+\end{example}
+
+\begin{remark}
+To show that $E$ is injective, it suffices to show that 
+\begin{equation}[*]
+0 \rightarrow M' \rightarrow M
+\end{equation}
+exact iff 
+\begin{equation}[**]
+\Hom_{R}(M,E) \rightarrow \Hom_{R}(M',E) \rightarrow 0
+\end{equation}
+is exact. \\
+
+i.e., $M' \hookrightarrow M \Rightarrow \Hom_{R}(M,E) \twoheadrightarrow \Hom_{R}(M',E)$ \\
+
+i.e., every map $f: M \rightarrow E$ extends 
+\[\begin{tikzcd}
+	M & {M'} \\
+	E
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-1]
+	\arrow[dashed, from=1-2, to=2-1]
+\end{tikzcd}\]
+\end{remark}
+
+\begin{exercise}
+\begin{enumerate}
+\item Show that $\QQ$ is injective as $\ZZ$-module.
+\item Let $M$ be a flat $S$-module and $E$ an injective $R$-module. Then, $\Hom_{R}(M,E)$ is an injective $S$-module.
+\end{enumerate}
+\end{exercise}
+
+
+\begin{theorem}
+$E$ is injective iff for all ideals $I \hookrightarrow R$ and homomorphism $f: I \rightarrow E$, there exists an extension $R \xlongrightarrow{f'} E$ of $E$, i.e., 
+\[\begin{tikzcd}
+	I & R \\
+	E
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-1]
+	\arrow["{f'}", dashed, from=1-2, to=2-1]
+\end{tikzcd}\]
+\end{theorem}
+
+\begin{definition}
+We say that a $R$-module is divisible if $M \xlongrightarrow{\alpha}M$ is surjective for all $a\in R$, i.e., given $m \in R \exists \; n \in M$ such that $an=m$
+\end{definition}
+
+\begin{exercise}
+\begin{enumerate}
+\item Injective implies divisible.
+\item If $R$ is PID, then injective iff divisible.
+\end{enumerate}
+\end{exercise}
+
+\begin{remark}
+$\QQ$ is divisible implies $\QQ/\ZZ$ is divisible. Also, $\ZZ$ is a PID therefore $\QQ/\ZZ$ is injective.
+\end{remark}
+
+\begin{definition}
+Let $M$ be a $R$-module (thus it is also a $\ZZ$-module). Define 
+\begin{equation*}
+M^{\vee} := \Hom_{\ZZ}(M, \QQ / \ZZ)
+\end{equation*}
+\end{definition}
+
+\begin{remark}
+If $M \neq 0$, then we can always construct a nonzero abelian group homomorphism $M \rightarrow \QQ/\ZZ$. Thus, $M^{\vee} \neq 0$. For $M \in \mathbf{Mod}_{R}$ find $F \twoheadrightarrow M^{\vee}$. As $F$ is free $R$-module therefore $M^{\vee} \hookrightarrow F^{\vee}$ as $\ZZ$-modules. Also, the evaluation map $M \hookrightarrow M^{\vee}$ is injective. Therefore $M \hookrightarrow F^{\vee}$\\
+
+By a previous exercise, since $F$ is flat (in fact free) $R$-module and $\QQ/\ZZ$ is an injective $\ZZ$-module, $\Hom_{\ZZ}(F, \QQ/\ZZ) = F^{\vee}$ is injective $R$-module. Thus, $M \hookrightarrow F^{\vee}$, i.e., $M$ sits inside an injective module.
+\end{remark}
+
+
+\begin{remark}
+In the category of $R$-modules, every module sits inside an injective module.
+\end{remark}
+
+\section{Applications}
+
+Suppose $M,N$ are $R$-modules. We know that $N$ is a quotient of projective (in fact free) module. Thus, we can construct an exact sequence as follows: 
+\[\begin{tikzcd}
+	{\cdots } & {P_{2}} & {P_{1}} & {P_{0}} & N & 0 \\
+	&& {\ker(f_{1})} & {\ker(f_{0})}
+	\arrow["{f_{1}}", from=1-3, to=1-4]
+	\arrow[from=1-1, to=1-2]
+	\arrow["{f_{2}}", from=1-2, to=1-3]
+	\arrow["{f_{0}}", from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[two heads, from=1-2, to=2-3]
+	\arrow[from=2-3, to=1-3]
+	\arrow[two heads, from=1-3, to=2-4]
+	\arrow[from=2-4, to=1-4]
+\end{tikzcd}\]
+
+This is called a projective resolution of $N$. We write it as $P \rightarrow N \rightarrow 0$. \\
+
+Then, $P \otimes_{R}M \rightarrow N \otimes_{R} M \rightarrow 0$ is a chain complex (not necessarily exact). We define 
+\begin{equation*}
+\mathrm{Tor}_{R}^i (M,N) := H_{i}(P \otimes_{R} N), i \geq 0
+\end{equation*}
+Also, it can be proven that 
+\begin{eqnarray}
+\mathrm{Tor}_{R}^i (M,N) = \mathrm{Tor}_{R}^i (N,M) , \text{ and } \\
+\mathrm{Tor}_{R}^0 (M,N) = M \otimes_{R} N
+\end{eqnarray}
+
+\begin{theorem}
+Let $M$ be a $R$-module. TFAE:
+\begin{enumerate}
+\item $M$ is flat 
+\item $\mathrm{Tor}_{R}^i (M,N) = 0 \; \forall \; i >0, \forall \; N$
+\item $\mathrm{Tor}_{R}^1 (M,N) = 0 \; \forall \; N$
+\end{enumerate}
+\end{theorem}
+
+\begin{exercise}
+For $I \subseteq R$ an ideal, $M$ a $R$-module, we have 
+\begin{equation*}
+\mathrm{Tor}^{1}_{R}(R/I , M) = \{m \in M : am=0 \; \forall \; a\in I\}
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+1,3,4,5,7,8,10,11 from Atiyah McDonald chapter 2
+\end{exercise}
+
+\chapter{Noetherian and Artinian Rings}
+
+Let $\Sigma$ be a poset with the order given by $\le $
+
+\begin{proposition}
+TFAE: 
+\begin{enumerate}
+\item Every increasing chain $x_{1} \le x_{2} \le \cdots $ is stationary.
+\item Every non-empty subset of $\Sigma$ has a maximal element. 
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+Suppose $\Sigma$ is a set whose subsets are ordered by inclusions. If $\Sigma$ satisfies any of the conditions of the previous proposition, we say that the subsets of $\Sigma$ satisfy the ascending chain condition (acc). If the subsets of $\Sigma$ are ordered by $\geq$ then we say that the subsets of $\Sigma$ satisfy the descending chain condition (dcc).
+\end{definition}
+
+\begin{definition}
+\begin{enumerate}
+\item We say that the $R$-module $M$ is Noetherian if its submodules satisfy acc.
+\item We say that the $R$-module $M$ is Artinian if its submodules satisfy dcc.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+\begin{enumerate}
+\item $M$ a finite abelian group is both Noetherian and Artinian.
+\item $\ZZ$ as a $\ZZ$-module is Noetherian ($\ZZ$ is a Noetherian ring) since every element can be factored into finitely many irreducibles. But $\ZZ$ is not Artinian since 
+\begin{equation*}
+\ZZ/2 \ZZ \supseteq \ZZ / 4\ZZ \supseteq \ZZ / 8 \ZZ \supseteq \cdots 
+\end{equation*}
+\item Let $k$ be a field. Then a $k$-module $M$ is just a $k$-vector space. Therefore $M$ is Noetherian as $k$-module iff $M$ is finite dimensional iff $M$ is Artinian as a $k$-module. In particular, $k$ itself is just $1$-dimensional $k$-module. Therefore $k$ is Noetherian ring.
+\item Let $R =\ZZ, p $ a prime. $M = \{x \in \QQ/\ZZ \mid p^m x =0 \text{ for some } m \geq 0\}$. Then $M$ is a Noetherian $R$-module. This follows from the following claim: \\
+\textbf{Claim}: The only subgroups of $M$ are of the form $(\frac{1}{p^m} \ZZ)/\ZZ \simeq \ZZ / p^m \ZZ$ 
+\begin{proof}
+
+\end{proof}
+In fact, look at 
+\[\begin{tikzcd}
+	{\ZZ/p\ZZ} & {\ZZ/p^2 \ZZ} & {\ZZ/p^3 \ZZ} & {\cdots } \\
+	1 & p & {p^2}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[hook, from=1-3, to=1-4]
+	\arrow[maps to, from=2-1, to=2-2]
+	\arrow[maps to, from=2-2, to=2-3]
+\end{tikzcd}\]
+Then $M = \varinjlim \ZZ/p^n \ZZ$. It can be shown that $M$ is Artinian but not Noetherian.
+\item Let $M = \{m/p^n \mid n \geq 0 , m \in \ZZ\} \hookrightarrow \QQ$. Then, 
+\[\begin{tikzcd}
+	M & \QQ & {\QQ/\ZZ}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[two heads, from=1-2, to=1-3]
+	\arrow["\alpha"', curve={height=18pt}, from=1-1, to=1-3]
+\end{tikzcd}\]
+$N = \ker(\alpha), N' \mathrm{Im}(\alpha)$. Then $$0 \rightarrow N \rightarrow M \rightarrow N' \rightarrow 0$$ is exact. But $M$ is neither Noetherian nor Artininan.
+\end{enumerate}
+\end{example}
+
+\begin{remark}
+View $R$ as a $R$-module over itself. If the module is Noetherian then it has to be Artinian.
+\end{remark}
+
+\begin{proposition}
+$M$ is Noetherian iff every submodule of $M$ is f.g.
+\end{proposition}
+
+\begin{example}
+Let $R = k[X_{1}, \hdots , X_{i}, \hdots ]$. We know that $R$ is not Noetherian since $$k \subseteq k [X_{1}] \subseteq k[X_{1},X_{2}] \subseteq \cdots $$
+But $R \hookrightarrow \mathrm{Frac}(R)$ and $\mathrm{Frac}(R)$ is Noetherian. \\
+Next, $R \subseteq S = \{a/b : X_{1} \nmid b\} \subseteq F$. Is $S$ Noetherian?
+\end{example}
+
+\begin{theorem}
+$R$ is Noetherain iff every prime ideal of $R$ is f.g.
+\end{theorem}
+
+\begin{proposition}
+Let $$(*) 0 \rightarrow M' \rightarrow M \rightarrow M'' \rightarrow 0$$ be exact sequence of $R$-modules. Then 
+\begin{enumerate}
+\item $M$ is Noetherian iff $M'$ and $M''$ are. 
+\item $M$ is Artinian iff $M'$ and $M''$ are.
+\end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+If $M = \bigoplus_{i =1}^n M_{i}$, then $M$ is Noetherian (Artinian) iff $M_{i}$'s are Noetherian (Artinian).
+\end{corollary}
+
+\begin{definition}
+We say that $R$ is Noetherian (resp. Artinian) if it is Noetherian (resp. Artinian) as a $R$-module.
+\end{definition}
+
+\begin{example}
+Let $X$ be an infinite compact Hausdorff space and $\mathsf{C}(X)$ the set of continuous functions from $X$ to $\RR$. Then, is $\mathsf(X)$ a Noetherian ring?
+\end{example}
+
+\begin{exercise}
+A compact Hausdorff space is Noetherian iff it is infinite.
+\end{exercise}
+
+\begin{proposition}
+Suppose $\m_{1}, \hdots ,\m_{n}$ are maximal ideals of $R$ such that $\m_{1} \cdots \m_{n} = 0$. Then, $R$ is Noetherian iff $R$ is Artinian.
+\end{proposition}
+
+\begin{corollary}
+Suppose $(R,\m)$ is a Noetherian local ring such that $\m^n=0$. Then, $R$ is Artinian.
+\end{corollary}
+
+\begin{remark}
+In previous proposition, we use the fact that $\m_{i}$ are the only maximal ideals. For, take $\ZZ \times \ZZ/4\ZZ$. Then $2\ZZ$ is a maximal ideal such that $(2\ZZ)^2=0$ but it is not Artinian.
+\end{remark}
+
+\begin{exercise}
+1,2,4,5,6,7,8 of Atiyah McDonald chapter 6
+\end{exercise}
+
+\begin{lemma}
+Suppose $R$ is Noetherian and $S$ is a $R$-algebra such that $S$ is f.g. as a $R$-module. Then, $S$ is also a Noetherian ring.
+\end{lemma}
+
+\begin{theorem}[Hilbert Basis Theorem]
+Let $R$ be a Noetherian Ring. Then $R[X]$ is also Noetherian.
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{corollary}
+$R$ is Noetherian iff $R[X_{1}, \hdots ,X_{n}]$ is Noetherian.
+\end{corollary}
+
+\begin{definition}
+If $S$ is a $R$-algebra, then we say that $S$ is of finite type (f.g.) over $R$ if $exists \; x_{1}, \hdots , x_{n} \in S$ such that every element of $S$ is a polynomial in $\{x_{1}, \hdots ,x_{n}\}$ with coefficients in $R$. \\
+
+This is equivalent to saying there is a surjection of $R$-algebra $R[x_{1}, \hdots x_{n}] \twoheadrightarrow S$
+\end{definition}
+
+\begin{corollary}
+$R$ is Noetherian and $S$ a f.g. $R$-algebra implies $S$ is Noetherian.
+\end{corollary}
+
+
+\section{Power Series Ring over $R$}
+
+Denote by $R[[ X ]] = \{\sum_{i \geq 0} a_{i}X^i \mid \; a_{i} \in R\}$ \\
+
+Clearly, $R \hookrightarrow R[X] \hookrightarrow R[[ X ]]$
+
+\begin{theorem}
+If $R$ is Noetherian, then $R [[ X ]] $ is Noetherian.
+\end{theorem}
+
+
+\subsection{Interlude to complex analysis}
+
+Let $R$ be the ring of all holomorphic functions on $\CC$ which are holomorphic on some neighbourhood of $0$. \\
+
+Also, $I = \{f \in R : f(0)=0\}$ is the only maximal ideal of $R$. Thus, $R$ is a local ring. Is $R$ Noetherian? \\
+
+Observe that $R = \CC \{ X \} \hookrightarrow \CC [[ X ]]$ where $\CC \{ X \}$ the ring of convergent power series. Thus, $$\CC \hookrightarrow \CC[X] \hookrightarrow \CC \{ X \}=R \hookrightarrow \CC [[ X ]]$$
+We know that all the terms in the sequence except $R$ are Noetherian, so we guess that $R$ is also Noetherian. This is, in fact, true. 
+
+\begin{proposition}
+Let $S$ be a $R$-algebra which is faithfully flat. Suppose that $S$ is Noetherian. Then, $R$ is also Noetherian.
+\end{proposition}
+
+Using this proposition and the fact that $$\CC\{X\} \hookrightarrow \CC [[ X ]]$$ is a ff extension, we deduce that $\CC \{X\}$ is Noetherian.
+
+\begin{corollary}
+Let $(R, \m) \hookrightarrow (S, \m')$ be a local ring homomorphism that is also flat. Then, $S$ Noetherian implies $R$ Noetherian.
+\end{corollary}
+
+Using this corollary. and the fact that $$\CC \{X\} \hookrightarrow \CC [[ X ]]$$
+is a local ring homomorphism, it suffices to check that this extension is flat to deduce that $\CC\{X\}$ is Noetherian.
+
+
+\begin{definition}
+A $R$-module $M$ is said to be faithful if $aM\neq 0 \; \forall \; 0 \neq a \in R$, .i.e., the annihilator of $M$ is $\{0\}$.
+\end{definition}
+
+\begin{proposition}
+Let $M$ be a $R$-module. If $M$ is Noetherian and faithful, then $R$ is a Noetherian ring.
+\end{proposition}
+
+\begin{theorem}[Eakin-Nagata]
+Let $R \subseteq S$ be an inclusion of rings such that $S$ is Noetherian ring and is f.g. $R$-module. Then, $R$ is a Noetherian ring.
+\end{theorem}
+
+Let $M$ be a $R$-module. Then, 
+\begin{equation*}
+R \text{ Noetherian} \Leftrightarrow I \subseteq R \text{ is f.g. } \Leftrightarrow \pr \subseteq R \text{ is f.g.}
+\end{equation*}
+
+\begin{itemize}
+\item Suppose $IM$ is f.g. for all $I \subsetneq R$. Is $M$ Noetherian?
+\item Suppose $\pr M$ is f.g. for all $\pr \subsetneq R$. Is $M$ Noetherian?
+\end{itemize}
+Turns out that both are false! Take $R=k$ a field and $M$ an infinite dimensional vector space. This gives us a counterexample. What happens if $M$ is f.g.
+
+\begin{theorem}
+Suppose $M$ is a f.g. $R$-module. Then, 
+\begin{equation*}
+M \text{ Noetherian } \Leftrightarrow IM \text{ is f.g.} \forall \; I \subsetneq R \Leftrightarrow \pr M \text{ is f.g. } \forall \; \pr \subseteq R
+\end{equation*}
+\end{theorem}
+
+\begin{proposition}
+Let $(R, \m , k)$ be a local Noetherian ring. If $M$ is a f.g. $R$-module. Then TFAE: 
+\begin{enumerate}
+\item $M$ is free.
+\item $M$ is flat.
+\item $\m \otimes M \rightarrow M$ is injective.
+\item $\mathrm{Tor}_{R}^{1}(k,M) = 0$
+\end{enumerate}
+\end{proposition}
+
+\chapter{Nullstellansatz}
+
+\section{Interlude to algebraic geometry}
+
+Let $R$ be a commutative ring, $X = \spec(R) =$ the set of all prime ideals of $R$. Declare a subset of $X$ to be closed if it is of the form $$\V(I) = \{\pr \mid I \subseteq \pr \}$$ where $I$ is a fixed ideal of $R$. 
+
+\begin{exercise}
+Show that this defines a topology on $X$. This topology is called the Zariski topology.
+\end{exercise}
+
+\begin{definition}
+An affine scheme is a commutative ring $R$ together with the Zariski topology of $\spec(R)$.
+\end{definition}
+
+\begin{exercise}
+\begin{enumerate}
+\item $\forall \; f\in R$, define $X_{f} = \{\pr \mid f \not \in \pr\} \subseteq X$. Then, show that each $X_{f}$ is open in the Zariski topology. Also, prove that $\{X_{f}\}$ is a basis for the Zariski topology on $\spec(R)$.
+\item Show that $\spec(R)$ is quasi-compact.
+\end{enumerate}
+\end{exercise}
+
+\begin{definition}
+A topological space is called irreducible if the intersection of any two non-empty open sets is non-empty. This can be extended to say that that intersection of finitely many non-empty open sets is non-empty. \\
+Equivalently, $X$ is not a finite union of closed sets unless one of the closed sets is all of $X$.
+\end{definition}
+
+\begin{remark}
+$X$ cannot be irreducible by definition if it is Hausdorff.
+\end{remark}
+
+\begin{exercise}
+Suppose $R$ is an integral domain. Show that $\spec(R)$ is irreducible.
+\end{exercise}
+
+\begin{example}
+\begin{enumerate}
+\item Let $R= \CC[t], X = \spec(R)$. We wish to compare the Zariski topology on $X$ and the natural Euclidean topology on $\CC$. To make this more concrete, observe that the only prime ideals of $\CC[t]$ are of the form $\langle f \rangle$ where $f$ is an irreducible polynomial. But, the only irreducibles are the linear and constant polynomials. Now, $$\Phi : \langle f \rangle \longrightarrow \text{ zeroes of }f$$ is actually surjective from $X\bs \{0\}$ to $\CC$.
+\item Let $R = \RR[t], X = \spec(R)$ 
+\end{enumerate}
+\end{example}
+
+\begin{remark}
+\begin{enumerate}
+\item If $f \xlongrightarrow{f} S$ is a ring homomorphism, then $f^* : \spec(S) \rightarrow \spec(R)$ given by $\pr \mapsto f^{-1}(\pr)$ is a continuous map.
+\item For $R \xlongrightarrow{\pi} R/I$ we have $\pi^* : \spec(R/I) \rightarrow \spec(R)$ is bijective and closed immersion.
+\item For $R \xlongrightarrow{\pi} R/\nil(R)$ we have $\pi^* : \spec(R/\nil(R)) \rightarrow \spec(R)$ is a homeomorphism. In other words, Zariski topology does not see the nilradical. More precisely, while studying $\spec(R)$ we can just work with $\spec(R/\nil(R))$ and assume $R$ is reduced ring (has no nonzero nilpotent elements).
+\end{enumerate}
+\end{remark}
+
+Fix a field $k$, let $R = k[X_{1}, \hdots , X_{n}], X = \spec(R), X_{Zar} = \mathrm{maxsp}(R)= \text{ all maximal ideals }, X_{an} = k^n$ \\
+Define 
+\begin{align*}
+\phi : X_{an} &\longrightarrow X_{Zar} \\
+(a_{1}, \hdots , a_{n}) &\mapsto \langle X_{1}-a_{1}, \hdots , X_{n} - a_{n}\rangle
+\end{align*}
+If $k$ has its own topology, then $X_{an}$ gets the product topology. In this case, is $\phi$ continuous ? \\
+
+Any closed set in $X_{Zar}$ is of the form $$\V(I) = \{\text{maximal ideals containing } I\}$$ for some ideal $I \subseteq R$. \\
+
+Then, $\phi^{-1}(\V(I)) =\{(a_{1}, \hdots ,a_{n}):\V(X_{1}-a_{1}, \hdots , X_{n}-a_{n}) \subseteq \V(I)\}$. But since $R$ is Noetherian we must have $I = \langle f_{1}, \hdots , f_{r} \rangle$. \\
+
+Thus, $$\phi^{-1}(\V(I)) = \{(a_{1}, \hdots ,a_{n}): f_{i}(a_{1}, \hdots , a_{n})= 0 \; \forall \; 1\le i \le r\}$$
+
+In this case $k=\RR$, clearly $\phi^{-1}(\V(I))$ is closed as it is the intersection of set of zeroes of polynomials. Therefore $\phi$ is continuous when $k = \RR$ or $\CC$. Moreover, $\phi$ is bijective as well. \\
+
+However, $\phi$ is not a closed map. Take $k = \RR$ or $\CC$ and $Z = \{z: \sin z=0\}$. Then, $Z$ is infinite and thus it is not closed in the Zariski topology. However, it is closed in the Euclidean topology. Thus, $Z$ is analytically closed but not Zariski closed.
+
+\begin{definition}
+A subset $Z \subseteq k^n$ is said to be algebraic if there exists a set $S \subseteq R$ such that $Z = \{(a_{1}, \hdots , a_{n}): f(a_{1}, \hdots , a_{n}) = 0 \; \forall \; f\in S\}$\\
+
+For $Z\subseteq k^n$, $\I(Z) = \{f \in R: f(a_{1}, \hdots , a_{n})=0 \; \forall \; (a_{1}, \hdots ,a_{n}) \in Z\}$ is an ideal in $R$ \\
+
+For an ideal $I \subseteq R$, we define $$\V = \{(a_{1}, \hdots , a_{n}): f(a_{1}, \hdots , a_{n}) = 0 \; \forall \; f\in I\}$$
+\end{definition} 
+
+Observe that $\V(I) = \V(\sqrt{I})$\\
+
+Let $\Sigma_{Zar} = \text{ set of all radical ideals of }R$ and $\Sigma_{an} = \text{the set of all algebraic subsets of }k^n$\\
+
+We define $\Phi: \Sigma_{Zar} \longrightarrow \Sigma_{an}$ by $I \mapsto \V(I)$\\
+
+Clearly, $\Phi$ is a surjection. We would like to show that this is also an injection. But this need not be true in general.
+\begin{example}
+$k=\RR, I_{1}= \langle X^2 + 1 \rangle , I_{2} = \langle X^2 + 2 \rangle$. Then, $\Phi(I_{1}) = \Phi(I_{2}) = \emptyset$ therefore $\Phi$ need not be injective here. Thus, we need an additional assumption. Hence, we assume that $k$ is algebraically closed.
+\end{example}
+
+\section{Hilbert Nullstellansatz}
+
+\begin{theorem}[Hilbert Nullstellansatz]
+Let $k$ be an algebraically closed field, then $\Phi$ is bijective. In fact, for every ideal $I \subseteq R$, $\I(\V(I)) = \sqrt{I}$. Thus, for radical ideals $I_{1},I_{2}$, $\V(I_{1}) = \V(I_{2}) \Rightarrow \I(\V(I_{1})) = \I(\V(I_{2})) \Rightarrow \sqrt{I_{1}} = \sqrt{I_{2}} \Rightarrow I_{1}=I_{2}$
+\end{theorem}
+
+\begin{lemma}
+Let $A$ be a Noetherian ring. Let $B \hookrightarrow C$ be an inclusion of $A$-algebras such that $C$ is f.g. as $A$-algebra over $A$ and f.g. as a $B$-module over $B$. Then, $B$ is f.g. over $A$. In particular, $B$ is Noetherian.
+\end{lemma}
+
+\begin{lemma}
+Let $k$ be a field and $E$ a f.g. $k$-algebra. Suppose that $E$ is a field. Then $E$ is a finite field extension of $k$.
+\end{lemma}
+
+\begin{lemma}
+Let $k$ be a field, $E = k[X]/\langle X^n + a_{n-1}X^{n-1} + \cdots + a_{1}X + a_{0} \rangle$. Then, $E$ is f.g. $k$-module.
+\end{lemma}
+
+\begin{corollary}
+Let $k$ be a field, $A$ a f.g. $k$-algebra, $\m \hookrightarrow A$ maximal ideal. Then, $A/\m$ is a finite algebraic extension of $k$. In particular, $k \cong A/\m$ if $k$ is algebraically closed.
+\end{corollary}
+
+\begin{proof}[Proof of Nullstellansatz]
+
+\end{proof}
+
+If $k = \bar{k}$, then $\phi : X_{an} \rightarrow X_{Zar}$ defined before is a bijection. \\
+
+Consider the maximal ideal $\m \hookrightarrow R = k[X_{1}, \hdots , X_{n}]$. Then, $$k \hookrightarrow R \xtwoheadrightarrow{\phi} k = R/\m$$ And, $I = \langle X_{1}-a_{1}, \hdots , X_{n} - a_{n} \rangle$ is maximal. $\phi(I) = 0 \Rightarrow I \subseteq \ker \phi = \m \Rightarrow \langle X_{1}, \hdots ,X_{n} \rangle = \m$. 
+
+\begin{corollary}
+Suppose $k = \bar{k}$. Suppose we have a system of polynomial equations 
+\begin{align*}
+f_{1}(x_{1}, \hdots ,x_{n}) &=0 \\
+f_{2}(x_{1}, \hdots ,x_{n}) &=0 \\
+\vdots \\
+f_{n}(x_{1}, \hdots ,x_{n}) &=0
+\end{align*}
+Then this system has no solution in $k^n$ iff there exists polynomials $g_{1}, \hdots ,g_{r}$ such that $\sum_{i=1}^m f_{i}g_{i} = 1$
+\end{corollary}
+
+
+\begin{exercise}
+1,6,10,13 from Atiyah McDonald chapter 7
+\end{exercise}
+
 
 \chapter{Localisation}
 Let $R$ be a commutative ring, $S$ a multiplicatively closed subset containing $1$.
@@ -3641,11 +5748,986 @@ There exists a ring homomorphism $\theta : R \rightarrow S^{-1}R$ which has the 
 \underline{Existence}: Define the relation on $R \times S$ given by $(a,s) \sim (a',s') $ if $t(as' - a's) =0$ for some $t \in S$. It can be checked that this is an equivalence relation. Define  
 \end{proof}
 
+\begin{remark}
+$\ker \theta = \{a \in R : as=0 \text{ for some }s \in S\}$. This is because $\theta(a)=0 \Leftrightarrow \frac{a}{1}= \frac{0}{1}$ in $S^{-1}R \Leftrightarrow (a,1) \sim (0,1) \Leftrightarrow (a\cdot 1 - 0 \cdot 1)s=0$ for some $s\in S$\\
 
-\chapter{Integral dependence}
+In particular, if $R$ is an integral domain, then $\theta : R \rightarrow S^{-1}R$ is injective.
+\end{remark}
+
+Let $M$ be a $R$-module. We can define $$S^{-1}M = (M \times S)/ \sim$$ where $(m,s) \sim (m',s')$ if $(ms'-m's)t=0$ for some $t \in S$. We denote by $[(m,s)]$ by $\frac{m}{s}$. By definition, it is clear that 
+\begin{enumerate}
+\item $S^{-1}M$ is a $S^{-1}R$ module by the action $$\frac{a}{s} \cdot \frac{m}{s'} = \frac{am}{ss'}$$
+\item $\theta_{M}: M \rightarrow S^{-1}M$ given by $m \mapsto m/1$ is a $R$-module homomorphism
+\end{enumerate}
+
+\begin{proposition}
+The functor $\mathbf{Mod}_{R} \rightarrow \mathbf{Mod}_{S^{-1}R}$ given by $M \mapsto S^{-1}M$ is an exact functor.
+\end{proposition}
+
+Consider \begin{align*}
+\alpha : S^{-1}M \times M &\rightarrow S^{-1}M \\
+(\frac{a}{s},m) &\mapsto \frac{am}{s}
+\end{align*}
+We can check that $\alpha$ is a bilinear $R$-module homomorphism. Hence, $\alpha$ induces a $R$-linear map 
+\begin{align*}
+\alpha : S^{-1}M \otimes_{R} M &\rightarrow S^{-1}M \\
+\frac{a}{s}\otimes m &\mapsto \frac{am}{s}
+\end{align*}
+It is easy to see that $\alpha$ is in fact $S^{-1}R$ linear since 
+\begin{align*}
+\alpha \left( \frac{a'}{s'} \left( \frac{a}{s} \otimes m \right) \right) &= \alpha \left(\frac{aa'}{ss'} \otimes m \right) \\
+&= \frac{aa'm}{ss'}\\
+&= \frac{a'}{s'} \alpha \left( \frac{a}{s} \otimes m \right)
+\end{align*}
+
+\begin{theorem}
+$\alpha$ is an isomorphism.
+\end{theorem}
+
+\begin{corollary}
+$S^{-1}R$ is flat over $R$.
+\end{corollary}
+
+\begin{remark}
+However, if $S\bs R^{\times} \neq \emptyset$ then $S^{-1}R$ is not ff. Take $a\in S$ such that $a \not \in R^{\times}$. Then, $\langle a \rangle \neq R$ so if $I = \langle a \rangle$ then $R/IR$ is a nonzero $R$-module. Any element of $R/IR$ is of the form $r + I$. \\
+
+In $R/IR \otimes_{R} S^{-1}R$
+\begin{align*}
+(r+ I) \otimes \frac{b}{t} &= (ar+I) \otimes \frac{b}{at} \\
+&= I \otimes \frac{b}{at} \\
+&= 0
+\end{align*}
+Hence, $R/IR \otimes_{R} S^{-1}R = \{0\}$. Thus, $$0 \longrightarrow R/IR \longrightarrow 0$$ is not exact but $$0 \longrightarrow R/IR\otimes_{R} S^{-1}R \longrightarrow 0$$ is exact. Hence, $S^{-1}R$ is almost never ff.
+\end{remark}
+
+\begin{example}
+\begin{enumerate}
+\item Let $R$ be a ring and $\pr$ be a prime ideal. Let $S = R\bs \pr$. Then, $S$ is multiplicatively closed. We write $R_{\pr} := S^{-1}R$\\
+
+\textbf{Claim}: $R_{\pr}$ is a local ring with maximal ideal $\pr R_{\pr}$
+
+\item Let $f \in R\bs\{0\}$. Set $S = \{f^n \mid n\geq 0\}$. Then, $S$ is a multiplicatively closed and so we can write $R_{f}:= S^{-1}R$.  \\
+
+Observe that  $R_{\pr} = \ds{\varinjlim_{f \in \pr} R_{f}}$.
+\item If $R=\ZZ, S= \ZZ\bs \langle p \rangle$ for some prime $p$, then $$S^{-1}R = \{\frac{a}{b}: a,b \in \ZZ , p \nmid b\}$$
+\item Let $k$ be a field, $R = k[X_{1}, \hdots , X_{n}]$. Suppose $k = \bar{k}$. Then by Nullstellansatz, every maximal ideal of $R$ is of the form $\m = \langle X_{1} - a_{1}, \hdots , X_{n}-a_{n} \rangle$ for some $(a_{1}, \hdots , a_{n} ) \in k^n$. \\
+We also had the continuous map $\theta : \CC^n \rightarrow \CC^n_{Zar}$. Then, for $\m \langle X_{1}-a_{1},\hdots , X_{n}-a_{n} \rangle$, we have $R_{\m} = \mathcal{O}_{X,x}$ the ring of rational functions which are regular (holomorphic) in a Zariski neighbourhood of $x=(a_{1}, a_{2}, \hdots , a_{n})$. This is because any element of $R_{\m}$ is a rational function $f/g$ with $g \not \in \m$, i.e., $g$ does not vanish at $x$. Hence, if $A = \{y \in X\mid  g(y)=0\}$, then $A$ is Zariski closed. Thus, $A^c$ is Zariski neighbourhood of $x$. Hence, $g$ is nonvanishing on a Zariski neighbourhood of $x$. Thus, $f/g$ is regular in this Zariski neighbourhood of $x$. \\
+
+Since the topology is finer than the Zariski topology, we get the inclusion of local rings 
+\begin{align*}
+\mathcal{O}_{X_{Zar},x} &\hookrightarrow \mathcal{O}_{X_{an},x} \\
+\text{ring of rational functions which are regular in a Zariski nbd of }x & \text{ring of rational functions which are regular in an analytic nbd of }x 
+\end{align*} 
+\end{enumerate}
+\end{example}
+
+\begin{proposition}
+Localisation commutes with tensor product, i.e., if $M,N$ are $R$-modules, $S \subseteq R$ multiplicatively closed set, then 
+\begin{align*}
+S^{-1}M \otimes_{S^{-1}R} S^{-1}N &\xlongrightarrow{\sim} S^{-1} (M \otimes_{R} N )\\
+\frac{m}{s} \otimes \frac{n}{s'} &\mapsto \frac{m \otimes n}{ss'}
+\end{align*}
+\end{proposition}
+
+\begin{remark}
+Also, $S^{-1}(M \oplus N) \simeq S^{-1}M \oplus S^{-1}N$ as $S^{-1}R$ modules by the mapping $\frac{m+n}{s} \mapsto \frac{m}{s} + \frac{n}{s}$. Notice that 
+\begin{equation}
+S^{-1}M \oplus S^{-1}N \simeq (S^{-1}R \otimes_{R} M) \oplus (S^{-1}R \otimes_{R} N) \simeq S^{-1}R \otimes_{R} (M \oplus N) \simeq S^{-1}(M \oplus N )
+\end{equation}
+\end{remark}
+
+What are the ideals of $S^{-1}R$ and how do they relate to ideals of $R$?\\
+We have \begin{equation}
+\theta : R \rightarrow S^{-1}R
+\end{equation}
+For ideal $I \subseteq R$, $T^e = \theta(I)S^{-1}R$ is an ideal of $S^{-1}R$. \\
+For ideal $J \subseteq S^{-1}R$, $J^c = \theta^{-1}(J)$ is an ideal of $R$.
+
+\begin{lemma}
+For ideal $I \subseteq R$, $I^e = S^{-1}I$
+\end{lemma}
+
+\begin{lemma}
+Every ideal of $S^{-1}R$ is an extended ideal, i.e., of the form $I^e$ for some ideal $I \subseteq R$
+\end{lemma}
+
+\begin{lemma}
+Let $I \subseteq R$ be an ideal. Then we know that $I^e \hookrightarrow S^{-1}R$ is an ideal, and $I \hookrightarrow I^{ec}$. In fact, $$I^{ec} = \bigcup_{s\in S} (I:s)$$ where $(I:s) = \{a \in R \mid as \in I\} \supseteq I$
+\end{lemma}
+
+\begin{corollary}
+If $\pr \subseteq R$ is a prime ideal, then $\pr = \pr^{ec}$ (if $\pr \cap S = \emptyset$)
+\end{corollary}
+
+\begin{corollary}
+Every proper ideal of $S^{-1}R$ is of the form $S^{-1}I$ for some ideal $I \subseteq R$ such that $I \cap S = \emptyset$
+\end{corollary}
+
+\begin{exercise}
+An ideal of $R$ is a contracted ideal iff no element of $S$ is a zero divisor of $R/I$
+\end{exercise}
+
+\section{Prime ideals in $S^{-1}R$}
+
+\begin{proposition}
+\begin{align*}
+\{\text{prime ideals of }R \text{ disjoint from }S\} &\rightarrow \{\text{all prime ideals of }S^{-1}R\} \\
+\pr &\longmapsto S^{-1}\pr
+\end{align*}
+This correspondence is well-defined and a bijection. Thus, $\spec(S^{-1}R) \hookrightarrow \spec(R)$ is an inclusion of spaces.
+\end{proposition}
+
+\begin{exercise}
+Let $I \subseteq R$ be an ideal. Then, $$S^{-1}\sqrt{I} = \sqrt{S^{-1}I}$$ 
+\end{exercise}
+
+
+\begin{corollary}
+\begin{equation}
+\nil(S^{-1}R) = S^{-1} \nil(R)
+\end{equation}
+\end{corollary}
+
+\begin{proposition}
+Let $\pr \subseteq R$ be a prime ideal. Then, \begin{equation}
+\spec(R_{\pr}) = \bigcap_{f \not \pr} \spec(R_{f})
+\end{equation}
+\end{proposition}
+
+Let $P$ be a property of modules (or rings) over commutative rings. Then, we say that $P$ is local if for every $R$-module $M$ 
+\begin{equation}
+M \text{ has } P \text{ as a } R \text{ module } \Leftrightarrow M_{\pr} \text{ has } P \text{as a } R_{\pr} \text{ module } \; \forall \; \pr \subseteq R
+\end{equation} 
+
+\begin{proposition}
+Let $M$ be a $R$-module. TFAE: 
+\begin{enumerate}
+\item $M=0$
+\item $M_{\pr} = 0$ for all $\pr \in \spec(R)$
+\item $M_{\m}=0$ for all $\m \in \mathrm{maxSpec}(R)$
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let $\phi: M \rightarrow N$ be a $R$-linear map. TFAE: 
+\begin{enumerate}
+\item $\phi$ is injective
+\item $\phi_{\pr}$ is injective for all $\pr \in \spec(R)$
+\item $\phi_{\m}$ is injective for all $\m \in \mathrm{maxSpec}(R)$
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let $M$ be a $R$-module. TFAE: 
+\begin{enumerate}
+\item $M$ is $R$-flat
+\item $M_{\pr}$ is $R_{\pr}$-flat for all $\pr \in \spec(R)$
+\item $M_{\m}$ is $R_{\m}$-flat for all $\m \in \mathrm{maxSpec}(R)$
+\end{enumerate}
+\end{proposition}
+
+\begin{exercise}
+2,3,4,5,6,8,13,17 from Atiyah McDonald chapter 3
+\end{exercise}
+
+\chapter{Integral extensions}
+
+\begin{proposition}
+Let $A\subseteq B \subseteq C$ be inclusions of commutative rings. If $B$ is integral over $A$ and $C$ is integral over $B$, then $C$ is integral over $A$
+\end{proposition}
+
+\begin{corollary}
+Let $A \subseteq B$ be an inclusion of rings. Let $C$ be the integral closure of $A$ in $B$. Then, $C$ is integrally closed in $B$.
+\end{corollary}
+
+\begin{proposition}
+Suppose $A \subseteq B$ is an integral extension. 
+\begin{enumerate}
+\item Let $J \subseteq B$ be an ideal and let $I = J \cap A = J^c$. Then, $A\I \subseteq B/J$ is an integral extension. 
+\item If $S\subseteq A$ is a multiplicatively closed set, then $S^{-1}A \subseteq S^{-1}B$ is an integral extension.
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+Let $f: B \rightarrow B'$ be an integral extension of $A$-algebras and let $C$ be an $A$-algebra. Then, $f \otimes_{A} 1 : B \otimes_{A} C \rightarrow B' \otimes_{A} C$ is an integral extension.
+\end{theorem}
+
+\begin{proposition}
+Let $A \subseteq B$ be an inclusion of integral domains. Assume that $B$ is integral over $A$. Then, $A$ is a field iff $B$ is a field.
+\end{proposition}
+
+\begin{corollary}
+$\CC \otimes_{\RR} \CC$ is not an integral domain
+\end{corollary}
+
+\begin{corollary}
+Let $A \subseteq B$ be an integral extension of rings. Let $\mathfrak{q} \subseteq B$ be a prime ideal. We already know that $\pr = \mathfrak{q}^c = \mathfrak{q}\cap A$ is a prime ideal of $A$. Then, $\mathfrak{q}$ is maximal in $B$ iff $\pr$ is maximal in $A$.
+\end{corollary}
+
+\begin{remark}
+In general, neither implication is true. Consider $\ZZ \hookrightarrow \QQ$ and $\QQ \rightarrow \QQ[X]$ for counterexamples.
+\end{remark}
+
+\begin{corollary}
+Let $A \subseteq B$ be an integral extension of rings. Let $\mathfrak{q}_{1} \subseteq \mathfrak{q}_{2} \subseteq B$ be two prime ideals. Then, $\mathfrak{q}_{1} = \mathfrak{q}_{2}$ iff $\mathfrak{q}_{1}^c = \mathfrak{q}_{2}^c$
+\end{corollary}
+
+\begin{theorem}
+Let $A \subseteq B$ be an integral extension. Let $f: A \rightarrow B$ be this inclusion. Then, $f_{\#} : \spec(B) \rightarrow \spec(A)$ is surjective.
+\end{theorem}
+
+\section{Going up and going down}
+
+If $A \subseteq B$ is an integral extension, then $\spec(B) \rightarrow \spec(A)$ is surjective. 
+
+\begin{theorem}
+$A \subseteq B$ an integral extension and $\pr_{1} \subseteq \pr_{2} \subseteq \cdots \subseteq \pr_{n}$ is a chain of prime ideals in $A$. Suppose there exists a chain of prime ideals $\mathfrak{q}_{1} \subseteq \cdots \subseteq \mathfrak{q}_{m} (m < n)$ in $B$ such that $\mathfrak{q}_{i} \cap A = \pr_{i}$. Then, $\mathfrak{q}$-chain can be extended to a chain $\mathfrak{q}_{1} \subseteq \cdots \subseteq \mathfrak{q}_{m} \subseteq \mathfrak{q}_{m+1} \subseteq \cdots \subseteq \mathfrak{q}_{n}$ of prime ideals in $B$ such that $\mathfrak{q}_{i} \cap A = \pr_{i} \; \forall \; i$
+\end{theorem}
+
+\begin{corollary}
+If $A \subseteq B$ is an integral extension and prime ideals of $A$ satisfy acc, then prime ideals of $B$ also satisfy acc.
+\end{corollary}
+
+\begin{definition}
+An integral domain $A$ is called normal (or integrally closed ) if $A$ is integrally closed in its fraction field.
+\end{definition}
+
+
+\begin{example}
+$A=\ZZ$. Any UFD is normal. Normal does not imply UFD
+\end{example}
+
+
+\begin{proposition}
+Let $A \subseteq B$ be an inclusion of rings and let $C$ be the integral closure of $A$ in $B$. Let $S \subseteq A$ be a multiplicatively closed set. Then, $S^{-1}C$ is the integral closure of $S^{-1}A$ in $S^{-1}B$.
+\end{proposition}
+
+
+\begin{corollary}
+Every localisation of a normal domain is a normal domain.
+\end{corollary}
+
+\begin{example}
+$A$ normal implies $A_{\pr}$ normal for all $\pr$
+\end{example}
+
+Normalisation of $A=$ integral closure of $A$ in $\mathrm{Frac}(A)$
+\begin{exercise}
+Is normalisation of $A$ always finite over $A$?
+\end{exercise}
+
+\begin{example}
+
+\end{example}
+
+\begin{proposition}
+Let $A$ be an integral domain. TFAE: 
+\begin{enumerate}
+\item $A$ is normal
+\item $A_{\pr}$ is normal for all $\pr \in \spec(A)$
+\item $A_{\m}$ is normal for all $\m \in \mathrm{maxSpec}(A)$
+\end{enumerate}
+\end{proposition}
+
+
+Let $A \subseteq B$ be an inclusion of rings. $I \subseteq A$ an ideal. $x\in B$ is integral over $I$ if there exists a monic polynomial $f(x)\in I[x]$ such that $f(x)=0$.
+
+Suppose $A \subseteq B$ is an extension and $C$ the integral closure of $A$ in $B$. 
+
+\begin{proposition}
+The integral closure of $I$ in $B$ is $\sqrt{IC}$
+\end{proposition}
+
+\begin{corollary}
+Integral closure of an ideal is a radical ideal.
+\end{corollary}
+
+\begin{proposition}
+$A \subseteq B$ be an inclusion of integral domains with $A$ normal. Suppose $x\in B$ is integral over $I \subseteq A$. Then, 
+\begin{enumerate}
+\item $x$ is algebraic over $k= \mathrm{Frac}(A)$
+\item If $t^n + a_{n-1}t^{n-1} + \cdots + a_{0} \in k[t]$ is the minimal polynomial of $x$ over $k$, then $a_{i \in \sqrt{I}}$
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+$A\subseteq B$ an inclusion of integral domains with $A$ normal. Let $\pr_{1} \supseteq \cdots \supseteq \pr_{n}$ be a descending chain of ideals in $A$. Let $\mathfrak{q}_{1} \supseteq \cdots \supseteq \mathfrak{q}_{m} (m<n)$ be a descending chain of prime ideals in $B$ such that $\mathfrak{q}_{i} \cap A \pr_{i} \forall \; 1 \le i \le m$. Then, the $\mathfrak{q}$-chain can be extended to a chain of prime ideals $\mathfrak{q}_{1} \supseteq \cdots \supseteq \mathfrak{q}_{m} \supseteq \mathfrak{q}_{m+1} \supseteq \cdots \supseteq \mathfrak{q}_{n}$ such that $q_{i}\cap A = \pr_{i} \; \forall \; 1\le i \le n$. 
+\end{theorem}
+
+\begin{theorem}
+Let $A$ be a normal domain with $\mathrm{Frac}(A)=k$ and $L/k$ be a finite separable extension. Let $B \subseteq L$ be an integral closure of $A$ in $L$. Then there exists a basis $v_{1}, \hdots , v_{n}$ of $L$ such that $B \subseteq Av_{1} \oplus \cdots \oplus Av_{n}$.
+\end{theorem}
+
+\begin{corollary}
+If $A$ is Noetherian, then $B$ is Noetherian. In fact, $B$ is finite over $A$.
+\end{corollary}
+
+\begin{proposition}
+Suppose $A$ is an integral domain integrally closed in its fraction field $K$, $L$ is some finite separable extension of $K$. If $B$ is integral closure of $A$ in $L$, then $B$ is finite $A$-module
+\end{proposition}
+
+\begin{corollary}
+In the prev. setup $L = \mathrm{Frac}(B)$
+\end{corollary}
+
+\begin{remark}
+In fact, the corollary is true if $A$ is any domain (not necessarily integrally closed in $K$) and if $L$ is any finite extension of $K$ (not necessarily separable)
+\end{remark}
+
+\begin{proposition}
+Let $f: A\rightarrow B$ be an integral extension of commutative rings. Then we get $f_{\#}: \spec(B) \rightarrow \spec(A)$ us a closed mapping.
+\end{proposition}
+
+\begin{proposition}
+Let $f: A \rightarrow B$ be a map of integral domains and an integral extension such that $B$ is Noetherian. Then, $$f_{\#} : \spec(B) \rightarrow \spec(A)$$ is quasi-finite (all fibers are finite)
+\end{proposition}
+
+
+\section{Noether Normalisation Theorem}
+
+\begin{theorem}[Noether Normalisation theorem]
+Let $k$ be an infinite field and let $A = k[y_{1}, \hdots , y_{n}]$ be a $k$-algebra (not necessarily a polynomial ring, the $y_{i}$'s may have relations). Then, there exists $x_{1}, \hdots , x_{r} \in A$ which have the following properties:
+\begin{enumerate}
+\item Each $x_{i}$ is a linear combination of $y_{j}$'s.
+\item $x_{i}$'s are algebraically independent over $k$.
+\item $A$ is integral over $k[x_{1}, \hdots , x_{r}]$ (a polynomial ring)
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+\begin{enumerate}
+\item We do not need $k$ to be infinite
+\item Since $A$ is integral and finite type over $k[x_{1}, \hdots ,x_{r}]$, then $A$ is actually finite over the polynomial algebra $k[x_{1},\hdots , x_{r}]$
+\end{enumerate}
+\end{remark}
+
+\begin{exercise}
+2,4,5,6,9,11,12,13,14,15 from Atiyah McDonald chapter 5
+\end{exercise}
+
+\chapter{Discrete Valuation Rings}
+
+\section{Valuation Rings}
+
+\begin{definition}
+A Noetherian local ring $(A, \m)$ is called regular if $\m = \langle f_{1} , \hdots , f_{r} \rangle$ where $r = \dim(A)$
+\end{definition}
+
+\begin{definition}
+Let $B$ be an integral domain contained in a field $k$. Then $B$ is called a valuation ring of $k$ if for all $x\in k^{\times}$ we have $B \cap \{x,x^{-1}\} \neq \emptyset$
+\end{definition}
+
+\begin{proposition}
+Let $B$ be a valuation ring of $k$. Then, 
+\begin{enumerate}
+\item $B$ is local.
+\item If $B \hookrightarrow B' \hookrightarrow k$, then $B'$ is also a valuation ring
+\item $B$ is integrally closed
+\end{enumerate}
+\end{proposition}
+
+Let $k$ be a field and $\Omega$ be an algebraically closed field. Then, $\Sigma$ the set of all pairs $(A,f)$ where $A$ is a subring of $k$ and $f: A \rightarrow \Omega$ is a ring homomorphism. \\
+We give a partial order to $\Sigma$ by $(A,f) \le (A',f')$ if $A \subseteq A'$ and $f|'_{A} = f$.\\
+By Zorn's lemma, $\Sigma$ has a maximal element. Let $(B,f)$ be the maximal element. 
+
+\begin{lemma}
+$B$ is local
+\end{lemma}
+
+\begin{lemma}
+Let $(B,f)$ be as above and let $x \in k^{\times}$. Let $B' = B[x]$ and let $\m[x] = \m B'$ where $\m = \m_{B}$. Then, either $\m[x] \neq B[x]$ or $\m[x^{-1}] \neq B[x^{-1}]$
+\end{lemma}
+
+\begin{theorem}
+$B$ is a valuation ring.
+\end{theorem}
+
+\begin{corollary}
+Let $A \hookrightarrow k$ be a subring. Define $\bar{A}$ to the integral closure of $A$ in $k$. Then, $$\bar{A} = \bigcap_{B \subseteq A, \\ B \text{valuation ring of }k}B = \tilde{A}$$
+\end{corollary}
+
+\begin{definition}
+An integral domain whose localisation at all prime ideals is a valuation ring is called a Pr\"{u}fer domain.
+\end{definition}
+
+\begin{definition}
+Let $A \hookrightarrow B$ be an inclusion of local rings. We say that $B$ dominates $A (B \geq A)$ if $\m_{B} \cap A = \m_{A} (\m_{A}B \subseteq \m_{B})$ 
+\end{definition}
+
+Let $k$ be a field and let $\Sigma'$ be the set of all local subrings of $k$ ordered by domination. Then, Zorn's lemma guarantees the existence of a maximal element. 
+\begin{theorem}
+Any maximal element of $\Sigma '$ is a valuation ring of $k$.
+\end{theorem}
+
+\begin{corollary}
+Let $k$ be a field and $A \hookrightarrow k$ be a local ring. Then, $A$ is dominated by a valuation ring of $k$.
+\end{corollary}
+
+\begin{remark}
+A valuation ring of $k$ is also called a place of $k$. $\spec^*(k) =$ all places of $k$
+\end{remark}
+
+\begin{proposition}
+Let $A$ be an integral domain with $\mathrm{Frac}(A)=k$. TFAE: 
+\begin{enumerate}
+\item $A$ is a valuation ring of $k$
+\item for all pairs of ideals $I,J \subseteq A$, one has either $I \subseteq J$ or $J \subseteq I$
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+$A$ is a valuation ring iff $\mathsf{I}(A)$ the set of all ideals of $A$ is a totally ordered set
+\end{remark}
+
+\begin{corollary}
+Let $A$ be a valuation ring and $\pr \in \spec(A)$. Then, $A/\pr$ and $A_{\pr}$ are valuation rings.
+\end{corollary}
+
+\begin{corollary}
+Let $A$ be a valuation ring of $k$. Then, any subring of $k$ containing $A$ must be local. 
+\end{corollary}
+
+\section{Totally ordered abelian group}
+
+Let $A$ be valuation ring of a field $k$. Let $U = A^{\times}$ then $ U\hookrightarrow K^{\times}$. Let $\Gamma = K^{\times}/U$ and $\nu: K^{\times} \rightarrow \Gamma$ be quotient map. We define an order on $\Gamma$ as follows: \\
+Let $zeta, \eta \in \Gamma$, we say that $\eta \le \zeta$ if there exists $a,b \in K^{\times}$ such that 
+\begin{enumerate}
+\item $\nu(a)=\zeta, \nu(b)=\eta$
+\item $ab^{-1} \in A$
+\end{enumerate}
+
+\begin{proposition}
+$(\Gamma, \le)$ is a totally ordered abelian group.
+\end{proposition}
+
+We have $\nu : K^{\times} \rightarrow \Gamma$ such that $\ker (\nu) = A^{\times}$, and \\
+$A = \{a \in K^{\times}\mid \nu(a) \geq 0\}\cup \{0\}$
+
+\begin{exercise}
+$\nu(x+y)\geq \min (\nu(x),\nu(y))$ for $x+y \in k^{\times}$
+\end{exercise}
+
+\begin{definition}
+Let $(\Gamma, \le)$ be a totally ordered abelian group and $k$ be any field. Then a valuation ring is a group homomoprhism $\nu: k^{\times} \rightarrow \Gamma$ such that $\nu(x+y)\geq \min (\nu(x),\nu(y))$ for $x+y \in k^{\times}$ \\
+
+In this case, $\nu(k^{\times})$ is called the value group of $\nu$ \\
+$A= \{a \in k^{\times}: \nu(a) \geq 0\} \cup \{0\}$ is called the ring of integers of $\nu$.
+\end{definition}
+
+\begin{proposition}
+The ring of integers of a valuation on $k$ is a valuation ring of $k$.
+\end{proposition}
+
+An integral domain $A$ with $K = \mathrm{Frac}(A)$ is a valuation ring iff there exists a valuation on $K$ whose ring of integers is $A$. \\
+
+We know that valuations on $K \leftrightarrow$ places of the field \\
+
+Set of all valuations on $K = RZ (K) =$ Riemann-Zariski space of $K$
+
+\begin{proposition}
+Let $A$ be a valuation ring with residue field $F$ and let $A' \subseteq F$ be a valuation ring of $F$. Let $$R = \{a\in A \mid a \pmod{\m_{A}} \in A'\}$$
+Then, $R$ is a valuation ring of $K= \mathrm{Frac}(A)$
+\[\begin{tikzcd}
+	{R=\phi^{-1}(A)} & A & K \\
+	{A'} & F
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[hook, from=2-1, to=2-2]
+	\arrow[two heads, from=1-2, to=2-2]
+	\arrow[from=1-1, to=2-1]
+\end{tikzcd}\]
+\end{proposition}
+
+\begin{exercise}
+$A'=\mathbb{F}_{q}[[t]], F= \mathbb{F}_{q}((t)), A=A'[[u]], K = \mathbb{F}_{q}((t,u))$
+\end{exercise}
+
+\begin{proposition}
+Let $A$ be a local integral domain. TFAE: 
+\begin{enumerate}
+\item $A$ is a valuation ring
+\item Every f.g. ideal of $A$ is principal
+\end{enumerate}
+\end{proposition}
+ 
+\begin{theorem}
+\begin{enumerate}
+\item Every totally ordered abelian group is the value group of a valuation of field
+\item Totally ordered abelian group is torsion free
+\item Every torsion free abelian group is a totally ordered abelian group
+\item Suppose $A$ is a valuation ring with valuation $\nu : K^{\times} \rightarrow \Gamma$. The rank of $\nu$ is the dimension of $A$.
+\end{enumerate}
+\end{theorem} 
+
+\begin{theorem}
+$\nu$ has rank $1$ iff the corresponding value group is a subgroup of $(\RR, \le)$
+\end{theorem}
+ 
+\section{Discrete Valuation Rings}
+
+\begin{definition}
+Let $\nu : K^{\times} \twoheadrightarrow \ZZ$ be a valuation with usual order on $\ZZ$. Then, $\nu^{-1}(\ZZ_{\geq 0})$ is called a DVR.
+\end{definition}
+
+\begin{theorem}
+Let $A$ be an integral domain with function field $K \neq A$. TFAE: 
+\begin{enumerate}
+\item $A$ is DVR
+\item $A$ is a Noetherian valuation ring
+\item $A$ is a Noetherian local domain of dimension $1$, which is normal
+\item $A$ is Noetherian local domain whose maximal ideal is principal
+\item $A$ is Noetherian local domain with maximal ideal $\m$ and residue field $\mathcal{k}$ such that $\dim_{\mathcal{k}}\m / \m^2 = 1$
+\item $A$ is Noetherian local domain with maximal ideal $\m$ such that every non-zero ideal is a power of $\m$
+\item $A$ is a Noetherian local domain and there exists $x \in A$ such that every non-zero ideal of $A$ is of the form $\langle x^n \rangle$
+\end{enumerate}
+\end{theorem}
+
+
+\chapter{Primary decomposition}
+
+Let $A$ be a commutative ring, and $\mathfrak{q} \subsetneq A$ be an ideal 
+
+\begin{definition}
+$\mathfrak{q}$ is called a primary ideal if for all $a,b\in A$ such that $ab \in \mathfrak{q}$, we must have either $a \in \mathfrak{q}$ or $b \in \sqrt{\mathfrak{q}}$. \\
+Equivalently in $A/\mathfrak{q}$, every non-zero divisor is nilpotent. 
+\end{definition}
+
+$A \xrightarrow{f} B$, $\mathfrak{q} \subseteq B$ primary implies $f^{-1}(\mathfrak{q})=\mathfrak{q}^c$ is also primary. \\
+
+Suppose $I$ has a primary decomposition. Then, $I$ has a finite set of associated primes. Furthermore, if $X  \spec(A), X = \V(I)$ is closed, then $Z$ has finitely many irreducible closed subsets $\{V_{1}, \hdots , V_{n}\} = \{\V(\pr_{1}), \hdots , \V(\pr_{r})\}$ where $\{\pr_{1}, \hdots , \pr_{r}\}= \mathrm{Min}(I)$ \\
+Suppose $I$ has a primary decomposition, $B= \mathrm{Min}(I) = $ minimal elements in the set $\mathrm{Ass}(I)$
+
+\begin{proposition}
+$A=$ minimum elements of $\V(I) = \mathrm{Min}(I)$
+\end{proposition}
+
+\begin{proposition}
+Assume $I$ has a primary decomposition, $\mathrm{Ass}(I)= \{\pr_{1}, \hdots , \pr_{r}\}$. Then, 
+\begin{equation*}
+\bigcup_{i=1}^r \pr_{i} = \{x\in A \mid (I:x) \neq I\} = \{x \in A \mid x \pmod \Gamma \text{ is a zero divisor in }A/I\}
+\end{equation*}
+\end{proposition}
+
+\section{Primary ideals under localisation}
+
+\begin{proposition}
+$S\subseteq A$ multiplicatively closed set, $\mathfrak{q}$ a primary ideal with $\sqrt{\mathfrak{q}} =\pr$ 
+\begin{enumerate}
+\item If $S \cap \pr \neq \emptyset$ then $S^{-1}\mathfrak{q} = S^{-1}A$
+\item If $S \cap \pr = \emptyset$ then $S^{-1}\mathfrak{q}$ is a $S^{-1}\pr$ primary ideal and $S^{-1}\mathfrak{q} \cap A = \mathfrak{q}$
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let $I = \bigcap \mathfrak{q}_{i}$ be a primary decomposition with $\sqrt{\mathfrak{q}_{i}} = \pr_{i}$. Let $\pr_{1}, \hdots , \pr_{r}$ be numbered so that $\pr_{m+1}, \hdots , \pr_{r}$ meet $S$ and $\pr_{1}, \hdots , \pr_{m}$ do not meet $S$. Then, 
+\begin{equation}
+S^{-1}I = \bigcap_{i=1}^m S^{-1}\mathfrak{q}_{i} \text{ and } S(I)= \bigcap_{i=1}^m \mathfrak{q}_{i}
+\end{equation}
+are primary decomposition.
+\end{proposition}
+
+\begin{proposition}
+Let $\pr_{1}, \hdots , \pr_{s}$ be the minimal primes of $I$. Let $S = A \bs \left( \bigcup_{i=1}^s  \right)$. Then, $S(I) = \mathfrak{q}_{1} \cap \hdots \cap \mathfrak{q}_{s}$
+\end{proposition}
+
+Suppose $I$ has a primary decomposition, say 
+\begin{align*}
+I &= \mathfrak{q}_{1} \cap \cdots \cap \mathfrak{q}_{r} \\
+&= (\mathfrak{q}_{1} \cap \cdots \cap \mathfrak{q}_{s}) \cap (q_{s+1} \cap \cdots \cap \mathfrak{q}_{r})
+\end{align*}
+where the first $s$ ones are minimal primes and $s+1$ to $r$th ones are embedded primes.
+
+\begin{definition}
+We say that $I$ is irreducible if $I = J \cap K$, then $I = J$ or $I =K$.
+\end{definition}
+
+\begin{theorem}
+Suppose $A$ is Noetherian. Then every ideal is finite intersection of irreducible ideals.
+\end{theorem}
+
+\begin{proposition}
+Every irreducible ideal is primary.
+\end{proposition}
+
+\begin{corollary}
+In a Noetherian ring, every ideal has a primary decomposition.
+\end{corollary}
+
+\chapter{Dedekind domains}
+
+\begin{proposition}
+$A$ is Noetherian integral domain of dimension $1$. TFAE: 
+\begin{enumerate}
+\item $A$ is normal
+\item Every primary ideal is a prime power
+\item $A_{\pr}$ is a DVR for all non-zero prime ideal $\pr$.
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+Let $A$ be a Noetherian local domain of dimension $1$. We say that $A$ is a Dedekind domain if any of the equivalent conditions of the proposition holds.
+\end{definition}
+
+\begin{corollary}
+In a Dedekind domain, every non-zero ideal has an unique factorisation as a finite product of prime ideals.
+\end{corollary}
+
+\begin{remark}
+A Dedekind domain is a f.g. algebra over a field is like an affine open subset of a Riemann surface.
+\end{remark}
+
+\begin{example}
+$A= k [X], \spec(A) = \Aa_{k}^{1} \xlongrightarrow{compactification} \PP^1_{k}$
+\end{example}
+
+\begin{proposition}
+Let $K$ be a number field and let $A = \mathcal{O}_{K}$. Then, $A$ is a Dedekind domain.
+\end{proposition}
+
+\begin{corollary}
+Let $A$ be a Dedekind domain and $M$ a torsion free $A$-module. Then, $M$ is flat.
+\end{corollary}
+
+\section{Fractional Ideals}
+
+Let $A$ be an integral domain with $\mathrm{Frac}(A)=K$, let $M$ be an $A$-submodule 
+\begin{definition}
+We say that $M$ is a fractional ideal if there exists $x \in A \bs \{0\}$ such that $xM \subseteq A (M \subseteq Ax^{-1} \subseteq K)$
+\end{definition}
+
+If $M$ is a fractional ideal, we write $$(A:M) = \{y \in K\mid yM \subseteq A\}$$
+We say that $M \subseteq K$ is an invertible ideal if there exists a submodule $N \subseteq K$ such that $MN=NM=A$. We say that $M$ is principal if $M = Ax^{-1}$ for some $x \neq 0 \in K$.
+
+\begin{proposition}
+Suppose $M \subseteq K$ is a f.g. $A$-submodule. Then, $M$ is a fractional ideal.
+\end{proposition}
+
+\begin{proposition}
+Suppose $A$ is Noetherian. Let $M$ be a fractional ideal of $A$. Then, $M$ is a f.g. $A$-module.
+\end{proposition}
+
+
+In conclusion, if $A$ is Noetherian, then 
+\begin{align*}
+\{ \text{Fractional ideals } \} &\leftrightarrow \{\text{ f.g. $A$-submodules of $K$}\}
+\end{align*}
+Suppose $M$ is an invertible ideal, then there exists $N \subseteq K$ submodule such that $MN=A$
+
+\begin{proposition}
+$N=(A:M)$
+\end{proposition}
+
+\begin{proposition}
+An invertible ideal is f.g. and hence fractional.
+\end{proposition}
+
+\begin{remark}
+The set of invertible ideals form an abelian group under multiplication. This is called the Picard group of $A$, denoted by $\mathrm{Pic}(A)$.
+\end{remark}
+
+\begin{proposition}
+Let $M$ be a fractional ideal of $A$. TFAE: 
+\begin{enumerate}
+\item $M$ is invertible
+\item $M$ is f.g. and $M_{\pr}$ is invertible for all prime ideals $\pr$
+\item $M$ is f.g. and $M_{\m}$ is invertible for all maximal ideals $\m$
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Assume that $A$ is a local domain. TFAE: 
+\begin{enumerate}
+\item $A$ is a DVR
+\item Every fractional ideal of $A$ is invertible.
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+Let $A$ be an integral domain. Then, $A$ is a Dedekind domain iff every fractional ideal of $A$ is invertible.
+\end{theorem}
+
+\begin{corollary}
+In a Dedekind domain, the fractional ideals form an abelian group under multiplication whose identity is $A$
+\end{corollary}
+
+\begin{corollary}
+The group  of fractional ideals is a free abelian group
+\end{corollary}
+
+\begin{proposition}
+Let $A$ be a Dedekind domain. Then, $A$ is a PID iff the class group of $A$ (Picard group of $A$) is trivial iff $A$ is a UFD.
+\end{proposition}
+
+\begin{theorem}
+Let $A$ be a number ring. Then, $\mathcal{Cl}(A)$ is finite.
+\end{theorem}
+
+\begin{remark}
+It is known that every finite abelian group is the class group of a Dedekind domain, but whether it is the class group of a number ring is not yet answered.
+\end{remark}
+
+\begin{proposition}
+Let $A$ be a Noetherian integral domain. Let $M$ be a f.g. $A$-module. Then, $M$ is projective of rank $1$ iff $M$ is an invertible ideal.
+\end{proposition}
+
+\begin{theorem}
+Let $A$ be a Dedekind domain and $I \subseteq A$ a non-zero ideal. Then, $I$ is generated by atmost $2$ elements.
+\end{theorem}
+
+\begin{exercise}
+Prove that a semilocal Dedekind domain is a PID (Show that class group is trivial)
+\end{exercise}
+
 
 \chapter{Completions}
 
+\section{Topological groups}
+
+\begin{definition}
+A topological group is a topological space $G$ such that the two maps 
+\begin{align*}
+G \times G &\rightarrow G && G &\rightarrow G \\
+(x,y) &\mapsto xy && x &\mapsto x^{-1}
+\end{align*}
+are continuous.
+\end{definition}
+
+\begin{proposition}
+$G$ is Hausdorff iff $\{1\}$ is closed in $G$
+\end{proposition}
+
+Let $H$ be the intersection of all open neighbourhoods of $1$
+\begin{proposition}
+\begin{enumerate}
+\item $H$ is a subgroup
+\item $H = \overline{\{1\}}$
+\item $G/H$ is Hausdorff
+\item $G$ is Hausdorff iff $H = \{1\}$
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+Let $(a_{n})$ be a sequence in $G$ (written additively). We say that this sequence is Cauchy if for all neighbourhoods $U$ of $0$ there exists $s = s(U) \in \ZZ$ such that $a_{m}-a_{n} \in U \; \forall \; m,n\geq s$. \\
+
+We say that $(a_{n})\sim (b_{n})$ if $a_{n} -b_{n} \rightarrow 0$ as $n \rightarrow \infty$
+\end{definition}
+Let $\hat{G}$ be the set of all equivalence classes of Cauchy sequences in $G$. Then, $\hat{G}$ is an abelian group and there exists a homomorphism $\phi : G \rightarrow \hat{G}$ such that $a \mapsto (a)$. The Kernel of this map is clearly $H$. We say that $G$ is complete if $G\cong \hat{G}$. \\
+
+Next, assume that $G$ has a filtration by subgroups 
+\begin{equation*}
+(*) G = G_{0} \supseteq G_{1} \supseteq \cdots 
+\end{equation*}
+Then $(*)$ defined a unique topology on $G$ such that $(G_{n})$ becomes a system of neighbourhoods of zero (the subspace topology)\\
+
+Next, consider the system $(G/G_{n})$ with $G_{i} \supseteq G_{i+1}$ and a map $$G/G_{n+1} \xlongrightarrow{\gamma_{n+1}} G/G_{n}$$
+
+This clearly gives us an inverse system and thus we have $$\hat{G} = \varprojlim_{n} G/G_{n}$$
+\[\begin{tikzcd}
+	G & {\widehat{G}} & {\displaystyle{\prod_{n} G/G_{n}}} & {G/G_{n}}
+	\arrow["\phi", from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{\lambda_{n}}"', curve={height=24pt}, from=1-2, to=1-4]
+\end{tikzcd}\]
+
+In a topological group, if we quotient by an open subgroup, we get a discrete topology and thus, 
+\[\begin{tikzcd}
+	G & {\widehat{G}} & {\displaystyle{\prod_{n} G/G_{n}}} & {G/G_{n}}
+	\arrow["\phi", from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["\psi"', curve={height=24pt}, from=1-1, to=1-4]
+\end{tikzcd}\]
+with $\psi$ continuous, which implies $\phi$ is continuous and this concept of $\widehat{G}$ is same as the previous one.
+
+In general, if $I \subseteq R$ is an ideal, we can take the filtration $$R = I_{0} \supseteq I \supseteq I^2 \supseteq \cdots $$
+
+\begin{example}
+$R=A[t], I = \langle t \rangle , G_{n} = I^n$ then $\widehat{A[t]} = A[[t]]$
+\end{example}
+
+\begin{lemma}
+Suppose \[\begin{tikzcd}
+	0 & {\{A_{n}\}} & {\{B_{n}\}} & {\{C_{n}\}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\alpha_{n}}"', from=1-2, to=1-3]
+	\arrow["{\beta_{n}}"', from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+ is an exact sequence of inverse systems. Then, 
+ \[\begin{tikzcd}
+	0 & {\ds{\varprojlim_{n}A_{n}}} & {\ds{\varprojlim_{n}B_{n}}} & {\ds{\varprojlim_{n}C_{n}}} & 0
+	\arrow[tail reversed, no head, from=1-1, to=1-2]
+	\arrow["\alpha"', tail reversed, no head, from=1-2, to=1-3]
+	\arrow["\beta"', tail reversed, no head, from=1-3, to=1-4]
+	\arrow[tail reversed, no head, from=1-4, to=1-5]
+\end{tikzcd}\]
+ is exact. Furthermore, $\beta$ is injective if $\{A_{n}\}$ is a surjective inverse system.
+\end{lemma}
+
+\begin{lemma}
+If 
+ \[\begin{tikzcd}
+	0 & {G'} & {G} & {G''} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\alpha}"', from=1-2, to=1-3]
+	\arrow["{\beta}"', from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+is an exact sequence where $G$ is a topological group and $G$' has subspace topology and $G''$ has quotient topology. Then, 
+\[\begin{tikzcd}
+	0 & {\widehat{G'}} & {\widehat{G}} & {\widehat{G''}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["\alpha^*"', from=1-2, to=1-3]
+	\arrow["\beta^*"',  from=1-3, to=1-4]
+	\arrow[ from=1-4, to=1-5]
+\end{tikzcd}\]
+is exact.
+\end{lemma}
+
+\begin{corollary}
+\[\begin{tikzcd}
+	0 & {\{G'/G' \cap G_{n}\}} & {\{G/G_{n}\}} & {\{G/G'\}} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\] is exact.
+\end{corollary}
+
+\begin{corollary}
+For all $n$, $\widehat{G_{n}}\hookrightarrow \widehat{G}$ and $G/G_{n} \xlongrightarrow{\sim} \widehat{G}/\widehat{G_{n}}$
+\end{corollary}
+
+\begin{corollary}
+$\widehat{\widehat{G}} \xlongrightarrow{\sim} G$
+\end{corollary}
+
+\section{I-adic completion}
+
+Let $A$ be a commutative ring, $I \subseteq A$ an ideal. $\{I^n A\}$ defines the $I$-adic topology on $A$. $\phi : A \rightarrow \widehat{A}$ a map. \\
+
+If $M$ is a $A$-module, then $\{I^n M\}$ defines a topology on $M$ called the $I$-adic topology on $M$ and $$M \longrightarrow \widehat{M}$$ is the $I$-adic completion. 
+\begin{itemize}
+\item $\widehat{M}$ is a $\widehat{A}$-module.
+\item $A/I^n$ acts on $M/I^nM$
+\item $\widehat{A} = \ds{\varprojlim_{n} A/I^n}$ acts on $\ds{\varprojlim_{n} M/I^nM}$
+\end{itemize}
+
+\begin{definition}
+\begin{enumerate}
+\item We say that $M$ is a $I$-filtration if $$IM_{n} \subseteq M_{n+1} \; \forall \; n$$
+\item We say that $M$ is $I$-stable if $$IM_{n} = M_{n+1} \; \forall \; n >>0$$
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+$(1) \Rightarrow I^n M \subseteq M_{n} \; \forall \; n \Rightarrow$ $I$-adic topology is finer than the $M$ topology.
+\end{remark}
+
+\section{Graded Rings}
+\begin{definition}
+A graded ring is a commutative ring $A$ with a decomposition of $(A,+)$ $$A = \bigoplus_{m \geq 0}A_{m}$$ such that $A_{m}A_{n} \subseteq A_{m+n}$
+\end{definition}
+This means $A_{0}$ is a subring of $A$ and $A$ is an $A_{0}$-algebra.\\
+
+
+\begin{definition}
+Suppose $A$ is a graded ring. An $A$-module $M$ is called graded if $$M=\bigoplus_{n \geq 0} M_{n}$$ as abelian group such that $A_{n}M_{m} \subseteq M_{n+m} \; \forall \; n,m$ 
+\end{definition}
+
+\begin{definition}
+$\phi : M \rightarrow N$ map of graded $A$-modules is an $A$-linear map such that $\phi(M_{m}) \subseteq N_{m} \ ; \forall \; m$
+\end{definition}
+
+\section{Projective scheme}
+
+\begin{theorem}
+Let $A = \bigoplus_{n} A_{n}$ be a graded ring. TFAE: 
+\begin{enumerate}
+\item $A$ is Noetherian
+\item $A_{0}$ is Noetherian and $A$ is a f.g. $A_{0}$-algebra
+\end{enumerate}
+\end{theorem}
+
+\section{Rees Algebra}
+
+\begin{definition}
+Let $I \subseteq A$ not necessarily graded, then the Rees algebra of I , denoted by $A(I)$ is defined as $$A(I) = \bigoplus_{n \geq 0} I^n$$ such that $I^nI^m \subseteq I^{n+m}$
+\end{definition}
+Suppose $M$ is an $A$-module with a filtration $M$ which is a $I$-filtration. Then, $$M^{*}  =\bigoplus_{n\geq 0} M_{n}$$ implies $M^*$ becomes an $A(I)$-module.
+
+\begin{lemma}
+If $A$ is Noetherian. TFAE:
+\begin{enumerate}
+\item $\{M\}$ is $I$-stable
+\item $M^*$ is a f.g. $A(I)$-stable
+\end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+If $M$ is $I$-stable on $M$, then $\{M \cap M'\}$ is also $I$-stable on $M'$ if $M$ is f.g. $A$-module.
+\end{theorem}
+
+\begin{theorem}
+If \[\begin{tikzcd}
+	0 & {M'} & M & {M''} & 0
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-1, to=1-2]
+\end{tikzcd}\]
+ is an exact sequence of f.g. $A$-modules. Then, 
+ \[\begin{tikzcd}
+	0 & {\widehat{M'}} & {\widehat{M}} & {\widehat{M''}} & 0
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-1, to=1-2]
+\end{tikzcd}\]
+is exact.
+\end{theorem}
+
+\begin{theorem}
+\begin{equation}
+\widehat{A} \otimes_{A} M \xlongrightarrow{\sim} \widehat{M}
+\end{equation}
+\end{theorem}
+
+\begin{corollary}
+$\widehat{A}$ is a flat $A$-algebra.
+\end{corollary}
+
+\begin{theorem}
+\begin{enumerate}
+\item $\widehat{I} \simeq I\widehat{A} \simeq I \otimes_{A} \widehat{A}$
+\item $\widehat{I^n} \simeq (\widehat{I})^n$
+\item $\ds{\frac{I^n}{I^{n+1}} \simeq \frac{\widehat{I}^n}{\widehat{I}^{n+1}}}$
+\item $\widehat{I} \subseteq J(\widehat{A})$
+\end{enumerate}
+\end{theorem}
+
+\begin{proposition}
+Assume that $(A,\m)$ is local. Then, $(\widehat{A}, \widehat{\m})$ is local and $A/\m \simeq \widehat{A} / \widehat{\m}$
+\end{proposition}
+
+\begin{theorem}
+Suppose $A$ is Noetherian and $I \subseteq A$ ideal and $M$ a f.g. $A$-module. Then, 
+\begin{align*}
+\ker(M \rightarrow \widehat{M}) &= \bigcap_{n \geq 1} I^n M \\
+&= \{x\in M \mid x \text{ is annihilated by some element of }1 + I\}
+\end{align*}
+\end{theorem}
+
+\begin{corollary}
+Suppose $A$ is an integral domain. Then, $$\bigcap_{n \geq 0} I^n = \{0\}$$
+\end{corollary}
+
+\begin{theorem}
+If $(A, \m)$ is Noetherian and local. Then, for any f.g. $A$-module $M$, the $\m$-adic topology on $M$ is Hausdorff.
+\end{theorem}
+
+\chapter{Dimension Theory}
 
 
 
@@ -3676,7 +6758,9 @@ There exists a ring homomorphism $\theta : R \rightarrow S^{-1}R$ which has the 
 
 \part{Galois Theory}
 
+\chapter{Fundamental theorem of Galois Theory}
 
+\chapter{Infinite Galois Theory}
 
 \chapter{Finite Fields}
 
@@ -3707,7 +6791,32 @@ There exists a ring homomorphism $\theta : R \rightarrow S^{-1}R$ which has the 
 
 \chapter{Riemann hypothesis for curves over finite fields}
 
+\chapter{N\`{e}ron models}
 
+\chapter{Nagata-Zariski-Lipman}
+
+The objective is to prove the following theorem.
+
+\begin{theorem}[Nagata-Zariski-Lipman]
+Let $(A, \m)$ be a complete Noetherian local ring with $\QQ \subseteq A$. Suppose that $x_{1}, \hdots , x_{r} \in \m$ and $D_{1}, \hdots , D_{r} \in \mathrm{Der}(A)$ are elements satisfying $\det (D_{i}x_{j}) \not \in \m$. Then, 
+\begin{enumerate}
+\item There exists a subring $C \subseteq A$ such that 
+\begin{equation}
+A = C[[x_{1}, \hdots , x_{r}]] \simeq C[[X_{1}, \hdots , X_{r}]]
+\end{equation}
+Therefore $x_{i}$ are analytically independent over $C$ and $A$ is $I$-smooth over $C$ where $I = \sum_{i=1}^{r} Ax_{i}$ and therefore also $\m$-smooth over $C$.
+\item If $\mathfrak{g}= \sum_{i=1}^{r} A D_{i}$ is a Lie algebra ($[D_{i},D_{j}] \in \mathfrak{g} \; \forall \; i,j$), then we can take $C$ to be 
+\begin{equation}
+C=\{a\in A : D_{1}a = D_{2}a  = \cdots = D_{r}a = 0\}
+\end{equation}
+\end{enumerate}
+\end{theorem}
+
+\section{Preliminaries}
+
+
+
+\section{Proof}
 
 
 \end{document}

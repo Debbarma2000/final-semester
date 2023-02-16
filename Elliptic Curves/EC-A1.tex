@@ -1,0 +1,131 @@
+\documentclass[oneside, 12pt, ]{article}
+
+%packages to import
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{minitoc}
+\usepackage[width=15cm, height=24cm]{geometry}
+\usepackage{hyperref}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{thmtools}
+%\usepackage{kpfonts}
+\usepackage[lf]{venturis} %% lf option gives lining figures as default; 
+			  %% remove option to get oldstyle figures as default
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage{fontenc}
+\usepackage{setspace}
+\usepackage{cleveref}
+\usepackage{backref}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+%\usepackage{quiver}
+\usepackage{hyperref}
+\usepackage{extpfeil}
+
+%section symbol
+
+
+%no indentation paragraph
+\setlength{\parindent}{0pt}
+
+
+% color those links
+\hypersetup{
+colorlinks=true,
+urlcolor= BrickRed,
+linkcolor= BrickRed,
+citecolor= Cerulean
+}
+%colour page black and text white
+%\pagecolor{gray}
+%\color{white}
+
+%\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+
+%custom commands
+\newtheorem{statement}{Statement}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Aa}{\mathbb{A}}
+
+
+\title{MA 353: Elliptic Curves \\ Assignment-1}
+\author{Irish Debbarma, 16696}
+\date{due: 19th February, 2023}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item $V/\QQ$ is the variety $V: 5X^2 + 6XY + 2Y^2 = 2YZ + Z^2$ \\
+
+\textbf{Claim}: $V(\QQ) = \emptyset$. 
+\begin{proof}
+
+\end{proof}
+
+\item For each prime $p\geq 3$, let $V_{p} \subseteq \PP^2$ be the variety corresponding to the curve $$V_{p}: X^2 + Y^2 = pZ^2$$
+
+\begin{enumerate}
+\item \textbf{Claim}: $V_{p} \cong \PP^1 $ over $\QQ$ iff $p \equiv 1 \pmod{4}$
+\begin{proof}
+
+\end{proof}
+
+\item \textbf{Claim}: For $p \equiv 3 \pmod{4}$, no two $V_{p}$s are isomorphic.
+\begin{proof}
+
+\end{proof}
+\end{enumerate}
+
+\item Let $F(x,y,x) \in k[x,y,z]$ be a homogeneous polynomial polynomial of degree $d\geq 1$ and the curve corresponding to $F$ is non-singular. \\
+
+\textbf{Claim}: 
+\begin{equation*}
+\mathfrak{g}(C) = \frac{(d-1)(d-2)}{2}
+\end{equation*} 
+
+\begin{proof}
+
+\end{proof}
+
+\item 
+\begin{enumerate}
+\item $L : 2x+5y-1=0$
+
+
+\item $C : x^2 -4xy + 3y^2 -3x + 5y - 10=0$
+\end{enumerate}
+
+\item Given $f(x,y) = y^2 - x^3 - ax^2 - bx$
+
+\item Suppose $E$ is an elliptic curve given by the Weierstrass equation $y^2 = x^3 + ax^2 + bx + c$ and $P = (x,y)$ a point on $E$.
+\begin{enumerate}
+\item
+
+\item 
+\end{enumerate}
+
+\item Given $E: y^2 =x^3 + 17$ is an elliptic curve over $\QQ$
+
+\begin{enumerate}
+\item $P = (-1,4), Q = (2,5)$. We wish to find $P + Q$
+
+\item $P =(-2,3), Q = (2,5)$. We wish to find $-P + 2Q$ 
+\end{enumerate} 
+\end{enumerate}
+
+
+\end{document}
