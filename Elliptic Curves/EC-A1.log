@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.30)  12 FEB 2023 15:35
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.30)  19 FEB 2023 17:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1054,18 +1054,137 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
+LaTeX Font Info:    Trying to load font information for TS1+yv1 on input line 7
+8.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/venturissans/ts1yv1.fd
+File: ts1yv1.fd 2010/07/03 Fontinst v1.933 font definitions for TS1/yv1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+
+LaTeX Info: Font shape TS1/yv1/mc/n has incorrect series value `mc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 42.
+
+
+LaTeX Info: Font shape TS1/yv1/mc/it has incorrect series value `mc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 46.
+
+
+LaTeX Info: Font shape TS1/yv1/mx/n has incorrect series value `mx'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 58.
+
+
+LaTeX Info: Font shape TS1/yv1/mx/it has incorrect series value `mx'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 62.
+
+
+LaTeX Info: Font shape TS1/yv1/muc/n has incorrect series value `muc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 108.
+
+
+LaTeX Info: Font shape TS1/yv1/mc/sc has incorrect series value `mc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 109.
+
+
+LaTeX Info: Font shape TS1/yv1/muc/sc has incorrect series value `muc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 110.
+
+
+LaTeX Info: Font shape TS1/yv1/mc/si has incorrect series value `mc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 111.
+
+
+LaTeX Info: Font shape TS1/yv1/muc/si has incorrect series value `muc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 112.
+
+
+LaTeX Info: Font shape TS1/yv1/muc/it has incorrect series value `muc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 113.
+
+
+LaTeX Info: Font shape TS1/yv1/mc/sl has incorrect series value `mc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 114.
+
+
+LaTeX Info: Font shape TS1/yv1/muc/sl has incorrect series value `muc'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 115.
+
+
+LaTeX Info: Font shape TS1/yv1/mx/sc has incorrect series value `mx'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 119.
+
+
+LaTeX Info: Font shape TS1/yv1/mx/si has incorrect series value `mx'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 120.
+
+
+LaTeX Info: Font shape TS1/yv1/mx/sl has incorrect series value `mx'.
+            It should not contain an `m'! Please correct it.
+            Found on input line 121.
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
-LaTeX Font Info:    Trying to load font information for U+euf on input line 97.
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [1
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
+
+ []
+
+[1
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+
+ []
+
+LaTeX Font Info:    Trying to load font information for U+euf on input line 120
+.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+[2]
+Overfull \hbox (0.96046pt too wide) detected at line 176
+[]
+ []
+
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the EC-A1.maf file.
@@ -1077,22 +1196,21 @@ Package minitoc(hints) Info: I0053
 (minitoc(hints))             facilities can not be used for new types 
 (minitoc(hints))             of floats defined by the float package.
 
-
 Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the EC-A1.log file.
 
-[2] (./EC-A1.aux)
+[3] [4] (./EC-A1.aux)
 Package rerunfilecheck Info: File `EC-A1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27665 strings out of 476179
- 527408 string characters out of 5809543
- 806100 words of memory out of 5000000
- 47728 multiletter control sequences out of 15000+600000
- 504745 words of font info for 80 fonts, out of 8000000 for 9000
+ 27748 strings out of 476179
+ 528499 string characters out of 5809543
+ 808100 words of memory out of 5000000
+ 47807 multiletter control sequences out of 15000+600000
+ 505094 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,8n,94p,479b,520s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,12n,94p,608b,592s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on EC-A1.pdf (2 pages).
+Output written on EC-A1.pdf (4 pages).
